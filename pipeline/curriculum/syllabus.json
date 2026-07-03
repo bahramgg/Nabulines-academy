@@ -102,7 +102,9 @@
             "outro"
           ],
           "exercise": "Set a simple schedule: which days and how long you'll spend learning each week.",
-          "status": "pending"
+          "status": "published",
+          "video": "https://ipfs.filebase.io/ipfs/QmY5ynH44y4hqkgZVgbgzbnmYg86BSy9YeGnn4TtCL4jGG",
+          "vtt": "https://ipfs.filebase.io/ipfs/QmYeUn5Vc7x5qqmi9CHuJGxnTJNDJMGzwuK87XLwLcGmeE"
         }
       ]
     },
