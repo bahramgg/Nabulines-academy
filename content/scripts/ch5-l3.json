@@ -1,0 +1,213 @@
+{
+  "lessonId": "ch5-l3",
+  "title": "Saving Data: Why Refresh Wipes Everything and How to Fix It",
+  "totalWords": 1240,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. You've built interactive apps that respond to clicks and inputs. But there's a frustrating problem: hit refresh and everything vanishes. Your counter resets. Your saved text disappears. Why does this happen, and how do you fix it? That's what we're solving today.",
+      "visual": {
+        "title": "Saving Data",
+        "subtitle": "Why Refresh Wipes Everything and How to Fix It"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "Here's what's happening. When you click a button and update a variable in your JavaScript, that data lives in your browser's memory — RAM. It's temporary. The moment you refresh the page, the browser throws away all that memory and starts fresh. Your code runs again from the top, and all your variables reset to their starting values. This is by design — the web was built to be stateless, meaning each page load is independent. But for apps, you need state to persist.",
+      "visual": {
+        "title": "Why Refresh Wipes Data",
+        "bullets": [
+          "Variables live in RAM (temporary memory)",
+          "Refresh = browser clears memory and restarts",
+          "All variables reset to their initial values",
+          "The web is stateless by default"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "slide",
+      "narration": "So how do you save data? The browser gives you three main options. First, localStorage — a simple key-value store that persists forever until you clear it. Second, sessionStorage — same idea, but it clears when you close the tab. Third, cookies — older, smaller, sent with every server request. For most apps you're building now, localStorage is the answer. It's easy, it holds plenty of data, and it survives refreshes and even closing the browser.",
+      "visual": {
+        "title": "Three Ways to Persist Data",
+        "bullets": [
+          "localStorage — persists forever (5–10 MB)",
+          "sessionStorage — clears when tab closes",
+          "cookies — older, smaller, sent to server",
+          "For apps: use localStorage"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "code",
+      "narration": "Let's see localStorage in action. Open your browser console and type localStorage dot setItem, then in quotes 'username', comma, in quotes 'Alex'. Hit enter. You just saved a piece of data. Now type localStorage dot getItem in quotes 'username'. It returns 'Alex'. Refresh the page. Type the same getItem command. Still 'Alex'. That data survived the refresh. To delete it, type localStorage dot removeItem 'username'. To clear everything, localStorage dot clear. That's the entire API — four methods.",
+      "visual": {
+        "code": "// Save data\nlocalStorage.setItem('username', 'Alex');\n\n// Retrieve data\nlocalStorage.getItem('username'); // returns 'Alex'\n\n// Delete one item\nlocalStorage.removeItem('username');\n\n// Clear everything\nlocalStorage.clear();",
+        "language": "javascript",
+        "highlights": [
+          1,
+          4,
+          7,
+          10
+        ],
+        "caption": "The four localStorage methods — set, get, remove, clear"
+      }
+    },
+    {
+      "id": 5,
+      "type": "slide",
+      "narration": "Important: localStorage only stores strings. If you try to save a number or an object, it converts it to a string automatically. That means if you save the number 42, you get back the string '42'. For objects, you get something useless like 'bracket object Object bracket'. The fix: use JSON. JSON dot stringify turns any JavaScript value into a string you can save. JSON dot parse turns that string back into the original value. Always use these two when saving anything that isn't already a string.",
+      "visual": {
+        "title": "localStorage Only Stores Strings",
+        "bullets": [
+          "Numbers become strings: 42 → '42'",
+          "Objects become useless: {name: 'Alex'} → '[object Object]'",
+          "Fix: JSON.stringify() before saving",
+          "JSON.parse() when retrieving"
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "type": "code",
+      "narration": "Here's how you save an object. Let's say you have a user object with a name and score. To save it, call localStorage dot setItem, give it a key like 'user', then JSON dot stringify the object. Now it's stored as a string. To get it back, call localStorage dot getItem 'user', and wrap that in JSON dot parse. Now you have your original object back, with all its properties. This pattern works for arrays, nested objects, anything JSON can represent.",
+      "visual": {
+        "code": "// Saving an object\nconst user = { name: 'Alex', score: 100 };\nlocalStorage.setItem('user', JSON.stringify(user));\n\n// Retrieving the object\nconst saved = localStorage.getItem('user');\nconst user = JSON.parse(saved);\nconsole.log(user.name); // 'Alex'\nconsole.log(user.score); // 100",
+        "language": "javascript",
+        "highlights": [
+          2,
+          3,
+          6,
+          7
+        ],
+        "caption": "Saving and retrieving objects with JSON"
+      }
+    },
+    {
+      "id": 7,
+      "type": "browser",
+      "narration": "Let's build a real example. We'll make a counter that remembers its value across refreshes. I'm in Claude Code. I'll say: build an HTML page with a counter button. When clicked, increment a count and display it. Save the count to localStorage so it persists on refresh. Load the saved count when the page loads. Claude generates the page. Let me walk through the key parts. At the top, we load the saved count with localStorage dot getItem 'count'. If it exists, we parse it as a number. If not, we default to zero. When the button is clicked, we increment the count, update the display, and save the new value with localStorage dot setItem. Let's test it. I'll click the button a few times — the count goes up. Now I'll refresh the page. The count stayed. That's localStorage working.",
+      "visual": {
+        "captureScript": "capture/ch5-l3-counter-demo.ts",
+        "caption": "Building and testing a persistent counter with localStorage"
+      }
+    },
+    {
+      "id": 8,
+      "type": "slide",
+      "narration": "When should you save? You have two main patterns. First, save on every change — every button click, every input keystroke. This is simple and safe, but can be slow if you're saving large data constantly. Second, save on specific events — when the user clicks 'Save', or when they leave the page using the beforeunload event. This is more efficient but riskier — if they close the tab suddenly, unsaved changes are lost. For most small apps, save on every change. For bigger apps with lots of data, save on explicit actions or use a debounce — wait a second after the last change before saving.",
+      "visual": {
+        "title": "When to Save Data",
+        "bullets": [
+          "On every change — simple, safe, can be slow",
+          "On specific events — 'Save' button, page unload",
+          "Small apps: save on every change",
+          "Large apps: debounce or explicit save"
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "type": "code",
+      "narration": "Here's a pattern for loading saved data when the page starts. Wrap your retrieval in a function called loadData. Inside, get the item from localStorage. If it's null — meaning nothing was saved — return a default value. Otherwise, parse and return the saved data. Call this function once when the page loads to initialize your app state. This keeps your code clean and handles the case where there's no saved data yet.",
+      "visual": {
+        "code": "function loadData(key, defaultValue) {\n  const saved = localStorage.getItem(key);\n  if (saved === null) {\n    return defaultValue;\n  }\n  return JSON.parse(saved);\n}\n\n// Use it\nlet count = loadData('count', 0);\nlet todos = loadData('todos', []);",
+        "language": "javascript",
+        "highlights": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          10,
+          11
+        ],
+        "caption": "A reusable function to load saved data with defaults"
+      }
+    },
+    {
+      "id": 10,
+      "type": "slide",
+      "narration": "Three gotchas. First, localStorage is per origin — same domain and protocol. Your app on localhost can't see data from your deployed site. Second, users can clear localStorage manually in their browser settings, or in private mode it's wiped when they close the window. Don't rely on it for critical data — it's convenience storage, not a database. Third, there's a size limit, usually five to ten megabytes. That's plenty for most app state, but if you're storing huge datasets, you'll hit the limit and get an error. For big data, you need a real backend database.",
+      "visual": {
+        "title": "localStorage Gotchas",
+        "bullets": [
+          "Per origin — localhost ≠ deployed site",
+          "Users can clear it (settings, private mode)",
+          "5–10 MB limit — not for huge datasets",
+          "Not a database — convenience storage only"
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "type": "slide",
+      "narration": "So here's the mental model. Your JavaScript variables are temporary — they live in RAM and vanish on refresh. localStorage is permanent — it's a small key-value store on the user's hard drive that survives refreshes, browser restarts, even computer restarts. To use it, save strings with setItem, retrieve with getItem. For anything that isn't a string, wrap it in JSON dot stringify and JSON dot parse. Save on every change for small apps, or on explicit events for bigger ones. And remember: localStorage is local — it's on that user's device, not synced across devices. For that, you need a server, which we'll cover in Chapter 7.",
+      "visual": {
+        "title": "The Mental Model",
+        "bullets": [
+          "Variables = temporary (RAM, wiped on refresh)",
+          "localStorage = permanent (disk, survives restarts)",
+          "Always use JSON for non-strings",
+          "Local to one device — not synced"
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "type": "outro",
+      "narration": "You now understand why refresh wipes data and how to fix it with localStorage. Your exercise: take one of your existing apps — a counter, a to-do list, anything with state — and make it remember its data across refreshes. Save on every change, load on page start. When you can refresh and see your data still there, you've got it. Next lesson, we're building a real to-do app that saves every task you add. See you there.",
+      "visual": {
+        "title": "Exercise",
+        "subtitle": "Make your app remember its state after refresh",
+        "caption": "Next: Building a Persistent To-Do App"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Why does refreshing the page erase your app's data?",
+      "options": [
+        "The browser clears RAM and restarts, resetting all variables",
+        "JavaScript is designed to delete data on refresh",
+        "The server resets your session",
+        "localStorage is disabled by default"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "What must you do before saving an object to localStorage?",
+      "options": [
+        "Nothing, it saves objects directly",
+        "Convert it to a string with JSON.stringify()",
+        "Convert it to an array",
+        "Save each property separately"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "What happens to localStorage data when you close the browser?",
+      "options": [
+        "It's deleted automatically",
+        "It persists until you manually clear it",
+        "It's uploaded to the cloud",
+        "It's converted to cookies"
+      ],
+      "answer": 1,
+      "points": 10
+    }
+  ],
+  "exercise": "Take an existing app (counter, form, etc.) and add localStorage persistence. Save the state on every change. Load the saved state when the page starts. Refresh the page and verify your data is still there.",
+  "verifyCommands": [
+    "localStorage.setItem('test', 'value')",
+    "localStorage.getItem('test')",
+    "localStorage.removeItem('test')",
+    "const obj = { name: 'test' }; localStorage.setItem('obj', JSON.stringify(obj))",
+    "const saved = JSON.parse(localStorage.getItem('obj'))"
+  ]
+}

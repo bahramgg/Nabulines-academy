@@ -1,0 +1,283 @@
+{
+  "lessonId": "ch5-l6",
+  "title": "Project: A Creator Tool (Engagement Calculator / Link-in-Bio)",
+  "totalWords": 2640,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. This is the capstone project for Chapter Five — you're going to build and ship a real creator tool. Not a toy demo. Something actual creators would use and share. You've learned interactive apps, data visualization, and state management. Now you put it all together into one polished product that solves a real problem. By the end of this lesson, you'll have a live tool on the internet with your name on it. Let's build something people actually want.",
+      "visual": {
+        "title": "Chapter 5 Project",
+        "subtitle": "Ship a Real Creator Tool"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "You have two project options — pick the one that excites you more. Option one: an engagement rate calculator. Creators constantly need to calculate their engagement rate to pitch to brands. They take total likes plus comments, divide by followers, multiply by one hundred. Sounds simple, but they do this across multiple posts and platforms. Your tool makes it instant — paste your stats, get your rate, see if you're in the good range. Option two: a link-in-bio page. Most creators pay five to fifteen dollars a month for Linktree or similar tools. You're building a free alternative they can customize and host themselves. Clean design, click tracking, easy to update. Both projects are real tools that solve real problems. Choose the one you'd actually use or share.",
+      "visual": {
+        "title": "Two Project Options",
+        "bullets": [
+          "Option 1: Engagement Rate Calculator — instant stats for creator pitches",
+          "Option 2: Link-in-Bio Page — free Linktree alternative with tracking",
+          "Both solve real problems creators face daily",
+          "Pick the one you'd actually use or share"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "slide",
+      "narration": "Let's talk about what makes this a real project, not just another tutorial exercise. First, it has to be useful immediately — a creator should be able to use it the moment they land on the page. Second, it needs to look professional — no half-finished UI, no placeholder text. Third, it should be shareable — good enough that you'd send the link to someone. And fourth, it needs to handle edge cases — what happens if someone types a negative number? What if they paste text instead of a number? Real tools handle real user behavior. This project tests whether you can think like a builder, not just follow instructions.",
+      "visual": {
+        "title": "What Makes This Real",
+        "bullets": [
+          "Useful immediately — no setup, no login, just works",
+          "Professional UI — looks like a real product",
+          "Shareable — you'd send this link to someone",
+          "Handles edge cases — real users do unexpected things"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "browser",
+      "narration": "Let me show you what the engagement calculator looks like in action. You open the page and see three input fields — followers, total likes, and total comments. Clean, clear labels. A creator pastes their stats from Instagram or TikTok. Let's say fifty thousand followers, three thousand likes, two hundred comments across their last ten posts. They click calculate. Instantly, you show the engagement rate — six point four percent. But you don't stop there. You show context — is that good? For most platforms, anything above three percent is solid. Above five percent is excellent. You display that visually with a colored indicator and a short explanation. The creator now has a number they can use in their media kit. That's the whole tool — simple, fast, useful. No account needed, no paywall, just instant value.",
+      "visual": {
+        "captureScript": "capture/ch5-l6-engagement-demo.ts",
+        "caption": "Live engagement calculator — instant results with context"
+      }
+    },
+    {
+      "id": 5,
+      "type": "browser",
+      "narration": "Now the link-in-bio version. The creator sees their name at the top, a short bio line, and a clean vertical stack of buttons — each one a link. YouTube, Instagram, their website, their latest product. Click any button and it opens that link in a new tab. At the bottom, a simple click counter shows total clicks across all links. The creator can edit the links by updating a JSON file or even a simple form you build. The design is clean, mobile-first, and loads instantly. No ads, no branding from a third-party service. This is their page. They can customize colors, fonts, and layout. It's Linktree, but they own it and it costs zero dollars a month. That's powerful.",
+      "visual": {
+        "captureScript": "capture/ch5-l6-linkbio-demo.ts",
+        "caption": "Link-in-bio page — clean, fast, fully customizable"
+      }
+    },
+    {
+      "id": 6,
+      "type": "slide",
+      "narration": "Here's how to build the engagement calculator. Start with a simple HTML structure — three labeled input fields for followers, likes, and comments. Add a calculate button. Use JavaScript to grab the values, convert them to numbers, and calculate the rate. That's likes plus comments, divided by followers, times one hundred. Round to one decimal place. Display the result in a large, readable font. Then add the context layer — if the rate is below two percent, show a yellow indicator and say there's room to grow. Two to five percent, green and solid. Above five percent, bright green and excellent. Use CSS to make those indicators pop. Add input validation — if someone types a negative number or leaves a field empty, show a friendly error message. Test it with real numbers from actual creator accounts. Make sure the math is right and the feedback makes sense.",
+      "visual": {
+        "title": "Building the Engagement Calculator",
+        "bullets": [
+          "Three inputs: followers, likes, comments",
+          "Calculate: (likes + comments) / followers × 100",
+          "Show result with color-coded context (good/excellent)",
+          "Validate inputs — handle negatives, empty fields",
+          "Test with real creator stats"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "type": "slide",
+      "narration": "For the link-in-bio page, start with a centered card layout. At the top, display the creator's name and a one-line bio. Below that, a vertical stack of link buttons. Each button is a div or an anchor tag styled as a block element with padding, rounded corners, and a subtle hover effect. Store the links in a JavaScript array — each item has a label and a URL. Loop through the array and generate the buttons dynamically. When someone clicks a button, increment a click counter stored in localStorage. Display the total clicks at the bottom of the page. Add a simple admin mode — maybe a query parameter like question mark edit equals true — that shows a form to add or edit links. Save the changes back to localStorage or a JSON file. Style it mobile-first — most people will view this on their phone. Use a clean sans-serif font, plenty of white space, and a color scheme that's easy to customize. Test it on your phone. Make sure every link opens correctly and the click counter works.",
+      "visual": {
+        "title": "Building the Link-in-Bio Page",
+        "bullets": [
+          "Centered card: name, bio, stacked link buttons",
+          "Store links in a JS array or JSON file",
+          "Click counter in localStorage, displayed at bottom",
+          "Optional admin mode (?edit=true) to add/edit links",
+          "Mobile-first design — test on your phone"
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "type": "code",
+      "narration": "Here's the core logic for the engagement calculator. You grab the input values, parse them as floats, and check if they're valid numbers. If any field is empty or not a number, you show an error and return early. Otherwise, you calculate the rate, round it to one decimal, and determine the quality level. Below two percent is okay, two to five is good, above five is excellent. You update the result display and apply the appropriate CSS class for the color indicator. This is clean, readable code that handles the happy path and the error cases. You can build this in thirty minutes if you focus.",
+      "visual": {
+        "code": "function calculateEngagement() {\n  const followers = parseFloat(document.getElementById('followers').value);\n  const likes = parseFloat(document.getElementById('likes').value);\n  const comments = parseFloat(document.getElementById('comments').value);\n\n  if (isNaN(followers) || isNaN(likes) || isNaN(comments) || followers <= 0) {\n    showError('Please enter valid positive numbers');\n    return;\n  }\n\n  const rate = ((likes + comments) / followers) * 100;\n  const rounded = rate.toFixed(1);\n\n  let quality = 'okay';\n  if (rate >= 5) quality = 'excellent';\n  else if (rate >= 2) quality = 'good';\n\n  displayResult(rounded, quality);\n}",
+        "language": "javascript",
+        "highlights": [
+          2,
+          3,
+          4,
+          6,
+          7,
+          8,
+          11,
+          14,
+          15,
+          16,
+          18
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "type": "code",
+      "narration": "And here's the link-in-bio button generator. You have an array of link objects — each one has a title and a URL. You loop through the array, create a button element for each link, set the text and the click handler. When someone clicks, you open the URL in a new tab and increment the click count in localStorage. You append each button to the container. At the end, you display the total clicks. This pattern — data-driven UI generation — is how real apps work. You separate the data from the presentation, and the code stays clean and scalable.",
+      "visual": {
+        "code": "const links = [\n  { title: 'YouTube', url: 'https://youtube.com/@creator' },\n  { title: 'Instagram', url: 'https://instagram.com/creator' },\n  { title: 'Website', url: 'https://creator.com' }\n];\n\nfunction renderLinks() {\n  const container = document.getElementById('links');\n  let totalClicks = parseInt(localStorage.getItem('totalClicks') || '0');\n\n  links.forEach(link => {\n    const button = document.createElement('a');\n    button.className = 'link-button';\n    button.textContent = link.title;\n    button.href = link.url;\n    button.target = '_blank';\n    button.onclick = () => {\n      totalClicks++;\n      localStorage.setItem('totalClicks', totalClicks);\n    };\n    container.appendChild(button);\n  });\n\n  document.getElementById('clicks').textContent = `Total clicks: ${totalClicks}`;\n}",
+        "language": "javascript",
+        "highlights": [
+          1,
+          2,
+          3,
+          4,
+          9,
+          11,
+          17,
+          18,
+          19,
+          24
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "type": "slide",
+      "narration": "Now let's talk about polish — the difference between a working prototype and a real product. First, error handling. What if someone types the word 'thousand' instead of the number one thousand? Show a clear error message. Second, mobile responsiveness. Open your browser's device toolbar and test your tool on an iPhone and an Android screen. Does everything fit? Are the buttons big enough to tap? Third, loading speed. Your tool should load in under a second. No heavy images, no unnecessary libraries. Fourth, accessibility. Can someone navigate your tool with a keyboard? Does it work with a screen reader? These details separate a student project from a professional tool. Do the polish pass before you deploy.",
+      "visual": {
+        "title": "The Polish Pass",
+        "bullets": [
+          "Error handling — clear messages for bad input",
+          "Mobile responsive — test on iPhone and Android sizes",
+          "Fast loading — under 1 second, no bloat",
+          "Keyboard accessible — tab navigation works",
+          "These details make it feel professional"
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "type": "slide",
+      "narration": "Here's the deployment checklist. One, test your tool locally — click every button, try every edge case. Two, create a new GitHub repo and push your code. Three, connect the repo to Cloudflare Pages and deploy. Four, test the live site on your phone and share the link with a friend. Five, if you're feeling bold, post it on Twitter or Reddit and ask for feedback. Real feedback from real users is how you learn what works and what doesn't. Six, iterate. If someone finds a bug or suggests a feature, fix it and redeploy. This is how you build a portfolio — one useful tool at a time. Each project makes you better and gives you something to show.",
+      "visual": {
+        "title": "Deployment Checklist",
+        "bullets": [
+          "Test locally — every button, every edge case",
+          "Push to GitHub, deploy to Cloudflare Pages",
+          "Test the live site on mobile",
+          "Share the link — get real feedback",
+          "Iterate — fix bugs, add features, redeploy",
+          "Each project builds your portfolio"
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "type": "slide",
+      "narration": "Here are some extension ideas if you finish early or want to level up your project. For the engagement calculator, add support for multiple posts — let the user input stats for five or ten posts and calculate the average engagement rate. Add a chart that shows engagement over time. For the link-in-bio page, add custom themes — let the user pick from three or four color schemes. Add link icons — a little YouTube logo next to the YouTube link. Add a QR code generator so the creator can print their link-in-bio URL on a flyer. These extensions show you can think beyond the minimum requirements and add real value. But finish the core project first — extensions come after the main tool works perfectly.",
+      "visual": {
+        "title": "Extension Ideas (Optional)",
+        "bullets": [
+          "Engagement calc: multi-post average, trend chart",
+          "Link-in-bio: custom themes, link icons, QR code",
+          "Extensions show you can think beyond requirements",
+          "But finish the core project first — polish beats features"
+        ]
+      }
+    },
+    {
+      "id": 13,
+      "type": "slide",
+      "narration": "Let's talk about what you've actually learned by building this project. You've learned to identify a real problem and build a solution that people would pay for. You've learned to design a user interface that's intuitive and professional. You've learned to handle user input, validate data, and provide helpful feedback. You've learned to deploy a live tool and iterate based on feedback. These are the skills that separate a hobbyist from a builder. You're not just following tutorials anymore — you're creating tools that solve real problems. That's the mindset shift that matters. You're a builder now.",
+      "visual": {
+        "title": "What You've Actually Learned",
+        "bullets": [
+          "Identify real problems and build solutions",
+          "Design intuitive, professional interfaces",
+          "Handle input, validate data, give feedback",
+          "Deploy and iterate based on real feedback",
+          "You're not following tutorials — you're building tools"
+        ]
+      }
+    },
+    {
+      "id": 14,
+      "type": "slide",
+      "narration": "Here's your exercise. Build and deploy your creator tool — either the engagement calculator or the link-in-bio page. Push the code to GitHub, deploy to Cloudflare Pages, and test the live site on your phone. Then share the link. Post it in the course Discord, send it to a creator friend, or share it on social media. The goal is to get at least one person who isn't you to use the tool and give you feedback. Real feedback from a real user. That's the milestone. When you've done that, you've completed the project. You've shipped something real. That's what builders do.",
+      "visual": {
+        "title": "Your Exercise",
+        "bullets": [
+          "Build your creator tool (engagement calc or link-in-bio)",
+          "Push to GitHub, deploy to Cloudflare Pages",
+          "Test on mobile, make sure it works perfectly",
+          "Share the link — get one real person to use it",
+          "Submit the live link when you're done"
+        ]
+      }
+    },
+    {
+      "id": 15,
+      "type": "outro",
+      "narration": "That's the Chapter Five capstone project. You're building a real tool that solves a real problem — something creators would actually use and share. This is the moment where everything you've learned comes together. You're not a student following lessons anymore. You're a builder shipping products. When you finish this project, you'll have something you can point to and say, I built that. And it works. And people use it. That's the feeling that keeps you building. Next up, Chapter Six — we're going full-stack. You're going to add a backend, store data, and build tools that remember state across sessions. But first, ship this project. Get it live. Get feedback. Iterate. That's how you grow. I'll see you in the next lesson.",
+      "visual": {
+        "title": "You're Shipping Real Tools Now",
+        "subtitle": "Next: Chapter 6 — Full-Stack Apps"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What makes a project 'real' vs. just a tutorial exercise?",
+      "options": [
+        "It uses the latest framework",
+        "It's useful immediately, looks professional, and handles edge cases",
+        "It has the most lines of code",
+        "It's deployed to a custom domain"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "For the engagement calculator, what's the formula for engagement rate?",
+      "options": [
+        "Followers divided by likes",
+        "Likes divided by followers times 100",
+        "(Likes + comments) divided by followers times 100",
+        "Comments divided by likes"
+      ],
+      "answer": 2,
+      "points": 10
+    },
+    {
+      "q": "What's the main advantage of building your own link-in-bio page vs. using Linktree?",
+      "options": [
+        "It's harder to set up",
+        "You own it, customize it fully, and it costs $0/month",
+        "It has more features",
+        "It's more popular"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "What should you do BEFORE adding extension features to your project?",
+      "options": [
+        "Deploy immediately",
+        "Add all the features first",
+        "Finish and polish the core project perfectly",
+        "Ask for feedback"
+      ],
+      "answer": 2,
+      "points": 10
+    },
+    {
+      "q": "What's the most important milestone for this project?",
+      "options": [
+        "Writing 1000 lines of code",
+        "Getting one real person to use your tool and give feedback",
+        "Using the most advanced JavaScript features",
+        "Making it look exactly like a professional app"
+      ],
+      "answer": 1,
+      "points": 10
+    }
+  ],
+  "exercise": "Build and deploy your creator tool (engagement calculator or link-in-bio page). Push to GitHub, deploy to Cloudflare Pages, test on mobile, and get at least one real person to use it. Submit the live link and a screenshot of the feedback you received.",
+  "verifyCommands": [
+    "git init",
+    "git add .",
+    "git commit -m 'Initial creator tool'",
+    "git push origin main"
+  ]
+}

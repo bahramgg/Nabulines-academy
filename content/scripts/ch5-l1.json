@@ -1,0 +1,129 @@
+{
+  "lessonId": "ch5-l1",
+  "title": "App vs. Site — \"State\" in Plain Language",
+  "totalWords": 720,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. Today we start Chapter Five — building real apps. Up until now, you've built sites that show information. Beautiful, fast, deployed sites. But they don't remember anything. They don't react when you click a button. Today you learn the one idea that separates a site from an app: state. By the end of this lesson, you'll see apps everywhere — and you'll know exactly what makes them work.",
+      "visual": {
+        "title": "App vs. Site",
+        "subtitle": "Chapter 5 · Lesson 1"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "Let's start with a question. What's the difference between a site and an app? A site shows you information. You read it. Maybe you click a link and read another page. Think of a blog, a restaurant menu, a portfolio. Nothing changes based on what you do. An app, on the other hand, remembers things and reacts. You click a button and something happens. You type in a box and it updates instantly. You add an item to a cart and it stays there. The app is tracking what you're doing. That tracking — that memory — is called state.",
+      "visual": {
+        "title": "Site vs. App",
+        "bullets": [
+          "Site: shows information, doesn't change",
+          "App: remembers and reacts to what you do",
+          "The memory an app keeps is called state"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "slide",
+      "narration": "State is just a fancy word for the current situation. Think of a light switch. Is the light on or off? That's state. One piece of information the switch remembers. A to-do app: what tasks are on your list? That's state. A shopping cart: what items are in it? State. A game: your score, your health, your position. All state. State is anything the app needs to remember right now so it can show you the right thing and respond correctly.",
+      "visual": {
+        "title": "What is State?",
+        "bullets": [
+          "State = the current situation the app remembers",
+          "Light switch: on or off",
+          "To-do app: your list of tasks",
+          "Cart: items you added",
+          "Game: score, health, position"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "browser",
+      "narration": "Let me show you a real example. I'm opening a simple counter app in the browser. You see a number — zero — and a button that says increment. Watch what happens when I click it. The number changes to one. Click again, it's two. The app is remembering the count. That count is state. Every time I click, the app updates the state and re-draws the screen to show the new number. Now I'll refresh the page. The count resets to zero. Why? Because this app keeps state only in memory — in the browser's RAM. When you refresh, that memory is wiped. Later, you'll learn how to save state so it survives a refresh — using databases or browser storage. But for now, the key idea: the app is tracking a number, and that number changes based on what you do. That's state in action.",
+      "visual": {
+        "captureScript": "capture/ch5-l1-counter-demo.ts",
+        "caption": "A simple counter app — click increments the number (state)"
+      }
+    },
+    {
+      "id": 5,
+      "type": "slide",
+      "narration": "So why does state matter? Because every app you've ever used is built on state. Instagram: your feed, your likes, your unread messages. State. Gmail: which emails are unread, which folder you're in. State. A video game: your inventory, your quest progress. State. Even a simple form: what you've typed into each field before you hit submit. State. Without state, an app can't remember anything. It's just a static page. State is what makes software interactive and alive.",
+      "visual": {
+        "title": "Why State Matters",
+        "bullets": [
+          "Every app you use is built on state",
+          "Instagram: feed, likes, messages",
+          "Gmail: unread emails, current folder",
+          "Games: inventory, progress",
+          "Without state, nothing is interactive"
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "type": "slide",
+      "narration": "Here's the pattern you'll see in every app. The app starts with some initial state. The user does something — clicks, types, scrolls. The app updates the state based on that action. Then the app re-renders — it redraws the screen to match the new state. That's the loop. Action, update state, re-render. Over and over. You'll build this loop in the next lesson using React, the most popular tool for managing state in web apps. But for now, just lock in the concept: state is the memory, and the loop is action, update, render.",
+      "visual": {
+        "title": "The State Loop",
+        "bullets": [
+          "1. App starts with initial state",
+          "2. User does something (click, type)",
+          "3. App updates the state",
+          "4. App re-renders to show new state",
+          "Repeat: action → update → render"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "type": "outro",
+      "narration": "That's it. State is the memory an app keeps so it can remember and react. A site shows information. An app tracks state and responds. Now go do the exercise: name one everyday app you use and describe what state it keeps. Your shopping cart? Your game save? Your unread count? Write it down. Next lesson, you'll build your first real app with React — a to-do list that tracks tasks in state. You're about to cross the line from builder to app builder. See you there.",
+      "visual": {
+        "title": "Next: Build Your First React App",
+        "subtitle": "Exercise: Name an app and its state"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What is state in an app?",
+      "options": [
+        "The memory the app keeps to track the current situation",
+        "The speed at which the app loads",
+        "The design of the app's interface",
+        "The code language the app is written in"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "What happens in the state loop after the user clicks a button?",
+      "options": [
+        "The app closes",
+        "The app updates the state and re-renders",
+        "The app sends an email",
+        "The app deletes all data"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "Which of these is an example of state?",
+      "options": [
+        "The color of a website's logo",
+        "The number of items in a shopping cart",
+        "The font used on a page",
+        "The URL of the website"
+      ],
+      "answer": 1,
+      "points": 10
+    }
+  ],
+  "exercise": "Name one everyday app you use (Instagram, Gmail, a game, etc.) and describe what state it keeps. For example: Instagram keeps state of which posts you've liked, your unread messages, and your current position in the feed. Write 2-3 sentences.",
+  "verifyCommands": []
+}

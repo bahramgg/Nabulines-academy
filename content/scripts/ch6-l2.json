@@ -1,0 +1,269 @@
+{
+  "lessonId": "ch6-l2",
+  "title": "Automation: Work That Runs Itself Every Day (cron)",
+  "totalWords": 1847,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. In the last lesson you put a server online that runs all the time. Now we're going to make it do work on a schedule — automatically, every day, without you lifting a finger. This is how you turn code into a real automated system.",
+      "visual": {
+        "title": "Automation: Work That Runs Itself Every Day",
+        "subtitle": "Chapter 6 · Lesson 2"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "Imagine you want to check something every morning at 8 AM — maybe scrape a website, send a report, or clean up old files. You could wake up and run the script manually every single day. Or you could tell the computer: run this script at 8 AM, every day, forever. That's automation. The tool that does this on Linux is called cron. Cron is a scheduler — a program that runs other programs on a timer. Every minute, cron wakes up and checks: is it time to run anything? If yes, it runs it. If no, it goes back to sleep. You give cron a list of jobs and when to run them. That list is called a crontab — short for cron table. Once you set it up, the work happens on its own. No human needed.",
+      "visual": {
+        "title": "What is cron?",
+        "bullets": [
+          "A scheduler built into Linux",
+          "Runs scripts/commands on a timer",
+          "You define: what to run, when to run it",
+          "The list of jobs = your crontab",
+          "Once set, it runs forever (until you stop it)"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "slide",
+      "narration": "A cron schedule is written in five fields, followed by the command to run. The five fields are: minute, hour, day of month, month, and day of week. Each field can be a number, a star meaning every, or a range. For example: zero eight star star star means minute zero of hour eight, every day, every month, every day of week — so 8 AM every day. Star star star star star means every minute of every hour of every day — run constantly. Thirty twelve star star one means 12:30 PM every Monday. You don't need to memorize this — there are websites that translate plain English into cron syntax. But understanding the pattern helps you read and tweak schedules.",
+      "visual": {
+        "title": "Cron schedule syntax",
+        "bullets": [
+          "5 fields: minute hour day month weekday",
+          "* = every (any value)",
+          "0 8 * * * → 8:00 AM daily",
+          "*/15 * * * * → every 15 minutes",
+          "30 12 * * 1 → 12:30 PM Mondays",
+          "Use crontab.guru to translate English ↔ cron"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "terminal",
+      "narration": "Let's write a simple script that logs the current time, then schedule it to run every day. SSH into your VPS. Create a new directory called jobs. Inside it, create a file called daily-log dot sh. Open it in nano. Type the following: hash exclamation slash bin slash bash — that's the shebang line telling Linux this is a bash script. Then echo quote Running daily job at dollar open-paren date close-paren quote, pipe that to tee dash a, and the path to a log file in your home directory — let's call it daily dash log dot txt. What this does: date prints the current date and time. Echo prints a message with that timestamp. Tee dash a appends it to the log file and also shows it on screen. Save and exit nano — control X, Y, enter.",
+      "visual": {
+        "commands": [
+          "ssh root@your-vps-ip",
+          "mkdir -p ~/jobs",
+          "cd ~/jobs",
+          "nano daily-log.sh"
+        ],
+        "output": "# Inside nano:\n#!/bin/bash\necho \"Running daily job at $(date)\" | tee -a ~/daily-log.txt",
+        "caption": "Create a script that logs the time"
+      }
+    },
+    {
+      "id": 5,
+      "type": "terminal",
+      "narration": "Now make the script executable. Run chmod plus x daily dash log dot sh. Chmod changes permissions — plus x means make it executable, so you can run it like a program. Test it manually: dot slash daily dash log dot sh. You should see output like Running daily job at, then the current date and time. Check the log file: cat tilde slash daily dash log dot txt. You'll see the same line written there. Perfect — the script works. Now we schedule it.",
+      "visual": {
+        "commands": [
+          "chmod +x daily-log.sh",
+          "./daily-log.sh",
+          "cat ~/daily-log.txt"
+        ],
+        "output": "Running daily job at Thu Jul 17 14:23:01 UTC 2026\nRunning daily job at Thu Jul 17 14:23:01 UTC 2026",
+        "caption": "Make it executable and test it"
+      }
+    },
+    {
+      "id": 6,
+      "type": "slide",
+      "narration": "To add a job to cron, you edit your crontab. The command is crontab dash e — e for edit. The first time you run it, Linux will ask which text editor you want to use. Choose nano if you're new — it's the easiest. Once the crontab opens, you'll see some comment lines at the top explaining the syntax. Scroll to the bottom. Add a new line with your schedule and command. For a daily job at 8 AM, you'd write: zero eight star star star, then the full path to your script. Always use full paths in cron — cron doesn't know where your files are unless you tell it explicitly. Save and exit. Cron reads the new schedule immediately. Your job is now live.",
+      "visual": {
+        "title": "Editing your crontab",
+        "bullets": [
+          "crontab -e → open your job list",
+          "Choose nano as editor (first time)",
+          "Add: 0 8 * * * /root/jobs/daily-log.sh",
+          "Use full paths (cron has no context)",
+          "Save → cron picks it up instantly"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "type": "terminal",
+      "narration": "Let's do it. Run crontab dash e. If prompted, select nano — usually option 1. Scroll to the bottom of the file. Add this line: zero eight star star star space tilde slash jobs slash daily dash log dot sh. But wait — tilde is a shortcut that might not work in cron. Use the full path instead: slash root slash jobs slash daily dash log dot sh. Save and exit — control X, Y, enter. Now list your cron jobs to confirm: crontab dash l. You'll see your new line. The job is scheduled. Every day at 8 AM UTC, this script will run and append a line to your log file.",
+      "visual": {
+        "commands": [
+          "crontab -e",
+          "# Add at bottom:\n# 0 8 * * * /root/jobs/daily-log.sh",
+          "# Save and exit",
+          "crontab -l"
+        ],
+        "output": "# Crontab contents:\n0 8 * * * /root/jobs/daily-log.sh",
+        "caption": "Schedule the job to run daily at 8 AM"
+      }
+    },
+    {
+      "id": 8,
+      "type": "slide",
+      "narration": "You don't want to wait until tomorrow morning to see if it works. Let's test with a job that runs every minute. Edit your crontab again: crontab dash e. Change the schedule from zero eight star star star to just star star star star star — that's every minute. Save and exit. Wait one minute. Then check your log file: cat tilde slash daily dash log dot txt. You should see a new line with the current time. Wait another minute, check again — another line. It's working. Once you've confirmed it runs, edit the crontab again and change the schedule back to zero eight star star star for daily, or whatever interval you actually want. Remove the test job or comment it out by putting a hash at the start of the line.",
+      "visual": {
+        "title": "Testing: run every minute",
+        "bullets": [
+          "Change schedule to: * * * * *",
+          "Wait 1 minute → check log (cat ~/daily-log.txt)",
+          "See new lines appearing? It works.",
+          "Change back to real schedule (0 8 * * *)",
+          "Or comment out: # * * * * * /root/jobs/..."
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "type": "terminal",
+      "narration": "Let's do that test. Crontab dash e. Change the line to star star star star star space slash root slash jobs slash daily dash log dot sh. Save and exit. Wait about 90 seconds. Then cat tilde slash daily dash log dot txt. You should see multiple lines now, each one minute apart. Perfect. Now edit the crontab one more time: crontab dash e. Change the schedule back to zero eight star star star. Or if you want to stop it entirely, delete the line or add a hash in front of it to comment it out. Save and exit. You've just automated your first task.",
+      "visual": {
+        "commands": [
+          "crontab -e",
+          "# Change to: * * * * * /root/jobs/daily-log.sh",
+          "# Wait 90 seconds",
+          "cat ~/daily-log.txt",
+          "# See new lines? Success.",
+          "crontab -e",
+          "# Change back to: 0 8 * * * /root/jobs/daily-log.sh"
+        ],
+        "output": "Running daily job at Thu Jul 17 14:25:01 UTC 2026\nRunning daily job at Thu Jul 17 14:26:01 UTC 2026\nRunning daily job at Thu Jul 17 14:27:01 UTC 2026",
+        "caption": "Test with every-minute, then revert to daily"
+      }
+    },
+    {
+      "id": 10,
+      "type": "slide",
+      "narration": "A few things to know. First, cron uses the server's timezone — usually UTC. If you want 8 AM in your local time, convert it to UTC first. Second, cron jobs run in a minimal environment — they don't have the same PATH or environment variables your interactive shell has. Always use full paths to scripts and commands. If your script needs environment variables, set them inside the script or at the top of the crontab. Third, cron doesn't show output by default. If your script prints something, you won't see it unless you redirect it to a file — like we did with tee. Or you can redirect all output: add greater-than tilde slash job dash output dot log at the end of the cron line. Fourth, check the system log if a job isn't running: grep CRON slash var slash log slash syslog. That shows you what cron tried to do and any errors.",
+      "visual": {
+        "title": "Cron tips & troubleshooting",
+        "bullets": [
+          "Cron runs in UTC (convert your local time)",
+          "Use full paths (/usr/bin/node, /root/...)",
+          "Set env vars in script or crontab",
+          "Redirect output: >> ~/job.log 2>&1",
+          "Check logs: grep CRON /var/log/syslog"
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "type": "slide",
+      "narration": "Common cron patterns: zero zero star star star runs at midnight daily. Zero star star star star runs at the top of every hour. Star slash five star star star star runs every 5 minutes. Zero nine star star one runs at 9 AM every Monday. Zero zero one star star runs at midnight on the first of every month. You can combine these — 30 6 star star 1 dash 5 means 6:30 AM Monday through Friday, a perfect workday schedule. Use crontab dot guru — that's crontab dot G U R U — to translate any schedule into plain English or generate cron syntax from a description. It's a lifesaver.",
+      "visual": {
+        "title": "Common cron schedules",
+        "bullets": [
+          "0 0 * * * → midnight daily",
+          "0 * * * * → top of every hour",
+          "*/5 * * * * → every 5 minutes",
+          "0 9 * * 1 → 9 AM Mondays",
+          "0 0 1 * * → midnight, 1st of month",
+          "30 6 * * 1-5 → 6:30 AM weekdays",
+          "crontab.guru translates for you"
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "type": "slide",
+      "narration": "What can you automate? Daily backups — a script that zips your project and uploads it to cloud storage. Scraping — pull data from a website every hour and save it to a database. Reports — generate a summary of your app's usage and email it to yourself every morning. Cleanup — delete old log files or temporary data once a week. Health checks — ping your own site every 5 minutes and alert you if it's down. Cron is the engine behind almost every automated task on the web. Once you learn it, you stop doing repetitive work manually — you write it once and let the machine handle it forever.",
+      "visual": {
+        "title": "What to automate with cron",
+        "bullets": [
+          "Daily backups (zip + upload)",
+          "Scrape data every hour",
+          "Send reports every morning",
+          "Clean up old files weekly",
+          "Health checks every 5 min",
+          "Any repetitive task → automate it"
+        ]
+      }
+    },
+    {
+      "id": 13,
+      "type": "slide",
+      "narration": "Your exercise: schedule a job that runs once a day and logs the time. You've already done this in the lesson — now do it again from scratch on your own VPS. Create the script, make it executable, test it manually, then add it to your crontab with a daily schedule. Test it by temporarily setting it to run every minute, confirm it works, then change it back to daily. When you're done, you'll have a real automated task running on your server. That's the foundation — next lesson we'll build something more useful on top of this.",
+      "visual": {
+        "title": "Your exercise",
+        "bullets": [
+          "Write a script that logs the time",
+          "Make it executable (chmod +x)",
+          "Test it manually (./script.sh)",
+          "Add to crontab (crontab -e)",
+          "Test with every-minute, then daily",
+          "Confirm it runs automatically"
+        ]
+      }
+    },
+    {
+      "id": 14,
+      "type": "outro",
+      "narration": "You've just learned how to schedule work that runs itself — no human needed. Cron is one of the most powerful tools in your automation toolkit. Complete the exercise, then move on to the next lesson where we'll use cron to build a real automated system that does something useful every day. See you there.",
+      "visual": {
+        "title": "Next: Build a Real Automated System",
+        "subtitle": "Nabulines Academy · Chapter 6"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What does the cron schedule `0 8 * * *` mean?",
+      "options": [
+        "Run at 8:00 AM every day",
+        "Run every 8 minutes",
+        "Run 8 times a day",
+        "Run at 8:00 PM every day"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "Why must you use full paths in cron jobs?",
+      "options": [
+        "Cron runs in a minimal environment without your normal PATH",
+        "Full paths make the job run faster",
+        "It's optional but recommended",
+        "Cron doesn't support relative paths at all"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "What does `* * * * *` mean in a cron schedule?",
+      "options": [
+        "Run every minute",
+        "Run every hour",
+        "Run every day",
+        "Run every second"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "How do you edit your crontab?",
+      "options": [
+        "crontab -e",
+        "nano /etc/crontab",
+        "vim ~/.crontab",
+        "edit-cron"
+      ],
+      "answer": 0,
+      "points": 10
+    }
+  ],
+  "exercise": "Schedule a job that runs once a day and logs the time. Create a script in ~/jobs/daily-log.sh that echoes the current date and time to a log file. Make it executable, test it manually, then add it to your crontab with a schedule of 0 8 * * * (8 AM daily). Test by temporarily changing the schedule to * * * * * (every minute), confirm new log entries appear, then change it back to daily. Submit a screenshot of your crontab (crontab -l) and the log file showing multiple timestamped entries.",
+  "verifyCommands": [
+    "mkdir -p ~/jobs",
+    "cd ~/jobs",
+    "echo '#!/bin/bash' > daily-log.sh",
+    "echo 'echo \"Running daily job at $(date)\" | tee -a ~/daily-log.txt' >> daily-log.sh",
+    "chmod +x daily-log.sh",
+    "./daily-log.sh",
+    "cat ~/daily-log.txt",
+    "crontab -l"
+  ]
+}

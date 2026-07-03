@@ -1,0 +1,166 @@
+{
+  "lessonId": "ch6-l3",
+  "title": "What Is an Agent — AI You Give a Job To",
+  "totalWords": 820,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. In this lesson, you're going to learn what an agent actually is — and why it's different from just chatting with Claude. By the end, you'll understand how agents work and what makes them powerful.",
+      "visual": {
+        "title": "What Is an Agent?",
+        "subtitle": "AI You Give a Job To"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "Let's start simple. When you open claude dot ai and ask a question, Claude answers. You type, Claude responds. That's a conversation — back and forth. An agent is different. An agent is AI you give a job to, and it goes off and does that job. You don't stand there typing every step. You say what you want done, and the agent figures out how to do it — then does it. Think of it like this: chatting with Claude is like asking a friend for advice. An agent is like hiring someone to handle a task for you while you do something else.",
+      "visual": {
+        "title": "Chat vs Agent",
+        "bullets": [
+          "Chat: You type, AI responds, repeat",
+          "Agent: You give a goal, AI takes actions to reach it",
+          "Chat is a conversation — Agent is a job"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "slide",
+      "narration": "Here's a concrete example. Say you want to monitor your favorite GitHub repos for new issues every morning. With chat, you'd open Claude, ask it to check, copy-paste links, read the results, then do it again tomorrow. With an agent, you tell it once: check these repos every morning at 8 AM and send me a summary. The agent runs every day without you. It reads the repos, formats a report, sends it to you. You gave it a job — it does the job. That's the difference. Agents act. They don't wait for you to prompt them every time.",
+      "visual": {
+        "title": "Example: GitHub Monitor",
+        "bullets": [
+          "Chat: You ask every day, manually",
+          "Agent: Runs every morning automatically",
+          "Agent = ongoing job, not one-off answer"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "slide",
+      "narration": "So what does an agent actually do? Three things. One: it has a goal you define. Two: it has tools it can use — like reading files, calling APIs, running commands. Three: it loops. It checks if the goal is done. If not, it picks the next action, does it, checks again. It keeps going until the job is finished or it hits a limit you set. This loop is what makes it an agent. It's not just answering a question — it's working toward a result. And it decides what to do next based on what it learned from the last step. That's autonomy. You're not micromanaging every move.",
+      "visual": {
+        "title": "How Agents Work",
+        "bullets": [
+          "1. Goal: What you want done",
+          "2. Tools: Actions it can take",
+          "3. Loop: Check goal → act → repeat until done"
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "type": "slide",
+      "narration": "Let's talk tools. An agent is only as useful as the tools you give it. If you want it to send emails, you give it access to an email API. If you want it to update a database, you give it database credentials. If you want it to post on social media, you connect it to the social API. Tools are the agent's hands. Without tools, an agent is just thinking — it can't act. This is why building agents means connecting systems. You're teaching the AI how to interact with the real world through APIs, scripts, and services. The more tools you give it, the more jobs it can do.",
+      "visual": {
+        "title": "Agents Need Tools",
+        "bullets": [
+          "Tools = actions the agent can take",
+          "Email API → send messages",
+          "Database → read/write data",
+          "No tools = no actions"
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "type": "slide",
+      "narration": "Here's what agents are great for. Repetitive tasks you do every day or every week. Monitoring things — like servers, repos, prices, news. Automating workflows — like processing uploads, sending reports, updating records. Anything where you'd say: I wish this just happened without me doing it every time. That's an agent job. Agents aren't magic. They follow the logic you define and use the tools you provide. But they save you from doing boring, repetitive work manually. They're your digital employee.",
+      "visual": {
+        "title": "What Agents Are Great For",
+        "bullets": [
+          "Repetitive daily/weekly tasks",
+          "Monitoring and alerts",
+          "Automating workflows",
+          "Anything you wish 'just happened'"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "type": "slide",
+      "narration": "And what agents are not. They're not magic problem-solvers. If you give an agent a vague goal and no tools, it can't do anything. They're not better than you at creative work — they're better at repetitive work. They won't replace your judgment. You still define what success looks like. You still decide which tools to trust them with. An agent is an assistant, not a replacement. It does what you tell it, the way you tell it. You're the boss. The agent is the worker.",
+      "visual": {
+        "title": "What Agents Are Not",
+        "bullets": [
+          "Not magic — need clear goals + tools",
+          "Not creative replacements — automation workers",
+          "You define success, you stay in control"
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "type": "slide",
+      "narration": "One more thing: agents run somewhere. They don't live in your browser like Artifacts. They run on a server — your VPS, a cloud function, wherever you deploy them. That's why the last lesson was about servers. An agent needs to be always-on if it's doing a job on a schedule. If your laptop is off, the agent stops. If it's on a VPS, it keeps running. This is the infrastructure piece of agents. You're not just writing code — you're deploying a worker that runs 24/7.",
+      "visual": {
+        "title": "Agents Run on Servers",
+        "bullets": [
+          "Not in your browser — on a VPS or cloud",
+          "Always-on = agent keeps working",
+          "Infrastructure matters for agents"
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "type": "outro",
+      "narration": "That's what an agent is. AI you give a job to. It has a goal, tools, and a loop. It acts toward the goal until it's done. Next lesson, you'll build your first real agent — a GitHub monitor that runs every day and sends you a report. Your exercise right now: write a one-line job description for an agent you'd hire. What task would you give it? What would it do for you every day? Think about it, write it down. See you in the next one.",
+      "visual": {
+        "title": "Next: Build Your First Agent",
+        "subtitle": "Exercise: Write a one-line agent job description"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What is the main difference between chatting with Claude and using an agent?",
+      "options": [
+        "Agents are smarter than chat",
+        "Agents take actions toward a goal you define, chat responds to prompts",
+        "Agents are free, chat costs money",
+        "Agents only work on servers"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "What three things does an agent need to work?",
+      "options": [
+        "A browser, a keyboard, and a screen",
+        "A goal, tools, and a loop",
+        "Money, time, and patience",
+        "A VPS, a domain, and an API key"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "Why do agents need tools?",
+      "options": [
+        "To look professional",
+        "Tools are the actions the agent can take — without them it can't do anything",
+        "Tools make agents faster",
+        "Tools are optional"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "Where do agents run if they need to work 24/7?",
+      "options": [
+        "In your browser",
+        "On your phone",
+        "On a server like a VPS",
+        "In Claude Code"
+      ],
+      "answer": 2,
+      "points": 10
+    }
+  ],
+  "exercise": "Write a one-line job description for an agent you'd hire. What task would you give it? What would it do for you every day?",
+  "verifyCommands": []
+}

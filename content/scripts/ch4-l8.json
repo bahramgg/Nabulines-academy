@@ -1,0 +1,237 @@
+{
+  "lessonId": "ch4-l8",
+  "title": "Do You Need to Pay for Claude Code? Every Option, Every Price",
+  "totalWords": 1840,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. You've installed Claude Code. You've seen what it can do. Now the real question: what does it actually cost to run? In this lesson, I'm going to walk you through every single option — the free ways to try it, the paid plans, the pay-as-you-go path, and how to pick what makes sense for you. By the end, you'll know exactly what you'll spend each month, and you'll choose your path. Let's go.",
+      "visual": {
+        "title": "Do You Need to Pay for Claude Code?",
+        "subtitle": "Every Option, Every Price"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "First, the truth: Claude Code itself is free. You can install it with npm install dash g at anthropic dash ai slash claude dash code — that command costs zero dollars. But to actually run it, to have Claude write code for you in your terminal, you need access to Claude's AI models. And that's where the cost comes in. You have two main paths: a subscription plan, or pay-as-you-go API credits. Let's break down both.",
+      "visual": {
+        "title": "Claude Code Is Free — But Running It Isn't",
+        "bullets": [
+          "The tool itself: $0 (npm install)",
+          "But you need Claude's AI models to run",
+          "Two paths: subscription or API credits",
+          "We'll show you both, exact prices"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "slide",
+      "narration": "Path one: a Claude subscription. If you go to claude dot ai and sign up for a paid plan, you get access to Claude in the web chat and in Claude Code. The plans are: Pro at twenty dollars a month, or about seventeen if you pay yearly. Max five times at one hundred dollars a month — that's five times the usage of Pro. And Max twenty times at two hundred a month — twenty times Pro usage. These prices are as of this recording — always check the live page. The key thing: your usage is shared between the website and Claude Code. If you use a lot on claude dot ai, you have less left for Claude Code that month. For most learners starting out, Pro at twenty dollars a month is the entry point.",
+      "visual": {
+        "title": "Path 1: Claude Subscription Plans",
+        "bullets": [
+          "Pro: $20/mo (~$17/mo yearly)",
+          "Max 5×: $100/mo (5× Pro usage)",
+          "Max 20×: $200/mo (20× Pro usage)",
+          "Usage shared: web + Claude Code",
+          "Most beginners: Pro is the entry point"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "slide",
+      "narration": "Path two: Anthropic API credits. Instead of a monthly plan, you add money to your Anthropic account and pay only for what you use. The cost is per million tokens — think of tokens as chunks of text, roughly three quarters of a word. The prices: Haiku four point five, the fastest model, is one dollar per million input tokens and five dollars per million output. Sonnet four point six, the balanced model, is three dollars input and fifteen output. Opus four point eight, the most powerful, is five dollars input and twenty five output. These are the rates as of this recording. There's no permanent free tier — you pay for what you consume. But if you're only using Claude Code occasionally, a few dollars can last you weeks.",
+      "visual": {
+        "title": "Path 2: Anthropic API (Pay-As-You-Go)",
+        "bullets": [
+          "Per million tokens (input / output):",
+          "Haiku 4.5: $1 / $5",
+          "Sonnet 4.6: $3 / $15",
+          "Opus 4.8: $5 / $25",
+          "No free tier — pay for what you use",
+          "Light use: a few $ can last weeks"
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "type": "browser",
+      "narration": "Let me show you where to see these plans. I'm on claude dot ai. If I click on my profile in the bottom left, I see Upgrade Plan. Clicking that takes me to the pricing page. Here's Free — zero dollars, but no Claude Code access. Here's Pro at twenty a month. Here's Max five times at one hundred. And Max twenty times at two hundred. Each plan shows you how much usage you get. If you're starting Claude Code for the first time and you want a simple monthly bill, Pro is usually the right choice. Now let me show you the API path.",
+      "visual": {
+        "captureScript": "capture/ch4-l8-claude-plans.ts",
+        "caption": "claude.ai pricing page — Pro, Max 5×, Max 20×"
+      }
+    },
+    {
+      "id": 6,
+      "type": "browser",
+      "narration": "I'm now on console dot anthropic dot com — that's the developer dashboard. If you don't have an account, you sign up here. Once you're in, click API Keys on the left. This is where you create a key that Claude Code will use. Click Create Key, give it a name like Claude Code, and copy it. You'll paste this into Claude Code's setup. Now, to add credits, click Billing. You'll see your current balance and an option to add funds. You can add ten dollars, fifty, whatever you want. As you use Claude Code, it deducts from this balance. If you run out, you add more. No monthly commitment — just pay for what you burn.",
+      "visual": {
+        "captureScript": "capture/ch4-l8-api-setup.ts",
+        "caption": "console.anthropic.com — API keys and billing"
+      }
+    },
+    {
+      "id": 7,
+      "type": "terminal",
+      "narration": "Back in the terminal. If you're using API credits, you need to tell Claude Code your API key. The command is: claude dash code dash dash api dash key, then paste your key. Hit enter. Now Claude Code will use your API balance instead of a subscription. Every time you run a command, it charges your account. You can check your usage anytime on the Anthropic dashboard. If you're on a subscription plan, you don't need this step — Claude Code just works once you're logged in.",
+      "visual": {
+        "commands": [
+          "claude-code --api-key YOUR_API_KEY_HERE"
+        ],
+        "output": "API key configured. Claude Code will now use your pay-as-you-go credits.",
+        "caption": "Setting up Claude Code with API credits"
+      }
+    },
+    {
+      "id": 8,
+      "type": "slide",
+      "narration": "So which path should you pick? Here's my advice. If you're going to use Claude Code regularly — a few times a week, building real projects — the Pro plan at twenty dollars a month is simpler. You know your cost, you don't have to watch a balance, and you get decent usage. If you're just experimenting, or you only use Claude Code once in a while, API credits are better. Add ten or twenty dollars, see how far it goes. You might be surprised how long it lasts if you're not running it every day. And if you're a power user, building constantly, the Max plans give you more headroom — but most learners don't need that at first.",
+      "visual": {
+        "title": "Which Path Should You Pick?",
+        "bullets": [
+          "Regular use (few times/week): Pro $20/mo",
+          "Occasional / experimenting: API credits",
+          "Power user (daily heavy builds): Max plans",
+          "Most learners: start with Pro or $10–20 API",
+          "You can always switch later"
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "type": "slide",
+      "narration": "Now, what if you don't have a credit card? This is common outside the US. You have two good options. One: use OpenRouter. OpenRouter is a service that gives you one API key to access many models, including Claude. You can top up your OpenRouter balance with crypto — specifically USDC, a stable coin. No card needed. You pay roughly the same per-token price as Anthropic, plus a small fee. Then you point Claude Code at OpenRouter instead of Anthropic. We'll cover that setup in a future lesson. Option two: get a crypto-funded virtual card. Services like certain crypto exchanges let you load a Visa or Mastercard with crypto, then use it anywhere cards are accepted. You can use that card to pay for a Claude subscription or add API credits. Both paths work — you're not locked out if you don't have a traditional bank card.",
+      "visual": {
+        "title": "No Credit Card? Two Options",
+        "bullets": [
+          "Option 1: OpenRouter + crypto (USDC top-up)",
+          "→ One key, many models, no card needed",
+          "Option 2: Crypto-funded virtual card",
+          "→ Load with crypto, use like any Visa/Mastercard",
+          "Both work for Claude subscriptions or API"
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "type": "slide",
+      "narration": "Let's talk real monthly costs. If you're just learning Claude Code, running it a few times a week on small projects, the Pro plan at twenty dollars a month is your baseline. That's it. If you go the API route and use it lightly, you might spend five to ten dollars a month. If you're building every day, running big projects, you might hit the Pro limit and need Max five times at one hundred a month. But honestly, most learners stay under fifty dollars a month total, even when they're active. Compare that to other coding tools or courses — it's in the same range. The key is: you're not guessing. You know the price, you can budget it, and you can start small and scale up.",
+      "visual": {
+        "title": "Real Monthly Cost Picture",
+        "bullets": [
+          "Light use (few times/week): $5–20/mo",
+          "Regular use (Pro plan): $20/mo",
+          "Heavy daily use: $20–100/mo",
+          "Most learners: under $50/mo total",
+          "Start small, scale as you build more"
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "type": "slide",
+      "narration": "One more thing: there are ways to stretch your credits. Anthropic offers prompt caching — if you're sending the same context over and over, cached input is about ninety percent cheaper. There's also batch mode, which is about fifty percent cheaper but slower. Claude Code doesn't use these by default, but if you're writing your own scripts with the API, you can take advantage of them. We'll cover that in advanced lessons. For now, just know: the baseline prices I showed you are the starting point, and there are optimizations if you need them later.",
+      "visual": {
+        "title": "Stretching Your Credits (Advanced)",
+        "bullets": [
+          "Prompt caching: ~90% cheaper for repeated context",
+          "Batch mode: ~50% cheaper, slower turnaround",
+          "Claude Code doesn't use these by default",
+          "You can optimize in custom API scripts",
+          "Covered in advanced lessons"
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "type": "slide",
+      "narration": "Here's your exercise. Decide which path you're taking: a Claude subscription or API credits. If subscription, which plan? If API, how much will you add to start? Write down your choice and estimate your monthly cost. Be honest — if you're going to use Claude Code three times a week, that's probably twenty dollars a month on Pro. If you're just trying it out, maybe ten dollars of API credits to start. The goal is to know your number before you commit. No surprises.",
+      "visual": {
+        "title": "Your Exercise",
+        "bullets": [
+          "Choose: subscription or API credits?",
+          "If subscription: which plan?",
+          "If API: how much to add?",
+          "Estimate your monthly cost",
+          "Be realistic about your usage",
+          "Write it down — no surprises"
+        ]
+      }
+    },
+    {
+      "id": 13,
+      "type": "outro",
+      "narration": "You now know exactly what Claude Code costs, how to pay for it, and how to pick your path. Whether you go Pro at twenty a month or API credits, you're not guessing — you have the numbers. Do the exercise, pick your plan, and get ready. In the next lesson, we're going to connect Claude Code to your first real project and watch it build something from scratch. See you there.",
+      "visual": {
+        "title": "Next Up",
+        "subtitle": "Your First Real Claude Code Project"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What does the Claude Code tool itself cost to install?",
+      "options": [
+        "$0 — it's free to install via npm",
+        "$5/month for the basic version",
+        "$20/month as part of Claude Pro",
+        "Free for 30 days, then $10/month"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "If you choose the Claude Pro plan at $20/month, what happens to your usage?",
+      "options": [
+        "It's unlimited — use as much as you want",
+        "It's shared between claude.ai web chat and Claude Code",
+        "Claude Code gets a separate quota from the web",
+        "You can only use Claude Code, not the web chat"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "What is the cost per million input tokens for Claude Sonnet 4.6 on the Anthropic API?",
+      "options": [
+        "$1",
+        "$3",
+        "$5",
+        "$15"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "If you don't have a credit card, which option lets you pay for Claude with crypto?",
+      "options": [
+        "You can't use Claude without a credit card",
+        "OpenRouter (top up with USDC)",
+        "Only Bitcoin is accepted",
+        "You must use a bank transfer"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "For a learner using Claude Code a few times a week on small projects, what's a realistic monthly cost?",
+      "options": [
+        "$0 — it stays free forever",
+        "$5–20/month",
+        "$100–200/month minimum",
+        "$500+ for any real use"
+      ],
+      "answer": 1,
+      "points": 10
+    }
+  ],
+  "exercise": "Choose how you'll run Claude Code (subscription plan or API credits) and estimate your monthly cost based on realistic usage. Write down: (1) your chosen path, (2) the plan or initial credit amount, (3) your estimated monthly spend. Be honest about how often you'll actually use it — this is your budget, no surprises.",
+  "verifyCommands": [
+    "claude-code --api-key YOUR_API_KEY_HERE"
+  ]
+}

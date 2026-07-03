@@ -1,0 +1,203 @@
+{
+  "lessonId": "ch5-l5",
+  "title": "Connecting to a Real API: Live Crypto Prices",
+  "totalWords": 1240,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. In this lesson, you're going to fetch live data from a real API on the internet. Up until now, your apps have used hardcoded data — numbers and text you typed directly into the code. That's fine for learning, but real apps pull data from the outside world. We're going to use a free public crypto price API to get the live price of Bitcoin, Ethereum, or any coin you choose. You'll see the data change when you refresh the page. This is the same pattern you'll use for weather data, stock prices, news feeds — anything that comes from an external source. Let's connect your app to the real world.",
+      "visual": {
+        "title": "Connecting to a Real API",
+        "subtitle": "Fetch live crypto prices from the internet"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "An API — application programming interface — is a URL on the internet that returns data instead of a web page. When you visit a normal website, you get HTML and images. When your code visits an API, it gets back structured data, usually in JSON format. JSON is just text organized with curly braces and colons — the same format you've been using in your JavaScript objects. The API we're using today is called CoinGecko. It's free, doesn't require signup or an API key for basic use, and returns live cryptocurrency prices. You send a request to their URL, and they send back the current price. Your code reads that price and displays it on the page. That's the whole pattern: request, receive, display. Every API works this way.",
+      "visual": {
+        "title": "What is an API?",
+        "bullets": [
+          "A URL that returns data, not a web page",
+          "Data comes back in JSON format (like JavaScript objects)",
+          "CoinGecko API: free, no signup needed",
+          "Pattern: request → receive → display"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "code",
+      "narration": "Here's the full code. We're building a page that shows the live price of Bitcoin. At the top, we have a heading and a paragraph where the price will appear — notice the ID 'price' so we can target it. The magic happens in the script. We use fetch — a built-in JavaScript function that goes to a URL and gets data. The URL is the CoinGecko API endpoint for Bitcoin's price in US dollars. Fetch is asynchronous, which means it doesn't block your code while waiting for the server to respond. We use await to pause until the data arrives, then await response dot json to convert the raw response into a JavaScript object. The price is buried inside that object at data dot market_data dot current_price dot usd. We grab it, round it to two decimal places, and update the paragraph's text. If anything goes wrong — the network is down, the API changes — the catch block logs the error so you can see what happened. This structure — fetch, await, dot json, catch errors — is the same for every API you'll ever use.",
+      "visual": {
+        "code": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Live Crypto Price</title>\n  <style>\n    body {\n      font-family: system-ui, sans-serif;\n      max-width: 600px;\n      margin: 50px auto;\n      padding: 20px;\n      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\n      color: white;\n      text-align: center;\n    }\n    h1 { font-size: 2.5rem; margin-bottom: 10px; }\n    #price {\n      font-size: 3rem;\n      font-weight: bold;\n      margin: 30px 0;\n      padding: 20px;\n      background: rgba(255,255,255,0.1);\n      border-radius: 10px;\n    }\n    .note { font-size: 0.9rem; opacity: 0.8; }\n  </style>\n</head>\n<body>\n  <h1>💰 Live Bitcoin Price</h1>\n  <p id=\"price\">Loading...</p>\n  <p class=\"note\">Refresh to update</p>\n\n  <script>\n    async function fetchPrice() {\n      try {\n        const response = await fetch(\n          'https://api.coingecko.com/api/v3/coins/bitcoin'\n        );\n        const data = await response.json();\n        const price = data.market_data.current_price.usd;\n        \n        document.getElementById('price').textContent = \n          `$${price.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;\n      } catch (error) {\n        console.error('Error fetching price:', error);\n        document.getElementById('price').textContent = 'Error loading price';\n      }\n    }\n\n    fetchPrice();\n  </script>\n</body>\n</html>",
+        "language": "html",
+        "highlights": [
+          {
+            "lines": [
+              25,
+              26,
+              27
+            ],
+            "label": "Fetch the API"
+          },
+          {
+            "lines": [
+              28
+            ],
+            "label": "Convert response to JSON"
+          },
+          {
+            "lines": [
+              29
+            ],
+            "label": "Extract the price from nested data"
+          },
+          {
+            "lines": [
+              31,
+              32
+            ],
+            "label": "Display the formatted price"
+          },
+          {
+            "lines": [
+              33,
+              34,
+              35,
+              36
+            ],
+            "label": "Handle errors gracefully"
+          }
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "browser",
+      "narration": "Watch what happens when you open this page. The paragraph starts with 'Loading...' while the fetch runs. Then, within a second or two, the real live Bitcoin price appears — formatted with a dollar sign and commas. If you open your browser's developer console, you can see the full data object that came back from the API. It's huge — prices in dozens of currencies, market cap, volume, all kinds of stats. We only used one tiny piece: current_price dot usd. Every time you refresh the page, the fetch runs again and you get the updated price. If Bitcoin's price changed in the last few seconds, you'll see the new number. That's live data. Your app is now connected to the real world.",
+      "visual": {
+        "captureScript": "capture/ch5-l5-demo.ts",
+        "caption": "Live Bitcoin price updates on each page load"
+      }
+    },
+    {
+      "id": 5,
+      "type": "slide",
+      "narration": "You can change the coin by changing the URL. Replace 'bitcoin' with 'ethereum' or 'dogecoin' or any coin ID that CoinGecko supports. You can also change the currency — replace 'usd' with 'eur' or 'gbp' to get the price in euros or pounds. The API has hundreds of coins and dozens of currencies. You're not limited to crypto either — the same fetch pattern works for any API. Weather data from OpenWeatherMap. News headlines from NewsAPI. Stock prices from Alpha Vantage. The code structure is identical: fetch the URL, await the response, parse the JSON, extract the field you need, display it. Some APIs require an API key — a secret string you include in the URL to prove you're allowed to use it. CoinGecko doesn't need one for basic use, which is why we started here. But the pattern is the same even when a key is required.",
+      "visual": {
+        "title": "Customize the API Call",
+        "bullets": [
+          "Change coin: replace 'bitcoin' with 'ethereum', 'dogecoin', etc.",
+          "Change currency: replace 'usd' with 'eur', 'gbp', etc.",
+          "Same pattern works for weather, news, stocks — any API",
+          "Some APIs need an API key (a secret string in the URL)"
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "type": "code",
+      "narration": "Here's a small upgrade: auto-refresh. Instead of refreshing the page manually, we can make the fetch run every thirty seconds automatically. We wrap the fetch in a function, then use setInterval to call that function repeatedly. Set Interval takes two arguments: the function to run, and the delay in milliseconds. Thirty seconds is thirty thousand milliseconds. Now the price updates on its own while the page stays open. This is how live dashboards and trading apps work — they poll the API on a timer. Be careful not to refresh too often. Most free APIs have rate limits — if you hit them too many times per minute, they'll block you temporarily. Thirty seconds is safe for CoinGecko. If you're building something that needs faster updates, you'd use a WebSocket connection instead of polling, but that's a more advanced topic. For now, setInterval and fetch every thirty seconds is the simple, reliable way to keep data fresh.",
+      "visual": {
+        "code": "    // Add this after the fetchPrice function definition\n    fetchPrice(); // Run once immediately\n    setInterval(fetchPrice, 30000); // Then every 30 seconds",
+        "language": "javascript",
+        "highlights": [
+          {
+            "lines": [
+              2
+            ],
+            "label": "Run immediately on page load"
+          },
+          {
+            "lines": [
+              3
+            ],
+            "label": "Auto-refresh every 30 seconds (30000 ms)"
+          }
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "type": "slide",
+      "narration": "One more thing: always handle errors. Networks fail. APIs go down. Servers return unexpected data. Your catch block is your safety net. Log the error to the console so you can see what went wrong, and show a friendly message to the user instead of leaving them staring at 'Loading...' forever. You can also check the response status before parsing the JSON. If response dot ok is false, the server returned an error code like four oh four or five hundred. You can throw a custom error message so your catch block handles it. Good error handling is what separates a toy project from a real app. Users forgive slow load times, but they lose trust if your app breaks silently or shows cryptic error messages. Always assume the network will fail at some point, and plan for it.",
+      "visual": {
+        "title": "Always Handle Errors",
+        "bullets": [
+          "Networks fail, APIs go down, data changes format",
+          "Log errors to console for debugging",
+          "Show friendly messages to users",
+          "Check response.ok before parsing JSON",
+          "Good error handling = professional app"
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "type": "outro",
+      "narration": "You just connected your app to a live API and displayed real-world data. This is a massive milestone. Every app you build from here on will use this pattern: fetch data from an external source, parse it, display it, handle errors. Your exercise is to show the live price of one coin — any coin you choose — and make sure it updates when you refresh. Try changing the coin, the currency, or adding the auto-refresh timer. Once you've got that working, move on to the next lesson where we'll build a multi-coin dashboard that tracks several prices at once. You're building real, connected apps now. Let's keep going.",
+      "visual": {
+        "title": "You Just Connected to the Real World",
+        "subtitle": "Next: Multi-coin dashboard"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What does an API return instead of a web page?",
+      "options": [
+        "Structured data (usually JSON)",
+        "Images and videos",
+        "HTML and CSS",
+        "A download link"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "What does the 'await' keyword do in front of fetch?",
+      "options": [
+        "Pauses the code until the data arrives",
+        "Speeds up the network request",
+        "Converts the response to JSON automatically",
+        "Prevents errors from happening"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "How often should you refresh a free API like CoinGecko?",
+      "options": [
+        "Not too often — every 30 seconds is safe",
+        "As fast as possible for real-time data",
+        "Once per hour to save bandwidth",
+        "Never — just load once when the page opens"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "What should your catch block do when an API call fails?",
+      "options": [
+        "Log the error and show a friendly message to the user",
+        "Retry the request immediately",
+        "Crash the app so you know something went wrong",
+        "Ignore the error and keep showing 'Loading...'"
+      ],
+      "answer": 0,
+      "points": 10
+    }
+  ],
+  "exercise": "Show the live price of one coin (any coin you choose from CoinGecko) that updates when you refresh the page. Display it with a dollar sign and proper formatting. Make sure your error handling works by temporarily breaking the URL and seeing the error message appear.",
+  "verifyCommands": [
+    "# Open the HTML file in a browser and verify:",
+    "# 1. The page shows 'Loading...' briefly, then displays a live Bitcoin price",
+    "# 2. Refresh the page — the price updates (may change if Bitcoin moved)",
+    "# 3. Open browser DevTools console — no errors appear",
+    "# 4. Break the URL (change 'bitcoin' to 'fakecoin') — error message shows",
+    "# 5. Fix the URL — price loads correctly again",
+    "# 6. (Optional) Add setInterval code — price auto-updates every 30 seconds"
+  ]
+}

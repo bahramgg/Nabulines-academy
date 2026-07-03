@@ -1,0 +1,269 @@
+{
+  "lessonId": "ch7-l3",
+  "title": "Basic Security: API Keys, Scams, and Wallets",
+  "totalWords": 1847,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. Today we're talking about security — not the scary hacker movie kind, but the practical everyday habits that keep your accounts, your money, and your projects safe. This is one of those lessons where paying attention now saves you from a really bad day later. Let's jump in.",
+      "visual": {
+        "title": "Basic Security",
+        "subtitle": "API Keys, Scams, and Wallets"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "Security sounds like this huge complicated topic, but for you right now it boils down to three simple rules. One: never put secrets in your code. Two: never give anyone your private keys or seed phrases. Three: if something sounds too good to be true, it is. Those three rules will protect you from ninety-nine percent of the problems beginners run into. Let's break each one down.",
+      "visual": {
+        "title": "Three Rules That Keep You Safe",
+        "bullets": [
+          "Never put secrets in your code",
+          "Never share private keys or seed phrases",
+          "If it sounds too good to be true, it is"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "slide",
+      "narration": "Rule one: never put secrets in your code. A secret is anything that gives access to your accounts or costs you money — your Claude API key, your OpenRouter key, your database password, your wallet private key. If you write it directly into your code and push that code to GitHub, you've just published your secret to the entire internet. Bots scan GitHub twenty-four seven looking for exposed keys. They will find yours in minutes and drain your account before you even notice. This happens to beginners constantly.",
+      "visual": {
+        "title": "Rule 1: Never Put Secrets in Code",
+        "bullets": [
+          "Secret = API key, password, private key",
+          "GitHub is public — bots scan it 24/7",
+          "Exposed key → drained account in minutes",
+          "This is the #1 beginner mistake"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "slide",
+      "narration": "So where do secrets go? Into environment variables. An environment variable is a value your computer or server knows about but that never appears in your code. You reference it by name — like process dot env dot API underscore KEY — and the actual key lives in a separate file that you never commit to GitHub. On your local machine, you put secrets in a dot env file. On a server or in Cloudflare Workers, you set them in the dashboard as encrypted variables. The code stays clean and public, the secrets stay private.",
+      "visual": {
+        "title": "Where Secrets Actually Go",
+        "bullets": [
+          "Environment variables — values your system knows",
+          "Local: .env file (never commit it)",
+          "Server: dashboard settings (encrypted)",
+          "Code references the name, not the value"
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "type": "terminal",
+      "narration": "Let me show you what this looks like. Say you have a script that calls the Claude API. The wrong way is to write your key directly in the code like const API underscore KEY equals quote your actual key quote. That key is now in your Git history forever, even if you delete it later. The right way: you create a file called dot env in your project root. Inside it you write API underscore KEY equals your actual key. Then in your code you write const API underscore KEY equals process dot env dot API underscore KEY. The code references the variable name, the actual key lives in dot env. Then you add dot env to your dot gitignore file so Git never tracks it. Now you can push your code safely — the key stays on your machine.",
+      "visual": {
+        "captureScript": "capture/ch7-l3-env-demo.ts",
+        "caption": "Creating a .env file and using it safely"
+      }
+    },
+    {
+      "id": 6,
+      "type": "slide",
+      "narration": "If you ever do accidentally push a secret to GitHub, act immediately. One: revoke that key in the service's dashboard and generate a new one. Two: remove the key from your code and move it to dot env. Three: if it's a credit card or payment method, check your account for unauthorized charges and consider replacing the card. Do not just delete the file and push again — the key is still in your Git history. You need to revoke it at the source. Speed matters here — the faster you act, the less damage gets done.",
+      "visual": {
+        "title": "If You Expose a Secret (Act Fast)",
+        "bullets": [
+          "1. Revoke the key immediately (service dashboard)",
+          "2. Generate a new key, move it to .env",
+          "3. Check for unauthorized charges",
+          "Deleting the file isn't enough — revoke it"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "type": "slide",
+      "narration": "Rule two: never give anyone your private keys or seed phrases. A private key is the secret string that controls a crypto wallet. A seed phrase is the twelve or twenty-four words that can recover that wallet. If someone has your private key or seed phrase, they own your wallet — they can drain it completely and you have zero recourse. There is no customer service, no undo button, no way to get that money back. So the rule is absolute: you never type your private key into a website, you never send it in a message, you never share it with anyone claiming to be support. No legitimate service will ever ask for it. If someone asks, it's a scam, full stop.",
+      "visual": {
+        "title": "Rule 2: Never Share Private Keys",
+        "bullets": [
+          "Private key / seed phrase = full control of wallet",
+          "No customer service, no undo if stolen",
+          "Never type it into a site or send it to anyone",
+          "Real support never asks for it — if they do, it's a scam"
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "type": "slide",
+      "narration": "Where do you keep your seed phrase? Write it on paper and store it somewhere safe and offline — a drawer, a safe, a locked box. Do not take a photo of it. Do not save it in a cloud note. Do not email it to yourself. Paper in a secure physical location. If your house burns down and you lose the paper, you lose the wallet — so some people keep a second copy in a different secure location, like a safe deposit box. This sounds paranoid until you hear the stories of people who lost access to six-figure wallets because they stored their seed phrase in a screenshot and their phone got hacked. Offline paper is the standard for a reason.",
+      "visual": {
+        "title": "How to Store a Seed Phrase",
+        "bullets": [
+          "Write it on paper, store it offline (drawer, safe)",
+          "No photos, no cloud notes, no emails",
+          "Optional: second copy in a different location",
+          "Lost paper = lost wallet forever"
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "type": "slide",
+      "narration": "Rule three: if it sounds too good to be true, it is. Crypto and AI are full of scams because they're new, people don't understand them, and there's real money involved. Common scams: someone messages you saying you won a giveaway, click this link to claim it. Someone pretends to be support and asks you to validate your wallet. A site promises to double your crypto if you send them some first. An airdrop asks you to connect your wallet and approve a transaction. All scams. The pattern is always the same: they create urgency, they ask you to act fast, and they want you to give them access or send them money. Real opportunities do not work this way. If you're unsure, stop and ask someone you trust, or just walk away — you will not miss out on anything real.",
+      "visual": {
+        "title": "Rule 3: If It Sounds Too Good, It Is",
+        "bullets": [
+          "Common: fake giveaways, fake support, doubling scams",
+          "Pattern: urgency + ask for access or money",
+          "Real opportunities don't pressure you",
+          "When unsure: stop, ask, or walk away"
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "type": "slide",
+      "narration": "Let's talk about wallet security specifically. When you create a crypto wallet, you get a public address — that's like your email address, you can share it freely. And you get a private key — that's like the password to your email, except if someone gets it they own the account forever and you can't change it. So you guard that private key with your life. Use a hardware wallet for serious amounts — that's a physical device like a Ledger or Trezor that keeps your private key offline. For small amounts you're actively using, a software wallet like MetaMask is fine, but enable all the security features: a strong password, two-factor authentication if available, and never approve transactions you don't fully understand.",
+      "visual": {
+        "title": "Wallet Security Basics",
+        "bullets": [
+          "Public address: shareable (like email)",
+          "Private key: never share (like password, but permanent)",
+          "Hardware wallet for serious amounts (Ledger, Trezor)",
+          "Software wallet: strong password, 2FA, careful approvals"
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "type": "slide",
+      "narration": "A quick word on transaction approvals. When you connect your wallet to a site, it may ask you to approve a transaction or sign a message. Read what you're approving. If it says approve unlimited spending of this token, that means the site can take as much of that token as it wants from your wallet, forever, until you revoke the approval. That's sometimes necessary for DeFi apps, but it's also how scam sites drain wallets. So the rule: only approve what you understand, and only on sites you trust. If you're not sure, don't approve it. You can always come back later.",
+      "visual": {
+        "title": "Approving Transactions Safely",
+        "bullets": [
+          "Read what you're signing — every time",
+          "Unlimited approval = site can take tokens anytime",
+          "Only approve on sites you trust",
+          "When unsure: decline and research first"
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "type": "slide",
+      "narration": "Now let's talk about API key hygiene for your projects. Every API key should have the minimum permissions it needs. If you're just reading data, don't give the key write access. If you're using Claude Code, don't give it access to your billing settings. Most services let you create keys with specific scopes — use that. Also, rotate your keys periodically. Every few months, generate a new key and delete the old one. If a key ever gets exposed or you're not sure if it's compromised, rotate it immediately. This limits the damage if something goes wrong.",
+      "visual": {
+        "title": "API Key Hygiene",
+        "bullets": [
+          "Minimum permissions (read-only if possible)",
+          "Use scoped keys when available",
+          "Rotate keys every few months",
+          "Exposed or unsure? Rotate immediately"
+        ]
+      }
+    },
+    {
+      "id": 13,
+      "type": "slide",
+      "narration": "One more thing: two-factor authentication. Enable it on every account that matters — GitHub, your email, your Claude account, your crypto exchange. Two-factor means even if someone gets your password, they still can't log in without the second factor — usually a code from an app on your phone. Use an authenticator app like Authy or Google Authenticator, not SMS if you can avoid it, because SMS can be hijacked. This is the single easiest way to massively increase your account security. It takes five minutes to set up and it stops most attacks cold.",
+      "visual": {
+        "title": "Enable Two-Factor Authentication (2FA)",
+        "bullets": [
+          "Turn it on for GitHub, email, Claude, exchanges",
+          "Use an authenticator app (Authy, Google Authenticator)",
+          "Avoid SMS (can be hijacked)",
+          "5 minutes of setup, huge security boost"
+        ]
+      }
+    },
+    {
+      "id": 14,
+      "type": "slide",
+      "narration": "Let's recap. Security is not about being paranoid, it's about building simple habits that protect you. Never put secrets in your code — use environment variables and dot env files. Never share your private keys or seed phrases with anyone, ever. If something sounds too good to be true, it is — walk away. Enable two-factor authentication everywhere. Use hardware wallets for serious money. Read what you're approving before you approve it. These habits take almost no extra time once you build them, and they will save you from disasters that can cost you real money and months of work. This is not optional — this is part of being a builder.",
+      "visual": {
+        "title": "Security Habits — Quick Recap",
+        "bullets": [
+          "Secrets in .env, never in code",
+          "Private keys stay private, always",
+          "Too good to be true? Walk away",
+          "2FA on every important account",
+          "Read before you approve anything"
+        ]
+      }
+    },
+    {
+      "id": 15,
+      "type": "outro",
+      "narration": "Your exercise: find one secret in your code — an API key, a password, anything sensitive — and move it into a dot env file. Make sure dot env is in your dot gitignore. Push your cleaned-up code to GitHub and confirm the secret is not visible. That's it — one secret, properly secured. Next lesson we're going to talk about debugging — how to figure out what's broken and fix it fast. See you there.",
+      "visual": {
+        "title": "Exercise",
+        "subtitle": "Move one exposed secret into .env and verify it's safe",
+        "footer": "Next: Debugging — Finding and Fixing Errors Fast"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Where should you store your API keys?",
+      "options": [
+        "Directly in your code for easy access",
+        "In a .env file that's never committed to Git",
+        "In a public GitHub repository",
+        "In a comment at the top of your file"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "What should you do if you accidentally push an API key to GitHub?",
+      "options": [
+        "Just delete the file and push again",
+        "Do nothing, it's probably fine",
+        "Immediately revoke the key and generate a new one",
+        "Make the repository private"
+      ],
+      "answer": 2,
+      "points": 10
+    },
+    {
+      "q": "Someone claiming to be support asks for your wallet's seed phrase. What do you do?",
+      "options": [
+        "Send it if they seem legitimate",
+        "Refuse — real support never asks for it",
+        "Send half of it to verify",
+        "Ask them to prove who they are first"
+      ],
+      "answer": 1,
+      "points": 15
+    },
+    {
+      "q": "Where should you store your wallet seed phrase?",
+      "options": [
+        "In a screenshot on your phone",
+        "In a cloud note for safekeeping",
+        "Written on paper in a secure offline location",
+        "In an email draft"
+      ],
+      "answer": 2,
+      "points": 10
+    },
+    {
+      "q": "What does 'unlimited approval' on a transaction mean?",
+      "options": [
+        "You can spend unlimited amounts",
+        "The site can take as much of that token as it wants",
+        "The transaction has no fees",
+        "You approve all future transactions automatically"
+      ],
+      "answer": 1,
+      "points": 15
+    }
+  ],
+  "exercise": "Find one secret currently in your code (API key, password, or any sensitive value). Create a .env file in your project root and move the secret there. Reference it in your code using process.env.SECRET_NAME. Add .env to your .gitignore file. Push your cleaned code to GitHub and verify the secret is not visible in the repository.",
+  "verifyCommands": [
+    "echo 'API_KEY=your-secret-key-here' > .env",
+    "echo '.env' >> .gitignore",
+    "cat .gitignore",
+    "git add .gitignore",
+    "git commit -m 'Add .env to gitignore'",
+    "git push"
+  ]
+}

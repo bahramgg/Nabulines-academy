@@ -17,22 +17,31 @@ const LESSONS_DIR = resolve(here, "../content/lessons");
 const RENDER_DIR = resolve(here, "remotion/out");
 const VTT_DIR = resolve(here, "../content/scripts");
 
-function r2Client() {
-  const accessKeyId = process.env.R2_ACCESS_KEY_ID;
-  const secretAccessKey = process.env.R2_SECRET_ACCESS_KEY;
-  const accountId = process.env.R2_ACCOUNT_ID;
-  if (!accessKeyId || !secretAccessKey || !accountId) {
-    throw new Error("R2_ACCOUNT_ID / R2_ACCESS_KEY_ID / R2_SECRET_ACCESS_KEY not set.");
+// Provider-agnostic S3 client. Works with any S3-compatible host — Cloudflare R2
+// (needs a card), or the no-card options Filebase / Storj / Backblaze. Set
+// S3_ENDPOINT to switch providers; falls back to R2 from R2_ACCOUNT_ID.
+function s3Client() {
+  const accessKeyId = process.env.S3_ACCESS_KEY_ID ?? process.env.R2_ACCESS_KEY_ID;
+  const secretAccessKey = process.env.S3_SECRET_ACCESS_KEY ?? process.env.R2_SECRET_ACCESS_KEY;
+  if (!accessKeyId || !secretAccessKey) {
+    throw new Error("S3_ACCESS_KEY_ID / S3_SECRET_ACCESS_KEY (or R2_* equivalents) not set.");
   }
+  const host =
+    process.env.S3_ENDPOINT ??
+    (process.env.R2_ACCOUNT_ID
+      ? `https://${process.env.R2_ACCOUNT_ID}.r2.cloudflarestorage.com`
+      : undefined);
+  if (!host) throw new Error("Set S3_ENDPOINT (or R2_ACCOUNT_ID for Cloudflare R2).");
+
   const client = new AwsClient({ accessKeyId, secretAccessKey, region: "auto", service: "s3" });
-  const bucket = process.env.R2_BUCKET ?? "academy-videos";
-  const endpoint = `https://${accountId}.r2.cloudflarestorage.com/${bucket}`;
-  const publicBase = process.env.R2_PUBLIC_BASE ?? "https://media.nabulines.com";
+  const bucket = process.env.S3_BUCKET ?? process.env.R2_BUCKET ?? "academy-videos";
+  const endpoint = `${host.replace(/\/$/, "")}/${bucket}`;
+  const publicBase = process.env.S3_PUBLIC_BASE ?? process.env.R2_PUBLIC_BASE ?? `${endpoint}`;
   return { client, endpoint, publicBase };
 }
 
 async function putObject(key: string, body: Buffer, contentType: string): Promise<string> {
-  const { client, endpoint, publicBase } = r2Client();
+  const { client, endpoint, publicBase } = s3Client();
   const res = await client.fetch(`${endpoint}/${key}`, {
     method: "PUT",
     body,

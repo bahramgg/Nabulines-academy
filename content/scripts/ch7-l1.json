@@ -1,0 +1,274 @@
+{
+  "lessonId": "ch7-l1",
+  "title": "Monetization: Sell Your Tool (Models + Payments)",
+  "totalWords": 1847,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. You've built tools that work. People use them. Now the question: can you make money from them? The answer is yes — and it's simpler than you think. In this lesson, you'll learn the three main pricing models, how to actually collect money online, and by the end you'll add a real payment button to one of your tools. Let's turn your side project into income.",
+      "visual": {
+        "title": "Monetization: Sell Your Tool",
+        "subtitle": "Chapter 7, Lesson 1"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "Before we touch code, let's talk pricing models. There are three that matter. One: one-time payment. Someone pays once, owns it forever. Think buying software in a box. Two: subscription. They pay every month or year to keep using it. Think Netflix or your Claude Pro plan. Three: usage-based. They pay per use — per API call, per file processed, per minute of video. Think your Anthropic API bill. Each model fits different tools. A simple utility or template? One-time makes sense. An app that needs your server running, updates, support? Subscription covers your costs. A heavy backend service, like image processing or AI calls? Usage-based keeps it fair — light users pay little, heavy users pay more. Most solo builders start with one-time or subscription because they're predictable. Usage-based is powerful but requires metering infrastructure. For your first paid tool, pick the simplest model that matches what you built.",
+      "visual": {
+        "title": "Three Pricing Models",
+        "bullets": [
+          "One-time payment — pay once, own forever",
+          "Subscription — pay monthly/yearly to keep access",
+          "Usage-based — pay per API call, file, or action"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "slide",
+      "narration": "Now: how do you actually collect money? You need a payment processor — a service that handles credit cards, crypto, or bank transfers and sends the money to you. The big three for indie builders: Stripe, PayPal, and crypto. Stripe is the gold standard. It's a developer-friendly API that handles cards, Apple Pay, Google Pay, and bank transfers in over a hundred countries. You get paid in your local currency. Stripe takes about three percent per transaction. It's the easiest to integrate and the most trusted by customers. PayPal is older, more widely recognized, especially outside the US. It also takes about three percent. The integration is clunkier than Stripe, but some customers only trust PayPal. Crypto — Bitcoin, USDC, Ethereum — is the no-middleman option. No three percent fee, no chargebacks, no one can freeze your account. But: your customers need to know how to use crypto, and you need to handle wallet addresses and confirmations yourself. For most builders, Stripe is the starting point. Add PayPal if you get requests. Add crypto if your audience is technical or international and wants it.",
+      "visual": {
+        "title": "Payment Processors",
+        "bullets": [
+          "Stripe — cards, Apple/Google Pay, ~3% fee",
+          "PayPal — widely trusted, ~3% fee, clunkier API",
+          "Crypto — USDC/BTC/ETH, no middleman, customer needs wallet"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "slide",
+      "narration": "Let's talk Stripe in detail because it's what you'll use first. Stripe has a free plan — you only pay the per-transaction fee, about two-point-nine percent plus thirty cents per charge in the US. No monthly cost. You sign up at stripe dot com, verify your business info — even as a solo builder you can use your personal details in most countries — and you get API keys. Stripe gives you two keys: a test key for development, and a live key for real money. You'll use the test key while you're building so you can fake payments and see how it works without touching real cards. When you're ready to launch, you swap in the live key. Stripe's API is clean. You create a checkout session on your server, send the customer to Stripe's hosted checkout page, they pay, Stripe redirects them back to your site, and you get a webhook — that's an HTTP callback — telling you the payment succeeded. Then you unlock the feature, send the download link, or activate their subscription. All the card handling, security, and compliance is Stripe's problem, not yours. You never see or store card numbers.",
+      "visual": {
+        "title": "Stripe — How It Works",
+        "bullets": [
+          "Sign up free at stripe.com, ~2.9% + 30¢ per charge",
+          "Get test + live API keys",
+          "Create checkout session → customer pays on Stripe page",
+          "Webhook confirms payment → you unlock access"
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "type": "browser",
+      "narration": "Let me show you Stripe's signup and dashboard so you see what it looks like. I'm going to stripe dot com. I'll click Sign Up. It asks for email, password, and country. I enter my info. After I verify my email, I land in the Stripe dashboard. This is your control panel. On the left: Payments, Customers, Products, Billing, Developers. Under Developers, click API Keys. You see two: Publishable Key and Secret Key. The publishable key goes in your frontend — it's safe to expose. The secret key stays on your server — never commit it to GitHub. Toggle the switch at the top right from Test Mode to Live Mode when you're ready for real money. For now, leave it in Test Mode. Under Products, you can create what you're selling — a one-time product or a subscription plan. Give it a name, a price, and Stripe generates a price ID you'll use in your code. That's it. You're set up.",
+      "visual": {
+        "captureScript": "capture/ch7-l1-stripe-signup.ts",
+        "caption": "Stripe dashboard — API keys and Products"
+      }
+    },
+    {
+      "id": 6,
+      "type": "code",
+      "narration": "Now let's add a payment button to your tool. I'll show you the simplest version: a one-time payment using Stripe Checkout. First, install the Stripe SDK on your server. In your terminal, run: npm install stripe. This is the official Stripe library for Node. Next, in your server code — let's say server dot js — import Stripe and initialize it with your secret key. At the top: import Stripe from 'stripe'. Then: const stripe equals new Stripe, and pass your secret key from an environment variable. You'll store that key in a dot env file, never in the code itself. Now create an endpoint that generates a checkout session. This is a POST route, slash create dash checkout. Inside, call stripe dot checkout dot sessions dot create. Pass an object with: mode colon 'payment' for one-time, line underscore items — an array with one object: price colon your Stripe price ID, quantity colon one. Then success underscore url — where to send the customer after they pay — and cancel underscore url — where to send them if they cancel. Stripe returns a session object with a url property. Send that URL back to your frontend. On the frontend, when the user clicks your payment button, fetch this endpoint, get the URL, and redirect the browser to it using window dot location dot href equals the URL. The customer lands on Stripe's secure checkout page, enters their card, pays, and Stripe redirects them back to your success URL. That's the flow.",
+      "visual": {
+        "code": "// server.js\nimport Stripe from 'stripe';\nconst stripe = new Stripe(process.env.STRIPE_SECRET_KEY);\n\napp.post('/create-checkout', async (req, res) => {\n  const session = await stripe.checkout.sessions.create({\n    mode: 'payment',\n    line_items: [{\n      price: 'price_1ABC123',  // your Stripe price ID\n      quantity: 1,\n    }],\n    success_url: 'https://yourtool.com/success',\n    cancel_url: 'https://yourtool.com/cancel',\n  });\n  res.json({ url: session.url });\n});",
+        "language": "javascript",
+        "highlights": [
+          3,
+          6,
+          7,
+          8,
+          13
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "type": "code",
+      "narration": "On the frontend, your payment button triggers a function that calls this endpoint. Here's the code. You have a button: button onclick equals handlePayment. In your script, define async function handlePayment. Inside: const response equals await fetch slash create dash checkout, method POST. Then const data equals await response dot json. Finally: window dot location dot href equals data dot url. That's it. When the user clicks, you hit your server, get the Stripe checkout URL, and redirect them. They pay on Stripe's page. Stripe handles everything: card validation, 3D Secure, fraud checks. When they finish, Stripe sends them to your success URL. At that point, you need to know the payment actually went through — don't just trust the URL, because anyone could visit slash success directly. That's where webhooks come in.",
+      "visual": {
+        "code": "<!-- frontend -->\n<button onclick=\"handlePayment()\">Buy Now - $29</button>\n\n<script>\nasync function handlePayment() {\n  const res = await fetch('/create-checkout', { method: 'POST' });\n  const data = await res.json();\n  window.location.href = data.url;  // redirect to Stripe\n}\n</script>",
+        "language": "html",
+        "highlights": [
+          2,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "type": "slide",
+      "narration": "Webhooks are how Stripe tells your server that a payment succeeded. After the customer pays, Stripe sends an HTTP POST request to a URL you specify — your webhook endpoint. You listen for the event checkout dot session dot completed. When you receive it, you verify the signature to make sure it's really from Stripe, then you extract the session ID and mark that user as paid in your database. You might send them a download link, activate their account, or unlock premium features. This happens server-side, so it's secure. The customer can't fake it. To set up webhooks: in your Stripe dashboard, go to Developers, then Webhooks. Click Add Endpoint. Enter your server's URL, like https colon slash slash yourtool dot com slash webhook. Select the events you care about — at minimum, checkout dot session dot completed. Stripe gives you a webhook signing secret. Store that in your dot env file. In your code, you'll use it to verify the signature of incoming webhook requests. This ensures no one is spoofing payment confirmations.",
+      "visual": {
+        "title": "Webhooks — Confirm Payment Server-Side",
+        "bullets": [
+          "Stripe POSTs to your /webhook endpoint on payment",
+          "Listen for 'checkout.session.completed'",
+          "Verify signature with webhook secret",
+          "Unlock access, send download, activate subscription"
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "type": "code",
+      "narration": "Here's the webhook handler code. You create a POST route at slash webhook. First, get the raw body of the request — Stripe needs the raw bytes to verify the signature, not parsed JSON. Then get the stripe dash signature header. Call stripe dot webhooks dot constructEvent, passing the raw body, the signature, and your webhook secret from the environment. If the signature is invalid, Stripe throws an error and you return four hundred. If it's valid, you get an event object. Check if event dot type equals checkout dot session dot completed. If so, extract the session: const session equals event dot data dot object. Now you know this user paid. Grab their email or customer ID from the session, look them up in your database, and mark them as paid. Maybe send an email with a download link. Then return two hundred OK so Stripe knows you received it. If you don't return two hundred, Stripe will retry the webhook, thinking it failed. This is the secure, production-grade way to handle payments.",
+      "visual": {
+        "code": "// server.js - webhook handler\napp.post('/webhook', express.raw({ type: 'application/json' }), (req, res) => {\n  const sig = req.headers['stripe-signature'];\n  let event;\n  try {\n    event = stripe.webhooks.constructEvent(req.body, sig, process.env.WEBHOOK_SECRET);\n  } catch (err) {\n    return res.status(400).send(`Webhook Error: ${err.message}`);\n  }\n  if (event.type === 'checkout.session.completed') {\n    const session = event.data.object;\n    // Mark user as paid in your database\n    console.log('Payment succeeded:', session.customer_email);\n  }\n  res.json({ received: true });\n});",
+        "language": "javascript",
+        "highlights": [
+          6,
+          10,
+          11,
+          12,
+          15
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "type": "slide",
+      "narration": "What about subscriptions? Same flow, different mode. Instead of mode payment, you use mode subscription. You create a subscription price in Stripe — monthly or yearly. When the customer checks out, Stripe sets up a recurring charge. Every billing period, Stripe charges them automatically and sends you a webhook. You listen for invoice dot paid to know the subscription is active, and subscription dot deleted if they cancel. You store the subscription ID and customer ID in your database. When they log in, you check if their subscription is active. If yes, they get access. If no, you show them a reactivate button. Stripe handles all the billing logic: retries if a card fails, emails to the customer, proration if they upgrade mid-cycle. You just listen for the webhooks and flip access on or off. For a first paid tool, start with one-time payments — they're simpler. Add subscriptions when you have ongoing costs or regular updates that justify recurring revenue.",
+      "visual": {
+        "title": "Subscriptions — Recurring Payments",
+        "bullets": [
+          "mode: 'subscription' in checkout",
+          "Stripe charges automatically each period",
+          "Listen for 'invoice.paid' and 'subscription.deleted'",
+          "Check subscription status on login"
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "type": "slide",
+      "narration": "Now let's talk about paying when you don't have a credit card, because this matters for your customers too. Some of your users, especially outside the US, might not have cards. Stripe supports bank transfers and local payment methods in many countries — things like SEPA in Europe, or UPI in India. You enable these in your Stripe settings under Payment Methods. The customer selects their method at checkout, and Stripe handles it. Another option: accept crypto directly. You can use a service like Coinbase Commerce or BTCPay Server. The customer pays in Bitcoin or USDC, you get a webhook when the payment confirms, and you unlock access. No three percent fee, no chargebacks. The downside: you need to handle wallet addresses, and most non-technical users don't have crypto. A hybrid approach: offer Stripe for cards, and a crypto option for those who want it. You can even use OpenRouter's model — let users top up a balance with crypto, then spend it down as they use your tool. That way they pay once in crypto, and you meter their usage without touching cards at all.",
+      "visual": {
+        "title": "Payment Options for No-Card Users",
+        "bullets": [
+          "Stripe: enable bank transfers, SEPA, UPI, etc.",
+          "Crypto: Coinbase Commerce, BTCPay, or direct wallet",
+          "Hybrid: Stripe for cards + crypto top-up option"
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "type": "slide",
+      "narration": "Let's talk money. Stripe charges about two-point-nine percent plus thirty cents per transaction in the US. In Europe it's similar. PayPal is around three percent. Crypto has network fees — a Bitcoin transaction might cost a few dollars, USDC on a cheap chain like Polygon costs pennies. For small purchases, that thirty-cent flat fee matters. If you're selling a five-dollar item, you lose about ten percent to fees. For a fifty-dollar item, it's more like three percent. Price accordingly. Many builders price just above psychological thresholds to cover fees — nine dollars instead of five, twenty-nine instead of twenty. For subscriptions, the percentage fee is predictable every month. For usage-based, you pay the fee on every charge, so factor it into your per-unit price. And remember: Stripe pays out to your bank account within a few days. PayPal is similar. Crypto is instant to your wallet, but you need to convert it to fiat if you want dollars in your bank. Services like Coinbase let you sell crypto for USD and withdraw.",
+      "visual": {
+        "title": "What It Costs",
+        "bullets": [
+          "Stripe: ~2.9% + 30¢ per charge",
+          "PayPal: ~3%",
+          "Crypto: network fees (pennies to a few dollars)",
+          "Price above thresholds to cover fees"
+        ]
+      }
+    },
+    {
+      "id": 13,
+      "type": "slide",
+      "narration": "One more thing: taxes and legal. When you sell online, you might owe sales tax or VAT depending on where your customer lives. In the US, it varies by state. In Europe, you charge VAT and remit it to each country. Stripe can handle this for you with Stripe Tax — it calculates the right rate, adds it to the checkout, and generates reports. It costs point-five percent of the transaction. For a solo builder just starting, you might skip this and deal with taxes manually at year-end, but know that it's your responsibility. Talk to an accountant in your country. Also: terms of service and refund policy. You need a simple page that says what customers are buying, that all sales are final or that you offer refunds within thirty days, and how to contact you. Stripe requires this. You can find templates online. Don't overthink it — a one-page doc is fine. The point is to be clear and fair. If you offer refunds, Stripe makes it easy: you click Refund in the dashboard, and the money goes back to the customer. You eat the fee, but you keep your reputation clean.",
+      "visual": {
+        "title": "Taxes, Legal, Refunds",
+        "bullets": [
+          "Sales tax/VAT — Stripe Tax handles it (0.5% fee)",
+          "Terms of Service — one-page doc, be clear and fair",
+          "Refunds — easy in Stripe, you eat the fee"
+        ]
+      }
+    },
+    {
+      "id": 14,
+      "type": "slide",
+      "narration": "Here's the honest monthly picture for you as the seller. Stripe or PayPal: free to sign up, you only pay per transaction. No monthly fee. If you sell nothing, you pay nothing. If you sell a hundred dollars, you pay about three dollars in fees. Crypto: no middleman fee, but you might use a service like Coinbase Commerce that takes one percent, or you handle it yourself for free. Hosting your payment server: if you're on Cloudflare Workers or a five-dollar VPS, that's covered. The only real cost is the per-transaction fee. So if you price your tool at twenty-nine dollars and sell ten copies in a month, you make two hundred ninety dollars, minus about nine dollars in fees. Two hundred eighty-one dollars profit. If you're on a subscription model at nine dollars a month and you get fifty subscribers, that's four hundred fifty a month, minus about fourteen in fees. Four hundred thirty-six dollars. This scales. The more you sell, the more you make, and the fees stay proportional. There's no cap.",
+      "visual": {
+        "title": "What You Pay (as the seller)",
+        "bullets": [
+          "Stripe/PayPal: $0/mo, ~3% per sale",
+          "Crypto: $0 (or ~1% via Coinbase Commerce)",
+          "Hosting: $0–5/mo (Workers or VPS)",
+          "Example: 10 sales at $29 = $281 profit after fees"
+        ]
+      }
+    },
+    {
+      "id": 15,
+      "type": "slide",
+      "narration": "Your exercise: add a working payment button to one of your tools. Pick the simplest tool you've built — maybe the bookmark organizer, or the markdown-to-HTML converter. Decide on a price: five dollars, ten dollars, twenty-nine dollars, whatever feels right. Sign up for Stripe, create a product, get your API keys. Add the server code to create a checkout session. Add the frontend button that redirects to Stripe. Test it with Stripe's test mode — use a fake card number, four-two-four-two four-two-four-two four-two-four-two four-two-four-two, any future expiry, any CVC. See the payment go through. Set up the webhook to listen for checkout dot session dot completed. When it fires, log the customer email. That's proof it works. Then, if you want, flip to live mode and charge real money. Post your tool somewhere — on Twitter, in a Discord, on Hacker News. See if anyone buys. Even one sale is a win. You've just turned code into money. That's the foundation of every software business.",
+      "visual": {
+        "title": "Exercise: Add a Payment Button",
+        "bullets": [
+          "Pick a tool, decide on a price",
+          "Sign up for Stripe, create product",
+          "Add checkout endpoint + frontend button",
+          "Test with Stripe test cards",
+          "Set up webhook, see payment confirm"
+        ]
+      }
+    },
+    {
+      "id": 16,
+      "type": "outro",
+      "narration": "That's monetization. You now know the three pricing models, how to integrate Stripe, how to handle webhooks, and how to accept payments from anyone, anywhere, with or without a card. You've seen the real code and the real fees. Go add that button, make your first sale, and feel what it's like to get paid for something you built. Next lesson: we'll talk about finding customers — how to get people to actually see and buy your tool. Because the best product in the world is worthless if no one knows it exists. See you there.",
+      "visual": {
+        "title": "Next: Finding Customers",
+        "subtitle": "Get people to see and buy your tool"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which pricing model charges customers every month or year?",
+      "options": [
+        "One-time payment",
+        "Subscription",
+        "Usage-based"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "What does Stripe charge per transaction in the US?",
+      "options": [
+        "~1% + 10¢",
+        "~2.9% + 30¢",
+        "~5% + 50¢"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "Why do you need a webhook after a Stripe payment?",
+      "options": [
+        "To verify the payment succeeded server-side",
+        "To collect the customer's email",
+        "To redirect the customer to your site"
+      ],
+      "answer": 0,
+      "points": 15
+    },
+    {
+      "q": "Which key do you use in your frontend code?",
+      "options": [
+        "Secret key",
+        "Publishable key",
+        "Webhook secret"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "What's a no-card payment option for international users?",
+      "options": [
+        "Stripe bank transfers or crypto",
+        "Only PayPal",
+        "Cash on delivery"
+      ],
+      "answer": 0,
+      "points": 10
+    }
+  ],
+  "exercise": "Add a working payment button to one of your tools. Sign up for Stripe, create a product, add the server endpoint and frontend button, test with Stripe test mode, and set up a webhook to confirm payments.",
+  "verifyCommands": [
+    "npm install stripe"
+  ]
+}

@@ -1,0 +1,244 @@
+{
+  "lessonId": "ch4-l5",
+  "title": "Git with Claude Code: Commit, Go Back, Rescue a Project",
+  "totalWords": 1847,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. Today we're learning the single most important safety skill in coding: how to save checkpoints and undo mistakes with Git. You'll never lose work again.",
+      "visual": {
+        "title": "Git with Claude Code",
+        "subtitle": "Save checkpoints • Undo mistakes • Rescue your project"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "Here's the problem every beginner hits. You're working on a project. Everything works. You change a few files. Suddenly nothing works. You can't remember what you changed. You try to fix it and make it worse. You're stuck. This exact moment is why Git exists. Git is a version control system — a time machine for your code. It lets you save snapshots called commits, and jump back to any snapshot whenever you need to. Think of it like save points in a video game. You beat a level, you save. You try something risky, you save first. If you die, you reload. Git does that for code. Claude Code makes Git automatic and safe. You don't need to memorize commands. You just tell Claude what you want — make a checkpoint, show me what changed, go back to yesterday — and Claude handles the Git commands for you.",
+      "visual": {
+        "title": "Why Git matters",
+        "bullets": [
+          "Code breaks — you need to undo",
+          "Git = snapshots (commits) you can jump back to",
+          "Claude Code makes Git automatic",
+          "You describe what you want, Claude runs the commands"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "terminal",
+      "narration": "Let's see Git in action. I'm in a project folder called my-site. First, let's check the status. I'll ask Claude: check git status. Claude runs git status and shows me the output. I see two files are modified — index dot html and style dot css. These are changes I haven't saved yet. They're just sitting in my working directory. If I delete them by accident, they're gone. So let's save a checkpoint. I'll tell Claude: commit these changes with the message added hero section. Claude stages the files with git add, then creates a commit with git commit. Now I have a snapshot. My changes are permanently saved in Git's history. I can always come back to this exact state.",
+      "visual": {
+        "captureScript": "capture/ch4-l5-commit.ts",
+        "caption": "Claude Code: commit changes → permanent snapshot"
+      }
+    },
+    {
+      "id": 4,
+      "type": "slide",
+      "narration": "What just happened under the hood? Git has three zones. First, your working directory — the actual files you see and edit. Second, the staging area — files you've marked to include in the next commit. Third, the repository — the permanent history of commits. When you modify a file, it's just in the working directory. When you run git add, you move it to staging. When you run git commit, you save everything in staging as a permanent snapshot in the repository. Claude Code does all three steps when you say commit. You don't have to think about staging. You just describe what you want saved, and Claude handles the mechanics.",
+      "visual": {
+        "title": "Git's three zones",
+        "bullets": [
+          "Working directory = files you see/edit",
+          "Staging area = files marked for next commit",
+          "Repository = permanent history of commits",
+          "Claude Code: you say 'commit', it does all three steps"
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "type": "terminal",
+      "narration": "Now let's break something on purpose and then rescue it. I'm going to delete a big chunk of my index dot html file. I'll ask Claude: delete the entire navigation section from index dot html. Claude opens the file, removes the nav, and saves. If I open the site in a browser now, the menu is gone. The site is broken. This is the nightmare scenario — you changed something, the site broke, and you're not sure how to fix it. But we have a commit from two minutes ago when everything worked. So let's go back. I'll tell Claude: show me the git log. Claude runs git log and I see my commit history. The most recent commit is the one I made before I broke things — added hero section. I can see the commit hash, a long string of letters and numbers that uniquely identifies that snapshot. Now I'll ask Claude: reset hard to that commit. Claude runs git reset dash dash hard followed by the commit hash. Instantly, my working directory is restored to exactly how it was at that commit. I open index dot html — the navigation is back. The site works again. I just time-traveled.",
+      "visual": {
+        "captureScript": "capture/ch4-l5-reset.ts",
+        "caption": "Break the site → git log → reset --hard → rescued"
+      }
+    },
+    {
+      "id": 6,
+      "type": "slide",
+      "narration": "Let's talk about what reset dash dash hard does, because it's powerful and you need to understand it. Git reset moves your current position in the commit history. The dash dash hard flag means also throw away any uncommitted changes in your working directory and make everything match the commit exactly. This is the nuclear option. It's perfect when you want to completely undo everything and go back to a known good state. But it's destructive — any work you didn't commit is gone. So the rule is: commit often. Every time something works, make a commit. Then reset dash dash hard is safe, because you're only ever going back to a checkpoint you deliberately saved.",
+      "visual": {
+        "title": "git reset --hard explained",
+        "bullets": [
+          "Moves you to a specific commit",
+          "--hard = also erase uncommitted changes",
+          "Perfect for 'undo everything, go back to safety'",
+          "Rule: commit often so reset is always safe"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "type": "terminal",
+      "narration": "Here's a gentler way to undo. Let's say I made a commit, but I want to undo just that one commit and keep my files. I'll make a new commit first. I'll ask Claude: add a footer to index dot html and commit it. Claude adds the footer, stages, and commits. Now I have two commits — the hero section commit and the footer commit. But let's say I don't like the footer. I want to undo that commit but keep the file changes so I can edit them. I'll tell Claude: undo the last commit but keep the changes. Claude runs git reset HEAD tilde one. This moves the commit history back one step, but leaves my working directory alone. The footer is still in my index dot html file, but the commit is gone. Now I can edit the footer, or delete it, or commit it again with a better message. This is reset without dash dash hard. It's the undo button that doesn't delete your work.",
+      "visual": {
+        "captureScript": "capture/ch4-l5-soft-reset.ts",
+        "caption": "git reset HEAD~1 → undo commit, keep changes"
+      }
+    },
+    {
+      "id": 8,
+      "type": "slide",
+      "narration": "Let's compare the two reset modes. Reset dash dash hard is the time machine — jump to a commit and erase everything else. Use it when you want to completely abandon recent work and go back to safety. Reset without dash dash hard is the undo button — step back one commit but keep your files so you can fix and re-commit. Use it when you want to revise a commit or split it into smaller commits. Most of the time, you'll use reset dash dash hard to recover from disasters, and soft reset to clean up your commit history. Claude Code can do both — you just describe what you want. Go back to this commit and erase everything. Or, undo the last commit but keep my changes.",
+      "visual": {
+        "title": "Two kinds of reset",
+        "bullets": [
+          "reset --hard = time machine (erase everything, jump back)",
+          "reset (soft) = undo button (step back, keep files)",
+          "Hard for disasters, soft for cleaning up commits",
+          "Claude Code: just describe what you want"
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "type": "terminal",
+      "narration": "One more critical skill: seeing what changed. Before you commit, you want to review what you're about to save. I'll modify a file. I'll ask Claude: add a contact section to index dot html. Claude adds the section. Now, before I commit, I want to see exactly what changed. I'll tell Claude: show me what changed. Claude runs git diff. I see a side-by-side or line-by-line view of every change. Lines I added are marked with a plus. Lines I deleted are marked with a minus. This is how you catch mistakes before they're committed. You review the diff, you see oh I accidentally deleted a closing tag, you fix it, then you commit. Diff is your safety check. Always review the diff before you commit.",
+      "visual": {
+        "captureScript": "capture/ch4-l5-diff.ts",
+        "caption": "git diff → see every change before committing"
+      }
+    },
+    {
+      "id": 10,
+      "type": "slide",
+      "narration": "Here's the Git workflow you'll use every single day. One, make changes to your files. Two, review what changed with git diff. Three, commit the changes with a clear message. Four, repeat. If something breaks, check git log to see your commit history, then reset dash dash hard to the last good commit. If you want to undo a commit but keep working on the files, reset soft. This loop — change, diff, commit, repeat — is how professionals work. You're never more than one reset away from safety. And with Claude Code, you don't memorize commands. You just say show me what changed, or commit this, or go back to the last commit, and Claude translates that into the correct Git command.",
+      "visual": {
+        "title": "Daily Git workflow",
+        "bullets": [
+          "1. Make changes",
+          "2. git diff (review changes)",
+          "3. Commit with a clear message",
+          "4. Repeat",
+          "Broke something? → git log, then reset --hard"
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "type": "slide",
+      "narration": "A few pro tips. First, commit messages matter. Write clear messages that explain what the commit does. Added hero section. Fixed navigation bug. Not vague messages like updated stuff. You'll thank yourself when you're reading git log three months later. Second, commit often. Every time a feature works, commit. Every time you finish a task, commit. Small, frequent commits are better than giant commits with ten changes mixed together. Third, before you try something risky — a big refactor, deleting old code, experimenting with a new library — make a commit first. That way, if the experiment fails, you just reset. Fourth, git diff is not optional. Always review what you're committing. You'll catch bugs and mistakes before they're permanent.",
+      "visual": {
+        "title": "Git pro tips",
+        "bullets": [
+          "Write clear commit messages",
+          "Commit often (small, frequent commits)",
+          "Before risky changes → commit first",
+          "Always review git diff before committing"
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "type": "slide",
+      "narration": "What about branches? You might have heard of Git branches — parallel timelines where you work on features separately. Branches are powerful, but for now, you don't need them. You're working solo on small projects. The main branch is enough. Once you start collaborating or working on multiple features at once, you'll learn branches. But the core skills — commit, diff, log, reset — work the same on every branch. Master these first. Branches are just an extension of the same idea.",
+      "visual": {
+        "title": "What about branches?",
+        "bullets": [
+          "Branches = parallel timelines for different features",
+          "You don't need them yet (solo, small projects)",
+          "Core skills (commit, diff, reset) work everywhere",
+          "Learn branches later when you collaborate"
+        ]
+      }
+    },
+    {
+      "id": 13,
+      "type": "slide",
+      "narration": "Common beginner mistakes. One, not committing often enough. You work for three hours, break something, and realize your last commit was yesterday. Now you can't get back to the good state from an hour ago because you never saved it. Commit every 15 to 30 minutes. Two, using reset dash dash hard without understanding it. You lose uncommitted work and panic. Remember, hard reset erases everything not committed. Always commit before you reset. Three, not reading git diff. You commit a file with a typo or a broken tag because you didn't review the changes. Diff is your proofreader. Four, vague commit messages. Three months later you're reading git log and you have no idea what updated code means. Write messages that explain the what and why.",
+      "visual": {
+        "title": "Common Git mistakes",
+        "bullets": [
+          "Not committing often → can't go back to recent good state",
+          "reset --hard without committing first → lose work",
+          "Skipping git diff → commit bugs and typos",
+          "Vague commit messages → can't understand history later"
+        ]
+      }
+    },
+    {
+      "id": 14,
+      "type": "slide",
+      "narration": "Let's recap. Git saves snapshots of your code called commits. You can jump back to any commit with reset dash dash hard. You can undo a commit but keep the changes with a soft reset. Git diff shows you what changed before you commit. Git log shows your commit history. Claude Code makes all of this automatic — you describe what you want in plain English, and Claude runs the Git commands. The workflow is simple: change, diff, commit, repeat. If you break something, reset to the last good commit. Commit often, write clear messages, always review your diffs. This is the safety net that lets you experiment fearlessly. You can try anything, because you can always go back.",
+      "visual": {
+        "title": "Recap: Git with Claude Code",
+        "bullets": [
+          "Commits = snapshots you can jump back to",
+          "reset --hard = time machine",
+          "reset (soft) = undo commit, keep changes",
+          "diff = review before commit, log = see history",
+          "Claude Code = plain English → Git commands"
+        ]
+      }
+    },
+    {
+      "id": 15,
+      "type": "outro",
+      "narration": "Your exercise: create a small project, make a commit, then break something on purpose — delete a file, mess up the code, whatever. Then use git log and reset dash dash hard to rescue it. Feel the power of being able to undo anything. Next lesson, we're connecting your local Git commits to GitHub, so your code is backed up in the cloud and you can share it with the world. See you there.",
+      "visual": {
+        "title": "Exercise",
+        "subtitle": "Make a commit • Break something • Rescue with reset --hard"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What does a Git commit do?",
+      "options": [
+        "Saves a permanent snapshot of your code",
+        "Uploads your code to the internet",
+        "Deletes old files",
+        "Runs your code"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "What does 'git reset --hard' do?",
+      "options": [
+        "Saves your current changes",
+        "Jumps to a commit and erases uncommitted changes",
+        "Creates a new branch",
+        "Shows what changed"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "What should you do before committing?",
+      "options": [
+        "Delete all old files",
+        "Run git diff to review changes",
+        "Restart your computer",
+        "Upload to GitHub"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "How often should you commit?",
+      "options": [
+        "Once a month",
+        "Only when the project is finished",
+        "Every 15-30 minutes when something works",
+        "Never"
+      ],
+      "answer": 2,
+      "points": 10
+    }
+  ],
+  "exercise": "Create a project folder, make a commit, then intentionally break something (delete a file or mess up code). Use 'git log' to see your commit history, then 'git reset --hard' to the last good commit and rescue your project.",
+  "verifyCommands": [
+    "git status",
+    "git add .",
+    "git commit -m 'message'",
+    "git log",
+    "git reset --hard HEAD~1",
+    "git diff"
+  ]
+}

@@ -1,0 +1,324 @@
+{
+  "lessonId": "ch6-l4",
+  "title": "Your First Agent: A Personal News Reader",
+  "totalWords": 2650,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. Today you're building your first real agent — a personal news reader that goes out, finds articles in your niche, and summarizes them for you. This is automation that actually saves you time every single day. By the end of this lesson you'll have a working agent running on your machine, and you'll understand every line of code that makes it work. Let's build it.",
+      "visual": {
+        "title": "Your First Agent: A Personal News Reader",
+        "subtitle": "Build automation that works for you every day"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "What is an agent? It's code that runs on a schedule without you clicking anything. A news reader agent wakes up every morning, fetches articles from sources you choose, uses Claude to summarize them, and saves the result so you can read it over coffee. You're not manually checking ten sites — the agent does it for you. This lesson shows you the simplest version: fetch one source, summarize the top story, save it to a file. Once you understand this, you can expand it to any number of sources and any schedule you want.",
+      "visual": {
+        "title": "What This Agent Does",
+        "bullets": [
+          "Runs on a schedule (cron) without you",
+          "Fetches articles from a news source",
+          "Uses Claude to summarize the top story",
+          "Saves the summary to a file you read",
+          "Foundation: expand to many sources, any niche"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "slide",
+      "narration": "Here's the flow. First, the agent fetches an RSS feed — RSS is a simple format that news sites publish so other programs can read their headlines. Second, it parses the feed to find the top article. Third, it sends the article text to Claude with a prompt asking for a summary. Fourth, Claude returns the summary and the agent writes it to a markdown file. Fifth, a cron job runs this script every morning at seven a.m. You wake up, open the file, and your news is ready. No browser tabs, no scrolling — just the summary you need.",
+      "visual": {
+        "title": "The Agent Flow",
+        "bullets": [
+          "1. Fetch RSS feed (news source)",
+          "2. Parse feed → find top article",
+          "3. Send article to Claude for summary",
+          "4. Claude returns summary",
+          "5. Write summary to file",
+          "6. Cron runs this every morning at 7am"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "terminal",
+      "narration": "Let's build it. Create a new directory called news-agent and initialize a Node project. Type mkdir news-agent, then cd news-agent, then npm init dash y. This creates a package dot json file. Now install the dependencies. Type npm install rss dash parser axios at anthropic dash ai slash sdk. RSS dash parser reads RSS feeds, axios fetches web pages, and the Anthropic SDK talks to Claude. These three libraries do all the heavy lifting — you're just wiring them together.",
+      "visual": {
+        "commands": [
+          "mkdir news-agent",
+          "cd news-agent",
+          "npm init -y",
+          "npm install rss-parser axios @anthropic-ai/sdk"
+        ],
+        "output": "added 47 packages in 3s\n\n+ rss-parser@3.13.0\n+ axios@1.6.0\n+ @anthropic-ai/sdk@0.20.0",
+        "caption": "Set up the project and install dependencies"
+      }
+    },
+    {
+      "id": 5,
+      "type": "code",
+      "narration": "Create a file called agent dot js. At the top, import the three libraries. Require rss dash parser, require axios, and require the Anthropic SDK. Then load your API key from an environment variable — process dot env dot ANTHROPIC underscore API underscore KEY. If the key is missing, throw an error so you know immediately. This is the setup block — every agent starts by loading its tools and credentials.",
+      "visual": {
+        "filename": "agent.js",
+        "language": "javascript",
+        "code": "const Parser = require('rss-parser');\nconst axios = require('axios');\nconst Anthropic = require('@anthropic-ai/sdk');\nconst fs = require('fs').promises;\n\nconst apiKey = process.env.ANTHROPIC_API_KEY;\nif (!apiKey) {\n  throw new Error('ANTHROPIC_API_KEY not set');\n}\n\nconst anthropic = new Anthropic({ apiKey });\nconst parser = new Parser();",
+        "highlights": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          7,
+          8,
+          9,
+          11,
+          12
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "type": "code",
+      "narration": "Now write the main function. Call it async function main. Inside, define the feed URL — for this example we'll use Hacker News RSS, but you can use any RSS feed from any site you follow. The URL is https colon slash slash hnrss dot org slash frontpage. Then call parser dot parseURL and pass the feed URL. This returns a feed object with all the articles. Grab the first item — feed dot items bracket zero. That's the top story. Log it so you can see what you got. This block fetches and parses the feed — the first half of the agent.",
+      "visual": {
+        "filename": "agent.js",
+        "language": "javascript",
+        "code": "async function main() {\n  // 1. Fetch the RSS feed\n  const feedUrl = 'https://hnrss.org/frontpage';\n  console.log('Fetching feed:', feedUrl);\n  \n  const feed = await parser.parseURL(feedUrl);\n  const topStory = feed.items[0];\n  \n  console.log('Top story:', topStory.title);\n  console.log('Link:', topStory.link);\n}",
+        "highlights": [
+          3,
+          6,
+          7,
+          9,
+          10
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "type": "code",
+      "narration": "Next, fetch the full article text. The RSS feed only gives you the headline and a snippet — you want the whole article so Claude has context. Use axios dot get with the story link. The response dot data is the HTML. For a real production agent you'd parse the HTML to extract just the article body, but for this demo we'll send the whole page to Claude and let it figure out what matters. In practice, libraries like Mozilla's Readability can clean HTML into plain article text, but that's an optimization for later. Right now we're proving the concept.",
+      "visual": {
+        "filename": "agent.js",
+        "language": "javascript",
+        "code": "  // 2. Fetch the full article\n  console.log('Fetching article content...');\n  const articleResponse = await axios.get(topStory.link);\n  const articleHtml = articleResponse.data;\n  \n  // In production: parse HTML to extract article text\n  // For now: send the whole page to Claude",
+        "highlights": [
+          3,
+          4,
+          6,
+          7
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "type": "code",
+      "narration": "Now call Claude. Use anthropic dot messages dot create. Set model to claude dash sonnet dash 4 dot 6, max tokens to one thousand, and pass a messages array with one user message. The content is a prompt: you are a news summarizer, here is an article, give me a three sentence summary focusing on what matters. Then include the article HTML. Claude reads the HTML, ignores the navigation and ads, and extracts the article content automatically — that's why we can send raw HTML and still get a clean summary. The response comes back in response dot content bracket zero dot text. That's your summary.",
+      "visual": {
+        "filename": "agent.js",
+        "language": "javascript",
+        "code": "  // 3. Ask Claude to summarize\n  console.log('Asking Claude for summary...');\n  const response = await anthropic.messages.create({\n    model: 'claude-sonnet-4.6',\n    max_tokens: 1000,\n    messages: [{\n      role: 'user',\n      content: `You are a news summarizer. Read this article and give me a 3-sentence summary focusing on what matters.\\n\\nArticle:\\n${articleHtml}`\n    }]\n  });\n  \n  const summary = response.content[0].text;\n  console.log('Summary received:', summary);",
+        "highlights": [
+          3,
+          4,
+          5,
+          8,
+          12,
+          13
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "type": "code",
+      "narration": "Finally, save the summary to a file. Create a markdown string with the date, the article title, the link, and the summary. Use fs dot promises dot writeFile to write it to a file called today dash news dot md. Use utf dash 8 encoding. Log a success message. This is the output — the file you'll read every morning. The agent has done its job: fetched, summarized, and saved. At the bottom, call main dot catch to handle any errors and exit cleanly. Save the file.",
+      "visual": {
+        "filename": "agent.js",
+        "language": "javascript",
+        "code": "  // 4. Save the summary\n  const output = `# Today's Top Story\\n\\nDate: ${new Date().toLocaleDateString()}\\n\\n## ${topStory.title}\\n\\nLink: ${topStory.link}\\n\\n### Summary\\n\\n${summary}\\n`;\n  \n  await fs.writeFile('today-news.md', output, 'utf-8');\n  console.log('✓ Summary saved to today-news.md');\n}\n\nmain().catch(err => {\n  console.error('Error:', err);\n  process.exit(1);\n});",
+        "highlights": [
+          2,
+          4,
+          5,
+          7,
+          8,
+          9
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "type": "terminal",
+      "narration": "Test it. First, set your API key in the environment. Type export ANTHROPIC underscore API underscore KEY equals your key. Then run node agent dot js. You'll see it fetch the feed, fetch the article, ask Claude for a summary, and save the file. It takes about five seconds. When it finishes, type cat today dash news dot md to see the output. There's your summary — a clean, three-sentence brief of the top story. The agent works. Now let's automate it.",
+      "visual": {
+        "commands": [
+          "export ANTHROPIC_API_KEY=sk-ant-...",
+          "node agent.js"
+        ],
+        "output": "Fetching feed: https://hnrss.org/frontpage\nTop story: New AI Model Breaks Benchmarks\nLink: https://example.com/article\nFetching article content...\nAsking Claude for summary...\nSummary received: Researchers at...\n✓ Summary saved to today-news.md",
+        "caption": "Run the agent manually — it works"
+      }
+    },
+    {
+      "id": 11,
+      "type": "slide",
+      "narration": "To run this every morning without you, use cron. Cron is a scheduler built into Linux and Mac — it runs commands at specific times. You write a cron job that says run this script every day at seven a.m. On Windows you use Task Scheduler, which does the same thing with a GUI. The concept is identical: the operating system wakes up your script on a schedule. You'll never manually run it again — the agent just works, every single day.",
+      "visual": {
+        "title": "Automate with Cron (or Task Scheduler)",
+        "bullets": [
+          "Cron = scheduler built into Linux/Mac",
+          "Task Scheduler = Windows equivalent",
+          "Write a job: run this script at 7am daily",
+          "The OS runs it — you never touch it again",
+          "Agent works every day, zero manual effort"
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "type": "terminal",
+      "narration": "Set up the cron job. Type crontab dash e to edit your cron table. This opens a text editor. Add a line at the bottom. Type zero seven asterisk asterisk asterisk, then the command. The command is cd into your project directory, then node agent dot js. The five fields are minute, hour, day of month, month, day of week. Zero seven asterisk asterisk asterisk means minute zero of hour seven, every day, every month, every day of the week — so seven a.m. daily. Save and close the editor. Cron is now watching. At seven a.m. tomorrow, your agent runs automatically.",
+      "visual": {
+        "commands": [
+          "crontab -e"
+        ],
+        "output": "# Add this line:\n0 7 * * * cd /home/you/news-agent && node agent.js\n\n# Explanation:\n# 0 7 * * * = 7:00 AM every day\n# cd /path && node agent.js = run the agent\n\ncrontab: installing new crontab",
+        "caption": "Schedule the agent to run at 7am daily"
+      }
+    },
+    {
+      "id": 13,
+      "type": "slide",
+      "narration": "On Windows, open Task Scheduler. Click Create Basic Task. Name it News Agent. Set the trigger to Daily at seven a.m. Set the action to Start a Program, and point it at node dot exe with the argument agent dot js and the start-in directory set to your project folder. Click Finish. Windows will now run your agent every morning, exactly like cron does on Mac or Linux. Same agent, same result, different scheduler.",
+      "visual": {
+        "title": "Windows: Task Scheduler",
+        "bullets": [
+          "Open Task Scheduler → Create Basic Task",
+          "Name: News Agent",
+          "Trigger: Daily, 7:00 AM",
+          "Action: Start a Program → node.exe",
+          "Arguments: agent.js",
+          "Start in: your project directory",
+          "Done — Windows runs it every morning"
+        ]
+      }
+    },
+    {
+      "id": 14,
+      "type": "slide",
+      "narration": "What you just built is the foundation of every agent. Fetch data from the web, process it with Claude, save the result, and schedule it to run automatically. You can expand this in any direction. Add more RSS feeds and summarize all of them in one report. Parse different sources — Reddit, Twitter, GitHub releases, anything with an API or RSS feed. Change the prompt to extract specific insights, like only security news or only posts about your tech stack. Add email delivery so the summary lands in your inbox. Or run it on a VPS so it works even when your laptop is off. Every agent you build from here follows this same pattern: fetch, process, save, schedule. You've learned the core loop.",
+      "visual": {
+        "title": "Expand This Agent",
+        "bullets": [
+          "Add more RSS feeds → multi-source report",
+          "Parse Reddit, Twitter, GitHub, any API",
+          "Change prompt → filter for your exact niche",
+          "Add email delivery → summary in your inbox",
+          "Run on a VPS → works 24/7, laptop off",
+          "This pattern scales to any automation task"
+        ]
+      }
+    },
+    {
+      "id": 15,
+      "type": "slide",
+      "narration": "One more thing: cost. This agent uses Claude Sonnet, which costs three dollars per million input tokens and fifteen dollars per million output tokens. An article is roughly two thousand tokens, and a summary is maybe one hundred tokens. So one run costs about one cent. Running daily for a month is thirty cents. If you summarize ten articles per day, that's three dollars a month. If you're on a Claude Pro plan at twenty dollars a month, this agent is essentially free because you're already paying for the usage. The point is: agents are cheap. The value they create — saving you an hour of reading every day — is worth far more than the few dollars they cost to run.",
+      "visual": {
+        "title": "What This Agent Costs",
+        "bullets": [
+          "Claude Sonnet: $3/M input, $15/M output",
+          "One article + summary ≈ 2100 tokens ≈ $0.01",
+          "Daily for a month ≈ $0.30",
+          "Ten articles/day ≈ $3/month",
+          "If you have Claude Pro ($20/mo): basically free",
+          "The time saved is worth far more than the cost"
+        ]
+      }
+    },
+    {
+      "id": 16,
+      "type": "slide",
+      "narration": "Here's your exercise. Build an agent that summarizes today's top item in your niche. Pick a source you follow — a blog, a subreddit, a news site — find its RSS feed, and modify the agent to fetch from that feed instead of Hacker News. Change the prompt to focus on what you care about. Run it manually to test, then set up the cron job or Task Scheduler entry so it runs every morning. When you wake up tomorrow and the summary is waiting for you, you've crossed into the agent-builder tier. You're not just coding — you're automating your life.",
+      "visual": {
+        "title": "Exercise: Your Niche News Agent",
+        "bullets": [
+          "Pick a source you follow (blog, subreddit, news)",
+          "Find its RSS feed URL",
+          "Modify agent.js to use that feed",
+          "Adjust the prompt for your niche",
+          "Test it manually → verify the summary",
+          "Set up cron/Task Scheduler → 7am daily",
+          "Tomorrow morning: your summary is waiting"
+        ]
+      }
+    },
+    {
+      "id": 17,
+      "type": "outro",
+      "narration": "You just built your first agent — a personal news reader that runs on a schedule, fetches articles, and summarizes them with Claude. This is real automation. The next lesson takes this further: we'll build an agent that monitors multiple sources, filters for keywords, and sends you alerts when something important happens. You're moving from a daily summary to a real-time intelligence system. See you in the next one.",
+      "visual": {
+        "title": "Next: Multi-Source Intelligence Agent",
+        "subtitle": "Monitor many feeds, filter, alert in real time"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What does RSS stand for and why do agents use it?",
+      "options": [
+        "Really Simple Syndication — a format news sites publish so programs can read their headlines",
+        "Remote Server System — a protocol for fetching web pages",
+        "Rapid Summary Service — an API that summarizes articles",
+        "Rich Site Structure — a way to organize website content"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "What does cron do?",
+      "options": [
+        "It's a text editor for writing agent code",
+        "It's a scheduler that runs commands at specific times automatically",
+        "It's a library for parsing RSS feeds",
+        "It's a cloud service for hosting agents"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "If an article is 2000 tokens and a summary is 100 tokens, and Claude Sonnet costs $3/M input and $15/M output, what does one summary cost?",
+      "options": [
+        "About $0.001 (one-tenth of a cent)",
+        "About $0.01 (one cent)",
+        "About $0.10 (ten cents)",
+        "About $1.00 (one dollar)"
+      ],
+      "answer": 1,
+      "points": 15
+    },
+    {
+      "q": "What is the core pattern every agent follows?",
+      "options": [
+        "Write code, test code, deploy code, forget code",
+        "Fetch data, process with Claude, save result, schedule to run",
+        "Install libraries, write prompts, run manually, email results",
+        "Set up server, configure cron, monitor logs, scale infrastructure"
+      ],
+      "answer": 1,
+      "points": 15
+    }
+  ],
+  "exercise": "Build an agent that summarizes today's top item in your niche. Pick a source you follow, find its RSS feed, modify agent.js to use that feed, adjust the prompt for your focus area, test it manually, then set up cron or Task Scheduler so it runs at 7am every day. When the summary is waiting for you tomorrow morning, you've built a real agent.",
+  "verifyCommands": [
+    "mkdir news-agent",
+    "cd news-agent",
+    "npm init -y",
+    "npm install rss-parser axios @anthropic-ai/sdk",
+    "node agent.js",
+    "cat today-news.md",
+    "crontab -e"
+  ]
+}

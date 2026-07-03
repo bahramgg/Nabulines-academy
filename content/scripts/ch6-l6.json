@@ -1,0 +1,299 @@
+{
+  "lessonId": "ch6-l6",
+  "title": "Project: A Personal Bot / Agent That Runs 24/7",
+  "totalWords": 2640,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. You've built agents that respond to triggers, read data, make decisions. But they only run when your computer is on. In this lesson, you'll deploy a real agent to a server in the cloud — a VPS — so it runs twenty-four seven, even when your laptop is closed. This is the final project for Chapter 6. By the end, you'll have a personal bot answering messages, checking feeds, or doing tasks around the clock. Let's build it.",
+      "visual": {
+        "title": "Project: A Personal Bot / Agent That Runs 24/7",
+        "subtitle": "Deploy an agent to a VPS — it runs even when you're offline"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "What we're building: a bot that runs continuously on a remote server. It could be a Telegram bot that replies to your messages, a Discord bot that moderates your server, a feed-watcher that emails you summaries, or a task agent that checks APIs every hour and logs results. The key: it's always on. You don't need your laptop running. The server does the work.",
+      "visual": {
+        "title": "What we're building",
+        "bullets": [
+          "A bot that runs 24/7 on a VPS (remote server)",
+          "Could be: Telegram bot, Discord bot, feed-watcher, task agent",
+          "Always on — works even when your laptop is closed",
+          "You control it remotely via SSH"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "slide",
+      "narration": "What you'll need. First, a VPS — a virtual private server. That's a small Linux computer in the cloud that you rent by the month. We'll use Hetzner because it's cheap and simple, but DigitalOcean, Linode, or any VPS works the same way. Cost: around five to fifteen dollars a month, as of this recording — check the live page. Second, your bot code — we'll write a simple example, but you can deploy any agent you've built. Third, SSH — the tool to connect to your server and run commands remotely. Fourth, a process manager called PM2 so your bot restarts if it crashes. And fifth, environment variables stored securely on the server so your API keys aren't in your code.",
+      "visual": {
+        "title": "What you'll need",
+        "bullets": [
+          "A VPS (Hetzner, DigitalOcean, Linode) — ~$5–15/mo",
+          "Your bot code (we'll write a simple example)",
+          "SSH — connect to the server and run commands",
+          "PM2 — keeps your bot running and restarts it if it crashes",
+          "Environment variables on the server (secure API keys)"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "slide",
+      "narration": "Step one: get a VPS. Go to Hetzner dot com or your preferred provider. Sign up, add a payment method — most VPS providers require a credit card, but you can use a crypto-funded virtual card if you don't have one. Create a new server. Choose the smallest plan — usually labeled C-X-11 or similar, one or two dollars more than the base. Pick Ubuntu twenty-two or twenty-four as the operating system. Add an SSH key if you have one, or the provider will email you a root password. Click create. The server spins up in under a minute. You'll get an IP address — that's your server's address on the internet. Write it down.",
+      "visual": {
+        "title": "Step 1: Get a VPS",
+        "bullets": [
+          "Sign up at Hetzner, DigitalOcean, or similar",
+          "Create a server: smallest plan (~$5/mo), Ubuntu 22/24",
+          "Add SSH key or get root password via email",
+          "Server spins up → you get an IP address (write it down)"
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "type": "terminal",
+      "narration": "Step two: connect to your server via SSH. Open your terminal. Type ssh root at your server IP. If it's your first time connecting, it'll ask if you trust the server — type yes. Enter the password the provider emailed you. You're now inside the server — the prompt changes to show root at the server name. You're controlling a computer in a data center somewhere. First command: update the package list. Type sudo apt update. Then install Node and npm — type sudo apt install nodejs npm dash y. Check the versions with node dash v and npm dash v. If Node is below version eighteen, you'll need to upgrade it using a tool called nvm, but most Ubuntu images ship with eighteen or higher now. Next, install PM2 globally — type sudo npm install dash g pm2. PM2 is the process manager that keeps your bot running. Done. Your server is ready.",
+      "visual": {
+        "captureScript": "capture/ch6-l6-ssh-setup.ts",
+        "caption": "SSH into the server and install Node, npm, PM2"
+      }
+    },
+    {
+      "id": 6,
+      "type": "slide",
+      "narration": "Step three: write your bot code locally. We'll build a simple Telegram bot as the example, but the same steps work for any agent. Create a folder called my-bot. Inside, run npm init dash y to make a package dot json. Install the Telegram bot library: npm install node-telegram-bot-api. Create a file called bot dot js. Here's the code: require the library, create a bot with your token from BotFather — we covered getting a Telegram token in an earlier lesson — then write bot dot on message to reply to every message. Add a console log so you know the bot is running. That's it. Test it locally: node bot dot js. Send a message to your bot on Telegram. It replies. Stop it with control-C. Now we'll move it to the server.",
+      "visual": {
+        "title": "Step 3: Write your bot code",
+        "bullets": [
+          "Create folder: my-bot",
+          "npm init -y, npm install node-telegram-bot-api",
+          "Write bot.js: bot.on('message', ...) → replies to every message",
+          "Test locally: node bot.js, send a message, it works",
+          "Now move it to the server"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "type": "code",
+      "narration": "Here's the bot code. We require the Telegram library, read the bot token from an environment variable — never hard-code your token — create the bot, and listen for messages. When a message arrives, we reply with a greeting and the user's name. The console log at the bottom confirms the bot is running. Simple, clean, always-on once we deploy it.",
+      "visual": {
+        "language": "javascript",
+        "filename": "bot.js",
+        "code": "const TelegramBot = require('node-telegram-bot-api');\n\nconst token = process.env.TELEGRAM_TOKEN;\nconst bot = new TelegramBot(token, { polling: true });\n\nbot.on('message', (msg) => {\n  const chatId = msg.chat.id;\n  const name = msg.from.first_name || 'friend';\n  bot.sendMessage(chatId, `Hello ${name}! I'm your 24/7 bot.`);\n});\n\nconsole.log('Bot is running...');",
+        "highlights": [
+          {
+            "line": 3,
+            "label": "Token from environment variable"
+          },
+          {
+            "line": 6,
+            "label": "Reply to every message"
+          }
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "type": "terminal",
+      "narration": "Step four: upload your code to the server. The easiest way: use git. Initialize a git repo in your my-bot folder — git init. Add and commit your code — git add dot, git commit dash m initial bot. Push it to a GitHub repo — create a new repo on GitHub, copy the URL, then git remote add origin and git push. Now, back on the server via SSH, clone the repo. Type git clone and paste the GitHub URL. Change into the folder — cd my-bot. Install dependencies — npm install. Your code is on the server. But we still need to give it the bot token.",
+      "visual": {
+        "captureScript": "capture/ch6-l6-upload-code.ts",
+        "caption": "Push code to GitHub, clone it on the server, npm install"
+      }
+    },
+    {
+      "id": 9,
+      "type": "terminal",
+      "narration": "Step five: set the environment variable on the server. We don't want the token in the code or in git — that's a security risk. Instead, we store it in a dot env file on the server. Create the file: nano dot env. Inside, type TELEGRAM underscore TOKEN equals your token. Save with control-X, Y, enter. Now install the dotenv package so your bot can read it: npm install dotenv. At the top of bot dot js, add require dotenv slash config. That loads the dot env file before your code runs. Test it: node bot dot js. The bot starts. Send a message on Telegram — it replies. Perfect. Stop it with control-C. Now we'll make it run permanently.",
+      "visual": {
+        "captureScript": "capture/ch6-l6-env-setup.ts",
+        "caption": "Create .env file, add token, install dotenv, test the bot"
+      }
+    },
+    {
+      "id": 10,
+      "type": "terminal",
+      "narration": "Step six: start the bot with PM2. PM2 keeps your bot running even if it crashes or the server reboots. Type pm2 start bot dot js dash dash name my-bot. PM2 launches the bot in the background. Check the status: pm2 status. You'll see my-bot listed, status online. View the logs: pm2 logs. You'll see the console log we wrote — bot is running. Send a message to your Telegram bot. It replies instantly. Your bot is live. Now, tell PM2 to restart the bot automatically if the server reboots: pm2 startup. It prints a command — copy and run it. Then save the current PM2 process list: pm2 save. Done. Your bot will survive server restarts.",
+      "visual": {
+        "captureScript": "capture/ch6-l6-pm2-start.ts",
+        "caption": "Start bot with PM2, check status, view logs, test it"
+      }
+    },
+    {
+      "id": 11,
+      "type": "slide",
+      "narration": "Step seven: test that it's truly always on. Close your laptop. Walk away. Wait a few minutes. Open Telegram on your phone. Send a message to your bot. It replies immediately. Your bot is running on the server, not your computer. You can stop, restart, or update it anytime via SSH. To stop it: pm2 stop my-bot. To restart: pm2 restart my-bot. To update the code: git pull on the server, then pm2 restart. To view logs: pm2 logs. That's the full cycle.",
+      "visual": {
+        "title": "Step 7: Test it's always on",
+        "bullets": [
+          "Close your laptop, walk away",
+          "Message your bot from your phone → it replies instantly",
+          "Bot runs on the server, not your computer",
+          "Manage it: pm2 stop, pm2 restart, pm2 logs",
+          "Update code: git pull, pm2 restart"
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "type": "slide",
+      "narration": "What you can build with this. A Telegram or Discord bot that moderates, answers questions, or logs data. A feed-watcher that checks RSS or APIs every hour and emails you summaries. A task agent that runs scheduled jobs — check the weather, scrape a site, post updates. A personal assistant that listens for commands and triggers actions. An always-on agent that monitors your systems and alerts you if something breaks. The pattern is the same: write the code, deploy it to a VPS, run it with PM2. The server does the work. You control it remotely.",
+      "visual": {
+        "title": "What you can build",
+        "bullets": [
+          "Telegram / Discord bots (moderation, Q&A, logging)",
+          "Feed-watchers (check APIs, email summaries)",
+          "Scheduled task agents (weather, scraping, posting)",
+          "Personal assistants (listen for commands, trigger actions)",
+          "Always-on monitors (alert you if systems break)"
+        ]
+      }
+    },
+    {
+      "id": 13,
+      "type": "slide",
+      "narration": "Common issues. If the bot doesn't start, check the logs with pm2 logs — you'll see the error. Usually it's a missing dependency or a typo in the dot env file. If it stops responding, restart it: pm2 restart my-bot. If you can't SSH in, check that your VPS firewall allows port twenty-two — most providers enable it by default. If you lose the server IP or password, log into your VPS provider's dashboard and retrieve it. If PM2 doesn't restart on reboot, make sure you ran pm2 startup and pm2 save. If your bot token leaks, revoke it in BotFather and generate a new one, then update the dot env file and restart.",
+      "visual": {
+        "title": "Common issues",
+        "bullets": [
+          "Bot won't start → pm2 logs (check for errors)",
+          "Bot stops → pm2 restart my-bot",
+          "Can't SSH → check firewall allows port 22",
+          "Lost IP/password → check VPS dashboard",
+          "PM2 won't auto-restart → run pm2 startup, pm2 save",
+          "Token leaked → revoke in BotFather, update .env, restart"
+        ]
+      }
+    },
+    {
+      "id": 14,
+      "type": "slide",
+      "narration": "Cost recap. The VPS is around five to fifteen dollars a month, as of this recording — check the live page. Hetzner's smallest plan is about five euros. DigitalOcean's basic droplet is six dollars. If you don't have a credit card, use a crypto-funded virtual card — load it with USDC or another stablecoin, then use it like a normal card. The VPS runs continuously — you pay monthly whether you use it or not. But you can host multiple bots on one server, so the cost is shared. Your bot's API usage — like Claude or Telegram — is separate, billed by the provider. But the server itself is a flat monthly fee.",
+      "visual": {
+        "title": "Cost recap",
+        "bullets": [
+          "VPS: ~$5–15/mo (Hetzner ~€5, DigitalOcean ~$6)",
+          "Runs 24/7 — flat monthly fee",
+          "Can host multiple bots on one server (share the cost)",
+          "No card? Use a crypto-funded virtual card (USDC)",
+          "Bot's API usage (Claude, Telegram) billed separately"
+        ]
+      }
+    },
+    {
+      "id": 15,
+      "type": "slide",
+      "narration": "Security notes. Never commit your dot env file to git — add it to dot gitignore. Keep your SSH password or key safe — if someone gets it, they control your server. Use a strong root password or, better, disable password login and use SSH keys only. Update your server regularly: sudo apt update and sudo apt upgrade. If you're running a public-facing bot, consider a firewall — ufw is built into Ubuntu. And rotate your API keys periodically — if a token leaks, revoke it immediately.",
+      "visual": {
+        "title": "Security notes",
+        "bullets": [
+          "Never commit .env to git (add to .gitignore)",
+          "Keep SSH password/key safe (controls your server)",
+          "Use SSH keys, disable password login (more secure)",
+          "Update server: sudo apt update && sudo apt upgrade",
+          "Use a firewall (ufw) for public bots",
+          "Rotate API keys, revoke if leaked"
+        ]
+      }
+    },
+    {
+      "id": 16,
+      "type": "slide",
+      "narration": "Next steps. Try deploying a different kind of agent — a Discord bot, a feed-watcher, a scheduled task. Add more features: respond to specific commands, log data to a file, integrate with other APIs. Set up monitoring so you get an email if the bot crashes. Use a custom domain and a reverse proxy like nginx if you want to expose an HTTP endpoint. Or run multiple bots on the same server — each in its own folder, each managed by PM2. The server is your playground. You control it. It runs your code around the clock.",
+      "visual": {
+        "title": "Next steps",
+        "bullets": [
+          "Deploy a different agent (Discord, feed-watcher, scheduled task)",
+          "Add features: commands, logging, API integrations",
+          "Set up monitoring (email if bot crashes)",
+          "Custom domain + nginx (expose HTTP endpoints)",
+          "Run multiple bots on one server (each in PM2)"
+        ]
+      }
+    },
+    {
+      "id": 17,
+      "type": "outro",
+      "narration": "You've deployed a real agent to a server. It runs twenty-four seven. It responds even when you're offline. This is the final project for Chapter 6. You've gone from zero to building agents that read, decide, act, and now run continuously. The exercise: deploy your bot, close your laptop, and confirm it responds from your phone. Next chapter, we'll talk about what comes after this course — communities, advanced topics, and how to keep learning. See you there.",
+      "visual": {
+        "title": "You've deployed a 24/7 agent",
+        "subtitle": "Exercise: deploy, close laptop, test from phone · Next: what comes after this course"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What does PM2 do?",
+      "options": [
+        "Keeps your bot running and restarts it if it crashes",
+        "Encrypts your API keys",
+        "Connects you to the server via SSH",
+        "Deploys your code to GitHub"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "Why do we use a .env file on the server?",
+      "options": [
+        "To store the bot's code",
+        "To keep API keys out of git and secure",
+        "To install Node packages",
+        "To run the bot in the background"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "What's the rough monthly cost of a basic VPS?",
+      "options": [
+        "$0 (always free)",
+        "$1–2",
+        "$5–15",
+        "$50–100"
+      ],
+      "answer": 2,
+      "points": 10
+    },
+    {
+      "q": "How do you restart a bot managed by PM2?",
+      "options": [
+        "pm2 restart my-bot",
+        "node bot.js",
+        "npm start",
+        "reboot the server"
+      ],
+      "answer": 0,
+      "points": 10
+    }
+  ],
+  "exercise": "Deploy your bot to a VPS and confirm it responds while your laptop is closed. Steps: (1) Get a VPS (Hetzner, DigitalOcean, or similar). (2) SSH in and install Node, npm, PM2. (3) Push your bot code to GitHub and clone it on the server. (4) Create a .env file with your API keys. (5) Start the bot with pm2 start bot.js. (6) Close your laptop and test the bot from your phone. (7) Check the logs with pm2 logs. (8) Take a screenshot of the bot responding and the PM2 status output. Post it in the Discord or keep it in your portfolio. You've built an always-on agent.",
+  "verifyCommands": [
+    "ssh root@YOUR_SERVER_IP",
+    "sudo apt update",
+    "sudo apt install nodejs npm -y",
+    "node -v",
+    "npm -v",
+    "sudo npm install -g pm2",
+    "git clone YOUR_GITHUB_REPO_URL",
+    "cd my-bot",
+    "npm install",
+    "nano .env",
+    "npm install dotenv",
+    "node bot.js",
+    "pm2 start bot.js --name my-bot",
+    "pm2 status",
+    "pm2 logs",
+    "pm2 startup",
+    "pm2 save",
+    "pm2 stop my-bot",
+    "pm2 restart my-bot"
+  ]
+}

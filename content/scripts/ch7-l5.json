@@ -1,0 +1,196 @@
+{
+  "lessonId": "ch7-l5",
+  "title": "What's Next? A Map of Advanced Paths",
+  "totalWords": 892,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. You've built real apps, you've deployed them live, you've made them talk to APIs and databases. You're not a beginner anymore. So what's next? This lesson shows you the map — the different paths you can take from here — so you can pick the direction that excites you most.",
+      "visual": {
+        "title": "What's Next?",
+        "subtitle": "A Map of Advanced Paths"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "First, understand this: you don't have to pick just one path. These aren't careers — they're skills you layer on top of each other. You might build a SaaS product that uses AI agents that run on your own infrastructure. Or you might automate your content creation while learning advanced backend patterns. The paths intersect. But it helps to have a map, so let's walk through the main directions.",
+      "visual": {
+        "title": "The Paths Aren't Exclusive",
+        "bullets": [
+          "You can mix and layer them",
+          "Pick what excites you right now",
+          "You'll naturally cross paths later",
+          "This is a map, not a job title"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "slide",
+      "narration": "Path one: Product Builder. This is where you take what you've learned and build real products that people pay for. A SaaS app. A marketplace. A tool that solves a problem you've seen. You focus on user experience, payment flows, marketing, getting customers. You're not just coding — you're building a business. The tech is the same stack you already know, but now you're thinking about pricing, onboarding, retention, growth. This path is about turning code into money.",
+      "visual": {
+        "title": "Path 1: Product Builder",
+        "bullets": [
+          "Build SaaS apps people pay for",
+          "Focus: UX, payments, customers",
+          "Same stack, business mindset",
+          "Turn code into revenue"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "slide",
+      "narration": "Path two: AI Agent Developer. You go deep on agents — systems that reason, plan, use tools, and act autonomously. You build agents that run workflows, scrape data, write code, manage infrastructure. You learn advanced prompting, tool-calling patterns, memory systems, multi-agent coordination. You might build an agent that monitors your app and fixes bugs, or an agent that generates content and publishes it, or an agent that handles customer support. This path is about making AI do real work without human intervention.",
+      "visual": {
+        "title": "Path 2: AI Agent Developer",
+        "bullets": [
+          "Agents that reason and act autonomously",
+          "Advanced prompting, tools, memory",
+          "Multi-agent systems",
+          "AI that does real work unsupervised"
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "type": "slide",
+      "narration": "Path three: Infrastructure Engineer. You learn how servers really work. You set up your own VPS, configure networking, manage databases, handle backups, set up monitoring, optimize performance. You move beyond serverless and understand the full stack — operating systems, containers, load balancers, CDNs. You can deploy anything anywhere and keep it running. This path is about control and understanding the machine.",
+      "visual": {
+        "title": "Path 3: Infrastructure Engineer",
+        "bullets": [
+          "Manage your own servers and networks",
+          "Full stack: OS, containers, databases",
+          "Performance, monitoring, backups",
+          "Control and deep understanding"
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "type": "slide",
+      "narration": "Path four: Content Creator and Automator. You use code to create and distribute content at scale. You build systems that generate videos, write articles, post to social media, manage communities. You learn video editing APIs, text-to-speech, image generation, scheduling systems. You might automate a YouTube channel, or build a newsletter that writes itself, or create a bot that runs a social account. This path is about using code to amplify your voice and reach.",
+      "visual": {
+        "title": "Path 4: Content Creator & Automator",
+        "bullets": [
+          "Code that creates and distributes content",
+          "Video, audio, text, social media",
+          "Automation at scale",
+          "Amplify your reach with code"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "type": "slide",
+      "narration": "Path five: Advanced Full-Stack Developer. You go deeper into the patterns and architectures that power large apps. You learn about caching strategies, database optimization, real-time systems, microservices, testing at scale. You understand how to structure code so it doesn't collapse under its own weight. You read other people's codebases and understand them. This path is about mastery of the craft itself.",
+      "visual": {
+        "title": "Path 5: Advanced Full-Stack Developer",
+        "bullets": [
+          "Deep patterns and architectures",
+          "Caching, optimization, real-time",
+          "Code that scales and stays clean",
+          "Mastery of the craft"
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "type": "slide",
+      "narration": "So how do you choose? Here's my advice: pick the path that makes you want to start right now. Not the one that sounds impressive, not the one you think you should do — the one that makes you excited to open your editor today. You can always change direction. The skills transfer. But momentum matters more than the perfect choice. Pick something, start building, and let the work show you where to go next.",
+      "visual": {
+        "title": "How to Choose Your Path",
+        "bullets": [
+          "Pick what excites you TODAY",
+          "Not what sounds impressive",
+          "Momentum beats perfect planning",
+          "Skills transfer between paths",
+          "Start building, adjust as you go"
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "type": "slide",
+      "narration": "Here's what you do next. Go to the exercise for this lesson. It asks you to choose a path and write down the very first concrete step you'll take. Not a vague goal — a specific action. Like: I'll build a SaaS landing page with a payment button. Or: I'll set up a VPS and deploy my portfolio there. Or: I'll build an agent that posts to Twitter every morning. One step. Write it down. Then do it. That's how you go from here to advanced. One step at a time, in a direction that matters to you.",
+      "visual": {
+        "title": "Your Next Action",
+        "bullets": [
+          "Choose a path from this lesson",
+          "Write ONE concrete first step",
+          "Not a goal — a specific action",
+          "Then do it today",
+          "That's how you advance"
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "type": "outro",
+      "narration": "You've completed the core Nabulines Academy curriculum. You went from zero to deploying real apps, from no code to building with AI, from confused to capable. What you do next is up to you. Pick a path, take the first step, and keep building. I'll see you out there.",
+      "visual": {
+        "title": "You're Ready",
+        "subtitle": "Pick a path. Take the first step. Keep building."
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What's the most important factor in choosing your next path?",
+      "options": [
+        "Which path sounds most impressive",
+        "Which path excites you enough to start today",
+        "Which path pays the most money",
+        "Which path everyone else is doing"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "True or false: You must pick one path and stick with it forever.",
+      "options": [
+        "True — changing paths wastes time",
+        "False — the paths intersect and skills transfer"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "What should your first step be after choosing a path?",
+      "options": [
+        "Read ten books about it",
+        "Plan everything perfectly",
+        "One specific action you can do today",
+        "Tell everyone your new plan"
+      ],
+      "answer": 2,
+      "points": 10
+    },
+    {
+      "q": "Which path focuses on building systems that create and distribute content at scale?",
+      "options": [
+        "Infrastructure Engineer",
+        "AI Agent Developer",
+        "Content Creator and Automator",
+        "Advanced Full-Stack Developer"
+      ],
+      "answer": 2,
+      "points": 10
+    },
+    {
+      "q": "What does the Product Builder path focus on beyond just coding?",
+      "options": [
+        "Server configuration and networking",
+        "Advanced prompting and AI tools",
+        "UX, payments, customers, and business",
+        "Video editing and social media"
+      ],
+      "answer": 2,
+      "points": 10
+    }
+  ],
+  "exercise": "Choose your next path from this lesson. Write down ONE specific action you'll take in the next 24 hours to start that path. Not a vague goal — a concrete step. Example: 'I'll deploy my portfolio to a VPS' or 'I'll build a landing page with a Stripe payment button' or 'I'll create an agent that posts a daily tip to Twitter.' Write it in a file called `my-next-step.md` in your projects folder. Then do it.",
+  "verifyCommands": []
+}

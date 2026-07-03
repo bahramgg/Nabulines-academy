@@ -1,0 +1,159 @@
+{
+  "lessonId": "ch5-l4",
+  "title": "What Is an API — The Front Door to the World's Data",
+  "totalWords": 820,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. Today we're answering one of the biggest questions in modern development: what is an API? You've heard the term everywhere — fetch data from an API, call an API, API key. By the end of this lesson, you'll know exactly what it means and why every app you build will use them. Let's go.",
+      "visual": {
+        "title": "What Is an API?",
+        "subtitle": "The Front Door to the World's Data"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "API stands for Application Programming Interface. That sounds technical, but here's the real definition: an API is a way for your app to ask another service for data or to do something. Think of it as a front door. You knock — send a request — and the service answers back with data. You want the weather? There's a weather API. You want to charge a credit card? There's a payment API. You want to translate text? There's a translation API. Every major service — Google, Stripe, OpenAI, Spotify — offers an API so your app can talk to theirs.",
+      "visual": {
+        "title": "API = A Way to Ask for Data",
+        "bullets": [
+          "Your app sends a request (a knock on the door)",
+          "The service sends back data (the answer)",
+          "Weather, payments, maps, AI — all via APIs",
+          "Every modern app uses dozens of APIs"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "slide",
+      "narration": "Let's make it concrete. Say you're building a travel app. You need the weather in Tokyo. You don't have a weather satellite — but a weather service does. Their API is the door. You send a request: give me the weather for Tokyo. They send back JSON — a text format — with the temperature, conditions, forecast. Your app reads that JSON and shows it to the user. That's an API call. You asked, they answered, you displayed it. The same pattern works for everything: stock prices, restaurant reviews, flight data, AI-generated text. Your app is the asker, the API is the answerer.",
+      "visual": {
+        "title": "Example: Weather API",
+        "bullets": [
+          "Your app: 'Give me Tokyo weather'",
+          "API responds with JSON: temp, conditions, forecast",
+          "Your app displays it to the user",
+          "You don't own the data — you just ask for it"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "slide",
+      "narration": "How do you actually call an API? In code, you use a function like fetch. You give it a URL — the address of the API — and it sends the request over the internet. The API sends back a response, usually JSON. You parse that JSON and use the data. That's it. The technical term is an HTTP request — the same protocol your browser uses to load web pages. When you visit a website, your browser is making an HTTP request to a server. When your app calls an API, it's doing the exact same thing — just asking for data instead of HTML.",
+      "visual": {
+        "title": "How You Call an API",
+        "bullets": [
+          "Use fetch() in your code",
+          "Give it the API's URL",
+          "It sends an HTTP request over the internet",
+          "The API responds with JSON data",
+          "You parse and use that data in your app"
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "type": "terminal",
+      "narration": "Let's see a real example. Here's a free API that returns a random cat fact — yes, that exists. We'll use curl, a command-line tool that sends HTTP requests, to call it. The command is curl followed by the URL. Watch what comes back. It's JSON — a text object with a fact field. That's the data. In a real app, you'd use fetch in JavaScript to do the same thing, then display the fact on your page. This is the pattern: ask, receive, display. Every API works this way.",
+      "visual": {
+        "commands": [
+          "# Call a free cat facts API",
+          "curl https://catfact.ninja/fact"
+        ],
+        "output": "{\n  \"fact\": \"Cats have 32 muscles in each ear.\",\n  \"length\": 34\n}",
+        "caption": "A real API call — request sent, JSON returned"
+      }
+    },
+    {
+      "id": 6,
+      "type": "slide",
+      "narration": "Why does this matter? Because APIs let you build apps that do things you could never do alone. You can't build a payment processor from scratch — but Stripe's API gives you one. You can't train a giant AI model — but OpenAI's API gives you access to one. You can't map the entire world — but Google Maps API gives you that data. APIs are how small teams build big apps. You focus on your idea, your interface, your users — and you plug into APIs for everything else. That's the power. You're not starting from zero. You're standing on the shoulders of every service that offers an API.",
+      "visual": {
+        "title": "Why APIs Matter",
+        "bullets": [
+          "You can't build everything yourself",
+          "APIs give you superpowers: payments, AI, maps, data",
+          "Small teams build big apps by combining APIs",
+          "You focus on your idea — APIs handle the rest"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "type": "slide",
+      "narration": "One more thing: most APIs require an API key. That's a secret string you include in your request to prove you're allowed to use the API. It's like a password. You sign up for the service, they give you a key, you include it in every request. Some APIs are free, some charge per request. We'll cover API keys and costs in the next lesson. For now, just know: an API is a door, a request is a knock, JSON is the answer, and your app is the one asking. That's the foundation of modern development.",
+      "visual": {
+        "title": "API Keys (Coming Next)",
+        "bullets": [
+          "Most APIs require an API key (a secret string)",
+          "You include it in every request to prove you're allowed",
+          "Some APIs are free, some charge per use",
+          "Next lesson: how to get and use API keys"
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "type": "outro",
+      "narration": "That's an API. A way for your app to ask other services for data. You send a request, they send back JSON, you display it. Every app you build will use APIs — weather, payments, AI, maps, everything. Your exercise: in one sentence, describe what data your dream app would fetch. What door would you knock on? Next lesson, we'll get real API keys and call a paid API. See you there.",
+      "visual": {
+        "title": "Next: Getting and Using API Keys",
+        "subtitle": "nabulines.academy"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What does API stand for?",
+      "options": [
+        "Application Programming Interface",
+        "Automated Program Interaction",
+        "Advanced Processing Integration",
+        "Application Process Identifier"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "What format do most APIs return data in?",
+      "options": [
+        "XML",
+        "JSON",
+        "CSV",
+        "HTML"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "What is an API key?",
+      "options": [
+        "A secret string that proves you're allowed to use the API",
+        "A type of encryption algorithm",
+        "A database password",
+        "A URL parameter"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "In code, what function do you typically use to call an API?",
+      "options": [
+        "request()",
+        "fetch()",
+        "call()",
+        "api()"
+      ],
+      "answer": 1,
+      "points": 10
+    }
+  ],
+  "exercise": "In one sentence, describe what data your dream app would fetch from an API.",
+  "verifyCommands": [
+    "curl https://catfact.ninja/fact"
+  ]
+}

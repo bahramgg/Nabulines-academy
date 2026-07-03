@@ -1,0 +1,265 @@
+{
+  "lessonId": "ch4-l6",
+  "title": "Debugging: When It Breaks, Fix It Like This",
+  "totalWords": 1840,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. Today you're learning the skill that separates someone who gives up from someone who ships: debugging. When code breaks — and it will break — you need a calm, repeatable routine to fix it. By the end of this lesson, you'll turn red error messages into green working code without panic. Let's go.",
+      "visual": {
+        "title": "Debugging: When It Breaks, Fix It Like This",
+        "subtitle": "Turn errors into fixes — every time"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "First, what debugging actually is. Debugging means finding and fixing the reason your code isn't working. The name comes from the 1940s — engineers literally found a moth stuck in a computer relay. Today, bugs are mistakes in your code, not insects. But the principle is the same: something's wrong, you find it, you fix it. Every professional developer debugs daily. It's not a sign you're bad at coding — it's the core of coding.",
+      "visual": {
+        "title": "What is debugging?",
+        "bullets": [
+          "Finding why code doesn't work",
+          "Fixing the mistake (the 'bug')",
+          "Every developer does this daily",
+          "Not a failure — it's the job"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "slide",
+      "narration": "Here's the beginner mistake: you see red text, you panic, you randomly change things hoping it goes away. That doesn't work. Instead, follow this three-step routine every single time. One: read the error message out loud — actually read it, word by word. Two: find the line number it mentions. Three: paste the error and surrounding code into Claude Code and ask what's wrong. This routine turns chaos into a calm process. Let's see it in action.",
+      "visual": {
+        "title": "The debugging routine (do this every time)",
+        "bullets": [
+          "1. Read the error message — out loud",
+          "2. Find the line number it points to",
+          "3. Paste error + code into Claude Code",
+          "No panic, no guessing — just steps"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "terminal",
+      "narration": "Let's create a real broken program so you see the routine in practice. Open your terminal. Type npm init dash y to make a new project folder. Now create a file called broken dot j s. Inside, write this code exactly: const name equals quote John. console dot log opening paren name dot toUpperCase closing paren semicolon. Save it. Now run it: node broken dot j s. You'll see red error text. Don't panic — this is exactly what we want.",
+      "visual": {
+        "commands": [
+          "mkdir debug-practice && cd debug-practice",
+          "npm init -y",
+          "# Create broken.js with this code:",
+          "const name = \"John",
+          "console.log(name.toUpperCase());",
+          "",
+          "node broken.js"
+        ],
+        "output": "SyntaxError: Invalid or unexpected token\n    at Module._compile (node:internal/modules/cjs/loader:1241:18)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1295:10)\nNode.js v20.11.0",
+        "caption": "Creating a broken program to practice the routine"
+      }
+    },
+    {
+      "id": 5,
+      "type": "slide",
+      "narration": "Step one: read the error out loud. It says Syntax Error: Invalid or unexpected token. Then it shows a file path and a line number. The error is telling you: I tried to read your code and found something I didn't expect. The word 'token' means a piece of code — a quote, a bracket, a semicolon. Something in your code doesn't match the rules of JavaScript. Now you know the category of problem. You're not guessing anymore — you're reading what the computer is telling you.",
+      "visual": {
+        "title": "Step 1: Read the error",
+        "bullets": [
+          "\"SyntaxError: Invalid or unexpected token\"",
+          "SyntaxError = code doesn't follow JS rules",
+          "Token = a piece of code (quote, bracket, etc.)",
+          "It's telling you the category of problem"
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "type": "code",
+      "narration": "Step two: find the line number. The error message showed broken dot j s line one. Open that file and look at line one. Here it is: const name equals quote John — and the quote never closes. See it? The string starts with a quote but there's no closing quote before the semicolon. That's the invalid token. The computer expected a closing quote and didn't find one. Now you've located the exact spot. You're halfway to fixed.",
+      "visual": {
+        "language": "javascript",
+        "filename": "broken.js",
+        "code": "const name = \"John\nconsole.log(name.toUpperCase());",
+        "highlight": [
+          1
+        ],
+        "caption": "Line 1: missing closing quote after 'John'"
+      }
+    },
+    {
+      "id": 7,
+      "type": "slide",
+      "narration": "Step three: paste it into Claude Code. Copy the error message and the code around the line number. Open Claude Code — either in your editor or the terminal with claude-code chat. Paste the error and the code. Then ask: What's wrong here and how do I fix it? Claude will explain the problem in plain English and show you the corrected line. For this error, it'll say: you're missing a closing quote. Change line one to const name equals quote John quote semicolon. That's it. You didn't guess — you followed the routine and got the answer.",
+      "visual": {
+        "title": "Step 3: Ask Claude Code",
+        "bullets": [
+          "Copy: error message + code around line number",
+          "Paste into Claude Code (editor or terminal)",
+          "Ask: \"What's wrong and how do I fix it?\"",
+          "Claude explains + shows the fix"
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "type": "code",
+      "narration": "Here's the fixed code. Line one now reads: const name equals quote John quote semicolon. Both quotes are there. The string is closed. Save the file and run node broken dot j s again. This time you'll see: JOHN in all caps. Green. Working. That's the routine: read the error, find the line, ask Claude Code, apply the fix, run again. Every time you debug, you follow these three steps. It becomes automatic.",
+      "visual": {
+        "language": "javascript",
+        "filename": "broken.js",
+        "code": "const name = \"John\";\nconsole.log(name.toUpperCase());",
+        "highlight": [
+          1
+        ],
+        "caption": "Fixed: closing quote added — now it runs"
+      }
+    },
+    {
+      "id": 9,
+      "type": "slide",
+      "narration": "Let's talk about the most common error types you'll see. Syntax errors: you broke a language rule — missing quote, bracket, semicolon. Reference errors: you used a variable that doesn't exist — maybe you misspelled it. Type errors: you tried to do something to the wrong kind of data — like calling dot length on a number. Each error type has a name and a pattern. After you debug a few, you'll recognize them instantly. The error message is not your enemy — it's a clue.",
+      "visual": {
+        "title": "Common error types (you'll see these constantly)",
+        "bullets": [
+          "SyntaxError: broke a language rule (quote, bracket, etc.)",
+          "ReferenceError: used a variable that doesn't exist",
+          "TypeError: wrong data type for an operation",
+          "Each has a pattern — you'll learn to recognize them"
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "type": "slide",
+      "narration": "Here's what not to do. Don't randomly change things hoping the error disappears. Don't ignore the error message and rewrite everything from scratch. Don't assume the error is someone else's fault — the framework, the tutorial, the computer. Ninety-nine percent of the time, it's a typo or a misunderstanding in your code. That's good news — it means you can fix it. The routine works because it makes you slow down and read what the computer is actually saying.",
+      "visual": {
+        "title": "What NOT to do when debugging",
+        "bullets": [
+          "Don't randomly change things",
+          "Don't ignore the error and rewrite everything",
+          "Don't blame the framework or tutorial",
+          "99% of the time: it's a fixable mistake in your code"
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "type": "terminal",
+      "narration": "Let's try one more example — a reference error this time. Create a new file called broken-two dot j s. Write: console dot log opening paren userName closing paren semicolon. Notice we never defined userName — we just tried to use it. Save and run: node broken-two dot j s. You'll see: ReferenceError: userName is not defined. Now follow the routine. Read the error: reference error, userName is not defined. Find the line: line one. Paste into Claude Code: what's wrong? Claude will say: you're using a variable that doesn't exist. Define it first. Add const userName equals quote Alice quote semicolon above the log line. Run again. It prints Alice. Green. Fixed.",
+      "visual": {
+        "commands": [
+          "# Create broken-two.js:",
+          "console.log(userName);",
+          "",
+          "node broken-two.js"
+        ],
+        "output": "ReferenceError: userName is not defined\n    at Object.<anonymous> (/path/broken-two.js:1:13)\nNode.js v20.11.0\n\n# After fix:\nconst userName = \"Alice\";\nconsole.log(userName);\n\nnode broken-two.js\nAlice",
+        "caption": "ReferenceError → define the variable → green"
+      }
+    },
+    {
+      "id": 12,
+      "type": "slide",
+      "narration": "One more tip: when you paste code into Claude Code, include a few lines above and below the error line. Context helps. If the error is on line ten, paste lines seven through thirteen. Claude can see if you're missing a bracket three lines up or if a variable was defined wrong earlier. The more context, the faster Claude finds the root cause. Don't just paste the single broken line — paste the neighborhood.",
+      "visual": {
+        "title": "Pro tip: give Claude context",
+        "bullets": [
+          "Paste a few lines above + below the error",
+          "Error on line 10? Paste lines 7–13",
+          "Context reveals the root cause",
+          "More info = faster, better fix"
+        ]
+      }
+    },
+    {
+      "id": 13,
+      "type": "slide",
+      "narration": "Here's the truth: debugging is where you actually learn to code. Reading a tutorial is passive. Fixing your own broken code is active. Every bug you fix teaches you something — a rule you didn't know, a pattern you'll recognize next time. The goal isn't to write perfect code the first time. The goal is to write code, see it break, fix it fast, and move forward. That's the real skill. And now you have the routine to do it every single time.",
+      "visual": {
+        "title": "Debugging is where you learn",
+        "bullets": [
+          "Tutorials are passive — fixing bugs is active",
+          "Every bug teaches you a rule or pattern",
+          "Goal: write, break, fix fast, move forward",
+          "The routine makes you unstoppable"
+        ]
+      }
+    },
+    {
+      "id": 14,
+      "type": "slide",
+      "narration": "Let's recap the three-step routine one more time. Step one: read the error message out loud — actually read it, don't skim. Step two: find the line number it points to and look at that line. Step three: paste the error and surrounding code into Claude Code and ask what's wrong. Follow these steps every time you see red text. No panic, no guessing. Just read, locate, ask, fix. That's debugging.",
+      "visual": {
+        "title": "The routine (memorize this)",
+        "bullets": [
+          "1. Read the error — out loud",
+          "2. Find the line number",
+          "3. Paste into Claude Code + ask",
+          "Every time. No exceptions."
+        ]
+      }
+    },
+    {
+      "id": 15,
+      "type": "outro",
+      "narration": "You now know how to debug like a professional. When your code breaks, you don't panic — you follow the routine. Read the error, find the line, ask Claude Code, apply the fix, run again. Green. For your exercise, go create a broken program on purpose. Introduce a syntax error, a reference error, or a type error. Then follow the three-step routine to fix it. Paste the error into Claude Code and watch it guide you to green. Next lesson, we're putting everything together: you'll build a full multi-page app from scratch using every skill you've learned. See you there.",
+      "visual": {
+        "title": "You're a debugger now",
+        "subtitle": "Next: Build a full app from scratch"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What is the first step of the debugging routine?",
+      "options": [
+        "Read the error message out loud",
+        "Rewrite the entire file",
+        "Ask Claude Code immediately",
+        "Delete the broken line"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "A ReferenceError means:",
+      "options": [
+        "You broke a syntax rule",
+        "You used a variable that doesn't exist",
+        "You have a typo in a string",
+        "Your code is too long"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "When pasting code into Claude Code for debugging, you should:",
+      "options": [
+        "Only paste the exact broken line",
+        "Paste the entire file always",
+        "Paste a few lines above and below the error",
+        "Paste the error message only"
+      ],
+      "answer": 2,
+      "points": 10
+    },
+    {
+      "q": "What does 'token' mean in a SyntaxError message?",
+      "options": [
+        "A password",
+        "A piece of code like a quote or bracket",
+        "A variable name",
+        "An error code"
+      ],
+      "answer": 1,
+      "points": 10
+    }
+  ],
+  "exercise": "Create a file with a deliberate error (missing quote, undefined variable, or wrong data type). Run it, see the error, then follow the three-step routine: read the error, find the line, paste into Claude Code. Fix it until it runs green. Repeat with a different error type.",
+  "verifyCommands": [
+    "mkdir debug-practice && cd debug-practice",
+    "npm init -y",
+    "node broken.js",
+    "node broken-two.js"
+  ]
+}

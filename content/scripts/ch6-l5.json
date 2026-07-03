@@ -1,0 +1,250 @@
+{
+  "lessonId": "ch6-l5",
+  "title": "VPS: Your Own Cloud Computer (Rent, Connect, Run)",
+  "totalWords": 1847,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. Today we're renting your own cloud computer — a VPS — and connecting to it for the first time. By the end of this lesson, you'll have a real server running somewhere in the world that you can control from your terminal. Let's go.",
+      "visual": {
+        "title": "VPS: Your Own Cloud Computer",
+        "subtitle": "Rent, Connect, Run"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "VPS stands for Virtual Private Server. It's a computer — just like yours — but it lives in a data center and runs twenty-four-seven. You rent it by the month. You connect to it over the internet using SSH, which is a secure way to type commands on a remote machine. Once you're connected, you can install software, run scripts, host websites, or keep an agent running all day. It's yours to use however you want. The smallest VPS costs about five to fifteen dollars a month as of this recording — check the live page when you sign up. That buys you a tiny slice of a real server: usually one CPU core, half a gig or a gig of RAM, and ten to twenty-five gigs of disk space. That's enough to run a Node script, a small database, a Discord bot, or a personal site. If you need more power later, you can upgrade.",
+      "visual": {
+        "title": "What is a VPS?",
+        "bullets": [
+          "A real computer in a data center — runs 24/7",
+          "You rent it by the month (~$5–15/mo)",
+          "Connect via SSH (secure remote terminal)",
+          "Install anything, run anything, host anything",
+          "Smallest size: 1 CPU, 0.5–1 GB RAM, 10–25 GB disk"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "slide",
+      "narration": "Why do you need a VPS? Three big reasons. One: your computer sleeps or shuts down — a VPS never does. If you want a Discord bot or a cron job that checks something every hour, it needs to run somewhere that's always on. Two: a public IP address. Your home internet usually hides you behind a router. A VPS has its own IP, so you can run a web server or API that the world can reach. Three: it's separate from your laptop. You can experiment, break things, reinstall the operating system, and your personal files are safe. It's a sandbox in the cloud. For this course, we'll use a VPS to run long-running agents, host backend scripts, and keep services online even when your laptop is closed.",
+      "visual": {
+        "title": "Why You Need a VPS",
+        "bullets": [
+          "Always on — no sleep, no shutdown",
+          "Public IP — the world can reach it",
+          "Separate from your laptop — safe to experiment",
+          "Use cases: bots, cron jobs, APIs, agents, hosting"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "slide",
+      "narration": "There are dozens of VPS providers. The big names are DigitalOcean, Linode (now Akamai), Vultr, and Hetzner. For this lesson we'll use Hetzner because it's cheap, reliable, and beginner-friendly. A small Hetzner VPS costs about five euros a month — roughly five to six dollars depending on exchange rates. Check the live price when you sign up. You can pay with a credit card or PayPal. If you don't have a card, you can use a crypto-funded virtual card — we covered that in the costs lesson. All these providers work the same way: you pick a size, pick a data center location, pick an operating system — usually Ubuntu Linux — and click create. A minute later, you have a running server.",
+      "visual": {
+        "title": "VPS Providers (All Work Similarly)",
+        "bullets": [
+          "Hetzner — ~€5/mo (~$5–6 USD)",
+          "DigitalOcean, Linode, Vultr — ~$5–7/mo",
+          "Pay: card, PayPal, or crypto virtual card",
+          "Pick: size, location, OS (Ubuntu)",
+          "Server ready in ~1 minute"
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "type": "browser",
+      "narration": "Let's rent a VPS on Hetzner. Go to hetzner dot com and sign up for an account. You'll need to verify your email and add a payment method. Once you're logged in, click on Cloud in the top menu, then click Add Server. First, pick a location — choose one close to you or your users for lower latency. Frankfurt and Helsinki are popular in Europe; Ashburn is common in the US. Next, pick an image — that's the operating system. Choose Ubuntu, the latest LTS version — that's Long Term Support, meaning it gets updates for years. Now pick the server type. The smallest shared CPU option is usually labeled CX11 or similar — one virtual CPU, two gigs of RAM, twenty gigs of disk. That's perfect for learning. The price is shown on the right — about five euros a month. Scroll down and you'll see SSH keys. We'll add one in a moment. For now, leave it empty and Hetzner will email you a root password. Give your server a name — something like my-first-vps. Then click Create and Buy Now. Hetzner spins up the server in about sixty seconds. You'll see it appear in your dashboard with a public IP address. Copy that IP — you'll need it to connect.",
+      "visual": {
+        "captureScript": "capture/ch6-l5-hetzner-signup.ts",
+        "caption": "Creating a VPS on Hetzner: location, Ubuntu, CX11, create"
+      }
+    },
+    {
+      "id": 6,
+      "type": "slide",
+      "narration": "Before we connect, let's talk about SSH keys. SSH is the protocol you use to securely log in to a remote server. You can log in with a password, but a better way is to use an SSH key pair. A key pair is two files: a private key that stays on your laptop, and a public key that you upload to the server. When you connect, SSH proves you have the private key without sending it over the internet. It's more secure and more convenient — no typing passwords. If you already have an SSH key, you can skip this step. If not, open your terminal and run ssh-keygen. It will ask where to save the key — just press enter to accept the default, which is dot ssh slash id underscore rsa in your home directory. It will ask for a passphrase — you can leave it empty for now by pressing enter twice. This creates two files: id underscore rsa is your private key, and id underscore rsa dot pub is your public key. Never share the private key. The public key is safe to upload anywhere.",
+      "visual": {
+        "title": "SSH Keys (Secure Login, No Password)",
+        "bullets": [
+          "Key pair = private key (stays on laptop) + public key (upload to server)",
+          "More secure than password",
+          "Generate: ssh-keygen → press enter 3 times",
+          "Creates ~/.ssh/id_rsa (private) and ~/.ssh/id_rsa.pub (public)",
+          "Never share private key"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "type": "terminal",
+      "narration": "Let's generate an SSH key if you don't have one. Run ssh-keygen. Press enter to accept the default file location. Press enter twice to skip the passphrase. You'll see output that says your identification and public key have been saved. Now run cat tilde slash dot ssh slash id underscore rsa dot pub. That prints your public key. Copy the entire line — it starts with ssh-rsa and ends with your username at your computer name. Go back to your Hetzner dashboard, click on your server, then click on the SSH Keys tab. Click Add SSH Key, paste your public key, give it a name like my-laptop, and save. Next time you create a server, you can select this key and Hetzner won't generate a password — you'll log in with your key automatically.",
+      "visual": {
+        "commands": [
+          "ssh-keygen",
+          "",
+          "",
+          "",
+          "cat ~/.ssh/id_rsa.pub"
+        ],
+        "output": "Generating public/private rsa key pair.\nEnter file in which to save the key (/Users/you/.ssh/id_rsa): \nEnter passphrase (empty for no passphrase): \nEnter same passphrase again: \nYour identification has been saved in /Users/you/.ssh/id_rsa\nYour public key has been saved in /Users/you/.ssh/id_rsa.pub\n\nssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC... you@laptop"
+      }
+    },
+    {
+      "id": 8,
+      "type": "slide",
+      "narration": "Now let's connect. SSH uses this format: ssh username at IP address. The default username on a new server is root — that's the admin account. So if your server's IP is 192.0.2.50, you'd run ssh root at 192.0.2.50. The first time you connect, SSH will ask if you trust this host. Type yes and press enter. If you didn't add an SSH key, it will ask for the password Hetzner emailed you. If you did add a key, it logs you in automatically. Once you're connected, your terminal prompt changes — it now says root at your-server-name. You're typing commands on the VPS, not your laptop. Anything you run here happens on the remote machine. Type hostname to see the server's name. Type uname dash a to see the operating system and kernel version. Type exit to disconnect and return to your laptop.",
+      "visual": {
+        "title": "Connect via SSH",
+        "bullets": [
+          "ssh root@<IP_ADDRESS>",
+          "First time: type 'yes' to trust host",
+          "Password or key → you're in",
+          "Prompt changes to root@server-name",
+          "Try: hostname, uname -a",
+          "exit → back to your laptop"
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "type": "terminal",
+      "narration": "Let's connect for real. Copy your server's IP from the Hetzner dashboard. In your terminal, run ssh root at paste-the-IP. If this is your first connection, you'll see a message about the authenticity of the host. Type yes. If you're using a password, paste it when prompted. If you set up an SSH key, you're logged in instantly. Now you're on the VPS. Run hostname. It prints the server's name — something like my-first-vps or a random string Hetzner generated. Run uname dash a. You'll see Linux, the kernel version, and x86 underscore 64 architecture. This confirms you're on an Ubuntu server. Run exit to disconnect. Your prompt returns to your laptop. That's it — you've connected to your own cloud computer.",
+      "visual": {
+        "commands": [
+          "ssh root@192.0.2.50",
+          "yes",
+          "hostname",
+          "uname -a",
+          "exit"
+        ],
+        "output": "The authenticity of host '192.0.2.50' can't be established.\nAre you sure you want to continue connecting (yes/no)? yes\nWarning: Permanently added '192.0.2.50' (ED25519) to the list of known hosts.\nWelcome to Ubuntu 24.04 LTS\n\nroot@my-first-vps:~# hostname\nmy-first-vps\nroot@my-first-vps:~# uname -a\nLinux my-first-vps 6.8.0-47-generic #47-Ubuntu SMP x86_64 GNU/Linux\nroot@my-first-vps:~# exit\nlogout\nConnection to 192.0.2.50 closed.\nyou@laptop:~$"
+      }
+    },
+    {
+      "id": 10,
+      "type": "slide",
+      "narration": "What can you do on a VPS? Almost anything. You can install Node, Python, Docker, databases, web servers — it's a blank Linux machine. You can run a script that never stops. You can set up a cron job to run a task every hour. You can host a website by pointing a domain at the IP. You can run an AI agent that monitors Discord or Twitter all day. In the next lessons, we'll install Node, clone a repo, and run a real agent on this VPS. For now, just know: you have a computer in the cloud that's always on, always reachable, and totally under your control. If you ever want to start fresh, you can delete the server in the Hetzner dashboard and create a new one in sixty seconds. Experiment freely — it's your sandbox.",
+      "visual": {
+        "title": "What You Can Do on a VPS",
+        "bullets": [
+          "Install: Node, Python, Docker, databases, web servers",
+          "Run scripts 24/7 (agents, bots, cron jobs)",
+          "Host websites (point a domain at the IP)",
+          "Totally under your control",
+          "Delete and recreate anytime — it's your sandbox"
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "type": "slide",
+      "narration": "A few safety tips. One: the root account has total power. Be careful what you run. If you break something, you can reinstall the OS from the Hetzner dashboard — it's called a rebuild. Two: your VPS is exposed to the internet. Bots will try to log in. That's why SSH keys are better than passwords. You can also set up a firewall — we'll cover that in a later lesson. Three: backups. Hetzner offers automatic backups for a small fee — a few euros a month. If you're running something important, turn them on. For learning, you don't need backups — just recreate the server if something goes wrong. Four: cost. A VPS runs until you delete it. If you stop using it, delete it so you're not charged. You can always spin up a new one when you need it.",
+      "visual": {
+        "title": "Safety & Cost Tips",
+        "bullets": [
+          "Root = total power — be careful",
+          "Rebuild OS from dashboard if you break it",
+          "Exposed to internet — use SSH keys + firewall",
+          "Backups available (~few €/mo) — optional for learning",
+          "Delete server when not using to stop charges"
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "type": "slide",
+      "narration": "Let's recap. A VPS is a rented computer in the cloud that runs twenty-four-seven. You connect to it using SSH — either with a password or an SSH key. Once connected, you can run any command, install any software, and host any service. The smallest VPS costs about five to fifteen dollars a month as of this recording. We used Hetzner, but DigitalOcean, Linode, and Vultr all work the same way. You now have a server. In the next lesson, we'll install Node on it and run a real script. This is where your agent goes from a local experiment to a live service. You're one step away from having something running in the cloud that you can reach from anywhere. Let's keep going.",
+      "visual": {
+        "title": "Recap: You Have a Cloud Computer",
+        "bullets": [
+          "VPS = rented server, always on, ~$5–15/mo",
+          "Connect: ssh root@IP",
+          "Run anything, install anything, host anything",
+          "Next: install Node, run a real script",
+          "Your agent is about to go live"
+        ]
+      }
+    },
+    {
+      "id": 13,
+      "type": "outro",
+      "narration": "Your exercise: connect to your VPS and run the hostname command. Paste the output in the exercise thread. That proves you're connected and ready to build. Next lesson: we'll install Node, clone a repo, and run a script that stays online forever. See you there.",
+      "visual": {
+        "title": "Exercise: Connect and Run hostname",
+        "subtitle": "Next: Install Node, Run a Real Script"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What does VPS stand for?",
+      "options": [
+        "Virtual Private Server",
+        "Very Powerful System",
+        "Variable Processing Service",
+        "Verified Public Server"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "What protocol do you use to connect to a VPS?",
+      "options": [
+        "FTP",
+        "HTTP",
+        "SSH",
+        "SMTP"
+      ],
+      "answer": 2,
+      "points": 10
+    },
+    {
+      "q": "Why is an SSH key better than a password?",
+      "options": [
+        "It's faster to type",
+        "It's more secure and you don't have to remember it",
+        "It works on more servers",
+        "It's required by all providers"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "What is the default admin username on a new Linux VPS?",
+      "options": [
+        "admin",
+        "user",
+        "root",
+        "sudo"
+      ],
+      "answer": 2,
+      "points": 10
+    },
+    {
+      "q": "How much does a small VPS cost per month (as of this recording)?",
+      "options": [
+        "About $1–2",
+        "About $5–15",
+        "About $50–100",
+        "Free"
+      ],
+      "answer": 1,
+      "points": 10
+    }
+  ],
+  "exercise": "Rent a VPS (Hetzner or any provider), connect to it via SSH, run the `hostname` command, and paste the output in the exercise thread. This proves you're connected and ready to install software in the next lesson.",
+  "verifyCommands": [
+    "ssh-keygen",
+    "cat ~/.ssh/id_rsa.pub",
+    "ssh root@<IP_ADDRESS>",
+    "hostname",
+    "uname -a",
+    "exit"
+  ]
+}

@@ -1,0 +1,232 @@
+{
+  "lessonId": "ch4-l2",
+  "title": "Install: WSL on Windows, Step by Step",
+  "totalWords": 1847,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. In this lesson, you're going to install WSL — Windows Subsystem for Linux — on your Windows computer. If you've never heard of WSL, don't worry. By the end of this video, you'll have a real Linux terminal running inside Windows, and you'll understand exactly why that matters for building with Claude Code. Let's get started.",
+      "visual": {
+        "title": "Install: WSL on Windows",
+        "subtitle": "Get a Linux terminal running in minutes"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "First, what is WSL and why do you need it? WSL stands for Windows Subsystem for Linux. It lets you run a full Linux environment — think of it as a second operating system — right inside your Windows computer. No dual boot, no virtual machine that eats your RAM. It just works. Why does this matter? Claude Code and most modern development tools were built for Linux and Mac. They expect a Unix-style terminal — that's the text window where you type commands. Windows has its own terminal called PowerShell or Command Prompt, but it works differently and many tools don't run well there. WSL gives you the real Linux terminal that all the tutorials and tools assume you have. It's free, it's official from Microsoft, and once it's set up, you'll forget it's even there — it just becomes your normal way to code.",
+      "visual": {
+        "title": "What is WSL?",
+        "bullets": [
+          "Windows Subsystem for Linux",
+          "A real Linux environment inside Windows",
+          "Free, official from Microsoft",
+          "Gives you the Unix terminal Claude Code expects",
+          "No dual boot, no heavy virtual machine"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "slide",
+      "narration": "Before we start, check your Windows version. WSL 2 — the version we're installing — needs Windows 10 version 2004 or higher, or any version of Windows 11. To check, click the Start button, type 'winver' — that's W-I-N-V-E-R — and press Enter. A little window pops up showing your Windows version. If you see Windows 10 and a build number above 19041, or Windows 11, you're good. If your version is older, you'll need to run Windows Update first to get current. Once you're on a supported version, we can proceed.",
+      "visual": {
+        "title": "Check your Windows version",
+        "bullets": [
+          "WSL 2 needs Windows 10 (build 19041+) or Windows 11",
+          "Press Start, type 'winver', press Enter",
+          "A window shows your version number",
+          "If too old, run Windows Update first"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "terminal",
+      "narration": "Now we install. Open PowerShell as Administrator. Click Start, type 'PowerShell' — capital P, capital S — right-click on 'Windows PowerShell' in the results, and choose 'Run as administrator'. A blue terminal window opens, and it might ask 'Do you want to allow this app to make changes?' — click Yes. You'll see a prompt that says something like 'PS C colon backslash Users backslash YourName'. That's PowerShell waiting for your command. Now type this command exactly: wsl --install. That's W-S-L space dash dash install. Press Enter. PowerShell will start downloading and installing WSL. You'll see lines of text scrolling — it's installing the Linux kernel, setting up the subsystem, and downloading Ubuntu, which is the default Linux distribution. This takes a few minutes depending on your internet speed. Don't close the window. When it finishes, it will say 'The requested operation is successful. Changes will not be effective until the system is rebooted.' That means you need to restart your computer for WSL to fully activate. Save any open work, then restart.",
+      "visual": {
+        "commands": [
+          "wsl --install"
+        ],
+        "output": "Installing: Windows Subsystem for Linux\nInstalling: Ubuntu\nThe requested operation is successful. Changes will not be effective until the system is rebooted.",
+        "caption": "Run as Administrator in PowerShell"
+      }
+    },
+    {
+      "id": 5,
+      "type": "slide",
+      "narration": "After your computer restarts, Windows will automatically continue the setup. You might see a terminal window open on its own — that's Ubuntu finishing its installation. It will say 'Installing, this may take a few minutes.' Just wait. When it's done, it will ask you to create a username. This is your Linux username — it can be anything you want, all lowercase, no spaces. Type a simple name like your first name or a nickname, then press Enter. Next it asks for a password. Type a password — you won't see anything on screen as you type, that's normal for security — then press Enter. It will ask you to retype the password to confirm. Type it again, press Enter. Now you have a Linux user account. Remember this password — you'll need it whenever Linux asks for permission to install something or change system settings.",
+      "visual": {
+        "title": "First boot: Create your Linux user",
+        "bullets": [
+          "Ubuntu opens automatically after restart",
+          "Enter a username (lowercase, no spaces)",
+          "Enter a password (invisible as you type — that's normal)",
+          "Confirm the password",
+          "Remember this password — you'll need it later"
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "type": "terminal",
+      "narration": "Now let's confirm WSL is working. You should see a prompt that looks like 'yourname at yourcomputer colon tilde dollar sign'. That tilde — the squiggly line — means you're in your home directory, which is like your personal folder in Linux. The dollar sign means Linux is ready for a command. Type this: uname -a. That's U-N-A-M-E space dash A. Press Enter. You'll see a line of text that says 'Linux' and a bunch of version info. That's Linux talking to you. It's real, it's running, and it's inside your Windows computer. Congratulations — you just installed WSL. Now type: pwd. That's P-W-D, stands for 'print working directory'. Press Enter. It shows something like '/home/yourname'. That's your home folder in Linux. Everything you build will live under this folder. One more command: ls -la. That's L-S space dash L-A. Press Enter. You'll see a list of files and folders — most are hidden setup files that start with a dot. You don't need to understand them yet. The point is, you're navigating a real Linux filesystem with real commands, and it just works.",
+      "visual": {
+        "commands": [
+          "uname -a",
+          "pwd",
+          "ls -la"
+        ],
+        "output": "Linux DESKTOP-ABC123 5.15.90.1-microsoft-standard-WSL2 #1 SMP x86_64 GNU/Linux\n/home/nabulines\ntotal 24\ndrwxr-xr-x 3 nabulines nabulines 4096 Jan 15 10:23 .\ndrwxr-xr-x 3 root      root      4096 Jan 15 10:20 ..\n-rw-r--r-- 1 nabulines nabulines  220 Jan 15 10:20 .bash_logout\n-rw-r--r-- 1 nabulines nabulines 3526 Jan 15 10:20 .bashrc\ndrwxr-xr-x 2 nabulines nabulines 4096 Jan 15 10:23 .cache\n-rw-r--r-- 1 nabulines nabulines  807 Jan 15 10:20 .profile",
+        "caption": "Your first Linux commands — proof it's working"
+      }
+    },
+    {
+      "id": 7,
+      "type": "slide",
+      "narration": "How do you open WSL in the future? You have two easy ways. One: click Start, type 'Ubuntu' — or whatever Linux distribution you installed — and click the Ubuntu app. It opens a terminal window running Linux. Two: open Windows Terminal — that's Microsoft's modern terminal app, it comes with Windows 11 and you can install it free from the Microsoft Store on Windows 10. In Windows Terminal, click the little down arrow next to the plus sign at the top, and choose Ubuntu from the dropdown. A new tab opens running WSL. Windows Terminal is nicer because you can have multiple tabs, customize colors, and it integrates Windows and Linux terminals in one window. Most developers use Windows Terminal. Either way, when you see that tilde and dollar sign prompt, you're in Linux and you're ready to code.",
+      "visual": {
+        "title": "How to open WSL anytime",
+        "bullets": [
+          "Method 1: Start → type 'Ubuntu' → click the app",
+          "Method 2: Open Windows Terminal → click ▼ → choose Ubuntu",
+          "Windows Terminal is recommended (multi-tab, modern, free)",
+          "When you see '~$' you're in Linux"
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "type": "slide",
+      "narration": "One important thing: your Windows files and your Linux files are separate, but you can access both. Inside WSL, your Windows C drive is mounted at /mnt/c. So if you type 'cd /mnt/c/Users/YourName/Desktop', you're now in your Windows Desktop folder, but viewing it from Linux. You can create files there, edit them, whatever. Going the other way: from Windows File Explorer, you can type backslash backslash wsl dollar sign backslash home backslash yourname in the address bar, and you'll see your Linux home folder. You can drag files in and out. For most projects, you'll keep your code in the Linux side — in /home/yourname — because that's where the tools expect it and performance is better. But knowing you can cross over is useful when you need to grab a file from Windows or save something to your Desktop to share.",
+      "visual": {
+        "title": "Windows ↔ Linux file access",
+        "bullets": [
+          "From Linux: Windows C: is at /mnt/c",
+          "From Windows: type \\\\wsl$\\home\\yourname in File Explorer",
+          "Keep projects in Linux (/home/yourname) for best performance",
+          "You can move files between both sides anytime"
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "type": "slide",
+      "narration": "What if something goes wrong? Common issue one: WSL install fails with an error about virtualization. Solution: you need to enable virtualization in your computer's BIOS. Restart your computer, press F2 or Delete or whatever key your computer shows to enter BIOS setup — it's different for every brand — find the setting called 'Intel VT-x' or 'AMD-V' or just 'Virtualization', turn it on, save and exit. Then try wsl --install again. Common issue two: after installing, typing 'wsl' says 'command not found'. Solution: your Windows version is too old. Run Windows Update, get to at least build 19041, then try again. Common issue three: Ubuntu opens but immediately closes. Solution: open PowerShell as Administrator and run: wsl --set-default-version 2. That forces WSL 2 mode. Then open Ubuntu again. If you're still stuck, search 'WSL troubleshooting' plus your exact error message — the WSL community is huge and someone has solved your problem before.",
+      "visual": {
+        "title": "Troubleshooting common issues",
+        "bullets": [
+          "Install fails → enable virtualization in BIOS",
+          "'wsl' command not found → update Windows",
+          "Ubuntu closes immediately → run: wsl --set-default-version 2",
+          "Still stuck? Search your exact error + 'WSL troubleshooting'"
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "type": "slide",
+      "narration": "Does WSL cost anything? No. It's completely free. Ubuntu is free. Windows Terminal is free. There's no subscription, no trial period, no hidden fees. Microsoft built WSL because developers wanted Linux tools on Windows, and they made it free and open. The only cost is your time to install it — which you just did — and maybe a few minutes learning basic terminal commands, which we'll cover in the next lessons. You now have the same development environment that professional developers use, for zero dollars.",
+      "visual": {
+        "title": "What does WSL cost?",
+        "bullets": [
+          "WSL: $0 (free from Microsoft)",
+          "Ubuntu: $0 (free, open source)",
+          "Windows Terminal: $0 (free from Microsoft Store)",
+          "No subscriptions, no trials, no hidden fees",
+          "You have a pro dev environment for $0"
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "type": "slide",
+      "narration": "Let's recap what you just did. You installed WSL 2 on your Windows computer. You set up Ubuntu as your Linux distribution. You created a Linux user account. You ran your first Linux commands and confirmed everything works. You learned how to open WSL anytime, and how to access files between Windows and Linux. You now have a real Unix terminal — the same environment Claude Code expects, the same environment every tutorial assumes. You're no longer blocked by 'this only works on Mac or Linux'. You have it. In the next lesson, we'll install the essential tools inside WSL — Git, Node, and Claude Code itself. But for now, you've crossed the biggest hurdle. You have a Linux terminal on Windows, and you did it yourself. That's huge.",
+      "visual": {
+        "title": "What you just accomplished",
+        "bullets": [
+          "✓ Installed WSL 2 on Windows",
+          "✓ Set up Ubuntu Linux",
+          "✓ Created your Linux user",
+          "✓ Ran real Linux commands",
+          "✓ Learned how to access WSL and move files",
+          "You now have the terminal Claude Code needs"
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "type": "outro",
+      "narration": "Your exercise for this lesson: open WSL — either through the Ubuntu app or Windows Terminal — and run the command 'uname -a' to confirm you see Linux output. Take a screenshot if you want proof you did it. Then close the terminal and take a breath. You just installed a second operating system inside your computer without breaking anything. That's the kind of builder you're becoming. In the next lesson, we'll install Git, Node, and Claude Code inside WSL, and you'll be ready to build real projects. See you there.",
+      "visual": {
+        "title": "Exercise: Confirm WSL works",
+        "subtitle": "Next: Install tools inside WSL"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What does WSL stand for?",
+      "options": [
+        "Windows Subsystem for Linux",
+        "Windows Shell Language",
+        "Web Service Layer",
+        "Windows System Loader"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "What command installs WSL from PowerShell?",
+      "options": [
+        "install-wsl",
+        "wsl --install",
+        "setup wsl",
+        "wsl-install"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "Where is your Windows C: drive located inside WSL?",
+      "options": [
+        "/windows/c",
+        "/c",
+        "/mnt/c",
+        "/drives/c"
+      ],
+      "answer": 2,
+      "points": 10
+    },
+    {
+      "q": "What does the tilde (~) symbol mean in the Linux terminal?",
+      "options": [
+        "Root directory",
+        "Your home directory",
+        "System files",
+        "Current project folder"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "How much does WSL cost?",
+      "options": [
+        "$5/month",
+        "$20/month",
+        "Free for students only",
+        "$0 — completely free"
+      ],
+      "answer": 3,
+      "points": 10
+    }
+  ],
+  "exercise": "Open WSL (Ubuntu app or Windows Terminal → Ubuntu tab) and run the command: uname -a. You should see output that starts with 'Linux' and shows version info. That confirms WSL is working. Take a screenshot if you want proof. Then try: pwd (shows your home directory) and ls -la (lists files). You're now navigating Linux. Close the terminal when done.",
+  "verifyCommands": [
+    "wsl --install",
+    "uname -a",
+    "pwd",
+    "ls -la"
+  ]
+}

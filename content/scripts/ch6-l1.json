@@ -1,0 +1,270 @@
+{
+  "lessonId": "ch6-l1",
+  "title": "Build a Telegram Bot — Without Writing a Single Line of Code",
+  "totalWords": 1847,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. Today you're going to build something that feels like magic — a Telegram bot you can actually message and get replies from. And you're going to do it without writing a single line of code yourself. Claude Code will write everything. You'll just tell it what you want, and it'll build the whole thing. By the end of this lesson, you'll have a real bot running on your computer that responds when you text it. Let's go.",
+      "visual": {
+        "title": "Build a Telegram Bot",
+        "subtitle": "Without Writing a Single Line of Code"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "First — what is a Telegram bot? Telegram is a messaging app, like WhatsApp or Discord. A bot is just an automated account that can read messages and send replies. You message it, it does something, it messages you back. People use bots for all kinds of things — reminders, games, news alerts, customer support. We're building one because it's the simplest way to give your code a real interface. You don't need to build a website or an app. You just text your bot, and it does what you told it to do. It's your code, running in the real world, that you can interact with from your phone.",
+      "visual": {
+        "title": "What is a Telegram bot?",
+        "bullets": [
+          "An automated account on Telegram",
+          "You message it → it replies",
+          "Used for reminders, games, alerts, tools",
+          "Your code running in the real world"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "slide",
+      "narration": "Here's what we're building today. A bot that listens for the command slash hello. When you send it that message, it replies back with 'Hello! I'm your bot.' That's it. Simple, but it's real. It proves your code is running, connected to Telegram's servers, and responding to you. Once you have this working, you can make it do anything — check the weather, remind you of tasks, pull data from an API, whatever you want. The pattern is the same. This lesson gets the foundation running.",
+      "visual": {
+        "title": "What we're building",
+        "bullets": [
+          "A bot that listens for /hello",
+          "Replies: 'Hello! I'm your bot.'",
+          "Simple, but real and working",
+          "Once this works, you can make it do anything"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "slide",
+      "narration": "Before we touch code, we need to tell Telegram we're creating a bot. Telegram has a special bot called BotFather — yes, really — that creates other bots. You message BotFather, it gives you a token, and that token is how your code connects to Telegram. The token is like a password. Anyone who has it can control your bot, so you keep it secret. We're going to get that token first, then use it in our code.",
+      "visual": {
+        "title": "Step 1: Get a bot token from BotFather",
+        "bullets": [
+          "Telegram has a bot called BotFather",
+          "You message it to create a new bot",
+          "It gives you a token (like a password)",
+          "Your code uses the token to connect"
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "type": "browser",
+      "narration": "Open Telegram — on your phone or on the web at web.telegram.org. In the search bar, type 'BotFather' — one word, capital B, capital F. Click the verified account with the blue checkmark. Now send it the command slash newbot. BotFather will ask you for a name — that's the display name people see. Type something like 'My First Bot'. Then it asks for a username — this has to end in 'bot' and be unique. Try something like 'yourname underscore test underscore bot'. If it's taken, add numbers. Once you send a valid username, BotFather replies with a message that says 'Done!' and gives you a long string of letters and numbers — that's your token. It looks like this: a bunch of digits, a colon, then more random characters. Copy that entire token. We're going to use it in a minute. Do not share this token with anyone — it's the key to your bot.",
+      "visual": {
+        "captureScript": "capture/ch6-l1-botfather.ts",
+        "caption": "Messaging BotFather to create a bot and get the token"
+      }
+    },
+    {
+      "id": 6,
+      "type": "slide",
+      "narration": "Now we have a token. Next step: tell Claude Code to build the bot. We're going to open a terminal, start Claude Code, and give it one instruction: 'Build me a Telegram bot that replies to slash hello.' Claude Code will write all the code, install the libraries, and set everything up. You don't write anything. You just watch and approve.",
+      "visual": {
+        "title": "Step 2: Let Claude Code build it",
+        "bullets": [
+          "Open a terminal",
+          "Start Claude Code",
+          "Tell it: 'Build a Telegram bot that replies to /hello'",
+          "Claude Code writes all the code"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "type": "terminal",
+      "narration": "Open your terminal. If you're on Mac, press Command-Space and type 'Terminal'. On Windows, press the Windows key and type 'cmd' or 'PowerShell'. Make a new folder for this project. Type 'mkdir telegram dash bot' and press Enter. Then move into that folder: 'cd telegram dash bot'. Now start Claude Code by typing 'claude dash code' and press Enter. Claude Code opens and asks what you want to build.",
+      "visual": {
+        "commands": [
+          "mkdir telegram-bot",
+          "cd telegram-bot",
+          "claude-code"
+        ],
+        "output": "Claude Code v1.2.0 started.\nWhat would you like to build?"
+      }
+    },
+    {
+      "id": 8,
+      "type": "terminal",
+      "narration": "Type this: 'Build me a Telegram bot using Node.js and the telegraf library. The bot should respond to the slash hello command with the message: Hello! I'm your bot. Save the bot token in a dot env file.' Press Enter. Claude Code reads your request, figures out what libraries it needs, and starts writing code. It creates a file called bot dot js with all the logic. It creates a package dot json to track dependencies. It creates a dot env file where you'll paste your token. It runs npm install to download the telegraf library. You just watch. If Claude Code asks for approval to run a command, type 'yes' and press Enter.",
+      "visual": {
+        "commands": [
+          "> Build me a Telegram bot using Node.js and the telegraf library. The bot should respond to the /hello command with the message: Hello! I'm your bot. Save the bot token in a .env file."
+        ],
+        "output": "Creating bot.js...\nCreating package.json...\nCreating .env file...\nRunning: npm install telegraf dotenv\nBot code is ready. Add your token to .env and run: node bot.js"
+      }
+    },
+    {
+      "id": 9,
+      "type": "slide",
+      "narration": "Claude Code just built your entire bot. Let's look at what it created. There's a file called bot dot js — that's the code that connects to Telegram and listens for messages. There's a package dot json that lists the libraries. There's a dot env file — that's where you paste your token. And there's a node underscore modules folder with all the downloaded code. You didn't write any of this. Claude Code did. Now we just need to add your token and run it.",
+      "visual": {
+        "title": "What Claude Code created",
+        "bullets": [
+          "bot.js — the code that runs your bot",
+          "package.json — lists dependencies",
+          ".env — where you paste your token",
+          "node_modules — downloaded libraries"
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "type": "terminal",
+      "narration": "Open the dot env file. Type 'open dot env' on Mac, or 'notepad dot env' on Windows. You'll see a line that says 'BOT underscore TOKEN equals' and then nothing. Paste your token — the long string BotFather gave you — right after the equals sign. No spaces, no quotes. Save the file and close it. Now your code knows how to connect to your bot.",
+      "visual": {
+        "commands": [
+          "open .env"
+        ],
+        "output": "BOT_TOKEN=123456789:ABCdefGHIjklMNOpqrsTUVwxyz"
+      }
+    },
+    {
+      "id": 11,
+      "type": "terminal",
+      "narration": "Time to run the bot. In your terminal, type 'node bot dot js' and press Enter. You'll see a message like 'Bot started' or 'Listening for messages'. That means your bot is running. It's connected to Telegram and waiting for you to message it. Leave this terminal window open — the bot only runs while this command is running. If you close the terminal, the bot stops.",
+      "visual": {
+        "commands": [
+          "node bot.js"
+        ],
+        "output": "Bot started successfully.\nListening for messages..."
+      }
+    },
+    {
+      "id": 12,
+      "type": "browser",
+      "narration": "Now go back to Telegram. In the search bar, type the username of the bot you created — the one that ends in 'bot'. Click it. You'll see an empty chat. Press the Start button at the bottom. Now type slash hello and send it. Your bot replies instantly: 'Hello! I'm your bot.' You just messaged code you didn't write, running on your computer, through Telegram. That's the magic. You built a real bot.",
+      "visual": {
+        "captureScript": "capture/ch6-l1-bot-reply.ts",
+        "caption": "Messaging the bot and getting a reply"
+      }
+    },
+    {
+      "id": 13,
+      "type": "slide",
+      "narration": "Let's talk about what just happened under the hood. Your bot is a small Node.js program. Node.js is a way to run JavaScript on your computer, not in a browser. The telegraf library is code someone else wrote that handles all the hard parts — connecting to Telegram's servers, listening for messages, sending replies. Your bot dot js file imports telegraf, loads your token from the dot env file, and sets up a listener: when someone sends slash hello, reply with this message. When you ran 'node bot dot js', Node started that program. It connected to Telegram using your token. Telegram's servers now know: when someone messages this bot, send the message to this program. Your program checks if the message is slash hello. If it is, it sends back the reply. All of that happens in milliseconds. And you didn't have to understand any of it to make it work — Claude Code wrote it all.",
+      "visual": {
+        "title": "What just happened",
+        "bullets": [
+          "Node.js runs JavaScript on your computer",
+          "Telegraf library handles Telegram connections",
+          "bot.js loads your token, listens for /hello",
+          "Telegram sends messages to your program",
+          "Program sends replies back instantly"
+        ]
+      }
+    },
+    {
+      "id": 14,
+      "type": "slide",
+      "narration": "Right now your bot only runs when you have that terminal window open. If you close it, the bot stops. In a later lesson, we'll deploy this bot to a server so it runs twenty-four seven, even when your computer is off. But for now, this is perfect. You have a working bot. You can message it from your phone. You can add more commands — slash joke, slash weather, slash remind me — whatever you want. The pattern is the same: tell Claude Code what you want the bot to do, it writes the code, you run it. You're not a coder yet, but you're already building real tools.",
+      "visual": {
+        "title": "What's next",
+        "bullets": [
+          "Right now: bot runs on your computer",
+          "Later: deploy to a server (24/7 uptime)",
+          "Add more commands: /joke, /weather, /remind",
+          "Pattern: tell Claude Code → it writes → you run"
+        ]
+      }
+    },
+    {
+      "id": 15,
+      "type": "slide",
+      "narration": "One important note: keep your bot token secret. Anyone who has that token can control your bot. Don't commit the dot env file to GitHub. Don't share it in a screenshot. If you ever think your token leaked, go back to BotFather, send the command slash revoke, and it'll give you a new token. Update your dot env file with the new one and restart the bot. Simple fix.",
+      "visual": {
+        "title": "Keep your token secret",
+        "bullets": [
+          "Anyone with the token controls your bot",
+          "Don't commit .env to GitHub",
+          "Don't share in screenshots",
+          "If leaked: /revoke in BotFather → new token"
+        ]
+      }
+    },
+    {
+      "id": 16,
+      "type": "slide",
+      "narration": "This lesson cost you zero dollars. Telegram is free. Node.js is free. The telegraf library is free. You used Claude Code, which requires a Claude Pro plan at twenty dollars a month or API credits — but you already have that from earlier lessons. So no new cost here. This is pure building.",
+      "visual": {
+        "title": "What this costs",
+        "bullets": [
+          "Telegram: $0",
+          "Node.js: $0",
+          "Telegraf library: $0",
+          "Claude Code: part of your existing plan",
+          "Total new cost: $0"
+        ]
+      }
+    },
+    {
+      "id": 17,
+      "type": "outro",
+      "narration": "You just built a Telegram bot without writing code. You messaged BotFather, got a token, told Claude Code what you wanted, and it built the whole thing. Now you have a real bot you can message from your phone. Your exercise: add a new command. Make the bot respond to slash joke with a joke, or slash time with the current time. Tell Claude Code what you want, let it write the code, and test it. Next lesson, we're going to make this bot smarter — we'll connect it to Claude's API so it can have real conversations. See you there.",
+      "visual": {
+        "title": "You built a Telegram bot",
+        "subtitle": "Next: Make it smarter with Claude's API"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What does BotFather give you when you create a bot?",
+      "options": [
+        "A token (like a password for your bot)",
+        "The bot's source code",
+        "A free Telegram Pro account",
+        "A website URL for your bot"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "What command do you run to start your bot?",
+      "options": [
+        "npm start",
+        "node bot.js",
+        "telegram run",
+        "claude-code start"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "What happens if you close the terminal while your bot is running?",
+      "options": [
+        "The bot keeps running in the background",
+        "The bot stops working",
+        "The bot moves to the cloud automatically",
+        "Nothing, terminals don't affect running programs"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "Where do you paste your bot token?",
+      "options": [
+        "In the bot.js file",
+        "In the .env file",
+        "In the package.json file",
+        "In the Telegram app settings"
+      ],
+      "answer": 1,
+      "points": 10
+    }
+  ],
+  "exercise": "Add a new command to your bot. Make it respond to /joke with a joke, or /time with the current time, or /fact with a random fact. Tell Claude Code what you want ('Add a /joke command that replies with a joke'), let it update the code, and test it in Telegram. When your bot responds to the new command, you've completed the exercise.",
+  "verifyCommands": [
+    "mkdir telegram-bot",
+    "cd telegram-bot",
+    "npm install telegraf dotenv",
+    "node bot.js"
+  ]
+}

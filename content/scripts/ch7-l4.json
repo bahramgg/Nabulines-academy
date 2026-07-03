@@ -1,0 +1,321 @@
+{
+  "lessonId": "ch7-l4",
+  "title": "Final Project: From Idea to Public Launch",
+  "totalWords": 2780,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. This is it — the final project. You're going to take one idea from absolute zero to a real, public launch. Not a tutorial. Not practice. A real thing that real people can use. By the end of this lesson, you'll have shipped something into the world. Let's do this.",
+      "visual": {
+        "title": "Final Project: From Idea to Public Launch",
+        "subtitle": "Chapter 7, Lesson 4"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "Here's what we're going to do. First, pick your idea — something you actually want to exist. Second, build it end-to-end using everything you've learned. Third, deploy it publicly with a real domain. Fourth, test it with real users. And fifth, share it with the world. This is the complete cycle. Idea to launch. You've done every piece of this before — now you're putting it all together into one complete product.",
+      "visual": {
+        "title": "The Complete Launch Cycle",
+        "bullets": [
+          "Pick your idea — something you want to exist",
+          "Build it end-to-end (frontend, backend, data)",
+          "Deploy publicly with a real domain",
+          "Test with real users and fix what breaks",
+          "Share it — get it in front of people"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "slide",
+      "narration": "Let's talk about picking your idea. This is not the time to build the next Facebook. Pick something small and specific. A tool you wish existed. A game that makes you laugh. A portfolio piece that shows what you can do. The best first projects solve a real problem for a small group of people — even if that group is just you and your friends. Keep the scope tight. You want to finish this in days, not months. One core feature that works perfectly beats ten half-done features every time.",
+      "visual": {
+        "title": "Picking Your Idea",
+        "bullets": [
+          "Small and specific — not the next big platform",
+          "Solves a real problem (even if it's just yours)",
+          "One core feature that works perfectly",
+          "Something you can finish in days, not months",
+          "Examples: a tool, a game, a portfolio showcase"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "slide",
+      "narration": "Here are some real examples from past learners. Someone built a timer app that plays a specific song when time's up — their friends loved it. Another person built a tool that converts recipe ingredients between metric and imperial — simple, useful, done in two days. Someone else built a portfolio site that shows their art with a custom gallery layout. Another built a word game where you guess movie titles from emoji. None of these are revolutionary. All of them are finished, public, and used by real people. That's what you're aiming for.",
+      "visual": {
+        "title": "Real Examples",
+        "bullets": [
+          "Timer app with custom song alerts",
+          "Recipe unit converter (metric ↔ imperial)",
+          "Custom art portfolio with gallery layout",
+          "Emoji movie title guessing game",
+          "All finished in 2-5 days, all publicly launched"
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "type": "browser",
+      "narration": "Let me show you the full process with a real example. I'm going to build a simple tool called Quote of the Day — it shows a random inspirational quote every time you visit, and you can save your favorites. Super simple. Let's start in Claude Code. I open a new project, and I tell Claude exactly what I want. Watch how I describe it — I'm specific about the core feature, the design feel, and the tech stack. I say: build a quote of the day app. Show one random quote on page load. Let users click a heart to save favorites. Show saved quotes in a sidebar. Use React, Vite, and local storage. Clean, minimal design. Claude Code scaffolds the whole thing — components, styling, state management. I run it locally first to make sure it works.",
+      "visual": {
+        "captureScript": "capture/ch7-l4-build-demo.ts",
+        "caption": "Building 'Quote of the Day' in Claude Code — from prompt to working app"
+      }
+    },
+    {
+      "id": 6,
+      "type": "terminal",
+      "narration": "The app works locally. Now I need to deploy it. I initialize a git repo, commit everything, and push it to GitHub. Then I go to Cloudflare Pages, connect the repo, and deploy. Five minutes later, it's live on a pages dot dev URL. But I don't want a pages dot dev URL for my final project — I want a real domain. So I go to my domain registrar — let's say I bought quote dash daily dot com for ten dollars. I add a CNAME record pointing to my Cloudflare deployment. I go back to Cloudflare Pages, add the custom domain, and wait for DNS to propagate. Ten minutes later, quote dash daily dot com is live and working.",
+      "visual": {
+        "commands": [
+          "git init",
+          "git add .",
+          "git commit -m 'Initial quote app'",
+          "git remote add origin https://github.com/yourname/quote-daily.git",
+          "git push -u origin main"
+        ],
+        "output": "Pushed to GitHub. Now deploying via Cloudflare Pages with custom domain.",
+        "caption": "Deploy to GitHub → Cloudflare Pages → custom domain"
+      }
+    },
+    {
+      "id": 7,
+      "type": "slide",
+      "narration": "Now comes the part most tutorials skip — testing with real users. You need to put this in front of actual people who are not you. Send the link to friends. Post it in a Discord or Slack group. Share it on social media if you're comfortable. Watch what happens. Do people understand how to use it? Do they find bugs you missed? Do they ask for features you didn't think of? This feedback is gold. You'll find issues you never would have caught on your own. Fix the critical bugs. Ignore feature requests for now — you're launching a version one, not a version ten.",
+      "visual": {
+        "title": "Testing with Real Users",
+        "bullets": [
+          "Send the link to friends and communities",
+          "Watch what they do — do they understand it?",
+          "Collect feedback — what breaks, what confuses",
+          "Fix critical bugs, ignore feature creep",
+          "Real users find issues you never would"
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "type": "browser",
+      "narration": "Let me show you what real user testing looks like. I send the link to three friends. The first person loves it, saves five quotes, no issues. The second person clicks the heart button and nothing happens — turns out local storage isn't working on their browser because they have strict privacy settings. I add a fallback that uses session storage instead. The third person says the font is too small on mobile. I adjust the CSS and push an update. Within an hour, the site works for all three of them. That's user testing. You find real problems and you fix them fast.",
+      "visual": {
+        "captureScript": "capture/ch7-l4-user-testing.ts",
+        "caption": "Real user feedback → bug fixes → updated deployment"
+      }
+    },
+    {
+      "id": 9,
+      "type": "slide",
+      "narration": "Now you're ready to share it publicly. This is the scary part for a lot of people. You're putting your work out there for the world to see. But here's the truth — nobody is watching as closely as you think. Most people will either love it, ignore it, or give you constructive feedback. The ones who are mean? Ignore them. They're not your audience. Share your project on Twitter, LinkedIn, Reddit, Hacker News, Product Hunt — wherever your audience hangs out. Write a short post explaining what it does and why you built it. Include a link. Include a screenshot or a short video. That's it. You've launched.",
+      "visual": {
+        "title": "Sharing Publicly",
+        "bullets": [
+          "Nobody is watching as closely as you think",
+          "Share where your audience is (Twitter, Reddit, etc.)",
+          "Write a short post: what it does, why you built it",
+          "Include a link and a screenshot or video",
+          "Ignore mean comments — they're not your audience"
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "type": "slide",
+      "narration": "Let's talk about what to do after launch. First, monitor your site. Check the logs. Make sure it's not crashing. If something breaks, fix it fast. Second, keep a list of feature ideas but don't build them all immediately. Let the project breathe. See what people actually ask for. Third, write a short post-mortem for yourself — what went well, what you'd do differently next time, what you learned. This reflection is how you get better. And fourth, start thinking about your next project. You've proven you can take an idea all the way to launch. Now do it again, but faster and better.",
+      "visual": {
+        "title": "After Launch",
+        "bullets": [
+          "Monitor your site — check logs, fix crashes",
+          "Keep a feature list but don't build it all now",
+          "Write a post-mortem — what worked, what didn't",
+          "Start thinking about your next project",
+          "You've proven you can ship — now do it again"
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "type": "slide",
+      "narration": "Let's talk about costs for launching a real project. If you're using the free path — GitHub, Cloudflare Pages, and the free Claude plan — your only cost is the domain, which is about ten to twelve dollars per year. If you're using Claude Pro for heavier coding, that's twenty dollars per month. If your project needs a backend with a database, you might add a VPS at five to fifteen dollars per month. So the full picture for a complete, live project is anywhere from one dollar per month — just the domain — to about thirty-five dollars per month if you're running a full backend. These are current prices as of this recording — check the live pages for updates.",
+      "visual": {
+        "title": "What It Costs to Launch",
+        "bullets": [
+          "Free path (GitHub + Cloudflare): ~$1/month (domain only)",
+          "With Claude Pro: ~$20/month + domain",
+          "With backend (VPS): ~$5-15/month + domain",
+          "Full stack live project: ~$1-35/month total",
+          "Prices as of this recording — check live pages"
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "type": "slide",
+      "narration": "Here's the most important thing I want you to understand. Launching a project is not about perfection. It's about shipping. Your first launch will have bugs. It will have missing features. It will not be perfect. And that's completely fine. The goal is to finish something and put it in the world. You learn more from one finished, launched project than from ten unfinished perfect ideas. Every single successful builder you admire started by shipping something small and imperfect. You're doing the same thing right now. Be proud of that.",
+      "visual": {
+        "title": "Shipping > Perfection",
+        "bullets": [
+          "Your first launch will have bugs — that's normal",
+          "Finished and imperfect beats unfinished and perfect",
+          "You learn more from shipping than from planning",
+          "Every successful builder started with something small",
+          "Be proud that you finished and launched"
+        ]
+      }
+    },
+    {
+      "id": 13,
+      "type": "slide",
+      "narration": "Let me give you the step-by-step checklist for your final project. One — pick your idea and write down the one core feature. Two — build it in Claude Code, test it locally. Three — push to GitHub and deploy to Cloudflare Pages. Four — add a custom domain. Five — test with at least three real users and fix critical bugs. Six — write a short post about it and share the link publicly. Seven — write a one-page post-mortem for yourself. That's it. Seven steps. You've done every single one of these before. Now you're doing them all together, in order, for one complete project.",
+      "visual": {
+        "title": "Final Project Checklist",
+        "bullets": [
+          "1. Pick idea + define one core feature",
+          "2. Build in Claude Code, test locally",
+          "3. Push to GitHub, deploy to Cloudflare",
+          "4. Add custom domain",
+          "5. Test with 3+ real users, fix critical bugs",
+          "6. Write short post, share link publicly",
+          "7. Write post-mortem for yourself"
+        ]
+      }
+    },
+    {
+      "id": 14,
+      "type": "slide",
+      "narration": "Let's talk about what makes a good post when you share your launch. Keep it short — two to four sentences. Start with what the project does in one clear sentence. Then say why you built it — the problem it solves or the itch you were scratching. Include a link and a visual — a screenshot, a gif, or a short video. And end with an invitation — try it out, let me know what you think. That's it. No need to write an essay. No need to oversell. Just clear, honest, and inviting. People respond to that.",
+      "visual": {
+        "title": "Writing Your Launch Post",
+        "bullets": [
+          "Keep it short: 2-4 sentences",
+          "What it does (one clear sentence)",
+          "Why you built it (problem it solves)",
+          "Include a link + visual (screenshot/gif/video)",
+          "End with invitation: 'Try it, let me know!'"
+        ]
+      }
+    },
+    {
+      "id": 15,
+      "type": "slide",
+      "narration": "Here's what to do when things go wrong — because they will. If your site goes down, check the Cloudflare dashboard first. Nine times out of ten, it's a deployment issue or a DNS problem. If users report a bug, reproduce it yourself, fix it, and push an update. If someone asks for a feature you don't want to build, thank them and add it to your list for later. If you get negative feedback, take a breath, see if there's anything useful in it, and move on. The key is to stay calm and fix things one at a time. You're not expected to be perfect. You're expected to keep going.",
+      "visual": {
+        "title": "When Things Go Wrong",
+        "bullets": [
+          "Site down? Check Cloudflare dashboard first",
+          "Bug report? Reproduce, fix, push update",
+          "Feature request? Thank them, add to list",
+          "Negative feedback? Take what's useful, move on",
+          "Stay calm, fix things one at a time"
+        ]
+      }
+    },
+    {
+      "id": 16,
+      "type": "slide",
+      "narration": "Let's talk about what happens after you launch your first project. You're going to feel a mix of pride and doubt. That's normal. You'll see things you want to improve. You'll think of features you should have added. You'll compare your project to others and feel like yours isn't good enough. Stop. You built something from nothing and put it in the world. That's a huge accomplishment. Most people never get this far. Take a day to celebrate. Then start thinking about your next project. Because now you know the whole process. And the second time is always faster and better than the first.",
+      "visual": {
+        "title": "After Your First Launch",
+        "bullets": [
+          "You'll feel pride and doubt — both are normal",
+          "Don't compare to others — compare to yesterday's you",
+          "Most people never ship anything — you did",
+          "Take a day to celebrate, then start the next one",
+          "The second project is always faster and better"
+        ]
+      }
+    },
+    {
+      "id": 17,
+      "type": "slide",
+      "narration": "Here's the big picture. You started this course not knowing what a terminal was. Now you're launching real projects with custom domains, real users, and public links. That's not a small thing. You've learned to code by building. You've learned to ship by shipping. You've learned to think like a builder — someone who sees a problem and makes a solution. This is the end of the course, but it's the beginning of everything else. You have all the tools. You have all the knowledge. Now you just keep building. One project at a time. One launch at a time. That's how you become great.",
+      "visual": {
+        "title": "The Big Picture",
+        "bullets": [
+          "You started knowing nothing about code",
+          "Now you're launching real, public projects",
+          "You learned to build by building",
+          "You learned to ship by shipping",
+          "This is the end of the course — and the beginning of everything else"
+        ]
+      }
+    },
+    {
+      "id": 18,
+      "type": "outro",
+      "narration": "That's the final project. Pick one idea. Build it end-to-end. Deploy it with a real domain. Test it with real users. Share it publicly. Do all seven steps on the checklist. And when you're done, share your link in the course community — we want to see what you built. This is it. This is what the whole course has been building toward. Go make something real and put it in the world. I'll see you on the other side.",
+      "visual": {
+        "title": "Your Final Project",
+        "subtitle": "Launch one finished product publicly and share the link.",
+        "footer": "Complete the checklist. Share your link. You've got this."
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What is the most important quality of a good first project idea?",
+      "options": [
+        "It should be a revolutionary new platform",
+        "It should be small, specific, and finishable in days",
+        "It should have at least ten features",
+        "It should compete with existing big products"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "What should you do first when a user reports a bug after launch?",
+      "options": [
+        "Ignore it and wait to see if others report it",
+        "Apologize and take the site down",
+        "Reproduce the bug yourself, fix it, and push an update",
+        "Ask the user to fix it themselves"
+      ],
+      "answer": 2,
+      "points": 10
+    },
+    {
+      "q": "What is the purpose of testing with real users before public launch?",
+      "options": [
+        "To make sure your code is perfect",
+        "To find issues you would never catch on your own",
+        "To get feature requests for version 2",
+        "To prove your project is better than others"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "What should a good launch post include?",
+      "options": [
+        "A long essay about your coding journey",
+        "A short description, why you built it, a link, and a visual",
+        "A list of all planned future features",
+        "A comparison to competitor products"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "What is the most important thing to remember about your first launch?",
+      "options": [
+        "It must be perfect before you share it",
+        "Shipping something finished and imperfect beats not shipping at all",
+        "You should wait until you have at least 100 users",
+        "You should only launch if it's better than existing products"
+      ],
+      "answer": 1,
+      "points": 10
+    }
+  ],
+  "exercise": "Complete the full launch cycle: pick one idea, build it end-to-end, deploy it with a custom domain, test it with at least three real users, fix critical bugs, write a short launch post, and share the public link. Submit your live project URL and a one-paragraph post-mortem about what you learned.",
+  "verifyCommands": [
+    "git init",
+    "git add .",
+    "git commit -m 'Initial commit'",
+    "git push -u origin main"
+  ]
+}

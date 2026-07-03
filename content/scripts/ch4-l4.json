@@ -1,0 +1,167 @@
+{
+  "lessonId": "ch4-l4",
+  "title": "Understand Your Files and Project Structure (Reading the Map)",
+  "totalWords": 820,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. You've built a few projects with Claude Code, but when you look at all the folders and files it created, it can feel like staring at a messy closet. What's each folder for? Why are some files hidden? In this lesson, you'll learn to read the map of your project — so you know where everything lives and what it does.",
+      "visual": {
+        "title": "Understand Your Files and Project Structure",
+        "subtitle": "Reading the Map"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "Every project Claude Code builds follows a structure — a pattern of folders and files. Some hold your actual code. Some hold settings. Some are generated automatically and you never touch them. Understanding this structure means you can find things fast, explain problems clearly to Claude, and know what's safe to edit versus what to leave alone.",
+      "visual": {
+        "title": "Why Structure Matters",
+        "bullets": [
+          "Find files fast when you need to change something",
+          "Know what's code vs. config vs. generated",
+          "Explain problems to Claude clearly",
+          "Avoid breaking things by editing the wrong file"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "code",
+      "narration": "Let's look at a typical Next.js project — the kind Claude Code builds. At the top level, you'll see folders like 'app', 'public', and 'node_modules'. The 'app' folder is where your pages and components live — the actual code you see on screen. The 'public' folder holds images, fonts, and other static files anyone can download. The 'node_modules' folder is huge and full of dependencies — libraries your project needs. You never edit node_modules directly; it's managed automatically.",
+      "visual": {
+        "code": "my-project/\n├── app/\n│   ├── page.tsx          # Home page\n│   ├── about/\n│   │   └── page.tsx      # About page\n│   └── layout.tsx        # Shared layout\n├── public/\n│   ├── logo.png\n│   └── favicon.ico\n├── node_modules/         # Dependencies (auto-managed)\n├── package.json          # Project config\n├── next.config.js        # Next.js settings\n└── .gitignore            # Files Git ignores",
+        "language": "plaintext",
+        "highlights": [
+          {
+            "line": 2,
+            "label": "Your pages and components"
+          },
+          {
+            "line": 7,
+            "label": "Static files (images, etc.)"
+          },
+          {
+            "line": 10,
+            "label": "Never edit directly"
+          }
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "slide",
+      "narration": "Some files are hidden — they start with a dot, like dot-git-ignore. These are config files. Dot-git-ignore tells Git which files to ignore when you commit. Dot-env holds secrets like API keys — it's listed in dot-git-ignore so it never gets pushed to GitHub. Package dot json lists your project's dependencies and scripts. Next dot config dot js is where you configure Next.js behavior. You don't need to memorize these — just know they exist and what they do at a high level.",
+      "visual": {
+        "title": "Hidden and Config Files",
+        "bullets": [
+          ".gitignore — files Git ignores",
+          ".env — secrets and API keys (never commit)",
+          "package.json — dependencies and scripts",
+          "next.config.js — Next.js settings",
+          "You don't edit these often — Claude does"
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "type": "code",
+      "narration": "When you run 'npm run dev', Next.js generates a dot-next folder — that's the compiled version of your code. It's safe to delete; it rebuilds every time you start the dev server. Same with node_modules — if you delete it, running 'npm install' brings it back. The point: some folders are source — you edit them. Some are generated — you ignore them. Knowing the difference keeps you from wasting time or breaking things.",
+      "visual": {
+        "code": "# Safe to delete (regenerated automatically):\n.next/              # Compiled Next.js output\nnode_modules/       # Dependencies (npm install rebuilds)\n\n# Source (you edit these):\napp/                # Your pages and components\npublic/             # Your images and static files\n\n# Config (you edit carefully, or let Claude do it):\npackage.json\nnext.config.js\n.env",
+        "language": "plaintext",
+        "highlights": [
+          {
+            "line": 2,
+            "label": "Generated — ignore"
+          },
+          {
+            "line": 6,
+            "label": "Source — you edit"
+          },
+          {
+            "line": 10,
+            "label": "Config — edit carefully"
+          }
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "type": "slide",
+      "narration": "Here's the pattern you'll see in almost every project. A source folder — where your code lives. A public or static folder — for images and downloads. A config layer — package dot json, dot-env, framework settings. A generated layer — node_modules, dot-next, build output. And a dot-git folder — where Git tracks your history. Once you recognize this pattern, every new project feels familiar.",
+      "visual": {
+        "title": "The Universal Pattern",
+        "bullets": [
+          "Source folder (app/, src/) — your code",
+          "Public/static folder — images, downloads",
+          "Config files — package.json, .env, settings",
+          "Generated folders — node_modules, .next, build/",
+          ".git/ — version history (invisible, automatic)"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "type": "slide",
+      "narration": "So when something breaks, you know where to look. If a page is wrong, check the app folder. If an image is missing, check public. If a dependency is broken, check package dot json. If a secret is wrong, check dot-env. You're not guessing — you're reading the map. And when you ask Claude for help, you can say exactly where the problem is, and it can fix it faster.",
+      "visual": {
+        "title": "When Something Breaks",
+        "bullets": [
+          "Page wrong? → Check app/ folder",
+          "Image missing? → Check public/ folder",
+          "Dependency error? → Check package.json",
+          "Secret wrong? → Check .env",
+          "Know the map → explain problems clearly"
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "type": "outro",
+      "narration": "You just learned to read the map of a project. You know what the folders are for, what's safe to edit, and what's generated automatically. Your exercise: open Claude Code and ask it to explain your current project's folder structure to you. Have it walk you through what each folder does. Once you understand the map, you'll never feel lost in your own code again. Next lesson: we'll talk about how to organize your own code inside that structure — so your project stays clean as it grows. See you there.",
+      "visual": {
+        "title": "Next: Organize Your Code",
+        "subtitle": "See you in the next lesson"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which folder holds the pages and components you actually edit?",
+      "options": [
+        "node_modules/",
+        "app/",
+        ".next/",
+        ".git/"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "What does the .gitignore file do?",
+      "options": [
+        "Stores your API keys",
+        "Tells Git which files to ignore when committing",
+        "Holds your project dependencies",
+        "Compiles your code"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "Is it safe to delete the node_modules folder?",
+      "options": [
+        "No, you'll lose your dependencies forever",
+        "Yes, running 'npm install' rebuilds it",
+        "Only if you have a backup",
+        "No, it holds your source code"
+      ],
+      "answer": 1,
+      "points": 10
+    }
+  ],
+  "exercise": "Open Claude Code and ask it: 'Explain my project's folder structure to me — what does each folder do?' Have it walk you through the map. Then open your file explorer and see if you can identify the source folders, config files, and generated folders on your own.",
+  "verifyCommands": []
+}

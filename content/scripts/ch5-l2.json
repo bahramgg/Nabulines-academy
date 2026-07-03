@@ -1,0 +1,202 @@
+{
+  "lessonId": "ch5-l2",
+  "title": "Your First App: A Caption / Hashtag Generator for Creators",
+  "totalWords": 1840,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. In this lesson you're building your first real app — a tool that takes what you type and gives you something useful back. We're making a caption and hashtag generator for creators. You type a topic, click a button, and boom — you get five hashtags and a caption ready to copy and paste into Instagram or TikTok. This is the pattern behind thousands of apps: input, process, output. Let's build it.",
+      "visual": {
+        "title": "Your First App",
+        "subtitle": "A Caption & Hashtag Generator for Creators"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "Every app does three things. First, it takes input — that's what the user types or uploads. Second, it processes that input — it runs code, calls an AI, does math, whatever. Third, it returns output — text, an image, a list, something the user wants. Our generator follows this exact pattern. The user types a topic like 'vegan breakfast ideas.' We send that to Claude. Claude returns five hashtags and a caption. We show them on the page. Input, process, output. That's the whole game.",
+      "visual": {
+        "title": "The Three Parts of Every App",
+        "bullets": [
+          "1. Input — user types a topic",
+          "2. Process — send to Claude, get hashtags + caption",
+          "3. Output — show results on the page"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "code",
+      "narration": "Let's write it. Open Claude Code and say: 'Create a caption and hashtag generator. User types a topic in a text box, clicks Generate, and we show five hashtags and a caption. Use the Anthropic API. Make it look clean and modern.' Claude Code will scaffold the whole thing — an HTML page with a form, a backend route that calls the API, and the logic to display results. Here's what the core prompt function looks like. We're asking Claude to act as a social media expert. We give it the topic the user typed. We tell it: return exactly five hashtags and one caption, formatted as JSON. This structure — a clear role, clear input, clear output format — is how you get reliable results from an AI.",
+      "visual": {
+        "code": "async function generateContent(topic) {\n  const prompt = `You are a social media expert.\nTopic: ${topic}\nReturn exactly 5 hashtags and 1 caption.\nFormat as JSON: {\"hashtags\": [...], \"caption\": \"...\"}` ;\n\n  const response = await anthropic.messages.create({\n    model: 'claude-sonnet-4-20250514',\n    max_tokens: 500,\n    messages: [{ role: 'user', content: prompt }]\n  });\n\n  return JSON.parse(response.content[0].text);\n}",
+        "language": "javascript",
+        "highlights": [
+          3,
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "code",
+      "narration": "The backend is a single route. When the user clicks Generate, the frontend sends a POST request to slash generate with the topic in the body. The server grabs that topic, calls our generateContent function, and sends the hashtags and caption back as JSON. The frontend then takes that JSON and updates the page. This is the classic web app flow: frontend makes a request, backend does the work, frontend displays the result. You'll use this pattern in every app you build.",
+      "visual": {
+        "code": "app.post('/generate', async (req, res) => {\n  const { topic } = req.body;\n  \n  if (!topic) {\n    return res.status(400).json({ error: 'Topic required' });\n  }\n\n  try {\n    const result = await generateContent(topic);\n    res.json(result);\n  } catch (error) {\n    res.status(500).json({ error: 'Generation failed' });\n  }\n});",
+        "language": "javascript",
+        "highlights": [
+          8,
+          9
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "type": "code",
+      "narration": "On the frontend, we have a simple form. A text input where the user types the topic. A button that says Generate. When they click it, we grab the topic, send it to the backend, wait for the response, and then update the page with the hashtags and caption. Here's the JavaScript that handles the click. We're using fetch — that's the built-in browser function for making HTTP requests. We send the topic as JSON. We wait for the response. We parse the JSON. Then we loop through the hashtags and display them as a list, and we show the caption in a paragraph. This is basic DOM manipulation — taking data and putting it on the page.",
+      "visual": {
+        "code": "document.getElementById('generateBtn').addEventListener('click', async () => {\n  const topic = document.getElementById('topicInput').value;\n  \n  const response = await fetch('/generate', {\n    method: 'POST',\n    headers: { 'Content-Type': 'application/json' },\n    body: JSON.stringify({ topic })\n  });\n  \n  const data = await response.json();\n  \n  // Display hashtags\n  const hashtagList = document.getElementById('hashtags');\n  hashtagList.innerHTML = data.hashtags.map(tag => `<li>${tag}</li>`).join('');\n  \n  // Display caption\n  document.getElementById('caption').textContent = data.caption;\n});",
+        "language": "javascript",
+        "highlights": [
+          4,
+          5,
+          6,
+          7,
+          10,
+          14,
+          17
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "type": "slide",
+      "narration": "To run this, you need an Anthropic API key. Go to console dot anthropic dot com. Sign in. Click API Keys. Click Create Key. Copy it. Then create a file called dot env in your project folder and add a line: ANTHROPIC underscore API underscore KEY equals your key. The code reads from that file so your key stays secret and doesn't get committed to GitHub. Never put API keys directly in your code — always use environment variables. This is a security rule you follow for life.",
+      "visual": {
+        "title": "Get Your API Key",
+        "bullets": [
+          "1. Go to console.anthropic.com → API Keys",
+          "2. Click Create Key, copy it",
+          "3. Create .env file: ANTHROPIC_API_KEY=your-key",
+          "4. Never commit .env to GitHub (add to .gitignore)"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "type": "browser",
+      "narration": "Let's see it work. I'm typing 'morning coffee routine' as the topic. I click Generate. The request goes to the backend. Claude thinks for a second. And here come the results — five hashtags: hashtag morning coffee, hashtag coffee lover, hashtag morning routine, hashtag coffee time, hashtag daily ritual. And a caption: 'Starting my day the right way with the perfect cup of coffee. What's your morning ritual?' This is exactly what a creator would paste into their post. The tool works. You just built a real app that uses AI to generate useful content. This is the foundation. Every app you build from here — a recipe generator, a workout planner, a study guide maker — follows this same pattern.",
+      "visual": {
+        "captureScript": "capture/ch5-l2-demo.ts",
+        "caption": "Live demo: generating hashtags and caption from a topic"
+      }
+    },
+    {
+      "id": 8,
+      "type": "slide",
+      "narration": "What does this cost? If you're using the Anthropic API directly, Claude Sonnet four is three dollars per million input tokens and fifteen dollars per million output tokens. Each generation in this app uses maybe two hundred tokens total — that's a fraction of a cent. You could generate thousands of captions for a dollar. If you're on a Claude Pro subscription at twenty dollars a month, the API usage is included up to your plan limit, so this app costs you nothing extra as long as you stay under that limit. Either way, running this app is cheap. The real cost is your time learning to build it — and that's an investment that pays back forever.",
+      "visual": {
+        "title": "What It Costs",
+        "bullets": [
+          "API pay-as-you-go: ~$0.0003 per generation (Sonnet 4)",
+          "Claude Pro ($20/mo): included in plan limits",
+          "Thousands of generations = ~$1",
+          "Hosting on Cloudflare Pages: free"
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "type": "slide",
+      "narration": "Here's what you can do next. First, add a copy button so users can copy the hashtags and caption with one click. Second, let them choose the tone — professional, casual, funny. Pass that as part of the prompt. Third, add a history feature so they can see their last five generations and reuse them. Fourth, style it — make it look like a real product with colors, spacing, and a logo. And fifth, deploy it to Cloudflare Pages so anyone can use it. Every one of these additions teaches you a new skill. Start with the copy button — that's the easiest and most useful.",
+      "visual": {
+        "title": "Level Up This App",
+        "bullets": [
+          "1. Add a copy-to-clipboard button",
+          "2. Let users choose tone (professional, casual, funny)",
+          "3. Show history of last 5 generations",
+          "4. Style it like a real product",
+          "5. Deploy it publicly on Cloudflare Pages"
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "type": "slide",
+      "narration": "You've just crossed a huge line. You built an app that takes input, processes it with AI, and returns output. That's the core loop of modern software. You can now build tools for yourself, for friends, for clients. A meal planner. A study guide generator. A workout routine builder. A script outliner. A blog post idea generator. They all follow this same structure. You're not just learning to code — you're learning to build tools that solve real problems. That's the whole point of Nabulines Academy. You're a builder now.",
+      "visual": {
+        "title": "You Just Became a Builder",
+        "bullets": [
+          "You built an app that uses AI to generate content",
+          "Input → Process → Output is the pattern everywhere",
+          "You can now build tools for any problem",
+          "Next: make it yours, deploy it, share it"
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "type": "outro",
+      "narration": "Your exercise: build a generator that outputs five hashtags from any topic you type. Use the code we just walked through, or ask Claude Code to scaffold it for you. Test it with three different topics. Make sure it works. Then, if you want, add the copy button. In the next lesson, we're taking this app and deploying it live on Cloudflare Pages so anyone in the world can use it. See you there.",
+      "visual": {
+        "title": "Exercise",
+        "subtitle": "Build a hashtag generator — 5 hashtags from any topic"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What are the three parts every app has?",
+      "options": [
+        "Input, process, output",
+        "Frontend, backend, database",
+        "HTML, CSS, JavaScript",
+        "User, server, API"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "Where should you store your API key?",
+      "options": [
+        "In a .env file, never in code",
+        "Directly in your JavaScript file",
+        "In a comment at the top of the file",
+        "In the HTML as a data attribute"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "What does the backend route do when the user clicks Generate?",
+      "options": [
+        "Calls Claude, gets hashtags + caption, sends JSON back",
+        "Displays the hashtags directly on the page",
+        "Stores the topic in a database",
+        "Redirects the user to a new page"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "How much does one generation cost using Claude Sonnet 4 API?",
+      "options": [
+        "About $0.0003 (a fraction of a cent)",
+        "About $0.20 per generation",
+        "$3 per generation",
+        "Free unlimited"
+      ],
+      "answer": 0,
+      "points": 10
+    }
+  ],
+  "exercise": "Build a generator that outputs 5 hashtags from a topic you type. Test it with three different topics. Make sure the hashtags and caption display correctly. Bonus: add a copy-to-clipboard button.",
+  "verifyCommands": [
+    "npm init -y",
+    "npm install express @anthropic-ai/sdk dotenv",
+    "node server.js"
+  ]
+}

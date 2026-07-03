@@ -1,0 +1,147 @@
+{
+  "lessonId": "ch7-l2",
+  "title": "Launching on X: Build in Public, the Nabulines Way",
+  "totalWords": 820,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. In this lesson, you're going to learn how to announce your work on X — formerly Twitter — in a way that actually gets attention. Not spam. Not begging for followers. Real, honest sharing that makes people want to try what you built. Let's dive in.",
+      "visual": {
+        "title": "Launching on X",
+        "subtitle": "Build in Public, the Nabulines Way"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "First: what does 'build in public' mean? It means you share your work *while you're making it* — not just the polished final product. You show the messy middle. The bugs. The small wins. The 'I just figured out how to make this work' moments. Why? Because people connect with the journey, not just the destination. When you share your process, you're not selling — you're inviting people to watch you grow. And that earns trust way faster than a slick marketing pitch.",
+      "visual": {
+        "title": "What 'Build in Public' Means",
+        "bullets": [
+          "Share the journey, not just the finish line",
+          "Show the messy middle — bugs, breakthroughs, learning",
+          "People connect with real progress",
+          "Builds trust faster than polished marketing"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "slide",
+      "narration": "So how do you actually write a launch post? Start with a *hook* — one sentence that makes someone stop scrolling. Not 'I built a thing.' That's boring. Try: 'I spent 3 days fighting CSS and finally made a tool that does X in one click.' Or: 'Here's the dumbest bug that taught me the most.' The hook is the promise — it tells people why they should care. Then, in the next sentence or two, explain *what* you built and *who it's for*. Be specific. 'A tool for designers' is vague. 'A color palette generator that exports to Figma' — that's clear.",
+      "visual": {
+        "title": "Anatomy of a Launch Post",
+        "bullets": [
+          "Hook: one sentence that stops the scroll",
+          "What: explain the tool in plain language",
+          "Who: be specific about who it helps",
+          "Why: the problem it solves",
+          "Link: make it easy to try"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "slide",
+      "narration": "Next: tell them *why* you built it. What problem were you solving? Even if the problem is small — 'I got tired of manually doing X' — that's real. People trust real problems. Then, and this is key: *link to the thing*. Don't make them hunt for it. Put the URL right in the post. If it's live on Cloudflare Pages, paste that pages-dot-dev link. If it's a GitHub repo, link that. Make it one click away. And if you have a screenshot or a short video, attach it. Visuals get way more engagement than text alone.",
+      "visual": {
+        "title": "Make It Easy to Try",
+        "bullets": [
+          "State the problem you solved (even if small)",
+          "Link directly — no hunting required",
+          "Attach a screenshot or demo video",
+          "Visuals = more engagement"
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "type": "slide",
+      "narration": "Here's an example. 'I built a markdown-to-HTML converter because I was tired of copy-pasting into WordPress. It's live at my-tool-dot-pages-dot-dev — try it and let me know what breaks.' That's it. Hook, what, why, link. No fluff. No 'please retweet' begging. Just: here's a thing, here's why I made it, go try it. That honesty is what makes people click. And when they do try it and it works? They'll tell others. That's how you grow an audience — one real person at a time.",
+      "visual": {
+        "title": "Example Launch Post",
+        "bullets": [
+          "'I built a markdown-to-HTML converter…'",
+          "'…because I was tired of copy-pasting into WordPress.'",
+          "'It's live at my-tool.pages.dev — try it.'",
+          "Hook + what + why + link = done"
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "type": "slide",
+      "narration": "A few don'ts. Don't overhype. Don't say 'game-changer' or 'revolutionary' unless it actually is. Don't apologize — 'sorry it's not perfect' makes people expect it to be bad. And don't ghost after you post. If someone replies with feedback or a question, answer them. That interaction is how you turn a post into a conversation, and a conversation into a community. Building in public isn't just about announcing — it's about *engaging*.",
+      "visual": {
+        "title": "What NOT to Do",
+        "bullets": [
+          "Don't overhype ('game-changer' unless it is)",
+          "Don't apologize ('sorry it's not perfect')",
+          "Don't ghost — reply to feedback",
+          "Building in public = engaging, not just posting"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "type": "slide",
+      "narration": "One more thing: consistency beats virality. You don't need one post to blow up. You need to keep sharing. Every small win. Every lesson learned. Every new feature. Over time, people start to recognize your name. They see you're actually building, not just talking. And that's when the trust compounds. So post your launch today. Then post again tomorrow about the first bug someone found. Then post next week about the fix. That's the Nabulines way — show up, share the work, and let the results speak.",
+      "visual": {
+        "title": "Consistency Over Virality",
+        "bullets": [
+          "One viral post < regular sharing",
+          "Every small win, every lesson, every feature",
+          "People recognize your name over time",
+          "Trust compounds with consistency"
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "type": "outro",
+      "narration": "Alright — you now know how to write a launch post that earns attention without feeling like spam. Your exercise: draft a real launch post for your tool. Write the hook, explain what it does, link to it, and post it. Don't wait for perfect. Post it today. In the next lesson, we're going to talk about how to handle feedback — the good, the bad, and the 'why doesn't this button work' — and turn it into fuel for your next build. See you there.",
+      "visual": {
+        "title": "Next: Handling Feedback",
+        "subtitle": "Turn every comment into fuel"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What is the first part of a good launch post?",
+      "options": [
+        "A hook — one sentence that stops the scroll",
+        "An apology for bugs",
+        "A request for retweets",
+        "A long backstory"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "Why should you link directly to your tool in the post?",
+      "options": [
+        "To make people work for it",
+        "To make it one click away — no hunting",
+        "To hide it from bots",
+        "To test if people are interested"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "What matters more than one viral post?",
+      "options": [
+        "Getting verified",
+        "Buying ads",
+        "Consistency — sharing regularly",
+        "Posting only when perfect"
+      ],
+      "answer": 2,
+      "points": 10
+    }
+  ],
+  "exercise": "Draft a launch post for your tool. Write a hook, explain what it does and who it's for, state the problem it solves, and include a direct link. Post it on X (or save it to post when your tool is live). Bonus: attach a screenshot or short demo video.",
+  "verifyCommands": []
+}

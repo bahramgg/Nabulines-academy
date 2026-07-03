@@ -1,0 +1,261 @@
+{
+  "lessonId": "ch4-l7",
+  "title": "Project: Rebuild Your Site — This Time with Claude Code",
+  "totalWords": 1680,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. You've spent six lessons learning Claude Code — how to install it, how to talk to it, how it edits files and runs commands. Now it's time to prove you own this tool. In this project lesson, you're going to rebuild your entire portfolio site from scratch using Claude Code, then deploy it fresh to Cloudflare Pages. No copy-paste from your old repo. No shortcuts. You and Claude Code, building something real together. Let's do this.",
+      "visual": {
+        "title": "Project: Rebuild Your Site",
+        "subtitle": "This Time with Claude Code"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "Here's what you're building. A clean, modern portfolio site with at least three pages: a home page introducing yourself, a projects page showing work you've done or want to do, and a contact page with a way to reach you. You'll use HTML, CSS, and a bit of JavaScript if you want interactivity. The design is yours — modern, simple, personal. The goal isn't perfection. The goal is proving you can drive Claude Code from idea to deployed site without hand-holding. You're the builder now.",
+      "visual": {
+        "title": "What You're Building",
+        "bullets": [
+          "Portfolio site: home, projects, contact",
+          "HTML + CSS + optional JS",
+          "Your design, your content",
+          "Built entirely in Claude Code",
+          "Deployed live to Cloudflare Pages"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "slide",
+      "narration": "Before you start, make sure you have everything you need. Claude Code installed and working — if you skipped the setup lesson, go back and do it now. A Claude Pro subscription or API credits, because you'll be using Claude Code heavily. Git installed and a GitHub account. And a Cloudflare account ready to deploy. If any of those are missing, pause this video and get them set up. This project assumes you're ready to build.",
+      "visual": {
+        "title": "What You Need",
+        "bullets": [
+          "Claude Code installed (npm i -g @anthropic-ai/claude-code)",
+          "Claude Pro ($20/mo) or API credits",
+          "Git + GitHub account",
+          "Cloudflare account (free)",
+          "A text editor (VS Code recommended)"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "terminal",
+      "narration": "Step one: create a new project folder and start Claude Code. Open your terminal. Make a new directory for this project — I'm calling mine portfolio-v2. Change into that directory. Then start Claude Code by typing claude-code. Claude Code opens and asks what you want to build. This is where you describe your vision. Tell Claude Code you want to build a portfolio site with three pages: home, projects, and contact. Describe the style you want — modern, clean, maybe a dark theme or a light one. Be specific but conversational. Claude Code will ask clarifying questions. Answer them. Let the conversation flow. This is you designing out loud.",
+      "visual": {
+        "commands": [
+          "mkdir portfolio-v2",
+          "cd portfolio-v2",
+          "claude-code"
+        ],
+        "output": "Starting Claude Code...\n\nClaude: Hi! What would you like to build today?\n\nYou: I want to build a portfolio site with three pages: a home page introducing me, a projects page showing my work, and a contact page. Modern design, clean layout, maybe a dark theme.\n\nClaude: Great! Let me ask a few questions...",
+        "caption": "Start Claude Code and describe your vision"
+      }
+    },
+    {
+      "id": 5,
+      "type": "slide",
+      "narration": "As Claude Code starts building, it will create files — index.html, projects.html, contact.html, a CSS file, maybe a JavaScript file. It will write the HTML structure, style it, add navigation. Watch what it does. Read the code it writes. If something doesn't look right, tell Claude Code. Say 'the font is too small' or 'I want the navigation centered' or 'add a hover effect to the buttons'. Claude Code will edit the files and show you the changes. This is the back-and-forth. You're not just accepting what it gives you — you're shaping it, refining it, making it yours.",
+      "visual": {
+        "title": "The Build Loop",
+        "bullets": [
+          "Claude Code creates files (HTML, CSS, JS)",
+          "You review the code in your editor",
+          "You give feedback: 'change this', 'add that'",
+          "Claude Code edits and shows the diff",
+          "Repeat until you're happy"
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "type": "terminal",
+      "narration": "Once you have a few files, test your site locally. Ask Claude Code to start a local server. It might suggest python -m http.server or npx serve or just opening the HTML file in a browser. Pick one and run it. Open your browser and go to localhost with the port Claude Code tells you. You see your site. Click around. Does the navigation work? Do the pages load? Does it look good on your screen? If something's broken, go back to Claude Code and say 'the projects link is broken' or 'the contact form isn't styled'. Claude Code will fix it. Test again. This loop — build, test, fix — is how real development works.",
+      "visual": {
+        "commands": [
+          "npx serve ."
+        ],
+        "output": "Serving!\n- Local:    http://localhost:3000\n- Network:  http://192.168.1.10:3000\n\nServing portfolio-v2 on port 3000",
+        "caption": "Start a local server and test your site"
+      }
+    },
+    {
+      "id": 7,
+      "type": "browser",
+      "narration": "Here's what testing looks like. I open localhost in my browser. I see the home page — my name, a short bio, a photo placeholder. I click Projects. The projects page loads with cards for three projects. I click Contact. The contact page has a form with name, email, and message fields. Everything works. The design is clean. The colors match. The fonts are readable. If I didn't like something — say the projects cards were too wide — I'd go back to Claude Code and say 'make the project cards narrower, max width 300 pixels'. Claude Code would edit the CSS. I'd refresh the browser and see the change. That's the workflow.",
+      "visual": {
+        "captureScript": "capture/ch4-l7-test-local.ts",
+        "caption": "Testing your site locally in the browser"
+      }
+    },
+    {
+      "id": 8,
+      "type": "slide",
+      "narration": "When you're happy with your site locally, it's time to deploy. You need to push your code to GitHub, then connect GitHub to Cloudflare Pages. If you've done this before in Chapter Three, you know the steps. If not, here's the quick version. Initialize a git repo in your project folder. Add all your files. Commit them. Create a new repo on GitHub. Push your code to GitHub. Then go to Cloudflare Pages, create a new project, connect your GitHub repo, and deploy. Cloudflare builds your site and gives you a live URL. You can ask Claude Code to help with the git commands if you forget them. Just say 'help me push this to GitHub'.",
+      "visual": {
+        "title": "Deploy to Cloudflare Pages",
+        "bullets": [
+          "git init, add, commit",
+          "Create GitHub repo",
+          "git remote add origin, push",
+          "Cloudflare Pages: new project",
+          "Connect GitHub repo, deploy",
+          "Get live URL: yoursite.pages.dev"
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "type": "terminal",
+      "narration": "Here's the git workflow in the terminal. Initialize git. Add all files. Commit with a message like 'initial portfolio build'. Create a new repo on GitHub — go to github.com, click New Repository, name it portfolio-v2, don't initialize with a README. Copy the remote URL. Back in the terminal, add the remote. Push your code. Git pushes everything to GitHub. Now your code is backed up and ready to deploy. Head to Cloudflare Pages, log in, click Create a Project, connect your GitHub account if you haven't already, select your portfolio-v2 repo, and click Deploy. Cloudflare builds your site in about a minute and gives you a live URL. Open it. Your site is live on the internet.",
+      "visual": {
+        "commands": [
+          "git init",
+          "git add .",
+          "git commit -m 'initial portfolio build'",
+          "git remote add origin https://github.com/yourusername/portfolio-v2.git",
+          "git push -u origin main"
+        ],
+        "output": "Enumerating objects: 8, done.\nCounting objects: 100% (8/8), done.\nWriting objects: 100% (8/8), 1.2 KiB | 1.2 MiB/s, done.\nTo https://github.com/yourusername/portfolio-v2.git\n * [new branch]      main -> main",
+        "caption": "Push your code to GitHub"
+      }
+    },
+    {
+      "id": 10,
+      "type": "browser",
+      "narration": "Once Cloudflare finishes deploying, you get a URL like portfolio-v2.pages.dev. Open it. You see your site, live, on the internet. Share the link with a friend. Open it on your phone. It works. This is your site, built with Claude Code, deployed to the world. If you want to make changes, edit the code locally, test it, commit the changes, and push to GitHub. Cloudflare automatically rebuilds and redeploys. That's the full loop — build, test, deploy, iterate.",
+      "visual": {
+        "captureScript": "capture/ch4-l7-live-site.ts",
+        "caption": "Your live portfolio site on Cloudflare Pages"
+      }
+    },
+    {
+      "id": 11,
+      "type": "slide",
+      "narration": "Let's talk about what can go wrong and how to fix it. Claude Code might create files in the wrong place — check the file paths and move them if needed. The site might look broken locally — make sure you're serving the right folder and the paths to CSS and JS files are correct. Git might complain about authentication — use a personal access token, not your password, or set up SSH keys. Cloudflare might fail to build — check the build logs for errors, usually it's a missing file or a typo. If you get stuck, describe the error to Claude Code. Say 'the build failed with this error' and paste the error message. Claude Code will help you debug. You're not alone in this.",
+      "visual": {
+        "title": "Common Issues & Fixes",
+        "bullets": [
+          "Files in wrong place → check paths, move files",
+          "Site broken locally → check serve folder, file paths",
+          "Git auth error → use personal access token or SSH",
+          "Cloudflare build fails → read logs, ask Claude Code",
+          "Stuck? Describe the error to Claude Code"
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "type": "slide",
+      "narration": "Here are some ways to level up this project. Add a fourth page — maybe a blog or an about page with more detail. Add interactivity with JavaScript — a contact form that validates input, or a projects filter that sorts by category. Style it with a CSS framework like Tailwind or Bootstrap if you want a faster workflow. Add animations — smooth scrolling, fade-ins, hover effects. Make it responsive — test it on different screen sizes and adjust the CSS so it looks good on mobile. The more you push yourself, the more you learn. Don't settle for the minimum. Make it something you're proud to show.",
+      "visual": {
+        "title": "Level Up Ideas",
+        "bullets": [
+          "Add a fourth page (blog, about)",
+          "Add JS interactivity (form validation, filters)",
+          "Use a CSS framework (Tailwind, Bootstrap)",
+          "Add animations (scroll effects, fades)",
+          "Make it fully responsive (mobile, tablet, desktop)"
+        ]
+      }
+    },
+    {
+      "id": 13,
+      "type": "slide",
+      "narration": "Here's your exercise. Rebuild your portfolio site entirely in Claude Code. Three pages minimum: home, projects, contact. Your design, your content. Deploy it to Cloudflare Pages and get a live URL. Then add one extra feature — a fourth page, a JavaScript interaction, or a mobile-responsive layout. Take a screenshot of your live site and your Claude Code conversation. Post both in the community channel. Show us what you built. This is your proof that you can drive Claude Code from zero to deployed. Go build.",
+      "visual": {
+        "title": "Your Exercise",
+        "bullets": [
+          "Rebuild your portfolio in Claude Code",
+          "3 pages: home, projects, contact",
+          "Deploy to Cloudflare Pages",
+          "Add 1 extra feature (4th page, JS, responsive)",
+          "Screenshot: live site + Claude Code chat",
+          "Post in community: show your work"
+        ]
+      }
+    },
+    {
+      "id": 14,
+      "type": "outro",
+      "narration": "You've just completed the first major project of Chapter Four. You built a real site, from scratch, using Claude Code. You tested it locally. You deployed it to the world. You proved you can use this tool to build real things. Next lesson, we're going to take Claude Code even further — we'll build a multi-page app with routing, state, and real functionality. You're not just making static pages anymore. You're building apps. See you in the next lesson.",
+      "visual": {
+        "title": "Next: Build a Multi-Page App",
+        "subtitle": "Chapter 4, Lesson 8"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What's the first command you run to start Claude Code in your project folder?",
+      "options": [
+        "npm start",
+        "claude-code",
+        "git init",
+        "npx serve"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "After building your site locally, what's the first step to deploy it to Cloudflare Pages?",
+      "options": [
+        "Run npx serve",
+        "Push your code to GitHub",
+        "Buy a custom domain",
+        "Install Cloudflare CLI"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "What should you do if Claude Code creates a file in the wrong location?",
+      "options": [
+        "Delete the project and start over",
+        "Ignore it and deploy anyway",
+        "Tell Claude Code the file is in the wrong place and ask it to move it",
+        "Manually move it without telling Claude Code"
+      ],
+      "answer": 2,
+      "points": 10
+    },
+    {
+      "q": "What command starts a local web server to test your site?",
+      "options": [
+        "git push",
+        "npm install",
+        "npx serve . (or python -m http.server)",
+        "claude-code start"
+      ],
+      "answer": 2,
+      "points": 10
+    },
+    {
+      "q": "What's the minimum number of pages your portfolio site should have for this project?",
+      "options": [
+        "1 (just a home page)",
+        "2 (home and contact)",
+        "3 (home, projects, contact)",
+        "5 (home, about, projects, blog, contact)"
+      ],
+      "answer": 2,
+      "points": 10
+    }
+  ],
+  "exercise": "Rebuild your portfolio site entirely in Claude Code. Include at least three pages: home, projects, and contact. Use your own design and content. Deploy the site to Cloudflare Pages and get a live URL. Add one extra feature beyond the minimum: a fourth page, a JavaScript interaction, or a fully responsive mobile layout. Take a screenshot of your live site and your Claude Code conversation showing the build process. Post both screenshots in the community channel with a short description of what you built and what extra feature you added. This is your proof that you can drive Claude Code from idea to deployed site.",
+  "verifyCommands": [
+    "mkdir portfolio-v2",
+    "cd portfolio-v2",
+    "claude-code",
+    "npx serve .",
+    "git init",
+    "git add .",
+    "git commit -m 'initial portfolio build'",
+    "git remote add origin https://github.com/yourusername/portfolio-v2.git",
+    "git push -u origin main"
+  ]
+}
