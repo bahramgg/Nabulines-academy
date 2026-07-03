@@ -1,4 +1,5 @@
 import "dotenv/config";
+import "./lib/proxy.js";
 import { readFileSync, writeFileSync, mkdirSync, copyFileSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import { resolve, dirname, basename } from "node:path";
@@ -129,7 +130,10 @@ if (import.meta.url === `file://${process.argv[1]}`) {
         scene.durationSec = a.durationSec;
         scene.audioFile = `audio/${script.lessonId}/${file}`;
       }
-      writeFileSync(scriptPath, JSON.stringify(script, null, 2));
+      // Write the audio-enriched script alongside the clean source (a build
+      // artifact); render from this one. The canonical script stays untouched.
+      const enrichedPath = scriptPath.replace(/\.json$/, ".audio.json");
+      writeFileSync(enrichedPath, JSON.stringify(script, null, 2));
 
       // Frame-accurate subtitles from the real word alignment.
       const vtt = buildVtt(script, audio.map((a) => ({ sceneId: a.sceneId, words: a.words })));
@@ -139,7 +143,8 @@ if (import.meta.url === `file://${process.argv[1]}`) {
       const total = audio.reduce((s, a) => s + a.durationSec, 0);
       console.log(`[tts] ${script.lessonId}: ${audio.length} scenes · ${total.toFixed(1)}s`);
       console.log(`[tts] staged audio -> ${publicDir}`);
-      console.log(`[tts] enriched script -> ${scriptPath} · subtitles -> ${vttPath}`);
+      console.log(`[tts] enriched script -> ${enrichedPath} · subtitles -> ${vttPath}`);
+      console.log(`[tts] render: npx remotion render src/index.ts Lesson out/${script.lessonId}.mp4 --props=${enrichedPath}`);
     })
     .catch((err) => {
       console.error(err.message ?? err);

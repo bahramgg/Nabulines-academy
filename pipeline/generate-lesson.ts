@@ -1,4 +1,5 @@
 import "dotenv/config";
+import "./lib/proxy.js";
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
