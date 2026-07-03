@@ -9,6 +9,8 @@ export type Lesson = {
   sceneHints: string[];
   exercise: string;
   status: "pending" | "scripted" | "rendered" | "verified" | "awaiting_approval" | "published";
+  video?: string;
+  vtt?: string;
 };
 
 export type Chapter = {

@@ -67,7 +67,7 @@ export default function LessonPage({
       </header>
 
       <div className="mb-10">
-        <LessonPlayer title={lesson.title} />
+        <LessonPlayer title={lesson.title} src={lesson.video} vtt={lesson.vtt} />
       </div>
 
       <section className="mb-10">

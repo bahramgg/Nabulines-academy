@@ -28,7 +28,9 @@
             "outro"
           ],
           "exercise": "Write one sentence: what's the first thing you want to build?",
-          "status": "pending"
+          "status": "published",
+          "video": "https://ipfs.filebase.io/ipfs/QmPD87nQixr4vDvh2CF3di87PSn4DtD5f96mrqUrKSLRgy",
+          "vtt": "https://ipfs.filebase.io/ipfs/QmU1gU41qknkbDg5whmrFZr9crZG6FJy51HBAtskqrMFwH"
         },
         {
           "id": "ch0-l2",
@@ -44,7 +46,9 @@
             "outro"
           ],
           "exercise": "List one thing you currently rent (a platform) and one thing you could own instead.",
-          "status": "pending"
+          "status": "published",
+          "video": "https://ipfs.filebase.io/ipfs/QmWPTbWkv9siuJkcySpwRjnTNqvjqS1LEvNxyRSX7R3Pm1",
+          "vtt": "https://ipfs.filebase.io/ipfs/QmdNSCNVwE4XsLBTsJtVhBdVhs4KB1sn1kN7kYdKFndbkQ"
         },
         {
           "id": "ch0-l3",
@@ -220,7 +224,9 @@
             "outro"
           ],
           "exercise": "Write down your monthly budget for tools — even if it's $0 to start.",
-          "status": "pending"
+          "status": "published",
+          "video": "https://ipfs.filebase.io/ipfs/QmPDVoobQB17CXnz7M1P5zaAjq3UcLGq2M76eNv4qV2HRQ",
+          "vtt": "https://ipfs.filebase.io/ipfs/QmTzvD49pSq2kYVjpGpvgik1r3zHpgk3LdMctJwxNmkwzY"
         },
         {
           "id": "ch1-l8",
@@ -536,7 +542,9 @@
             "outro"
           ],
           "exercise": "Ask Claude Code to create a small script and run it.",
-          "status": "pending"
+          "status": "published",
+          "video": "https://ipfs.filebase.io/ipfs/QmYVuoP63fK1XST5DYy7dLhUjtbqSCuH3KTFskKerPukp6",
+          "vtt": "https://ipfs.filebase.io/ipfs/QmST3HZU3CuhoXSnTJPA9t8pWB1hBDxSczoS1P59wpHyPi"
         },
         {
           "id": "ch4-l4",
