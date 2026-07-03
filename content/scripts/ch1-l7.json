@@ -1,0 +1,157 @@
+{
+  "lessonId": "ch1-l7",
+  "title": "What Building Will Cost You — The Honest Breakdown (and the $0 Path)",
+  "totalWords": 1240,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. Today we're talking about money. What does it actually cost to build? Can you start for free? When do you need to pay? And how do you pay if you don't have a credit card? We're going to answer all of that, honestly, with real numbers. Let's go.",
+      "visual": {
+        "title": "What Building Will Cost You",
+        "subtitle": "The honest breakdown — and the $0 path"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "First, the best news: you can start building and even deploy real sites for zero dollars. Here's the completely free path. Claude dot AI has a free plan. It gives you chat plus Artifacts — that's the live preview window where you build pages right in your browser. It's limited daily usage, but it's enough to learn and build your first apps. GitHub is free. Unlimited public repositories. You can store all your code there without paying anything. Cloudflare Pages is free. You can deploy a real website on a pages dot dev URL, live on the internet, for zero dollars. So Chapters zero through three of this course — your first sites, your first apps — you can do all of that without spending a cent. That's the promise. You don't need money to start.",
+      "visual": {
+        "title": "The $0 Starting Path",
+        "bullets": [
+          "claude.ai Free plan — chat + Artifacts",
+          "GitHub — unlimited public repos",
+          "Cloudflare Pages — deploy real sites",
+          "Chapters 0–3: build & deploy for $0"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "slide",
+      "narration": "Now, when do costs appear? They show up when you want more power or more tools. Claude Code is the command-line tool that writes and edits files for you. It's free to install, but to run it you need either a paid Claude plan or API credits. The entry point is Claude Pro at twenty dollars a month. That's the plan most learners start with when they're ready for Claude Code. If you use it heavily, there's Max five-x at a hundred a month, or Max twenty-x at two hundred a month. Those are as of this recording — always check the live pricing page. If you don't want a monthly subscription, you can use the Anthropic API instead. That's pay-as-you-go. You add credits and pay per token. Haiku four point five is one dollar per million input tokens, five dollars output. Sonnet four point six is three dollars input, fifteen output. Opus four point eight is five input, twenty-five output. There's no permanent free tier, but if you're only using Claude Code occasionally, API credits can be cheaper than a monthly plan. Prompt caching cuts cached input by about ninety percent, and batch requests are about fifty percent cheaper. So the API is a real option for light use.",
+      "visual": {
+        "title": "When You Need to Pay",
+        "bullets": [
+          "Claude Code needs Pro ($20/mo) or API credits",
+          "API: Haiku $1/$5, Sonnet $3/$15, Opus $5/$25 per million tokens",
+          "Caching cuts ~90%, batch ~50% cheaper",
+          "Pro is the entry point for most learners"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "slide",
+      "narration": "What if you don't have a credit card? This is common outside the US, and there are real solutions. OpenRouter is a service that gives you one API key for many models, including Claude. You pay as you go, and you can top up with crypto — specifically USDC. No card needed. It's the best option for learners who can't use a card but want full AI access. If you need a card for something like ElevenLabs or a Claude subscription, you can get a crypto-funded virtual card. These are Visa or Mastercard cards you load with cryptocurrency, then use anywhere cards are accepted. Services like this exist in most regions. So the no-card path is: OpenRouter plus crypto for your AI usage, and a crypto-funded virtual card for anything else that requires a card. It works.",
+      "visual": {
+        "title": "Paying Without a Credit Card",
+        "bullets": [
+          "OpenRouter — pay with crypto (USDC)",
+          "One key, many models (including Claude)",
+          "Crypto-funded virtual card (Visa/Mastercard)",
+          "Load with crypto, use anywhere cards work"
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "type": "slide",
+      "narration": "Let's talk about the other costs. A custom domain is about ten to twelve dollars a year. You don't need one to start — Cloudflare gives you a free pages dot dev URL — but when you're ready for a real domain, it's cheap. Infrastructure: GitHub is free. Cloudflare Pages is free. Cloudflare R2 for storing video or files is about one and a half cents per gigabyte stored, with free egress. For this course, that's under a dollar a month. A VPS — a virtual private server, a Linux box in the cloud — costs about five to fifteen dollars a month depending on the provider. You'll need one later for always-on agents or automation, but not at the start. ElevenLabs is only needed if you're doing the automation and creator track — generating narration for videos or apps. The free plan gives you about ten minutes of audio a month. Starter is five dollars a month for about thirty minutes. Creator is twenty-two dollars for about a hundred minutes. Pro is ninety-nine dollars for about five hundred minutes. These prices are as of this recording — check their live page. ElevenLabs only accepts cards, so if you don't have one, you'd use a crypto-funded virtual card.",
+      "visual": {
+        "title": "Other Costs",
+        "bullets": [
+          "Custom domain: ~$10–12/year",
+          "VPS: ~$5–15/month (later, for agents)",
+          "Cloudflare R2: ~$0.015/GB, free egress (<$1/mo)",
+          "ElevenLabs: Free (10 min), $5 (30 min), $22 (100 min), $99 (500 min)"
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "type": "slide",
+      "narration": "So what's the honest monthly picture? If you're just learning and staying in the browser, Chapters zero through three, it's zero dollars. If you're serious and want Claude Code, you're looking at about twenty dollars a month for Claude Pro, plus maybe a dollar a year for a domain if you split it monthly. That's the builder path. If you're going full creator — your own tools, narration, always-on agents — you're looking at about twenty dollars for Claude Pro, five to twenty-two dollars for ElevenLabs depending on how much audio you generate, five to fifteen dollars for a VPS, and under a dollar for R2 storage. Total: about thirty to sixty dollars a month. That's the full stack. But remember: you start at zero. You build. You learn. You only pay when you're ready for more power. No one's asking you for money on day one.",
+      "visual": {
+        "title": "Honest Monthly Picture",
+        "bullets": [
+          "Just learning (Ch 0–3): $0",
+          "Serious builder (Claude Code): ~$20/mo",
+          "Full creator (tools + narration + VPS): ~$30–60/mo",
+          "Start at $0, pay only when you need more"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "type": "slide",
+      "narration": "One more thing. Prices change. The numbers I just gave you are current as of this recording, but tools update their pricing. Always check the live page before you pay. The lesson here isn't the exact dollar amount — it's that you know what to expect, you know the free path exists, and you know how to pay even without a card. That's the honesty you need to plan.",
+      "visual": {
+        "title": "Prices Change — Always Check",
+        "bullets": [
+          "These prices: verified as of this recording",
+          "Tools update pricing — check live pages",
+          "The lesson: know what to expect, plan your path",
+          "Free path exists, alternatives exist"
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "type": "outro",
+      "narration": "That's the honest breakdown. You can start for free. You pay when you're ready. And there are real solutions if you don't have a credit card. Your exercise: write down your monthly budget for tools. Even if it's zero to start, write it down. Know what you can afford, and plan your path. Next lesson, we're installing Claude Code. That's where the real building begins. See you there.",
+      "visual": {
+        "title": "Next: Installing Claude Code",
+        "subtitle": "The real building begins"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What can you build and deploy for $0?",
+      "options": [
+        "Nothing — you need to pay from day one",
+        "Your first sites using claude.ai Free, GitHub, and Cloudflare Pages",
+        "Only local files, you can't deploy without paying",
+        "Only static text, no real apps"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "What's the entry-level paid plan for Claude Code?",
+      "options": [
+        "Free — Claude Code is always free",
+        "Claude Pro at $20/month",
+        "Claude Max 5× at $100/month",
+        "You must use API credits, no subscription option"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "If you don't have a credit card, what's the best option for AI usage?",
+      "options": [
+        "You can't use AI tools without a card",
+        "OpenRouter, which accepts crypto (USDC) for payment",
+        "Wait until you get a card",
+        "Only use free plans forever"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "What's the honest monthly cost for a serious builder using Claude Code?",
+      "options": [
+        "$0 — everything is free",
+        "~$20/month (Claude Pro)",
+        "~$100/month minimum",
+        "~$200/month for basic usage"
+      ],
+      "answer": 1,
+      "points": 10
+    }
+  ],
+  "exercise": "Write down your monthly budget for tools — even if it's $0 to start. Know what you can afford and plan your path. List: what you can do for free now, what you'll pay for when you're ready, and how you'll pay (card, crypto, virtual card).",
+  "verifyCommands": []
+}

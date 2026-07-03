@@ -13,6 +13,7 @@ import { validateScript, LessonScript, type LessonScript as Script } from "./lib
 const here = dirname(fileURLToPath(import.meta.url));
 const SYLLABUS = resolve(here, "curriculum/syllabus.json");
 const PROMPT = resolve(here, "curriculum/prompts/lesson.md");
+const COSTS = resolve(here, "curriculum/costs.md");
 const OUT_DIR = resolve(here, "../content/scripts");
 
 type SyllabusLesson = {
@@ -39,8 +40,12 @@ function stripFences(raw: string): string {
 export async function generateLesson(lessonId: string): Promise<Script> {
   const { lesson } = findLesson(lessonId);
   const template = readFileSync(PROMPT, "utf8");
+  const costs = readFileSync(COSTS, "utf8");
 
-  const system: ChatMessage = { role: "system", content: template };
+  const system: ChatMessage = {
+    role: "system",
+    content: `${template}\n\n---\n# Costs reference (use these exact prices)\n\n${costs}`,
+  };
   const messages: ChatMessage[] = [
     system,
     {

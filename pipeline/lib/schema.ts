@@ -37,9 +37,13 @@ export const LessonScript = z.object({
 });
 export type LessonScript = z.infer<typeof LessonScript>;
 
-// ── Hard limits ──────────────────────────────────────────────────────────────
-export const MAX_WORDS = 750;
-export const MAX_SECONDS = 300;
+// ── Limits ───────────────────────────────────────────────────────────────────
+// A lesson runs as long as it needs to teach the topic completely — no filler.
+// These are safety ceilings, not targets. Concept lessons stay short (~4-7 min);
+// hands-on / cost / setup lessons can run long (up to ~20 min) so a total
+// beginner can follow every step. Per-lesson target guidance lives in the prompt.
+export const MAX_WORDS = 3000;
+export const MAX_SECONDS = 1200; // 20 min ceiling
 export const WORDS_PER_SECOND = 2.5; // ~150 wpm narration
 
 export function countWords(text: string): number {
