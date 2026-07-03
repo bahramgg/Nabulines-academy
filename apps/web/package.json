@@ -8,13 +8,14 @@
     "dev": "next dev",
     "prebuild": "npm run sync",
     "build": "next build",
-    "start": "next start",
+    "start": "serve out -l ${PORT:-3000}",
     "lint": "next lint"
   },
   "dependencies": {
     "next": "14.2.15",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "serve": "^14.2.6"
   },
   "devDependencies": {
     "@types/node": "^20.14.0",

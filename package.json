@@ -1,0 +1,13 @@
+{
+  "name": "nabulines-academy",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Nabulines Academy — From Creator to Builder. Root scripts for hosting (Railway).",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "npm --prefix apps/web install && npm --prefix apps/web run build",
+    "start": "npm --prefix apps/web run start"
+  }
+}

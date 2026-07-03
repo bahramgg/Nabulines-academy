@@ -43,11 +43,17 @@ lesson player · `/news` builder news · `/leaderboard` community score.
 Progress is stored in `localStorage` for now; the leaderboard uses mock data until
 it connects to the Nabulines community score system.
 
-### Cloudflare Pages
+### Deploy
 
+**Railway** (root config included — deploy straight from the repo root):
+- Build: `npm run build` · Start: `npm run start` (serves the static `out/` on `$PORT`)
+- `railway.json` + root `package.json` handle both; no dashboard build settings needed.
+
+**Cloudflare Pages** (static, free, target for launch):
 - Build command: `cd apps/web && npm install && npm run build`
 - Output directory: `apps/web/out`
-- Videos stream from Cloudflare R2 behind `media.nabulines.com` (added in Phase 2/3).
+
+Videos stream from Cloudflare R2 behind `media.nabulines.com` (added in Phase 2/3).
 
 ## Build phases
 
@@ -61,8 +67,8 @@ it connects to the Nabulines community score system.
 
 ## Needed to go further
 
-- `ELEVEN_API_KEY`, `ELEVEN_VOICE_ID` (TTS)
-- `ANTHROPIC_API_KEY` (lesson + news generation)
+- `OPENROUTER_API_KEY` (lesson + news generation — OpenRouter, top up with crypto)
+- TTS: `TTS_PROVIDER=local` (Kokoro/XTTS, no card) or ElevenLabs (`ELEVEN_API_KEY`, card only)
 - `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` (approval bot)
 - Cloudflare R2 bucket + credentials, custom domain
 - The licensed techno display font file from nabulines.com (currently falls back to Michroma)
