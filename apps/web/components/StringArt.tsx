@@ -30,21 +30,8 @@ export function StringArt({ className = "" }: { className?: string }) {
   );
 }
 
-// The 👁️⃤ eye/triangle motif, drawn so it matches the monochrome system.
+// Brand logomark (white line-art on transparent), used across the site.
 export function EyeMark({ className = "" }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 48 48"
-      aria-hidden="true"
-      className={className}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinejoin="round"
-    >
-      <path d="M24 6 L42 40 L6 40 Z" />
-      <ellipse cx="24" cy="30" rx="9" ry="6" />
-      <circle cx="24" cy="30" r="2.4" fill="currentColor" stroke="none" />
-    </svg>
-  );
+  // eslint-disable-next-line @next/next/no-img-element
+  return <img src="/logo.png" alt="Nabulines Academy" className={className} />;
 }

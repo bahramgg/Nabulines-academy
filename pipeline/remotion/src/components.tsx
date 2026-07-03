@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill } from "remotion";
+import { AbsoluteFill, Img, staticFile } from "remotion";
 import { theme } from "./theme";
 
 // Shared signature elements: string-art backdrop + eye/triangle mark.
@@ -26,15 +26,9 @@ export const StringArt: React.FC<{ opacity?: number }> = ({ opacity = 1 }) => {
   );
 };
 
-export const EyeMark: React.FC<{ size?: number; color?: string }> = ({
-  size = 64,
-  color = theme.text,
-}) => (
-  <svg width={size} height={size} viewBox="0 0 48 48" fill="none" stroke={color} strokeWidth={1.5} strokeLinejoin="round">
-    <path d="M24 6 L42 40 L6 40 Z" />
-    <ellipse cx="24" cy="30" rx="9" ry="6" />
-    <circle cx="24" cy="30" r="2.4" fill={color} stroke="none" />
-  </svg>
+// Brand logomark (white line-art on transparent).
+export const EyeMark: React.FC<{ size?: number; color?: string }> = ({ size = 64 }) => (
+  <Img src={staticFile("logo.png")} style={{ width: size, height: size, objectFit: "contain" }} />
 );
 
 export const Eyebrow: React.FC<{ children: React.ReactNode }> = ({ children }) => (

@@ -6,6 +6,7 @@ import { resolve, dirname, basename } from "node:path";
 import { fileURLToPath } from "node:url";
 import { LessonScript, type LessonScript as Script, type Scene } from "./lib/schema.js";
 import { buildVtt, type WordTiming } from "./subtitles.js";
+import { forSpeech, forDisplay } from "./lib/pronounce.js";
 
 // ── Narration (Module 3.1) ───────────────────────────────────────────────────
 // One audio file per scene + per-word timings for frame-accurate subtitles.
@@ -41,13 +42,18 @@ async function elevenlabs(scene: Scene, outFile: string): Promise<SceneAudio> {
   const voice = process.env.ELEVEN_VOICE_ID;
   if (!key || !voice) throw new Error("ELEVEN_API_KEY / ELEVEN_VOICE_ID not set.");
   const model = process.env.ELEVEN_MODEL ?? "eleven_v3";
+  const speed = Number(process.env.ELEVEN_SPEED ?? 1.1); // ~10% faster than default
 
   const res = await fetch(
     `https://api.elevenlabs.io/v1/text-to-speech/${voice}/with-timestamps`,
     {
       method: "POST",
       headers: { "xi-api-key": key, "Content-Type": "application/json" },
-      body: JSON.stringify({ text: scene.narration, model_id: model }),
+      body: JSON.stringify({
+        text: forSpeech(scene.narration),
+        model_id: model,
+        voice_settings: { speed, stability: 0.4, similarity_boost: 0.8, use_speaker_boost: true },
+      }),
     },
   );
   if (!res.ok) throw new Error(`ElevenLabs ${res.status}: ${(await res.text()).slice(0, 300)}`);
@@ -58,7 +64,8 @@ async function elevenlabs(scene: Scene, outFile: string): Promise<SceneAudio> {
   };
   writeFileSync(outFile, Buffer.from(data.audio_base64, "base64"));
   const a = data.alignment;
-  const words = charsToWords(scene.narration, a.characters, a.character_start_times_seconds, a.character_end_times_seconds);
+  const words = charsToWords(scene.narration, a.characters, a.character_start_times_seconds, a.character_end_times_seconds)
+    .map((w) => ({ ...w, word: forDisplay(w.word) }));
   const durationSec = a.character_end_times_seconds.at(-1) ?? 0;
   return { sceneId: scene.id, audioFile: outFile, durationSec, words };
 }
