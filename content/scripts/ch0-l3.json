@@ -1,0 +1,199 @@
+{
+  "lessonId": "ch0-l3",
+  "title": "Mapping the Ecosystem: Claude, Cursor, v0, Bolt",
+  "totalWords": 890,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. In this lesson we're going to map out the AI building tools you'll hear about everywhere — Claude, Cursor, v0, Bolt — and you'll know exactly which one to reach for and when. By the end you'll have a clear mental map of the ecosystem so you're never confused about what tool does what. Let's dive in.",
+      "visual": {
+        "title": "Mapping the Ecosystem",
+        "subtitle": "Claude, Cursor, v0, Bolt — which tool for what?"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "First, the big picture. All these tools use AI to help you build software, but they live in different places and solve different problems. Claude is a chat AI you talk to in your browser. Cursor is a code editor on your computer that has AI inside it. v0 and Bolt are specialized web apps for designing interfaces or spinning up full projects fast. Think of them as different rooms in the same house — you pick the room that fits the job.",
+      "visual": {
+        "title": "The Big Picture",
+        "bullets": [
+          "Claude — chat AI in your browser",
+          "Cursor — AI-powered code editor on your computer",
+          "v0 — web app for designing UI components",
+          "Bolt — web app for full-stack projects in seconds",
+          "Different tools, different jobs"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "slide",
+      "narration": "Let's start with Claude. Claude is Anthropic's AI — you chat with it at claude dot ai. It's like ChatGPT but often better at coding and reasoning. The killer feature for builders is Artifacts — when you ask Claude to make something, it can generate a live preview right in the browser. You see a button, a form, a mini game, running instantly. No install, no setup. This is where absolute beginners start because you can build and see results in the same window. Claude also has a Pro plan for twenty dollars a month that unlocks more usage and a tool called Claude Code, which we'll cover later. For now, just know: Claude in the browser is your first playground.",
+      "visual": {
+        "title": "Claude (claude.ai)",
+        "bullets": [
+          "Chat AI by Anthropic",
+          "Artifacts = live preview in browser",
+          "Perfect starting point (no install)",
+          "Free plan to start",
+          "Pro: $20/mo for more usage + Claude Code"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "slide",
+      "narration": "Next is Cursor. Cursor is a code editor — think of it as the app where you write and organize all your code files. It looks like VS Code, which is the most popular editor in the world, but Cursor has AI baked in. You can highlight code and ask the AI to explain it, rewrite it, or add a feature. You can chat with the AI about your whole project. Cursor is what you graduate to when you're ready to work on real projects with multiple files, not just one-off experiments. It lives on your computer, not in the browser. Cursor has a free tier with limited AI requests, then a Pro plan for twenty dollars a month for more usage. You'll use Cursor once you're past the basics and building actual apps.",
+      "visual": {
+        "title": "Cursor",
+        "bullets": [
+          "AI code editor (like VS Code + AI)",
+          "Lives on your computer",
+          "Chat with AI about your project",
+          "For real multi-file projects",
+          "Free tier, Pro: $20/mo"
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "type": "slide",
+      "narration": "Now v0. v0 is made by Vercel, the company behind Next.js, a popular web framework. v0 is a web app where you describe a user interface — a login form, a dashboard, a pricing page — and it generates the React code for you, with a live preview. It's laser-focused on UI design. You don't build a whole app in v0, you design the pieces, then copy the code into your real project. v0 has a free tier with limited generations, then paid plans starting around twenty dollars a month. It's a specialist tool — you reach for it when you need a beautiful interface fast and you're already comfortable with React.",
+      "visual": {
+        "title": "v0 (v0.dev)",
+        "bullets": [
+          "By Vercel (Next.js team)",
+          "Generates React UI components",
+          "Describe interface → get code + preview",
+          "Specialist for UI design",
+          "Free tier, paid from ~$20/mo"
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "type": "slide",
+      "narration": "Last, Bolt. Bolt, also called Bolt dot new, is a web app that spins up entire full-stack projects in seconds. You describe an app — a to-do list, a chat room, a portfolio site — and Bolt generates the code, sets up the environment, and gives you a running preview, all in the browser. It's incredibly fast for prototyping. Bolt uses StackBlitz under the hood, which is a browser-based dev environment. The catch: Bolt is best for demos and learning, not production apps. It has a free tier, then paid plans. Think of Bolt as the tool for when you want to see an idea come to life in thirty seconds, not when you're building something to ship to users.",
+      "visual": {
+        "title": "Bolt (bolt.new)",
+        "bullets": [
+          "Full-stack projects in seconds",
+          "Browser-based environment (StackBlitz)",
+          "Great for prototyping and learning",
+          "Not for production apps",
+          "Free tier, paid plans available"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "type": "browser",
+      "narration": "Let me show you these tools in action, just so you see the difference. Here's claude dot ai — I'm asking it to make a simple button. Boom, Artifact appears, button is live. Now here's Cursor on my desktop — multiple files, AI chat on the side. Here's v0 — I type 'pricing page' and it generates a beautiful component. And here's Bolt — I say 'chat app' and it scaffolds the whole thing, server included. Each tool has its place. Claude for quick experiments. Cursor for real projects. v0 for polished UI. Bolt for fast full-stack demos.",
+      "visual": {
+        "captureScript": "capture/ch0-l3-tools-demo.ts",
+        "caption": "Quick tour: Claude Artifacts → Cursor editor → v0 UI → Bolt full-stack"
+      }
+    },
+    {
+      "id": 8,
+      "type": "slide",
+      "narration": "So which one do you start with? If you're brand new, start with Claude. It's free, it's in the browser, and Artifacts let you see results instantly. Once you're comfortable and ready to build real multi-file projects, add Cursor. If you're designing interfaces and you know React, try v0. If you want to prototype a full app in seconds, try Bolt. But the foundation is Claude. That's where this course begins. You'll learn Claude deeply, then we'll bring in the others as you need them.",
+      "visual": {
+        "title": "Which One to Start With?",
+        "bullets": [
+          "Brand new? → Claude (free, browser, instant results)",
+          "Ready for real projects? → Cursor",
+          "Designing UI? → v0",
+          "Fast full-stack demo? → Bolt",
+          "Foundation: Claude. We start there."
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "type": "slide",
+      "narration": "One more thing. These tools all cost money if you use them heavily, but you can start for free. Claude has a free plan. Cursor has a free tier. v0 and Bolt have free generations. As you grow, you'll probably pay for one or two — most builders end up on Claude Pro and Cursor Pro, that's forty dollars a month total. But you can go far on the free tiers while you're learning. We'll cover costs in detail in a dedicated lesson later. For now, just know: free to start, pay as you grow.",
+      "visual": {
+        "title": "Costs — Free to Start",
+        "bullets": [
+          "All have free tiers to start",
+          "Claude Pro: $20/mo",
+          "Cursor Pro: $20/mo",
+          "v0, Bolt: free tier, paid from ~$20/mo",
+          "Most builders: ~$40/mo (Claude + Cursor)",
+          "Detailed costs lesson coming soon"
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "type": "outro",
+      "narration": "That's the map. Claude for chat and Artifacts. Cursor for real coding. v0 for UI. Bolt for fast demos. You now know what each tool does and when to reach for it. Your exercise: pick the one tool you'll start with this week and write one line about why. Next lesson, we're going to talk about the two big mental shifts you need to make to think like an AI builder. See you there.",
+      "visual": {
+        "title": "Next: Mental Shifts for AI Building",
+        "subtitle": "Exercise: Pick your starting tool and say why in one line"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which tool is best for absolute beginners to start building in the browser with instant previews?",
+      "options": [
+        "Claude (claude.ai)",
+        "Cursor",
+        "v0",
+        "Bolt"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "What is Cursor?",
+      "options": [
+        "A chat AI in the browser",
+        "An AI-powered code editor on your computer",
+        "A tool for generating UI components",
+        "A browser-based full-stack environment"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "What is v0 specialized for?",
+      "options": [
+        "Full-stack app prototyping",
+        "Chatting with AI",
+        "Generating React UI components",
+        "Writing backend code"
+      ],
+      "answer": 2,
+      "points": 10
+    },
+    {
+      "q": "Which tool spins up entire full-stack projects in seconds for fast prototyping?",
+      "options": [
+        "Claude",
+        "Cursor",
+        "v0",
+        "Bolt (bolt.new)"
+      ],
+      "answer": 3,
+      "points": 10
+    },
+    {
+      "q": "Can you start using all these tools for free?",
+      "options": [
+        "Yes, all have free tiers",
+        "No, you must pay upfront",
+        "Only Claude is free",
+        "Only Cursor is free"
+      ],
+      "answer": 0,
+      "points": 10
+    }
+  ],
+  "exercise": "Pick the one tool you'll start with this week (Claude, Cursor, v0, or Bolt) and write one sentence explaining why you chose it. Post your choice in the community or write it down. This helps you commit to a starting point.",
+  "verifyCommands": []
+}

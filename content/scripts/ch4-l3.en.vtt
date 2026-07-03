@@ -1,0 +1,389 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:01.881
+Welcome to Nabulines Academy.
+
+2
+00:00:02.345 --> 00:00:04.087
+You've got Claude Code installed.
+
+3
+00:00:04.725 --> 00:00:06.153
+Now let's actually use it to build
+
+4
+00:00:06.211 --> 00:00:06.734
+something.
+
+5
+00:00:07.372 --> 00:00:09.195
+In this lesson, you'll start Claude Code
+
+6
+00:00:09.218 --> 00:00:11.505
+in a folder, ask it to create a script,
+
+7
+00:00:11.645 --> 00:00:12.318
+and run it.
+
+8
+00:00:12.957 --> 00:00:14.779
+By the end, you'll have your first real
+
+9
+00:00:14.838 --> 00:00:16.149
+project built with AI.
+
+10
+00:00:16.695 --> 00:00:17.508
+Let's go.
+
+11
+00:00:17.508 --> 00:00:18.565
+Open your terminal.
+
+12
+00:00:18.971 --> 00:00:20.805
+Create a new folder for your project.
+
+13
+00:00:21.444 --> 00:00:23.650
+Type mkdir my-first-project.
+
+14
+00:00:24.288 --> 00:00:24.904
+Hit enter.
+
+15
+00:00:25.542 --> 00:00:27.237
+Now move into that folder with cd
+
+16
+00:00:27.423 --> 00:00:28.537
+my-first-project.
+
+17
+00:00:29.281 --> 00:00:30.906
+This is where everything will live.
+
+18
+00:00:31.777 --> 00:00:33.878
+Now type claude-code and hit enter.
+
+19
+00:00:34.621 --> 00:00:36.339
+Claude Code starts up in the current
+
+20
+00:00:36.385 --> 00:00:36.885
+folder.
+
+21
+00:00:37.628 --> 00:00:39.416
+It opens a chat interface right in your
+
+22
+00:00:39.451 --> 00:00:39.973
+terminal.
+
+23
+00:00:40.159 --> 00:00:41.285
+You're ready to build.
+
+24
+00:00:41.285 --> 00:00:42.330
+Now talk to Claude.
+
+25
+00:00:42.794 --> 00:00:44.524
+Type your request in plain English.
+
+26
+00:00:45.163 --> 00:00:46.811
+Let's ask it to create a script that
+
+27
+00:00:46.869 --> 00:00:48.948
+generates random motivational quotes.
+
+28
+00:00:49.586 --> 00:00:52.291
+Type: Create a script that prints a random
+
+29
+00:00:52.349 --> 00:00:54.323
+motivational quote each time I run it.
+
+30
+00:00:54.962 --> 00:00:55.588
+Hit enter.
+
+31
+00:00:56.227 --> 00:00:58.247
+Claude Code reads your request.
+
+32
+00:00:58.885 --> 00:00:59.791
+It thinks for a moment.
+
+33
+00:01:00.139 --> 00:01:02.345
+Then it creates a file called quotes dot j
+
+34
+00:01:02.391 --> 00:01:02.786
+s.
+
+35
+00:01:03.134 --> 00:01:04.086
+It writes the code.
+
+36
+00:01:04.307 --> 00:01:05.573
+It explains what it did.
+
+37
+00:01:06.443 --> 00:01:07.825
+You don't have to write a single line
+
+38
+00:01:07.848 --> 00:01:08.638
+yourself.
+
+39
+00:01:08.638 --> 00:01:10.078
+Let's look at what Claude built.
+
+40
+00:01:10.623 --> 00:01:12.272
+Open quotes dot j s.
+
+41
+00:01:12.910 --> 00:01:14.826
+There's an array of motivational quotes.
+
+42
+00:01:15.465 --> 00:01:17.229
+There's code to pick one at random.
+
+43
+00:01:17.392 --> 00:01:19.331
+There's a console dot log to print it.
+
+44
+00:01:20.074 --> 00:01:22.477
+Claude wrote real, working JavaScript.
+
+45
+00:01:23.348 --> 00:01:25.043
+You didn't have to know the syntax.
+
+46
+00:01:25.682 --> 00:01:27.237
+You didn't have to look up how to generate
+
+47
+00:01:27.284 --> 00:01:28.155
+random numbers.
+
+48
+00:01:28.793 --> 00:01:30.511
+You just described what you wanted.
+
+49
+00:01:30.511 --> 00:01:31.289
+Now run it.
+
+50
+00:01:32.032 --> 00:01:33.948
+Type node quotes dot j s.
+
+51
+00:01:34.238 --> 00:01:34.923
+Hit enter.
+
+52
+00:01:35.468 --> 00:01:36.769
+A random quote appears.
+
+53
+00:01:37.512 --> 00:01:38.290
+Run it again.
+
+54
+00:01:38.580 --> 00:01:39.300
+Different quote.
+
+55
+00:01:39.648 --> 00:01:41.517
+You just built a working script by asking
+
+56
+00:01:41.575 --> 00:01:41.993
+for it.
+
+57
+00:01:42.458 --> 00:01:43.607
+This is vibe coding.
+
+58
+00:01:43.955 --> 00:01:45.186
+You describe the vibe.
+
+59
+00:01:45.929 --> 00:01:47.148
+Claude writes the code.
+
+60
+00:01:47.496 --> 00:01:49.226
+You run it and see it work.
+
+61
+00:01:49.226 --> 00:01:50.457
+Want to change something?
+
+62
+00:01:50.747 --> 00:01:51.560
+Just ask.
+
+63
+00:01:51.815 --> 00:01:53.069
+Go back to Claude Code.
+
+64
+00:01:53.940 --> 00:01:56.296
+Type: Add five more quotes to the list.
+
+65
+00:01:56.517 --> 00:01:57.841
+Claude updates the file.
+
+66
+00:01:58.003 --> 00:01:58.781
+Run it again.
+
+67
+00:01:58.944 --> 00:01:59.803
+More variety.
+
+68
+00:01:59.965 --> 00:02:01.533
+You're iterating in plain English.
+
+69
+00:02:01.788 --> 00:02:02.949
+No syntax errors.
+
+70
+00:02:03.170 --> 00:02:04.052
+No debugging.
+
+71
+00:02:04.307 --> 00:02:06.223
+Just conversation and results.
+
+72
+00:02:06.223 --> 00:02:07.326
+Here's what just happened.
+
+73
+00:02:07.964 --> 00:02:09.973
+You started Claude Code in a folder.
+
+74
+00:02:10.716 --> 00:02:12.330
+You described what you wanted in plain
+
+75
+00:02:12.388 --> 00:02:12.899
+English.
+
+76
+00:02:13.247 --> 00:02:14.838
+Claude created a real script.
+
+77
+00:02:15.302 --> 00:02:15.987
+You ran it.
+
+78
+00:02:16.533 --> 00:02:17.148
+It worked.
+
+79
+00:02:17.787 --> 00:02:19.040
+You asked for changes.
+
+80
+00:02:19.679 --> 00:02:20.608
+Claude made them.
+
+81
+00:02:21.153 --> 00:02:22.268
+This is the workflow.
+
+82
+00:02:22.907 --> 00:02:25.287
+Describe, build, run, iterate.
+
+83
+00:02:26.157 --> 00:02:28.236
+No prior coding knowledge required.
+
+84
+00:02:28.236 --> 00:02:29.954
+You just built your first project with
+
+85
+00:02:30.012 --> 00:02:30.721
+Claude Code.
+
+86
+00:02:31.011 --> 00:02:31.986
+A working script.
+
+87
+00:02:32.334 --> 00:02:33.414
+Created by AI.
+
+88
+00:02:33.878 --> 00:02:34.587
+Run by you.
+
+89
+00:02:34.935 --> 00:02:35.841
+Now it's your turn.
+
+90
+00:02:36.386 --> 00:02:37.512
+Open the exercise.
+
+91
+00:02:38.151 --> 00:02:40.368
+Ask Claude Code to create a small script
+
+92
+00:02:40.392 --> 00:02:41.019
+of your own.
+
+93
+00:02:41.657 --> 00:02:42.122
+Run it.
+
+94
+00:02:42.760 --> 00:02:43.515
+See it work.
+
+95
+00:02:44.385 --> 00:02:46.301
+Next lesson, we'll build something
+
+96
+00:02:46.359 --> 00:02:48.472
+bigger—a multi-file project.
+
+97
+00:02:49.111 --> 00:02:50.016
+See you there.
