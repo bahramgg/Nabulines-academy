@@ -128,7 +128,9 @@
             "outro"
           ],
           "exercise": "Send Claude your first message and screenshot the reply.",
-          "status": "pending"
+          "status": "published",
+          "video": "https://ipfs.filebase.io/ipfs/QmecxYenMi6MngQ6DVxgKMC8zpBbxrbyiXMAvC8HDk3pJn",
+          "vtt": "https://ipfs.filebase.io/ipfs/QmQT3gJB8ia48gvWuUmgvbPkYC74qpCUxEcMRE4nGE6kji"
         },
         {
           "id": "ch1-l2",
