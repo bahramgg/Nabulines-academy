@@ -1,0 +1,39 @@
+# dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# next.js
+.next/
+out/
+build/
+dist/
+
+# generated (synced from source of truth)
+apps/web/lib/syllabus.data.json
+
+# pipeline output
+out/
+*.mp4
+*.webm
+*.mp3
+
+# env
+.env
+.env*.local
+!.env.example
+
+# logs
+logs/
+*.log
+npm-debug.log*
+
+# os / editor
+.DS_Store
+*.pem
+.vscode/
+.idea/
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts

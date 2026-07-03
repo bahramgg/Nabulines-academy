@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Monochrome tokens — mirror of nabulines.com. No accent colors on the site. */
+  --bg: #000000;
+  --surface: #0a0a0a;
+  --border: rgba(255, 255, 255, 0.12);
+  --text: #ffffff;
+  --text-2: #9ba1a6;
+  --text-3: #6b7280;
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@layer base {
+  ::selection {
+    background: #ffffff;
+    color: #000000;
+  }
+}
+
+@layer components {
+  /* Techno display headings — ALL CAPS, open tracking. Never used for body copy. */
+  .display {
+    font-family: var(--font-display), Michroma, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    line-height: 1.05;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-btn px-6 py-3 text-sm font-semibold transition-colors duration-200;
+  }
+  .btn-primary {
+    @apply btn bg-white text-black hover:bg-white/90;
+  }
+  .btn-secondary {
+    @apply btn border border-border bg-transparent text-white hover:bg-white/5;
+  }
+
+  .card {
+    @apply rounded-card border border-border bg-transparent transition-colors duration-200;
+  }
+  .card:hover {
+    background: var(--surface);
+  }
+
+  .section-eyebrow {
+    @apply display text-xs text-text-2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

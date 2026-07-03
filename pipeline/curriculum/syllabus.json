@@ -1,0 +1,527 @@
+{
+  "meta": {
+    "title": "Nabulines Academy",
+    "tagline": "From Creator to Builder",
+    "language": "en",
+    "maxLessonSeconds": 300,
+    "maxLessonWords": 750,
+    "totalLessons": 45,
+    "totalChapters": 8
+  },
+  "chapters": [
+    {
+      "id": "ch0",
+      "index": 0,
+      "title": "The Builder Mindset",
+      "summary": "Rewire how you think before you touch a single tool.",
+      "lessons": [
+        {
+          "id": "ch0-l1",
+          "title": "What Is Vibe Coding?",
+          "goal": "Understand the paradigm shift and why now is the best time in history to start building.",
+          "prerequisites": [],
+          "maxWords": 750,
+          "sceneHints": ["intro", "slide", "browser", "outro"],
+          "exercise": "Write one sentence: what's the first thing you want to build?",
+          "status": "pending"
+        },
+        {
+          "id": "ch0-l2",
+          "title": "Creator vs. Builder — Why Followers Aren't Enough",
+          "goal": "See the difference between renting an audience and owning what you make.",
+          "prerequisites": ["ch0-l1"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "slide", "outro"],
+          "exercise": "List one thing you currently rent (a platform) and one thing you could own instead.",
+          "status": "pending"
+        },
+        {
+          "id": "ch0-l3",
+          "title": "Mapping the Ecosystem: Claude, Cursor, v0, Bolt",
+          "goal": "Get a mental map of the main AI building tools and know which one to reach for.",
+          "prerequisites": ["ch0-l1"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "slide", "browser", "outro"],
+          "exercise": "Pick the one tool you'll start with this week and say why in one line.",
+          "status": "pending"
+        },
+        {
+          "id": "ch0-l4",
+          "title": "The Art of Talking to AI — Prompting Basics",
+          "goal": "Learn three reusable prompt patterns that get better output every time.",
+          "prerequisites": ["ch0-l1"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "slide", "code", "outro"],
+          "exercise": "Rewrite a vague request (\"make me a website\") into a specific, context-rich prompt.",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "ch1",
+      "index": 1,
+      "title": "Getting Set Up",
+      "summary": "Create every account you'll need, the calm and simple way.",
+      "lessons": [
+        {
+          "id": "ch1-l1",
+          "title": "Create a Claude Account — Step by Step",
+          "goal": "Sign up for Claude and land in the chat, ready to build.",
+          "prerequisites": ["ch0-l4"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "browser", "outro"],
+          "exercise": "Send Claude your first message and screenshot the reply.",
+          "status": "pending"
+        },
+        {
+          "id": "ch1-l2",
+          "title": "A Tour of Claude — Chat, Artifacts, Projects",
+          "goal": "Know where everything lives so the interface never slows you down.",
+          "prerequisites": ["ch1-l1"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "browser", "slide", "outro"],
+          "exercise": "Open a new Project and give it a name for your first build.",
+          "status": "pending"
+        },
+        {
+          "id": "ch1-l3",
+          "title": "Your First Artifact: Build Something That Works in 60 Seconds",
+          "goal": "Turn a single prompt into a live, working mini-app you can see.",
+          "prerequisites": ["ch1-l2"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "browser", "outro"],
+          "exercise": "Prompt Claude for a working countdown timer and watch it run.",
+          "status": "pending"
+        },
+        {
+          "id": "ch1-l4",
+          "title": "A GitHub Account + What a \"Repo\" Actually Is",
+          "goal": "Create a GitHub account and understand repositories in plain human language.",
+          "prerequisites": ["ch1-l1"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "browser", "slide", "outro"],
+          "exercise": "Create your first empty repository and name it after your project.",
+          "status": "pending"
+        },
+        {
+          "id": "ch1-l5",
+          "title": "A Cloudflare Account — The Future Home of Your Sites",
+          "goal": "Set up Cloudflare so you're ready to put things on the internet later.",
+          "prerequisites": ["ch1-l1"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "browser", "outro"],
+          "exercise": "Sign up for Cloudflare and find the Pages section in the dashboard.",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "ch2",
+      "index": 2,
+      "title": "Your First Website",
+      "summary": "Go from a prompt to a real personal page you can share.",
+      "lessons": [
+        {
+          "id": "ch2-l1",
+          "title": "Your First Landing Page with Artifacts",
+          "goal": "Build a personal landing page from a prompt — no setup required.",
+          "prerequisites": ["ch1-l3"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "code", "browser", "outro"],
+          "exercise": "Generate a one-screen landing page with your name and a headline.",
+          "status": "pending"
+        },
+        {
+          "id": "ch2-l2",
+          "title": "Prompting for Design: Reference, Theme, Font, Feel",
+          "goal": "Describe the look you want so the AI nails the vibe, not just the text.",
+          "prerequisites": ["ch2-l1"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "slide", "browser", "outro"],
+          "exercise": "Rebuild your page with a specific reference site and mood in the prompt.",
+          "status": "pending"
+        },
+        {
+          "id": "ch2-l3",
+          "title": "Iteration: How to Ask for Changes Without Breaking It",
+          "goal": "Make surgical edits that improve the page instead of scrambling it.",
+          "prerequisites": ["ch2-l2"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "browser", "code", "outro"],
+          "exercise": "Change only the color scheme of your page in a single, precise prompt.",
+          "status": "pending"
+        },
+        {
+          "id": "ch2-l4",
+          "title": "What Are HTML & CSS? (Just Enough to Understand, Not Write)",
+          "goal": "Read the structure of a page well enough to direct the AI with confidence.",
+          "prerequisites": ["ch2-l1"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "slide", "code", "outro"],
+          "exercise": "Point at three parts of your page and name whether they're structure or style.",
+          "status": "pending"
+        },
+        {
+          "id": "ch2-l5",
+          "title": "Your First Publish: From Artifact to Shareable Link",
+          "goal": "Get a real link to your page that anyone can open.",
+          "prerequisites": ["ch2-l1"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "browser", "outro"],
+          "exercise": "Publish your page and send the link to one friend.",
+          "status": "pending"
+        },
+        {
+          "id": "ch2-l6",
+          "title": "Project: Your Personal Brand Landing Page",
+          "goal": "Ship a polished personal landing page you're proud to share.",
+          "prerequisites": ["ch2-l2", "ch2-l3", "ch2-l5"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "browser", "outro"],
+          "exercise": "Publish your finished landing page and post the link publicly.",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "ch3",
+      "index": 3,
+      "title": "A Real Site on the Internet",
+      "summary": "Put a project on GitHub, deploy it live, and give it your own domain.",
+      "lessons": [
+        {
+          "id": "ch3-l1",
+          "title": "Upload a Project to GitHub (No Terminal — From the Browser)",
+          "goal": "Get your project files onto GitHub using only the web interface.",
+          "prerequisites": ["ch1-l4", "ch2-l6"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "browser", "outro"],
+          "exercise": "Upload your landing page files to a new GitHub repository.",
+          "status": "pending"
+        },
+        {
+          "id": "ch3-l2",
+          "title": "Deploy with Cloudflare Pages — Your Site Is Live",
+          "goal": "Connect your repo to Cloudflare Pages and get a live URL.",
+          "prerequisites": ["ch3-l1", "ch1-l5"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "browser", "outro"],
+          "exercise": "Deploy your repo and open the live *.pages.dev link.",
+          "status": "pending"
+        },
+        {
+          "id": "ch3-l3",
+          "title": "Buy a Domain and Connect DNS (Simple and Visual)",
+          "goal": "Get a custom domain and point it at your live site.",
+          "prerequisites": ["ch3-l2"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "browser", "slide", "outro"],
+          "exercise": "Connect a custom domain to your Cloudflare Pages site.",
+          "status": "pending"
+        },
+        {
+          "id": "ch3-l4",
+          "title": "Making Your Site Multi-Page",
+          "goal": "Add more pages and link them so the site feels complete.",
+          "prerequisites": ["ch3-l2"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "code", "browser", "outro"],
+          "exercise": "Add an About page and link it from your home page.",
+          "status": "pending"
+        },
+        {
+          "id": "ch3-l5",
+          "title": "Contact Forms and Social Links",
+          "goal": "Let visitors reach you with a working form and clear links.",
+          "prerequisites": ["ch3-l4"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "browser", "code", "outro"],
+          "exercise": "Add a contact form that sends you a message when submitted.",
+          "status": "pending"
+        },
+        {
+          "id": "ch3-l6",
+          "title": "Project: A Full Portfolio on Your Own Domain",
+          "goal": "Ship a complete multi-page portfolio living on a domain you own.",
+          "prerequisites": ["ch3-l3", "ch3-l4", "ch3-l5"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "browser", "outro"],
+          "exercise": "Publish your portfolio on your domain and share it.",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "ch4",
+      "index": 4,
+      "title": "Claude Code: The Builder's Main Tool",
+      "summary": "Graduate from the browser to the tool real builders use every day.",
+      "lessons": [
+        {
+          "id": "ch4-l1",
+          "title": "What Is Claude Code and Why It's a Game Changer",
+          "goal": "Understand what Claude Code does and why it unlocks bigger projects.",
+          "prerequisites": ["ch3-l6"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "slide", "terminal", "outro"],
+          "exercise": "Write down one project too big for Artifacts that Claude Code could handle.",
+          "status": "pending"
+        },
+        {
+          "id": "ch4-l2",
+          "title": "Install: WSL on Windows, Step by Step",
+          "goal": "Get a working Linux environment on Windows without fear.",
+          "prerequisites": ["ch4-l1"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "terminal", "outro"],
+          "exercise": "Open WSL and run a command to confirm it's working.",
+          "status": "pending"
+        },
+        {
+          "id": "ch4-l3",
+          "title": "Your First Project with Claude Code",
+          "goal": "Start Claude Code in a folder and build your first thing with it.",
+          "prerequisites": ["ch4-l2"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "terminal", "code", "outro"],
+          "exercise": "Ask Claude Code to create a small script and run it.",
+          "status": "pending"
+        },
+        {
+          "id": "ch4-l4",
+          "title": "Understand Your Files and Project Structure (Reading the Map)",
+          "goal": "Recognize what the folders and files in a project are for.",
+          "prerequisites": ["ch4-l3"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "code", "slide", "outro"],
+          "exercise": "Have Claude Code explain your project's folder structure to you.",
+          "status": "pending"
+        },
+        {
+          "id": "ch4-l5",
+          "title": "Git with Claude Code: Commit, Go Back, Rescue a Project",
+          "goal": "Save checkpoints and safely undo mistakes with Git.",
+          "prerequisites": ["ch4-l3"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "terminal", "slide", "outro"],
+          "exercise": "Make a commit, break something, and roll back to the commit.",
+          "status": "pending"
+        },
+        {
+          "id": "ch4-l6",
+          "title": "Debugging: When It Breaks, Fix It Like This",
+          "goal": "Turn error messages into a calm, repeatable fixing routine.",
+          "prerequisites": ["ch4-l3"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "terminal", "code", "outro"],
+          "exercise": "Paste an error into Claude Code and follow the fix to green.",
+          "status": "pending"
+        },
+        {
+          "id": "ch4-l7",
+          "title": "Project: Rebuild Your Site — This Time with Claude Code",
+          "goal": "Recreate your portfolio in Claude Code and deploy it fresh.",
+          "prerequisites": ["ch4-l4", "ch4-l5", "ch4-l6"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "terminal", "browser", "outro"],
+          "exercise": "Rebuild and redeploy your site entirely from Claude Code.",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "ch5",
+      "index": 5,
+      "title": "Interactive Apps",
+      "summary": "Move beyond static pages into apps that remember and react.",
+      "lessons": [
+        {
+          "id": "ch5-l1",
+          "title": "App vs. Site — \"State\" in Plain Language",
+          "goal": "Understand what makes something an app: it remembers and reacts.",
+          "prerequisites": ["ch4-l7"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "slide", "browser", "outro"],
+          "exercise": "Name one everyday app and describe what \"state\" it keeps.",
+          "status": "pending"
+        },
+        {
+          "id": "ch5-l2",
+          "title": "Your First App: A Caption / Hashtag Generator for Creators",
+          "goal": "Build a working tool that turns input into useful output.",
+          "prerequisites": ["ch5-l1"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "code", "browser", "outro"],
+          "exercise": "Build a generator that outputs 5 hashtags from a topic you type.",
+          "status": "pending"
+        },
+        {
+          "id": "ch5-l3",
+          "title": "Saving Data: Why Refresh Wipes Everything and How to Fix It",
+          "goal": "Persist data so a page reload doesn't erase your work.",
+          "prerequisites": ["ch5-l2"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "code", "browser", "outro"],
+          "exercise": "Make your app remember its last result after a refresh.",
+          "status": "pending"
+        },
+        {
+          "id": "ch5-l4",
+          "title": "What Is an API — The Front Door to the World's Data",
+          "goal": "Understand APIs as a way for your app to ask other services for data.",
+          "prerequisites": ["ch5-l1"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "slide", "terminal", "outro"],
+          "exercise": "In one sentence, describe what data your dream app would fetch.",
+          "status": "pending"
+        },
+        {
+          "id": "ch5-l5",
+          "title": "Connecting to a Real API: Live Crypto Prices",
+          "goal": "Fetch and display live data from a real public API.",
+          "prerequisites": ["ch5-l4"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "code", "browser", "outro"],
+          "exercise": "Show the live price of one coin that updates when you refresh.",
+          "status": "pending"
+        },
+        {
+          "id": "ch5-l6",
+          "title": "Project: A Creator Tool (Engagement Calculator / Link-in-Bio)",
+          "goal": "Ship a real interactive tool creators would actually use.",
+          "prerequisites": ["ch5-l3", "ch5-l5"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "browser", "outro"],
+          "exercise": "Deploy your creator tool and share the live link.",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "ch6",
+      "index": 6,
+      "title": "Tools & Agents",
+      "summary": "Build things that run on their own, around the clock.",
+      "lessons": [
+        {
+          "id": "ch6-l1",
+          "title": "Build a Telegram Bot — Without Writing a Single Line of Code",
+          "goal": "Create a working Telegram bot you can message and get replies from.",
+          "prerequisites": ["ch5-l6"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "browser", "terminal", "outro"],
+          "exercise": "Create a bot that replies to a command you send it.",
+          "status": "pending"
+        },
+        {
+          "id": "ch6-l2",
+          "title": "Automation: Work That Runs Itself Every Day (cron)",
+          "goal": "Schedule a task so it runs automatically on a timer.",
+          "prerequisites": ["ch6-l1"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "terminal", "slide", "outro"],
+          "exercise": "Schedule a job that runs once a day and logs the time.",
+          "status": "pending"
+        },
+        {
+          "id": "ch6-l3",
+          "title": "What Is an Agent — AI You Give a Job To",
+          "goal": "Understand agents as AI that takes actions toward a goal you define.",
+          "prerequisites": ["ch6-l1"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "slide", "outro"],
+          "exercise": "Write a one-line job description for an agent you'd hire.",
+          "status": "pending"
+        },
+        {
+          "id": "ch6-l4",
+          "title": "Your First Agent: A Personal News Reader",
+          "goal": "Build an agent that gathers and summarizes news for you.",
+          "prerequisites": ["ch6-l3"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "terminal", "code", "outro"],
+          "exercise": "Build an agent that summarizes today's top item in your niche.",
+          "status": "pending"
+        },
+        {
+          "id": "ch6-l5",
+          "title": "VPS: Your Own Cloud Computer (Rent, Connect, Run)",
+          "goal": "Rent a small server, connect to it, and run something on it.",
+          "prerequisites": ["ch6-l2"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "terminal", "slide", "outro"],
+          "exercise": "Connect to a VPS and run a command that prints its hostname.",
+          "status": "pending"
+        },
+        {
+          "id": "ch6-l6",
+          "title": "Project: A Personal Bot / Agent That Runs 24/7",
+          "goal": "Deploy an agent to a server so it keeps working without you.",
+          "prerequisites": ["ch6-l4", "ch6-l5"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "terminal", "outro"],
+          "exercise": "Deploy your bot to a VPS and confirm it responds while your laptop is closed.",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "ch7",
+      "index": 7,
+      "title": "The Professional Builder",
+      "summary": "Sell what you build, launch in public, and stay safe.",
+      "lessons": [
+        {
+          "id": "ch7-l1",
+          "title": "Monetization: Sell Your Tool (Models + Payments)",
+          "goal": "Pick a pricing model and add a way to take payments.",
+          "prerequisites": ["ch6-l6"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "slide", "browser", "outro"],
+          "exercise": "Add a working payment button to one of your tools.",
+          "status": "pending"
+        },
+        {
+          "id": "ch7-l2",
+          "title": "Launching on X: Build in Public, the Nabulines Way",
+          "goal": "Announce your work in a way that earns attention and trust.",
+          "prerequisites": ["ch7-l1"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "slide", "outro"],
+          "exercise": "Draft a launch post for your tool with a clear hook and link.",
+          "status": "pending"
+        },
+        {
+          "id": "ch7-l3",
+          "title": "Basic Security: API Keys, Scams, and Wallets",
+          "goal": "Protect your keys, money, and accounts with simple habits.",
+          "prerequisites": ["ch7-l1"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "slide", "terminal", "outro"],
+          "exercise": "Move one exposed secret out of your code and into a safe place.",
+          "status": "pending"
+        },
+        {
+          "id": "ch7-l4",
+          "title": "Final Project: From Idea to Public Launch",
+          "goal": "Take one idea all the way from blank page to a public launch.",
+          "prerequisites": ["ch7-l1", "ch7-l2", "ch7-l3"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "browser", "outro"],
+          "exercise": "Launch one finished product publicly and share the link.",
+          "status": "pending"
+        },
+        {
+          "id": "ch7-l5",
+          "title": "What's Next? A Map of Advanced Paths",
+          "goal": "Know your options for going deeper and pick a next direction.",
+          "prerequisites": ["ch7-l4"],
+          "maxWords": 750,
+          "sceneHints": ["intro", "slide", "outro"],
+          "exercise": "Choose your next path and write the first step you'll take.",
+          "status": "pending"
+        }
+      ]
+    }
+  ]
+}
