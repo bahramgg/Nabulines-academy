@@ -1,22 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { readProgress } from "@/lib/progress";
-
-export function useProgress() {
-  const [state, setState] = useState({ completed: [] as string[], points: 0 });
-  useEffect(() => {
-    const sync = () => setState(readProgress());
-    sync();
-    window.addEventListener("nabulines-progress", sync);
-    window.addEventListener("storage", sync);
-    return () => {
-      window.removeEventListener("nabulines-progress", sync);
-      window.removeEventListener("storage", sync);
-    };
-  }, []);
-  return state;
-}
+import { useProgress } from "@/lib/progress";
 
 export function ProgressBar({ value }: { value: number }) {
   return (
@@ -30,8 +14,8 @@ export function ProgressBar({ value }: { value: number }) {
 }
 
 export function OverallProgress({ total }: { total: number }) {
-  const { completed, points } = useProgress();
-  const done = completed.length;
+  const { completedIds, points } = useProgress();
+  const done = completedIds.length;
   const pct = total > 0 ? Math.round((done / total) * 100) : 0;
   return (
     <div className="card p-5">

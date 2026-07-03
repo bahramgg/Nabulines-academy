@@ -1,0 +1,433 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:01.730
+Welcome to Nabulines Academy.
+
+2
+00:00:01.985 --> 00:00:03.831
+I'm here to take you from absolute zero to
+
+3
+00:00:03.901 --> 00:00:06.351
+building real apps — no prior experience
+
+4
+00:00:06.397 --> 00:00:06.780
+needed.
+
+5
+00:00:07.326 --> 00:00:08.789
+In this lesson, you're creating your
+
+6
+00:00:08.847 --> 00:00:10.530
+Claude account and sending your first
+
+7
+00:00:10.588 --> 00:00:11.076
+message.
+
+8
+00:00:11.714 --> 00:00:13.479
+Claude is an AI assistant that will help
+
+9
+00:00:13.526 --> 00:00:15.639
+you build websites and apps, even if
+
+10
+00:00:15.674 --> 00:00:17.264
+you've never written a line of code.
+
+11
+00:00:18.007 --> 00:00:19.528
+By the end of this video, you'll be
+
+12
+00:00:19.551 --> 00:00:21.107
+chatting with Claude and ready to start
+
+13
+00:00:21.154 --> 00:00:21.560
+building.
+
+14
+00:00:21.850 --> 00:00:22.663
+Let's go.
+
+15
+00:00:22.663 --> 00:00:24.045
+First, what is Claude?
+
+16
+00:00:24.683 --> 00:00:26.726
+Claude is an AI made by a company called
+
+17
+00:00:26.796 --> 00:00:27.458
+Anthropic.
+
+18
+00:00:28.096 --> 00:00:29.977
+You type questions or requests to Claude
+
+19
+00:00:30.001 --> 00:00:32.729
+in plain English, and it responds — kind
+
+20
+00:00:32.764 --> 00:00:34.377
+of like texting a really smart friend who
+
+21
+00:00:34.412 --> 00:00:35.237
+knows how to code.
+
+22
+00:00:35.782 --> 00:00:38.034
+You'll use Claude to design pages, write
+
+23
+00:00:38.069 --> 00:00:40.252
+code, and solve problems as you learn.
+
+24
+00:00:40.798 --> 00:00:41.575
+The best part?
+
+25
+00:00:42.040 --> 00:00:43.607
+You can start completely free.
+
+26
+00:00:44.013 --> 00:00:45.650
+Claude has a free plan that gives you
+
+27
+00:00:45.720 --> 00:00:47.589
+enough daily usage to follow along with
+
+28
+00:00:47.624 --> 00:00:49.134
+the early chapters of this course.
+
+29
+00:00:49.598 --> 00:00:51.572
+Later, if you want more power or a tool
+
+30
+00:00:51.630 --> 00:00:53.650
+called Claude Code, you can upgrade to the
+
+31
+00:00:53.685 --> 00:00:55.357
+Pro plan for twenty dollars a month.
+
+32
+00:00:55.577 --> 00:00:57.435
+But right now, we're starting at zero
+
+33
+00:00:57.493 --> 00:00:57.969
+dollars.
+
+34
+00:00:58.317 --> 00:00:59.629
+Let's create your account.
+
+35
+00:00:59.629 --> 00:01:02.125
+Open your web browser — that's Chrome,
+
+36
+00:01:02.473 --> 00:01:05.817
+Safari, Firefox, whatever you use to visit
+
+37
+00:01:05.852 --> 00:01:06.525
+websites.
+
+38
+00:01:07.071 --> 00:01:09.497
+In the address bar at the top, type claude
+
+39
+00:01:09.544 --> 00:01:11.146
+dot ai and press Enter.
+
+40
+00:01:11.692 --> 00:01:13.398
+You'll land on Claude's homepage.
+
+41
+00:01:14.037 --> 00:01:16.057
+Look for a button that says Sign Up or Get
+
+42
+00:01:16.115 --> 00:01:18.820
+Started — it's usually big and obvious,
+
+43
+00:01:19.110 --> 00:01:20.492
+often in the top right corner.
+
+44
+00:01:20.782 --> 00:01:21.247
+Click it.
+
+45
+00:01:21.792 --> 00:01:23.650
+Now Claude will ask how you want to sign
+
+46
+00:01:23.708 --> 00:01:23.963
+up.
+
+47
+00:01:24.602 --> 00:01:26.552
+You have three options: sign up with
+
+48
+00:01:26.611 --> 00:01:28.967
+Google, sign up with your email, or sign
+
+49
+00:01:29.002 --> 00:01:29.942
+up with a phone number.
+
+50
+00:01:30.349 --> 00:01:32.125
+Pick whichever is easiest for you.
+
+51
+00:01:32.671 --> 00:01:34.830
+If you choose Google, you'll see a pop-up
+
+52
+00:01:34.888 --> 00:01:36.583
+asking you to select your Google account —
+
+53
+00:01:36.804 --> 00:01:38.940
+click the one you want to use, and Claude
+
+54
+00:01:38.963 --> 00:01:40.821
+will create your account automatically.
+
+55
+00:01:41.459 --> 00:01:43.190
+If you choose email, type your email
+
+56
+00:01:43.224 --> 00:01:45.036
+address, then check your inbox for a
+
+57
+00:01:45.070 --> 00:01:46.011
+confirmation code.
+
+58
+00:01:46.556 --> 00:01:48.774
+Copy that code, paste it into the box on
+
+59
+00:01:48.832 --> 00:01:50.481
+Claude's page, and you're in.
+
+60
+00:01:51.224 --> 00:01:52.930
+If you use a phone number, Claude will
+
+61
+00:01:52.965 --> 00:01:55.345
+text you a code — type it in the same way.
+
+62
+00:01:55.983 --> 00:01:57.771
+Once you confirm, Claude will ask your
+
+63
+00:01:57.806 --> 00:01:58.108
+name.
+
+64
+00:01:58.398 --> 00:01:59.652
+Type it in and hit Continue.
+
+65
+00:01:59.942 --> 00:02:00.453
+That's it.
+
+66
+00:02:00.860 --> 00:02:02.415
+You now have a Claude account.
+
+67
+00:02:02.415 --> 00:02:03.831
+You're now looking at Claude's chat
+
+68
+00:02:03.889 --> 00:02:04.563
+interface.
+
+69
+00:02:04.969 --> 00:02:07.477
+It's a simple screen: a big text box at
+
+70
+00:02:07.512 --> 00:02:09.276
+the bottom where you type your message,
+
+71
+00:02:09.532 --> 00:02:11.273
+and the conversation appears above it.
+
+72
+00:02:11.912 --> 00:02:13.665
+This is where all the magic happens.
+
+73
+00:02:13.955 --> 00:02:15.407
+Let's send your first message.
+
+74
+00:02:15.813 --> 00:02:17.543
+Click in that text box and type something
+
+75
+00:02:17.601 --> 00:02:20.330
+simple — try this: 'Hi Claude, I'm
+
+76
+00:02:20.376 --> 00:02:21.746
+learning to build websites.
+
+77
+00:02:22.152 --> 00:02:24.811
+Can you help me?' Then press Enter or
+
+78
+00:02:24.869 --> 00:02:25.891
+click the send button.
+
+79
+00:02:26.529 --> 00:02:27.934
+Claude will think for a second, then
+
+80
+00:02:27.992 --> 00:02:28.538
+reply.
+
+81
+00:02:28.944 --> 00:02:29.908
+Read the response.
+
+82
+00:02:30.453 --> 00:02:32.148
+Claude is friendly and ready to help.
+
+83
+00:02:32.555 --> 00:02:34.888
+Congratulations — you just had your first
+
+84
+00:02:34.935 --> 00:02:36.607
+conversation with an AI that will help you
+
+85
+00:02:36.665 --> 00:02:37.721
+build real projects.
+
+86
+00:02:38.360 --> 00:02:39.614
+This is your launchpad.
+
+87
+00:02:39.614 --> 00:02:40.485
+Let's recap.
+
+88
+00:02:40.775 --> 00:02:42.853
+You went to claude dot ai, signed up with
+
+89
+00:02:42.911 --> 00:02:45.616
+Google, email, or phone, confirmed your
+
+90
+00:02:45.651 --> 00:02:47.416
+account, and landed in the chat.
+
+91
+00:02:47.962 --> 00:02:50.156
+You sent Claude a message and got a reply.
+
+92
+00:02:50.504 --> 00:02:51.851
+You're now set up and ready to start
+
+93
+00:02:51.897 --> 00:02:52.362
+building.
+
+94
+00:02:53.000 --> 00:02:54.637
+In the next lesson, we'll explore what
+
+95
+00:02:54.683 --> 00:02:56.553
+Claude can actually do — you'll see
+
+96
+00:02:56.599 --> 00:02:58.608
+Artifacts in action, which is how Claude
+
+97
+00:02:58.642 --> 00:03:00.860
+builds live, interactive pages right in
+
+98
+00:03:00.895 --> 00:03:01.510
+your browser.
+
+99
+00:03:02.149 --> 00:03:04.459
+But first, complete today's exercise.
+
+100
+00:03:04.459 --> 00:03:06.862
+Your exercise: send Claude a message
+
+101
+00:03:06.909 --> 00:03:08.464
+introducing yourself and what you want to
+
+102
+00:03:08.522 --> 00:03:08.952
+learn.
+
+103
+00:03:09.498 --> 00:03:11.274
+Then take a screenshot of Claude's reply
+
+104
+00:03:11.332 --> 00:03:13.584
+and save it — that's your proof you
+
+105
+00:03:13.642 --> 00:03:14.734
+completed lesson one.
+
+106
+00:03:15.372 --> 00:03:18.368
+Next up: we'll see Claude build a real,
+
+107
+00:03:18.403 --> 00:03:20.585
+working page in seconds using Artifacts.
+
+108
+00:03:21.328 --> 00:03:22.153
+See you there.

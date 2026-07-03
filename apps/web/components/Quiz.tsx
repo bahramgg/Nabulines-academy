@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export type QuizQuestion = {
   q: string;
@@ -10,9 +10,31 @@ export type QuizQuestion = {
 };
 
 // Monochrome quiz: correct = filled white, wrong = outline. Icons ✓ / ✗, no
-// green/red per the design rules.
-export function Quiz({ questions }: { questions: QuizQuestion[] }) {
+// green/red per the design rules. Reports {score, passed} once every question
+// is answered so the lesson can gate completion on a pass (>= 60% correct).
+export function Quiz({
+  questions,
+  onResult,
+}: {
+  questions: QuizQuestion[];
+  onResult?: (r: { score: number; passed: boolean }) => void;
+}) {
   const [picked, setPicked] = useState<Record<number, number>>({});
+
+  useEffect(() => {
+    if (!questions.length) return;
+    const answered = Object.keys(picked).length === questions.length;
+    if (!answered) return;
+    let score = 0;
+    let correct = 0;
+    questions.forEach((q, i) => {
+      if (picked[i] === q.answer) {
+        score += q.points;
+        correct += 1;
+      }
+    });
+    onResult?.({ score, passed: correct / questions.length >= 0.6 });
+  }, [picked, questions, onResult]);
 
   if (!questions.length) return null;
 

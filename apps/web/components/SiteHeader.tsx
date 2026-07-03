@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { EyeMark } from "./StringArt";
+import { AuthMenu } from "./AuthMenu";
 
 const nav = [
   { href: "/roadmap/", label: "Roadmap" },
@@ -25,9 +26,7 @@ export function SiteHeader() {
               {item.label}
             </Link>
           ))}
-          <Link href="/roadmap/" className="btn-primary ml-2 hidden sm:inline-flex">
-            Start Free
-          </Link>
+          <AuthMenu />
         </nav>
       </div>
     </header>

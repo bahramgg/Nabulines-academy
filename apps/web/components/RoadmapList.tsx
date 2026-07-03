@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import type { Chapter } from "@/lib/syllabus";
-import { useProgress, ProgressBar } from "./ProgressStats";
+import { useProgress } from "@/lib/progress";
+import { ProgressBar } from "./ProgressStats";
 
 // Sequential unlock: a lesson is available once the previous one is complete.
 export function RoadmapList({ chapters }: { chapters: Chapter[] }) {
-  const { completed } = useProgress();
-  const done = new Set(completed);
+  const { completedIds } = useProgress();
+  const done = new Set(completedIds);
 
   const flat = chapters.flatMap((c) => c.lessons.map((l) => l.id));
   const isUnlocked = (lessonId: string) => {

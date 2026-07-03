@@ -10,10 +10,12 @@ export function LessonPlayer({
   title,
   src,
   vtt,
+  onWatched,
 }: {
   title: string;
   src?: string;
   vtt?: string;
+  onWatched?: () => void;
 }) {
   const [captions, setCaptions] = useState(true);
 
@@ -26,6 +28,11 @@ export function LessonPlayer({
             controls
             playsInline
             poster="/poster.svg"
+            onTimeUpdate={(e) => {
+              const v = e.currentTarget;
+              if (v.duration && v.currentTime / v.duration >= 0.9) onWatched?.();
+            }}
+            onEnded={() => onWatched?.()}
           >
             <source src={src} type="video/mp4" />
             {vtt && captions && (

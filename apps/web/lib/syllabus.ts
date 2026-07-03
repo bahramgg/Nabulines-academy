@@ -11,6 +11,7 @@ export type Lesson = {
   status: "pending" | "scripted" | "rendered" | "verified" | "awaiting_approval" | "published";
   video?: string;
   vtt?: string;
+  quiz?: { q: string; options: string[]; answer: number; points: number }[];
 };
 
 export type Chapter = {
