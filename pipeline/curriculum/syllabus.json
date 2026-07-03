@@ -165,7 +165,9 @@
             "outro"
           ],
           "exercise": "Prompt Claude for a working countdown timer and watch it run.",
-          "status": "pending"
+          "status": "published",
+          "video": "https://ipfs.filebase.io/ipfs/QmWnjC83bibenzdoH92RDnmaoStBJLwgkX8WD3EKWLMvUd",
+          "vtt": "https://ipfs.filebase.io/ipfs/QmQimKzUXrcwZjFXHRxmhKBcxKa5N38zx9YQujbrCWvBtN"
         },
         {
           "id": "ch1-l4",
