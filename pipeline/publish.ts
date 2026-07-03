@@ -47,7 +47,13 @@ async function putObject(key: string, body: Buffer, contentType: string): Promis
     body,
     headers: { "Content-Type": contentType },
   });
-  if (!res.ok) throw new Error(`R2 PUT ${key} failed: ${res.status} ${(await res.text()).slice(0, 200)}`);
+  if (!res.ok) throw new Error(`S3 PUT ${key} failed: ${res.status} ${(await res.text()).slice(0, 200)}`);
+
+  // Filebase pins to IPFS and returns the object's CID; public playback is via
+  // the IPFS gateway (the S3 path stays private). Other providers ignore this.
+  const cid = res.headers.get("x-amz-meta-cid");
+  const gateway = process.env.FILEBASE_GATEWAY;
+  if (cid && gateway) return `${gateway.replace(/\/$/, "")}/${cid}`;
   return `${publicBase}/${key}`;
 }
 
