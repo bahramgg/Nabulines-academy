@@ -1,0 +1,109 @@
+{
+  "lessonId": "ch1-l1",
+  "title": "Create a Claude Account — Step by Step",
+  "totalWords": 687,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. I'm here to take you from absolute zero to building real apps — no prior experience needed. In this lesson, you're creating your Claude account and sending your first message. Claude is an AI assistant that will help you build websites and apps, even if you've never written a line of code. By the end of this video, you'll be chatting with Claude and ready to start building. Let's go.",
+      "visual": {
+        "title": "Create a Claude Account",
+        "subtitle": "Your first step into AI-powered building"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "First, what is Claude? Claude is an AI made by a company called Anthropic. You type questions or requests to Claude in plain English, and it responds — kind of like texting a really smart friend who knows how to code. You'll use Claude to design pages, write code, and solve problems as you learn. The best part? You can start completely free. Claude has a free plan that gives you enough daily usage to follow along with the early chapters of this course. Later, if you want more power or a tool called Claude Code, you can upgrade to the Pro plan for twenty dollars a month. But right now, we're starting at zero dollars. Let's create your account.",
+      "visual": {
+        "title": "What is Claude?",
+        "bullets": [
+          "An AI assistant that helps you build",
+          "You chat with it in plain English",
+          "Free plan: $0 — enough to start learning",
+          "Pro plan: $20/mo (for more usage + Claude Code later)"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "browser",
+      "narration": "Open your web browser — that's Chrome, Safari, Firefox, whatever you use to visit websites. In the address bar at the top, type claude dot ai and press Enter. You'll land on Claude's homepage. Look for a button that says Sign Up or Get Started — it's usually big and obvious, often in the top right corner. Click it. Now Claude will ask how you want to sign up. You have three options: sign up with Google, sign up with your email, or sign up with a phone number. Pick whichever is easiest for you. If you choose Google, you'll see a pop-up asking you to select your Google account — click the one you want to use, and Claude will create your account automatically. If you choose email, type your email address, then check your inbox for a confirmation code. Copy that code, paste it into the box on Claude's page, and you're in. If you use a phone number, Claude will text you a code — type it in the same way. Once you confirm, Claude will ask your name. Type it in and hit Continue. That's it. You now have a Claude account.",
+      "visual": {
+        "captureScript": "capture/ch1-l1-signup.ts",
+        "caption": "Signing up at claude.ai — Google, email, or phone"
+      }
+    },
+    {
+      "id": 4,
+      "type": "browser",
+      "narration": "You're now looking at Claude's chat interface. It's a simple screen: a big text box at the bottom where you type your message, and the conversation appears above it. This is where all the magic happens. Let's send your first message. Click in that text box and type something simple — try this: 'Hi Claude, I'm learning to build websites. Can you help me?' Then press Enter or click the send button. Claude will think for a second, then reply. Read the response. Claude is friendly and ready to help. Congratulations — you just had your first conversation with an AI that will help you build real projects. This is your launchpad.",
+      "visual": {
+        "captureScript": "capture/ch1-l1-first-message.ts",
+        "caption": "Sending your first message to Claude"
+      }
+    },
+    {
+      "id": 5,
+      "type": "slide",
+      "narration": "Let's recap. You went to claude dot ai, signed up with Google, email, or phone, confirmed your account, and landed in the chat. You sent Claude a message and got a reply. You're now set up and ready to start building. In the next lesson, we'll explore what Claude can actually do — you'll see Artifacts in action, which is how Claude builds live, interactive pages right in your browser. But first, complete today's exercise.",
+      "visual": {
+        "title": "What you just did",
+        "bullets": [
+          "Visited claude.ai and signed up (free)",
+          "Confirmed your account",
+          "Sent Claude your first message",
+          "Saw Claude reply — you're ready to build"
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "type": "outro",
+      "narration": "Your exercise: send Claude a message introducing yourself and what you want to learn. Then take a screenshot of Claude's reply and save it — that's your proof you completed lesson one. Next up: we'll see Claude build a real, working page in seconds using Artifacts. See you there.",
+      "visual": {
+        "title": "Exercise",
+        "subtitle": "Send Claude a message, screenshot the reply",
+        "nextLesson": "ch1-l2"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What does Claude cost to start using?",
+      "options": [
+        "$0 — the free plan is enough to begin",
+        "$5 per month",
+        "$20 per month",
+        "You must pay $100 upfront"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "How do you sign up for Claude?",
+      "options": [
+        "Only with a credit card",
+        "With Google, email, or phone number",
+        "You must download an app first",
+        "Only through a referral code"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "Where do you chat with Claude?",
+      "options": [
+        "In a mobile app only",
+        "Through email",
+        "At claude.ai in your web browser",
+        "You must install software first"
+      ],
+      "answer": 2,
+      "points": 10
+    }
+  ],
+  "exercise": "Send Claude a message introducing yourself and what you want to learn. Take a screenshot of Claude's reply and save it. This is your proof you completed lesson one.",
+  "verifyCommands": []
+}

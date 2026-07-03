@@ -1,0 +1,186 @@
+{
+  "lessonId": "ch0-l5",
+  "title": "How This Academy Works — And How to Learn Fast",
+  "totalWords": 892,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. In this lesson, we're going to show you exactly how this academy is structured — how lessons, exercises, and projects fit together — so you can learn as fast as possible and actually build real things. Let's get into it.",
+      "visual": {
+        "title": "How This Academy Works",
+        "subtitle": "Learn the system so you can move fast"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "First, let's talk about the structure. This academy is organized into chapters. Each chapter covers one major skill or tool. Inside each chapter, you'll find lessons — short, focused videos like this one. Every lesson teaches you one specific thing. One concept. One tool. One step. We keep them short and clear so you can actually finish them and move forward.",
+      "visual": {
+        "title": "The Structure",
+        "bullets": [
+          "Chapters = major skills or tools",
+          "Lessons = one focused topic per video",
+          "Short and clear — so you finish and move on"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "slide",
+      "narration": "Every lesson has three parts. First, the video — that's what you're watching right now. We explain the concept, show you real examples on screen, and walk through every step. Second, a quiz — a few quick questions to check that you understood the core ideas. And third, an exercise — a small task you actually do yourself to practice what you just learned. The exercise is where the real learning happens.",
+      "visual": {
+        "title": "Every Lesson Has Three Parts",
+        "bullets": [
+          "1. Video — we explain and show you",
+          "2. Quiz — check your understanding",
+          "3. Exercise — you practice it yourself"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "slide",
+      "narration": "Here's the key: don't skip the exercises. Watching videos feels like learning, but it's not enough. You have to type the commands, click the buttons, and see the results yourself. That's when it clicks. That's when you actually remember it. If you only watch, you'll forget everything in a week. If you do the exercises, you'll build real skills that stick.",
+      "visual": {
+        "title": "Don't Skip the Exercises",
+        "bullets": [
+          "Watching = feels like learning",
+          "Doing = actual learning that sticks",
+          "Type it. Click it. See it work."
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "type": "slide",
+      "narration": "At the end of most chapters, there's a project. A project is bigger than an exercise — it's where you combine everything you learned in that chapter and build something real. Your first site. Your first app. Your first deployed page on the internet. Projects are your proof that you can actually do this. They're also what you'll show people when you say, I built this.",
+      "visual": {
+        "title": "Chapter Projects",
+        "bullets": [
+          "Bigger than an exercise",
+          "Combine everything from the chapter",
+          "Build something real you can show"
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "type": "slide",
+      "narration": "Now let's talk about how to learn fast. The secret is consistency, not cramming. You don't need to spend eight hours a day on this. You need to spend a little bit of time regularly. Thirty minutes a day, five days a week — that's better than binging for six hours once and then disappearing for two weeks. Your brain needs repetition and time to absorb new ideas. Show up regularly, even if it's just for half an hour.",
+      "visual": {
+        "title": "How to Learn Fast",
+        "bullets": [
+          "Consistency beats cramming",
+          "30 minutes a day > 6 hours once",
+          "Your brain needs repetition and time"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "type": "slide",
+      "narration": "Here's a simple schedule that works. Pick three to five days a week. On each of those days, watch one or two lessons, do the quizzes, and complete the exercises. That's it. If you do that, you'll finish a chapter every week or two. If you skip the exercises and just watch, you'll finish faster — but you won't actually learn anything. Speed without doing is just wasted time.",
+      "visual": {
+        "title": "A Simple Schedule That Works",
+        "bullets": [
+          "Pick 3–5 days per week",
+          "Watch 1–2 lessons + do the exercises",
+          "Finish a chapter every 1–2 weeks"
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "type": "slide",
+      "narration": "When you get stuck — and you will get stuck, everyone does — don't just give up and move on. Pause. Re-watch the part you didn't understand. Try the step again. Google the error message. Ask Claude. Most problems have simple fixes, but you have to actually try to solve them. Getting unstuck is a skill, and you get better at it every time you practice.",
+      "visual": {
+        "title": "When You Get Stuck",
+        "bullets": [
+          "Pause. Re-watch. Try again.",
+          "Google the error. Ask Claude.",
+          "Getting unstuck is a skill — practice it."
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "type": "slide",
+      "narration": "One more thing: this academy assumes you're starting from zero. We define every technical word the first time it appears. We show every click and every command. If something feels too basic, that's by design — we're making sure no one gets left behind. If something feels too fast, slow down. Pause the video. Rewind. Go at your own pace. There's no timer and no one judging you.",
+      "visual": {
+        "title": "Starting From Zero",
+        "bullets": [
+          "We define every term, show every step",
+          "Too basic? That's by design.",
+          "Too fast? Pause and rewind — your pace."
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "type": "slide",
+      "narration": "Finally, remember the goal. You're not here to collect certificates or watch a hundred videos. You're here to build real things and become someone who can actually create with code. Every lesson, every exercise, every project — they all point toward that. By the end of this path, you'll have deployed sites, built apps, and automated tasks. You'll have a portfolio of real work. That's what matters.",
+      "visual": {
+        "title": "Remember the Goal",
+        "bullets": [
+          "Not certificates — real skills",
+          "Build, deploy, automate",
+          "End with a portfolio of real work"
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "type": "outro",
+      "narration": "Alright, that's how this academy works. Your exercise for this lesson is simple: set a schedule. Pick which days of the week you'll learn, and how long you'll spend. Write it down or set a reminder on your phone. Consistency is everything. Next lesson, we're diving into what AI really is and why it changes everything for beginners. See you there.",
+      "visual": {
+        "title": "Next: What Is AI? (And Why It Changes Everything)",
+        "subtitle": "Exercise: Set your learning schedule"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What are the three parts of every lesson?",
+      "options": [
+        "Video, quiz, exercise",
+        "Video, project, certificate",
+        "Lecture, reading, exam"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "Why is doing the exercises more important than just watching the videos?",
+      "options": [
+        "Exercises are required to unlock the next lesson",
+        "Watching feels like learning, but doing is what makes it stick",
+        "Exercises are easier than watching videos"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "What's a better way to learn fast?",
+      "options": [
+        "30 minutes a day, 5 days a week",
+        "6 hours once, then take two weeks off",
+        "Watch all videos in one weekend"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "What should you do when you get stuck?",
+      "options": [
+        "Skip it and move to the next lesson",
+        "Give up and assume coding isn't for you",
+        "Pause, re-watch, try again, and search for help"
+      ],
+      "answer": 2,
+      "points": 10
+    }
+  ],
+  "exercise": "Set a simple schedule: pick 3–5 days per week when you'll learn, and decide how long (30 minutes minimum). Write it down or set a phone reminder. Consistency is the key to actually finishing this path and building real skills.",
+  "verifyCommands": []
+}

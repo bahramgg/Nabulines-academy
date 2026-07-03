@@ -1,0 +1,135 @@
+{
+  "lessonId": "ch1-l3",
+  "title": "Your First Artifact: Build Something That Works in 60 Seconds",
+  "totalWords": 720,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. You're about to experience something that feels like magic. In the next sixty seconds, you're going to type a single sentence to Claude, and it will build you a working app — not a picture of an app, not code you have to figure out, but something real that runs right in your browser. This is called an Artifact, and it's the moment most people realize: I can actually build things. Let's do it.",
+      "visual": {
+        "title": "Your First Artifact",
+        "subtitle": "Build Something That Works in 60 Seconds"
+      }
+    },
+    {
+      "id": 2,
+      "type": "browser",
+      "narration": "Open claude dot ai and make sure you're logged in. You'll see the chat box at the bottom. Now, here's your first prompt. Type exactly this: 'Build me a countdown timer that starts at 60 seconds and counts down to zero. Make it big and easy to read.' Hit enter. Watch what happens. Claude starts writing, and on the right side of your screen, a new panel appears. That panel is the Artifact. It's not just showing you code — it's running the actual timer. You see the numbers counting down. Sixty, fifty-nine, fifty-eight. This is a real app. You didn't write a single line of code. You described what you wanted, and Claude built it. Click inside the Artifact window. The timer keeps running. This is yours. You made this.",
+      "visual": {
+        "captureScript": "capture/ch1-l3-artifact-demo.ts",
+        "caption": "Typing the prompt and watching the Artifact appear"
+      }
+    },
+    {
+      "id": 3,
+      "type": "slide",
+      "narration": "Let's talk about what just happened. An Artifact is Claude's way of building something interactive for you. When you ask for a countdown timer, a calculator, a color picker, a quiz — anything that needs to run and respond — Claude creates an Artifact. It's a live preview window where your app actually works. You can click it, use it, test it. On the left, you see the conversation. On the right, you see the thing you're building. This split view is how you'll work from now on: you talk to Claude on the left, and you watch your creation come to life on the right.",
+      "visual": {
+        "title": "What Is an Artifact?",
+        "bullets": [
+          "A live preview window where your app runs",
+          "Appears when you ask Claude to build something interactive",
+          "Left side: conversation with Claude",
+          "Right side: your working app",
+          "You can click, test, and use it immediately"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "slide",
+      "narration": "Here's why this matters. Most beginner coding tutorials make you set up a bunch of tools, install software, learn syntax, and then — maybe — after hours of setup, you see something work. Artifacts flip that. You see it work first. You experience the result immediately. Then, if you want, you can learn how it's built. This is vibe coding. You start with the feeling of success, and you build from there. The timer you just made? That's proof you can do this. You're not preparing to build. You're already building.",
+      "visual": {
+        "title": "Why Artifacts Change Everything",
+        "bullets": [
+          "You see results in seconds, not hours",
+          "No setup, no installation, no syntax to memorize first",
+          "You experience success before you learn the details",
+          "This is vibe coding: feel it work, then understand how"
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "type": "browser",
+      "narration": "Now let's change it. In the chat, type: 'Make the timer start at 120 seconds instead, and turn the numbers red when there's less than 10 seconds left.' Hit enter. Claude updates the Artifact. The timer resets. It starts at 120. You watch it count down, and when it hits nine seconds, the numbers turn red. You just modified a live app by talking. No code editor. No files. Just you, describing what you want, and Claude making it happen. This is the loop you'll use to build everything in this course: describe, see, adjust, repeat.",
+      "visual": {
+        "captureScript": "capture/ch1-l3-modify-demo.ts",
+        "caption": "Modifying the timer and watching it update live"
+      }
+    },
+    {
+      "id": 6,
+      "type": "slide",
+      "narration": "One more thing. At the top right of the Artifact window, you'll see a button that says 'View code.' Click it. Now you see the actual code Claude wrote to make your timer work. HTML, CSS, JavaScript — the three languages of the web. You don't need to understand it yet. Just know: this is real code. It's not pretend. If you wanted to, you could copy this code, save it as a file, and it would run anywhere. But for now, you don't have to. Claude handles the code. You handle the ideas.",
+      "visual": {
+        "title": "The Code Is Real",
+        "bullets": [
+          "Click 'View code' in the Artifact to see what Claude wrote",
+          "HTML, CSS, JavaScript — the three web languages",
+          "You don't need to understand it yet",
+          "This is real, production-ready code",
+          "You can copy it and use it anywhere"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "type": "outro",
+      "narration": "You just built your first working app. A countdown timer. You saw it run, you changed it, and you proved to yourself that you can do this. This is the foundation. Every app you build from here — a to-do list, a game, a website, a business tool — starts exactly like this: you describe what you want, Claude builds it, and you refine it. Your exercise: build that countdown timer again, but this time, make it your own. Pick a different starting number. Change the colors. Add a message when it hits zero. Experiment. Next lesson, we're going to take your Artifact and turn it into a real web page that anyone can visit. See you there.",
+      "visual": {
+        "title": "You Just Built Your First App",
+        "subtitle": "Next: Turn It Into a Real Website"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What is an Artifact in Claude?",
+      "options": [
+        "A file Claude saves to your computer",
+        "A live preview window where your app runs",
+        "A type of code editor",
+        "A paid feature you need to unlock"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "What happens when you ask Claude to modify an Artifact?",
+      "options": [
+        "You have to start over from scratch",
+        "Claude updates the Artifact and it changes immediately",
+        "You need to download the code first",
+        "Nothing — Artifacts can't be changed"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "What three languages does Claude use to build web Artifacts?",
+      "options": [
+        "Python, Java, C++",
+        "HTML, CSS, JavaScript",
+        "Ruby, PHP, SQL",
+        "Swift, Kotlin, Go"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "Why do Artifacts matter for beginners?",
+      "options": [
+        "They're easier than writing code yourself",
+        "You see results immediately, before learning syntax",
+        "They're free forever",
+        "They work on phones only"
+      ],
+      "answer": 1,
+      "points": 10
+    }
+  ],
+  "exercise": "Open claude.ai and prompt: 'Build me a countdown timer that starts at 60 seconds and counts down to zero. Make it big and easy to read.' Watch the Artifact appear and run. Then modify it: ask Claude to change the starting time, the colors, or add a message when it reaches zero. Experiment with at least two changes and see them update live.",
+  "verifyCommands": []
+}

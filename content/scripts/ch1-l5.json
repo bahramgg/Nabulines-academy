@@ -1,0 +1,138 @@
+{
+  "lessonId": "ch1-l5",
+  "title": "A Cloudflare Account — The Future Home of Your Sites",
+  "totalWords": 892,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. In this lesson, you're going to set up a Cloudflare account. Cloudflare is where your websites will live on the internet — completely free. By the end, you'll have an account ready and you'll know exactly where to go when it's time to put your first site online. Let's get started.",
+      "visual": {
+        "title": "A Cloudflare Account",
+        "subtitle": "The Future Home of Your Sites"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "First, what is Cloudflare? Think of it as a massive computer network that sits between your website and everyone visiting it. It makes sites faster, safer, and easier to manage. For us, the most important part is Cloudflare Pages — that's their free service that takes your code and puts it on the internet with a real web address. You don't need to understand how it all works yet. You just need an account. And it's completely free — no credit card, no trial that expires. Free forever for what we're doing.",
+      "visual": {
+        "title": "What is Cloudflare?",
+        "bullets": [
+          "A global network that hosts websites",
+          "Cloudflare Pages = free web hosting",
+          "Takes your code → puts it online",
+          "Free forever (no card needed)"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "browser",
+      "narration": "Okay, let's sign up. Open your browser and go to cloudflare dot com. You'll see a big orange button that says Sign Up — click it. Now Cloudflare will ask for your email and a password. Use a real email you can access — they'll send you a confirmation link. Pick a strong password and write it down somewhere safe. Type those in, then click Create Account. Check your email. You should have a message from Cloudflare with a subject like Verify your email address. Open it and click the verification link. That takes you back to Cloudflare and confirms your account is real. You're in.",
+      "visual": {
+        "captureScript": "capture/ch1-l5-signup.ts",
+        "caption": "Signing up at cloudflare.com"
+      }
+    },
+    {
+      "id": 4,
+      "type": "browser",
+      "narration": "Now you're looking at the Cloudflare dashboard. This is your control center. Don't worry if it looks busy — you won't need most of it yet. On the left side, you'll see a menu. Scroll down until you see Workers and Pages. Click that. This is where all your sites will live. Right now it's empty, and that's fine. You're just getting the lay of the land. In a future lesson, when you're ready to deploy your first site, you'll come back here and click Create Application. For now, just know this is the place. You've found it.",
+      "visual": {
+        "captureScript": "capture/ch1-l5-dashboard.ts",
+        "caption": "Finding Workers & Pages in the dashboard"
+      }
+    },
+    {
+      "id": 5,
+      "type": "slide",
+      "narration": "Let me tell you why Cloudflare is such a gift for learners. Most web hosting costs money — five, ten, twenty dollars a month. Cloudflare Pages is free. Not free for a month, not free with limits that hurt — actually free. You can deploy as many sites as you want. Each one gets a real web address that anyone in the world can visit. And Cloudflare is fast and reliable — your site will load quickly from anywhere. Later, when you're ready, you can add a custom domain like yourname dot com for about ten to twelve dollars a year. But the hosting itself? Always free. That's why we use it.",
+      "visual": {
+        "title": "Why Cloudflare?",
+        "bullets": [
+          "Completely free (no card, no trial)",
+          "Unlimited sites",
+          "Real web addresses anyone can visit",
+          "Fast & reliable globally",
+          "Custom domain later: ~$10–12/year"
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "type": "slide",
+      "narration": "Here's what you just did. You created a Cloudflare account — your permanent home for putting things on the internet. You verified your email so Cloudflare knows it's really you. And you found the Workers and Pages section, which is where you'll deploy every site you build in this course. That's it. You're ready. The next time you see Cloudflare, you'll be pushing a real site live.",
+      "visual": {
+        "title": "What You Accomplished",
+        "bullets": [
+          "Created a free Cloudflare account",
+          "Verified your email",
+          "Found Workers & Pages (deploy center)",
+          "Ready to put sites on the internet"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "type": "slide",
+      "narration": "One more thing — if you ever forget your password, Cloudflare has a reset link on the login page. If you lose access to your email, you'll need to contact support, so keep that email address safe. And if you're outside the US and worried about payment methods later — don't be. Cloudflare Pages is free. When you eventually want a custom domain, you can pay with a crypto-funded virtual card or use a domain registrar that takes crypto. There's always a path. No one gets left out.",
+      "visual": {
+        "title": "Staying Safe & Access",
+        "bullets": [
+          "Forgot password? Use the reset link",
+          "Keep your email accessible",
+          "Pages hosting = always free",
+          "Custom domain later: card or crypto options"
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "type": "outro",
+      "narration": "That's it for this lesson. You now have a Cloudflare account and you know where your sites will go. Your exercise: log in one more time, navigate to Workers and Pages, and just look around. Get comfortable. In the next lesson, we're going to connect GitHub to Cloudflare so that every time you save code, it goes live automatically. That's when the magic starts. See you there.",
+      "visual": {
+        "title": "Next Up",
+        "subtitle": "Connecting GitHub to Cloudflare — Automatic Deployments",
+        "caption": "Exercise: Log in and explore Workers & Pages"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What is Cloudflare Pages?",
+      "options": [
+        "A free service that hosts your websites on the internet",
+        "A paid tool for building websites",
+        "A code editor like Claude",
+        "A social media platform"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "Where in the Cloudflare dashboard do you deploy sites?",
+      "options": [
+        "Settings",
+        "Workers & Pages",
+        "Analytics",
+        "Domains"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "Does Cloudflare Pages require a credit card to use?",
+      "options": [
+        "Yes, after a free trial",
+        "Yes, for all features",
+        "No, it's free forever",
+        "Only for custom domains"
+      ],
+      "answer": 2,
+      "points": 10
+    }
+  ],
+  "exercise": "Log into your Cloudflare account. Navigate to Workers & Pages in the left menu. Take a screenshot or just look around and get familiar with the interface. This is where you'll deploy every site you build.",
+  "verifyCommands": []
+}

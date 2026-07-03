@@ -1,0 +1,150 @@
+{
+  "lessonId": "ch1-l4",
+  "title": "A GitHub Account + What a \"Repo\" Actually Is",
+  "totalWords": 890,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. Today you're creating a GitHub account and making your first repository. By the end of this lesson, you'll know exactly what a repo is, why every developer needs one, and you'll have your own sitting there ready to hold your code. Let's go.",
+      "visual": {
+        "title": "A GitHub Account + What a \"Repo\" Actually Is",
+        "subtitle": "Chapter 1 • Lesson 4"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "First, what is GitHub? Think of it as a social network for code. Developers store their projects there, track changes, collaborate with others, and show off what they've built. It's like Instagram, but instead of photos, you're sharing code. And just like Instagram is free to join, GitHub is free. You can create unlimited public projects without paying a cent. So let's talk about the core concept: the repository, or repo for short.",
+      "visual": {
+        "title": "What is GitHub?",
+        "bullets": [
+          "A social network for code",
+          "Store projects, track changes, collaborate",
+          "Free — unlimited public repos",
+          "Every developer uses it"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "slide",
+      "narration": "A repository is just a folder that holds all the files for one project. That's it. Your website, your app, your notes — each one lives in its own repo. Inside that folder, GitHub tracks every change you make. Who changed what, when, and why. It's like a time machine for your code. You can go back to any previous version if something breaks. And because it lives online, you can access it from any computer, and other people can see it, copy it, or help you improve it. Every project starts with a repo. No repo, no project.",
+      "visual": {
+        "title": "What is a Repository (Repo)?",
+        "bullets": [
+          "A folder that holds one project's files",
+          "Tracks every change (who, what, when)",
+          "Lives online — access from anywhere",
+          "Like a time machine for your code"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "browser",
+      "narration": "Now let's create your account. Open your browser and go to github dot com. You'll see a sign-up button right on the homepage. Click it. GitHub will ask for an email address — use a real one, because they'll send you a verification code. Then pick a username. This is public, so choose something you're okay with the world seeing. It can be your name, a nickname, whatever. Then create a password. Make it strong. Once you fill that in, GitHub will send you a verification email. Open your email, find the code, and paste it in. That's it — you're in. GitHub might ask if you want the free plan or a paid plan. Pick free. You don't need anything else right now.",
+      "visual": {
+        "captureScript": "capture/ch1-l4-signup.ts",
+        "caption": "Creating a GitHub account at github.com"
+      }
+    },
+    {
+      "id": 5,
+      "type": "browser",
+      "narration": "Alright, you're logged in. Now let's create your first repository. Look for a green button that says New, or a plus icon in the top right corner. Click it and choose New repository. GitHub will ask you to name it. This is important. The name should describe your project. If you're building a portfolio site, call it portfolio. If it's a recipe app, call it recipe-app. Keep it short, lowercase, and use hyphens instead of spaces. No special characters. Next, GitHub asks if you want the repo to be public or private. Public means anyone can see it. Private means only you can see it. For learning, go public. It's free, and it's how you build a portfolio. Then there's a checkbox that says Initialize this repository with a README. Check that box. A README is just a text file that explains what your project is. Every repo should have one. Finally, click Create repository. Done. You just made your first repo.",
+      "visual": {
+        "captureScript": "capture/ch1-l4-create-repo.ts",
+        "caption": "Creating your first repository on GitHub"
+      }
+    },
+    {
+      "id": 6,
+      "type": "slide",
+      "narration": "Let's recap what you just did. You created a GitHub account — that's your home base for every project you'll ever build. You learned what a repository is: a folder that holds your project and tracks every change. And you made your first repo, with a name and a README. That repo is now live on the internet. You can share the link with anyone. It's empty right now, but soon it'll hold real code. This is the foundation. Every app, every website, every tool starts exactly like this. One repo. One folder. One beginning.",
+      "visual": {
+        "title": "What You Just Did",
+        "bullets": [
+          "Created a GitHub account (free, forever)",
+          "Learned: a repo = a project folder + change history",
+          "Made your first repo with a name and README",
+          "It's live — you can share the link with anyone"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "type": "slide",
+      "narration": "Now, a quick note about cost, because we're always honest about money here. GitHub is free. You can create unlimited public repositories and collaborate with anyone without paying a cent. There is a paid plan called GitHub Pro, which costs five dollars a month, but you don't need it. The free plan is more than enough for everything in this course and beyond. Private repos are also free on the free plan, so if you ever want to hide a project, you can. No card required to start. No surprises.",
+      "visual": {
+        "title": "What GitHub Costs",
+        "bullets": [
+          "Free plan: $0 — unlimited public repos",
+          "Private repos: also free",
+          "GitHub Pro: $5/mo (you don't need it)",
+          "No card required to start"
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "type": "slide",
+      "narration": "So what's next? Your exercise is simple: create one more repository and name it after a project you want to build. It can be anything. A blog. A game. A tool. Just pick a name and make the repo. This is how you start thinking like a builder. Every idea gets a repo. Every repo becomes real. And once you've done that, the next lesson will show you how to connect Claude Code to that repo so you can actually start building inside it. That's where the magic happens.",
+      "visual": {
+        "title": "Your Exercise",
+        "bullets": [
+          "Create one more repo",
+          "Name it after a project you want to build",
+          "Public, with a README",
+          "Next: connect Claude Code to your repo"
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "type": "outro",
+      "narration": "You now have a GitHub account and your first repository. You understand what a repo is and why it matters. This is the foundation every developer builds on. Do the exercise — make that second repo — and I'll see you in the next lesson where we connect Claude Code to GitHub and start building for real.",
+      "visual": {
+        "title": "Next: Connect Claude Code to GitHub",
+        "subtitle": "See you in Chapter 1 • Lesson 5"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What is a repository (repo)?",
+      "options": [
+        "A folder that holds a project's files and tracks changes",
+        "A type of programming language",
+        "A paid GitHub feature",
+        "A way to send code via email"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "What does the free GitHub plan let you do?",
+      "options": [
+        "Create only 3 repositories",
+        "Create unlimited public repositories",
+        "Only view other people's code",
+        "Use GitHub for 30 days"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "What should you check when creating your first repo?",
+      "options": [
+        "Make it private",
+        "Skip the README",
+        "Initialize with a README",
+        "Pay for GitHub Pro first"
+      ],
+      "answer": 2,
+      "points": 10
+    }
+  ],
+  "exercise": "Create your first empty repository and name it after your project.",
+  "verifyCommands": []
+}

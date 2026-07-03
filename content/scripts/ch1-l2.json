@@ -1,0 +1,132 @@
+{
+  "lessonId": "ch1-l2",
+  "title": "A Tour of Claude — Chat, Artifacts, Projects",
+  "totalWords": 820,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. You've got your Claude account — now let's walk through the interface so you know exactly where everything is. By the end of this lesson, you'll understand the three main areas: chat, Artifacts, and Projects. You'll never feel lost clicking around.",
+      "visual": {
+        "title": "A Tour of Claude",
+        "subtitle": "Chat, Artifacts, Projects"
+      }
+    },
+    {
+      "id": 2,
+      "type": "browser",
+      "narration": "When you open claude dot ai and log in, you land on the main chat screen. This is where everything happens. On the left sidebar, you'll see your conversation history — every chat you've had is saved here automatically. You can scroll through old conversations or start a new one by clicking the pencil icon at the top. The big text box at the bottom is where you type your messages to Claude. Type anything, hit enter, and Claude responds. Simple as that. Now, notice the little grid icon in the top right — that opens your Projects menu. We'll come back to that in a moment.",
+      "visual": {
+        "captureScript": "capture/ch1-l2-main-interface.ts",
+        "caption": "The main Claude interface: sidebar, chat, and Projects icon"
+      }
+    },
+    {
+      "id": 3,
+      "type": "slide",
+      "narration": "Let's talk about Artifacts. When you ask Claude to build something — a webpage, a React component, a small tool — it doesn't just paste code into the chat. It opens a live preview window on the right side of your screen. That window is called an Artifact. You see the code running in real time. If it's a webpage, you see the page. If it's a tool, you can interact with it right there. You can click into the Artifact to edit the code yourself, or ask Claude to change it and watch it update instantly. Artifacts are how you go from idea to working thing without ever leaving the browser.",
+      "visual": {
+        "title": "What is an Artifact?",
+        "bullets": [
+          "A live preview window that appears on the right",
+          "Shows your code running in real time",
+          "You can edit it or ask Claude to change it",
+          "No setup, no files — just build and see it work"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "browser",
+      "narration": "Now let's look at Projects. Click that grid icon in the top right. A menu drops down showing all your Projects. A Project is a workspace for a specific build. Think of it like a folder that holds all the chats and Artifacts related to one thing — maybe your portfolio site, or a calculator app. When you create a Project, you give it a name and optionally add some instructions or files so Claude remembers the context every time you open it. Click 'Create Project' and you'll see a form: name your Project, add a description if you want, and hit create. Now every chat and Artifact you make inside that Project stays together. You can switch between Projects anytime from that grid menu.",
+      "visual": {
+        "captureScript": "capture/ch1-l2-projects.ts",
+        "caption": "Creating and switching between Projects"
+      }
+    },
+    {
+      "id": 5,
+      "type": "slide",
+      "narration": "Why use Projects? Because once you start building more than one thing, your chat history gets messy. Projects keep everything organized. One Project for your personal site. Another for a side app. Another for learning exercises. Each Project remembers its own context — the files, the instructions, the conversation flow. You never have to remind Claude what you were working on. Just open the Project and pick up where you left off.",
+      "visual": {
+        "title": "Why Projects Matter",
+        "bullets": [
+          "Keep different builds separate and organized",
+          "Each Project remembers its own context",
+          "No more scrolling through mixed-up chat history",
+          "Switch between Projects anytime"
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "type": "browser",
+      "narration": "Let's recap by doing a quick walkthrough. On the left: your conversation history. In the center: the chat where you talk to Claude. On the right: Artifacts, where your code comes to life. Top right: the Projects menu to organize everything. That's the whole interface. Three areas, one flow. Type a message, see an Artifact, save it in a Project. You'll use this loop for every single build in this course.",
+      "visual": {
+        "captureScript": "capture/ch1-l2-recap.ts",
+        "caption": "The full interface in action: chat → Artifact → Project"
+      }
+    },
+    {
+      "id": 7,
+      "type": "slide",
+      "narration": "One more thing: you can share Artifacts. If you build something cool and want to show a friend, click the share button on the Artifact. You get a link. Anyone with that link can see and interact with your Artifact — no Claude account required. This is how you show off your work before you even deploy it to a real site.",
+      "visual": {
+        "title": "Sharing Artifacts",
+        "bullets": [
+          "Click the share button on any Artifact",
+          "Get a link anyone can open",
+          "They see and interact with your build",
+          "No account needed to view"
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "type": "outro",
+      "narration": "That's the tour. You now know where everything lives: chat on the left, Artifacts on the right, Projects at the top. The interface will never slow you down again. Your exercise: open Claude, create a new Project, and give it a name for your first build — maybe 'My First Site' or 'Learning Project'. Just get used to the flow. Next lesson, we're going to build your first actual webpage inside an Artifact. See you there.",
+      "visual": {
+        "title": "Next Up",
+        "subtitle": "Build Your First Webpage",
+        "caption": "Exercise: Create a Project and name it"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Where do you see your code running in real time?",
+      "options": [
+        "In the Artifact window on the right",
+        "In the chat history on the left",
+        "In the Projects menu",
+        "In a separate browser tab"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "What is a Project in Claude?",
+      "options": [
+        "A single chat conversation",
+        "A workspace that keeps all chats and Artifacts for one build together",
+        "A way to share Artifacts with friends",
+        "A paid feature"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "How do you start a new chat in Claude?",
+      "options": [
+        "Click the grid icon",
+        "Click the pencil icon in the sidebar",
+        "Refresh the page",
+        "Type '/new' in the chat box"
+      ],
+      "answer": 1,
+      "points": 10
+    }
+  ],
+  "exercise": "Open claude.ai, click the Projects menu (grid icon top right), create a new Project, and name it something like 'My First Site' or 'Learning Builds'. Get comfortable with the interface — you'll use it every day.",
+  "verifyCommands": []
+}
