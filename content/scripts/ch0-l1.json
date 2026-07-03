@@ -31,6 +31,7 @@
       "narration": "Let me prove it. Watch this. I ask for a countdown timer, just those words, and here it is, running live in the browser. I didn't write a single line. No setup, no install. This is the real thing, actually working. Every lesson in this academy is like this: real prompts, real output, nothing faked.",
       "visual": {
         "captureScript": "capture/ch0-l1-demo.ts",
+        "captureVideo": "captures/ch0-l1.webm",
         "caption": "One prompt in. A working timer out."
       }
     },

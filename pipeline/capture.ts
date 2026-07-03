@@ -18,7 +18,10 @@ export async function capture(demoModule: string, lessonId: string): Promise<str
   const outDir = resolve(here, `../content/captures/${lessonId}`);
   mkdirSync(outDir, { recursive: true });
 
-  const browser = await chromium.launch({ headless: true });
+  // Use a specific Chromium build when provided (e.g. the pre-installed one in
+  // managed environments); otherwise Playwright's default.
+  const executablePath = process.env.CHROMIUM_PATH || undefined;
+  const browser = await chromium.launch({ headless: true, executablePath });
   const context = await browser.newContext({
     viewport: { width: 1920, height: 1080 },
     recordVideo: { dir: outDir, size: { width: 1920, height: 1080 } },
