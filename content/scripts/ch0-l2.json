@@ -1,0 +1,134 @@
+{
+  "lessonId": "ch0-l2",
+  "title": "Creator vs. Builder — Why Followers Aren't Enough",
+  "totalWords": 685,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "You've built a following. Ten thousand people. Maybe a hundred thousand. You post every day. The likes roll in. But here's the hard truth — you don't own any of it. Today we're talking about the difference between being a creator and being a builder. And why one path gives you real power, while the other keeps you renting.",
+      "visual": {
+        "title": "Creator vs. Builder",
+        "subtitle": "Why Followers Aren't Enough"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "Let's define terms. A creator makes content on platforms they don't control. Instagram. TikTok. YouTube. You're creating value, yes. But the platform owns the relationship with your audience. They decide what gets shown. They change the algorithm. They can ban you tomorrow. You're renting space in someone else's house. And the rent? It's your time, your energy, your ideas.",
+      "visual": {
+        "title": "The Creator",
+        "bullets": [
+          "Posts on rented platforms",
+          "Algorithm controls reach",
+          "Platform owns the audience",
+          "Can lose everything overnight"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "slide",
+      "narration": "Now meet the builder. A builder creates things they own. A website. An app. A tool. A product. When someone uses what you built, they come directly to you. No middleman. No algorithm deciding if your work is worthy today. You control the experience. You control the relationship. You own the asset. And here's the kicker — what you build can work for you while you sleep.",
+      "visual": {
+        "title": "The Builder",
+        "bullets": [
+          "Owns the platform",
+          "Direct relationship with users",
+          "Controls the experience",
+          "Builds lasting assets"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "slide",
+      "narration": "Let's get concrete. You're a fitness creator with fifty thousand Instagram followers. Impressive. But Instagram changes the algorithm. Your reach drops eighty percent overnight. Your income vanishes. Now imagine you're a builder. You have a fitness app. Five thousand paying users. Instagram could disappear tomorrow. Your business keeps running. That's the difference. One is fragile. The other is antifragile.",
+      "visual": {
+        "title": "Real World Example",
+        "bullets": [
+          "Creator: 50k followers, zero control",
+          "Algorithm change = 80% reach drop",
+          "Builder: 5k users, full control",
+          "Platform dies = business survives"
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "type": "slide",
+      "narration": "Here's what most people miss. Being a builder doesn't mean abandoning content creation. The smartest move? Be both. Use platforms to reach people. But drive them to something you own. Your website. Your email list. Your app. Platforms are megaphones. Use them. But never make them your foundation. Build on land you own.",
+      "visual": {
+        "title": "The Hybrid Approach",
+        "bullets": [
+          "Use platforms as megaphones",
+          "Drive traffic to owned assets",
+          "Content creation + building",
+          "Rent the billboard, own the store"
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "type": "slide",
+      "narration": "Why does this matter for you right now? Because you're about to learn to code. And coding is the ultimate builder skill. It lets you create things that exist independent of any platform. A website that's yours. A tool that solves a real problem. An asset that compounds. You're not learning to code to get a job. You're learning to code to own your work.",
+      "visual": {
+        "title": "Why This Matters Now",
+        "bullets": [
+          "Coding = ultimate ownership tool",
+          "Build assets that compound",
+          "Independent of any platform",
+          "Own your work forever"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "type": "outro",
+      "narration": "So here's your exercise. List one thing you currently rent — a platform where you're building an audience. Then list one thing you could own instead. Maybe it's a simple website. Maybe it's an email list. Maybe it's a tool you wish existed. Don't overthink it. Just write it down. Next lesson, we're diving into the Nabulines method — how we're going to turn you from creator into builder in the fastest way possible. See you there.",
+      "visual": {
+        "title": "Your Exercise",
+        "subtitle": "List one rented platform. List one owned alternative."
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What is the main risk of being only a creator on rented platforms?",
+      "options": [
+        "The platform controls your relationship with your audience",
+        "You can't make money from content creation",
+        "You have to post every single day",
+        "Other creators will copy your ideas"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "What makes a builder different from a creator?",
+      "options": [
+        "Builders don't create any content",
+        "Builders only work on weekends",
+        "Builders own the assets they create",
+        "Builders never use social media"
+      ],
+      "answer": 2,
+      "points": 10
+    },
+    {
+      "q": "What is the smartest approach according to this lesson?",
+      "options": [
+        "Abandon all social media platforms immediately",
+        "Only focus on building, never create content",
+        "Use platforms as megaphones but own your foundation",
+        "Choose either creator or builder, never both"
+      ],
+      "answer": 2,
+      "points": 10
+    }
+  ],
+  "exercise": "List one thing you currently rent (a platform) and one thing you could own instead.",
+  "verifyCommands": [
+    "echo 'No technical verification needed for conceptual lesson' && exit 0"
+  ]
+}

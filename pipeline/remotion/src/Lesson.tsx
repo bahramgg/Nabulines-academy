@@ -42,7 +42,9 @@ function renderScene(scene: Scene) {
   }
 }
 
-export const Lesson: React.FC<{ script: LessonScript }> = ({ script }) => {
+// Props ARE the lesson script, so `--props=content/scripts/<id>.json` works
+// with the script file directly (no wrapper object).
+export const Lesson: React.FC<LessonScript> = (script) => {
   return (
     <AbsoluteFill style={{ backgroundColor: theme.bg, fontFamily: theme.sans }}>
       <Series>

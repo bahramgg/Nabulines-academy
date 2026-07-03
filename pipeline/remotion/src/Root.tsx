@@ -14,9 +14,9 @@ export const RemotionRoot: React.FC = () => {
       fps={FPS}
       width={1920}
       height={1080}
-      defaultProps={{ script: defaultScript as unknown as LessonScript }}
+      defaultProps={defaultScript as unknown as LessonScript}
       calculateMetadata={({ props }) => ({
-        durationInFrames: totalFrames(props.script as unknown as { scenes: { narration: string; durationSec?: number }[] }),
+        durationInFrames: totalFrames(props as unknown as { scenes: { narration: string; durationSec?: number }[] }),
       })}
     />
   );
