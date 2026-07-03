@@ -147,7 +147,9 @@
             "outro"
           ],
           "exercise": "Open a new Project and give it a name for your first build.",
-          "status": "pending"
+          "status": "published",
+          "video": "https://ipfs.filebase.io/ipfs/QmbuT8DyCrNEmhQDxD7WG96DAp3NKonaMhRNgSysFDo1mh",
+          "vtt": "https://ipfs.filebase.io/ipfs/QmVS2qAFxHyWNwgz7xzA4f8Ddh8Ln4v4XS4uWkKLhdmTxs"
         },
         {
           "id": "ch1-l3",
