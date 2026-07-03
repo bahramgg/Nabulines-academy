@@ -1,0 +1,657 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:01.834
+Welcome to Nabulines Academy.
+
+2
+00:00:02.380 --> 00:00:04.029
+In this lesson we're going to map out the
+
+3
+00:00:04.133 --> 00:00:05.724
+AI building tools you'll hear about
+
+4
+00:00:05.770 --> 00:00:09.253
+everywhere — Claude, Cursor, v0, Bolt —
+
+5
+00:00:09.509 --> 00:00:11.343
+and you'll know exactly which one to reach
+
+6
+00:00:11.401 --> 00:00:12.307
+for and when.
+
+7
+00:00:13.317 --> 00:00:15.220
+By the end you'll have a clear mental map
+
+8
+00:00:15.278 --> 00:00:17.136
+of the ecosystem so you're never confused
+
+9
+00:00:17.159 --> 00:00:18.355
+about what tool does what.
+
+10
+00:00:18.901 --> 00:00:19.829
+Let's dive in.
+
+11
+00:00:19.829 --> 00:00:21.222
+First, the big picture.
+
+12
+00:00:21.512 --> 00:00:23.498
+All these tools use AI to help you build
+
+13
+00:00:23.556 --> 00:00:25.204
+software, but they live in different
+
+14
+00:00:25.239 --> 00:00:27.097
+places and solve different problems.
+
+15
+00:00:27.840 --> 00:00:29.790
+Claude is a chat AI you talk to in your
+
+16
+00:00:29.825 --> 00:00:30.359
+browser.
+
+17
+00:00:30.708 --> 00:00:32.611
+Cursor is a code editor on your computer
+
+18
+00:00:32.658 --> 00:00:34.109
+that has AI inside it.
+
+19
+00:00:34.747 --> 00:00:36.837
+v0 and Bolt are specialized web apps for
+
+20
+00:00:36.884 --> 00:00:38.788
+designing interfaces or spinning up full
+
+21
+00:00:38.846 --> 00:00:39.717
+projects fast.
+
+22
+00:00:40.355 --> 00:00:41.713
+Think of them as different rooms in the
+
+23
+00:00:41.748 --> 00:00:44.407
+same house — you pick the room that fits
+
+24
+00:00:44.465 --> 00:00:45.231
+the job.
+
+25
+00:00:45.231 --> 00:00:46.473
+Let's start with Claude.
+
+26
+00:00:47.019 --> 00:00:49.492
+Claude is Anthropic's AI — you chat with
+
+27
+00:00:49.527 --> 00:00:50.897
+it at claude dot ai.
+
+28
+00:00:51.442 --> 00:00:53.567
+It's like ChatGPT but often better at
+
+29
+00:00:53.625 --> 00:00:54.647
+coding and reasoning.
+
+30
+00:00:55.192 --> 00:00:56.736
+The killer feature for builders is
+
+31
+00:00:56.818 --> 00:00:59.325
+Artifacts — when you ask Claude to make
+
+32
+00:00:59.360 --> 00:01:01.671
+something, it can generate a live preview
+
+33
+00:01:01.775 --> 00:01:02.762
+right in the browser.
+
+34
+00:01:02.983 --> 00:01:05.432
+You see a button, a form, a mini game,
+
+35
+00:01:05.595 --> 00:01:06.582
+running instantly.
+
+36
+00:01:06.802 --> 00:01:08.300
+No install, no setup.
+
+37
+00:01:08.706 --> 00:01:10.808
+This is where absolute beginners start
+
+38
+00:01:10.854 --> 00:01:12.503
+because you can build and see results in
+
+39
+00:01:12.538 --> 00:01:13.397
+the same window.
+
+40
+00:01:14.035 --> 00:01:15.812
+Claude also has a Pro plan for twenty
+
+41
+00:01:15.846 --> 00:01:18.006
+dollars a month that unlocks more usage
+
+42
+00:01:18.029 --> 00:01:19.945
+and a tool called Claude Code, which we'll
+
+43
+00:01:19.980 --> 00:01:20.665
+cover later.
+
+44
+00:01:21.303 --> 00:01:23.764
+For now, just know: Claude in the browser
+
+45
+00:01:23.822 --> 00:01:25.216
+is your first playground.
+
+46
+00:01:25.216 --> 00:01:26.284
+Next is Cursor.
+
+47
+00:01:26.923 --> 00:01:29.094
+Cursor is a code editor — think of it as
+
+48
+00:01:29.152 --> 00:01:30.800
+the app where you write and organize all
+
+49
+00:01:30.858 --> 00:01:31.718
+your code files.
+
+50
+00:01:32.182 --> 00:01:34.237
+It looks like VS Code, which is the most
+
+51
+00:01:34.295 --> 00:01:36.640
+popular editor in the world, but Cursor
+
+52
+00:01:36.698 --> 00:01:37.882
+has AI baked in.
+
+53
+00:01:38.521 --> 00:01:40.332
+You can highlight code and ask the AI to
+
+54
+00:01:40.390 --> 00:01:42.724
+explain it, rewrite it, or add a feature.
+
+55
+00:01:43.734 --> 00:01:45.568
+You can chat with the AI about your whole
+
+56
+00:01:45.603 --> 00:01:46.149
+project.
+
+57
+00:01:46.695 --> 00:01:48.680
+Cursor is what you graduate to when you're
+
+58
+00:01:48.703 --> 00:01:50.387
+ready to work on real projects with
+
+59
+00:01:50.456 --> 00:01:52.337
+multiple files, not just one-off
+
+60
+00:01:52.396 --> 00:01:53.092
+experiments.
+
+61
+00:01:53.440 --> 00:01:55.112
+It lives on your computer, not in the
+
+62
+00:01:55.136 --> 00:01:55.635
+browser.
+
+63
+00:01:56.378 --> 00:01:58.317
+Cursor has a free tier with limited AI
+
+64
+00:01:58.386 --> 00:02:00.523
+requests, then a Pro plan for twenty
+
+65
+00:02:00.557 --> 00:02:01.974
+dollars a month for more usage.
+
+66
+00:02:02.845 --> 00:02:04.365
+You'll use Cursor once you're past the
+
+67
+00:02:04.412 --> 00:02:06.316
+basics and building actual apps.
+
+68
+00:02:06.316 --> 00:02:07.326
+Now v0.
+
+69
+00:02:07.732 --> 00:02:10.588
+v0 is made by Vercel, the company behind
+
+70
+00:02:10.658 --> 00:02:13.143
+Next.js, a popular web framework.
+
+71
+00:02:14.153 --> 00:02:16.660
+v0 is a web app where you describe a user
+
+72
+00:02:16.719 --> 00:02:19.644
+interface — a login form, a dashboard, a
+
+73
+00:02:19.714 --> 00:02:22.082
+pricing page — and it generates the React
+
+74
+00:02:22.140 --> 00:02:24.231
+code for you, with a live preview.
+
+75
+00:02:24.486 --> 00:02:26.436
+It's laser-focused on UI design.
+
+76
+00:02:26.785 --> 00:02:29.002
+You don't build a whole app in v0, you
+
+77
+00:02:29.060 --> 00:02:30.964
+design the pieces, then copy the code into
+
+78
+00:02:31.022 --> 00:02:31.986
+your real project.
+
+79
+00:02:32.625 --> 00:02:34.343
+v0 has a free tier with limited
+
+80
+00:02:34.378 --> 00:02:36.444
+generations, then paid plans starting
+
+81
+00:02:36.479 --> 00:02:37.791
+around twenty dollars a month.
+
+82
+00:02:38.337 --> 00:02:40.751
+It's a specialist tool — you reach for it
+
+83
+00:02:40.775 --> 00:02:42.516
+when you need a beautiful interface fast
+
+84
+00:02:42.551 --> 00:02:44.443
+and you're already comfortable with React.
+
+85
+00:02:44.443 --> 00:02:45.267
+Last, Bolt.
+
+86
+00:02:45.906 --> 00:02:48.611
+Bolt, also called Bolt dot new, is a web
+
+87
+00:02:48.669 --> 00:02:50.399
+app that spins up entire full-stack
+
+88
+00:02:50.457 --> 00:02:51.583
+projects in seconds.
+
+89
+00:02:52.129 --> 00:02:54.567
+You describe an app — a to-do list, a chat
+
+90
+00:02:54.625 --> 00:02:57.156
+room, a portfolio site — and Bolt
+
+91
+00:02:57.214 --> 00:02:59.002
+generates the code, sets up the
+
+92
+00:02:59.049 --> 00:03:00.732
+environment, and gives you a running
+
+93
+00:03:00.790 --> 00:03:02.369
+preview, all in the browser.
+
+94
+00:03:02.590 --> 00:03:04.424
+It's incredibly fast for prototyping.
+
+95
+00:03:05.434 --> 00:03:07.617
+Bolt uses StackBlitz under the hood, which
+
+96
+00:03:07.652 --> 00:03:09.393
+is a browser-based dev environment.
+
+97
+00:03:10.032 --> 00:03:12.551
+The catch: Bolt is best for demos and
+
+98
+00:03:12.609 --> 00:03:14.211
+learning, not production apps.
+
+99
+00:03:14.559 --> 00:03:16.730
+It has a free tier, then paid plans.
+
+100
+00:03:17.276 --> 00:03:18.901
+Think of Bolt as the tool for when you
+
+101
+00:03:18.960 --> 00:03:20.771
+want to see an idea come to life in thirty
+
+102
+00:03:20.829 --> 00:03:22.466
+seconds, not when you're building
+
+103
+00:03:22.524 --> 00:03:23.917
+something to ship to users.
+
+104
+00:03:23.917 --> 00:03:25.519
+Let me show you these tools in action,
+
+105
+00:03:25.566 --> 00:03:26.901
+just so you see the difference.
+
+106
+00:03:27.539 --> 00:03:29.919
+Here's claude dot ai — I'm asking it to
+
+107
+00:03:29.966 --> 00:03:30.999
+make a simple button.
+
+108
+00:03:31.545 --> 00:03:34.203
+Boom, Artifact appears, button is live.
+
+109
+00:03:34.842 --> 00:03:37.570
+Now here's Cursor on my desktop — multiple
+
+110
+00:03:37.605 --> 00:03:39.486
+files, AI chat on the side.
+
+111
+00:03:40.032 --> 00:03:43.190
+Here's v0 — I type 'pricing page' and it
+
+112
+00:03:43.236 --> 00:03:44.734
+generates a beautiful component.
+
+113
+00:03:45.280 --> 00:03:47.927
+And here's Bolt — I say 'chat app' and it
+
+114
+00:03:47.985 --> 00:03:49.541
+scaffolds the whole thing, server
+
+115
+00:03:49.587 --> 00:03:50.098
+included.
+
+116
+00:03:50.388 --> 00:03:51.700
+Each tool has its place.
+
+117
+00:03:52.339 --> 00:03:54.010
+Claude for quick experiments.
+
+118
+00:03:54.556 --> 00:03:56.135
+Cursor for real projects.
+
+119
+00:03:56.773 --> 00:03:58.399
+v0 for polished UI.
+
+120
+00:03:59.037 --> 00:04:00.976
+Bolt for fast full-stack demos.
+
+121
+00:04:00.976 --> 00:04:02.439
+So which one do you start with?
+
+122
+00:04:03.310 --> 00:04:05.039
+If you're brand new, start with Claude.
+
+123
+00:04:05.225 --> 00:04:07.234
+It's free, it's in the browser, and
+
+124
+00:04:07.292 --> 00:04:09.475
+Artifacts let you see results instantly.
+
+125
+00:04:10.020 --> 00:04:11.553
+Once you're comfortable and ready to build
+
+126
+00:04:11.634 --> 00:04:14.118
+real multi-file projects, add Cursor.
+
+127
+00:04:14.861 --> 00:04:16.417
+If you're designing interfaces and you
+
+128
+00:04:16.475 --> 00:04:18.217
+know React, try v0.
+
+129
+00:04:18.565 --> 00:04:20.179
+If you want to prototype a full app in
+
+130
+00:04:20.248 --> 00:04:21.456
+seconds, try Bolt.
+
+131
+00:04:22.327 --> 00:04:23.836
+But the foundation is Claude.
+
+132
+00:04:24.474 --> 00:04:25.937
+That's where this course begins.
+
+133
+00:04:26.576 --> 00:04:28.399
+You'll learn Claude deeply, then we'll
+
+134
+00:04:28.433 --> 00:04:30.140
+bring in the others as you need them.
+
+135
+00:04:30.140 --> 00:04:30.906
+One more thing.
+
+136
+00:04:31.162 --> 00:04:33.124
+These tools all cost money if you use them
+
+137
+00:04:33.182 --> 00:04:35.016
+heavily, but you can start for free.
+
+138
+00:04:35.655 --> 00:04:36.816
+Claude has a free plan.
+
+139
+00:04:37.106 --> 00:04:38.418
+Cursor has a free tier.
+
+140
+00:04:39.056 --> 00:04:41.100
+v0 and Bolt have free generations.
+
+141
+00:04:41.645 --> 00:04:43.491
+As you grow, you'll probably pay for one
+
+142
+00:04:43.526 --> 00:04:45.930
+or two — most builders end up on Claude
+
+143
+00:04:45.965 --> 00:04:48.101
+Pro and Cursor Pro, that's forty dollars a
+
+144
+00:04:48.147 --> 00:04:48.832
+month total.
+
+145
+00:04:49.122 --> 00:04:50.852
+But you can go far on the free tiers while
+
+146
+00:04:50.876 --> 00:04:51.514
+you're learning.
+
+147
+00:04:52.257 --> 00:04:54.405
+We'll cover costs in detail in a dedicated
+
+148
+00:04:54.463 --> 00:04:55.241
+lesson later.
+
+149
+00:04:55.879 --> 00:04:58.236
+For now, just know: free to start, pay as
+
+150
+00:04:58.294 --> 00:04:58.979
+you grow.
+
+151
+00:04:58.979 --> 00:04:59.885
+That's the map.
+
+152
+00:05:00.430 --> 00:05:02.276
+Claude for chat and Artifacts.
+
+153
+00:05:02.625 --> 00:05:04.203
+Cursor for real coding.
+
+154
+00:05:04.842 --> 00:05:06.235
+v0 for UI.
+
+155
+00:05:06.642 --> 00:05:08.093
+Bolt for fast demos.
+
+156
+00:05:08.557 --> 00:05:10.972
+You now know what each tool does and when
+
+157
+00:05:11.030 --> 00:05:11.889
+to reach for it.
+
+158
+00:05:12.899 --> 00:05:15.175
+Your exercise: pick the one tool you'll
+
+159
+00:05:15.210 --> 00:05:16.997
+start with this week and write one line
+
+160
+00:05:17.020 --> 00:05:17.729
+about why.
+
+161
+00:05:18.274 --> 00:05:19.923
+Next lesson, we're going to talk about the
+
+162
+00:05:19.969 --> 00:05:21.862
+two big mental shifts you need to make to
+
+163
+00:05:21.920 --> 00:05:23.127
+think like an AI builder.
+
+164
+00:05:23.673 --> 00:05:24.474
+See you there.
