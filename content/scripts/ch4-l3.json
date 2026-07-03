@@ -1,0 +1,143 @@
+{
+  "lessonId": "ch4-l3",
+  "title": "Your First Project with Claude Code",
+  "totalWords": 748,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. You've got Claude Code installed. Now let's actually use it to build something. In this lesson, you'll start Claude Code in a folder, ask it to create a script, and run it. By the end, you'll have your first real project built with AI. Let's go.",
+      "visual": {
+        "title": "Your First Project with Claude Code",
+        "subtitle": "Build something real with AI"
+      }
+    },
+    {
+      "id": 2,
+      "type": "terminal",
+      "narration": "Open your terminal. Create a new folder for your project. Type mkdir my-first-project. Hit enter. Now move into that folder with cd my-first-project. This is where everything will live. Now type claude-code and hit enter. Claude Code starts up in the current folder. It opens a chat interface right in your terminal. You're ready to build.",
+      "visual": {
+        "commands": [
+          "mkdir my-first-project",
+          "cd my-first-project",
+          "claude-code"
+        ],
+        "output": "Starting Claude Code in /my-first-project...\nReady to help! What would you like to build?",
+        "captureVideo": "captures/ch4-l3.webm"
+      }
+    },
+    {
+      "id": 3,
+      "type": "terminal",
+      "narration": "Now talk to Claude. Type your request in plain English. Let's ask it to create a script that generates random motivational quotes. Type: Create a script that prints a random motivational quote each time I run it. Hit enter. Claude Code reads your request. It thinks for a moment. Then it creates a file called quotes dot j s. It writes the code. It explains what it did. You don't have to write a single line yourself.",
+      "visual": {
+        "commands": [
+          "# In Claude Code chat:",
+          "> Create a script that prints a random motivational quote each time I run it"
+        ],
+        "output": "I'll create a Node.js script for you.\n\n✓ Created quotes.js\n\nThe script includes an array of quotes and randomly selects one when run."
+      }
+    },
+    {
+      "id": 4,
+      "type": "code",
+      "narration": "Let's look at what Claude built. Open quotes dot j s. There's an array of motivational quotes. There's code to pick one at random. There's a console dot log to print it. Claude wrote real, working JavaScript. You didn't have to know the syntax. You didn't have to look up how to generate random numbers. You just described what you wanted.",
+      "visual": {
+        "language": "javascript",
+        "code": "const quotes = [\n  \"Believe you can and you're halfway there.\",\n  \"The only way to do great work is to love what you do.\",\n  \"Success is not final, failure is not fatal.\",\n  \"Dream big and dare to fail.\"\n];\n\nconst randomQuote = quotes[Math.floor(Math.random() * quotes.length)];\nconsole.log(randomQuote);",
+        "highlightLines": [
+          7,
+          8
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "type": "terminal",
+      "narration": "Now run it. Type node quotes dot j s. Hit enter. A random quote appears. Run it again. Different quote. You just built a working script by asking for it. This is vibe coding. You describe the vibe. Claude writes the code. You run it and see it work.",
+      "visual": {
+        "commands": [
+          "node quotes.js",
+          "node quotes.js"
+        ],
+        "output": "Believe you can and you're halfway there.\n\nDream big and dare to fail."
+      }
+    },
+    {
+      "id": 6,
+      "type": "terminal",
+      "narration": "Want to change something? Just ask. Go back to Claude Code. Type: Add five more quotes to the list. Claude updates the file. Run it again. More variety. You're iterating in plain English. No syntax errors. No debugging. Just conversation and results.",
+      "visual": {
+        "commands": [
+          "> Add five more quotes to the list"
+        ],
+        "output": "✓ Updated quotes.js with 5 additional quotes\n\nThe script now has 9 motivational quotes to choose from."
+      }
+    },
+    {
+      "id": 7,
+      "type": "slide",
+      "narration": "Here's what just happened. You started Claude Code in a folder. You described what you wanted in plain English. Claude created a real script. You ran it. It worked. You asked for changes. Claude made them. This is the workflow. Describe, build, run, iterate. No prior coding knowledge required.",
+      "visual": {
+        "title": "The Vibe Coding Workflow",
+        "bullets": [
+          "Start Claude Code in your project folder",
+          "Describe what you want in plain English",
+          "Claude writes the code",
+          "Run it and see it work",
+          "Iterate by asking for changes"
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "type": "outro",
+      "narration": "You just built your first project with Claude Code. A working script. Created by AI. Run by you. Now it's your turn. Open the exercise. Ask Claude Code to create a small script of your own. Run it. See it work. Next lesson, we'll build something bigger—a multi-file project. See you there.",
+      "visual": {
+        "title": "You Did It",
+        "subtitle": "From idea to working code in minutes"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What command starts Claude Code in the current folder?",
+      "options": [
+        "claude-code",
+        "start claude",
+        "npm run claude",
+        "code ."
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "How do you ask Claude Code to create something?",
+      "options": [
+        "Write code and Claude will review it",
+        "Describe what you want in plain English",
+        "Use special command syntax",
+        "Import a template first"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "What happens after Claude Code creates a file?",
+      "options": [
+        "You must manually save it",
+        "It's automatically saved and ready to run",
+        "You need to compile it first",
+        "It only exists in memory"
+      ],
+      "answer": 1,
+      "points": 10
+    }
+  ],
+  "exercise": "Start Claude Code in a new folder. Ask it to create a script that does something you find useful—a calculator, a todo list, a random name generator, anything. Run the script. Ask Claude to add one feature. Run it again. You've just built and iterated on a real project.",
+  "verifyCommands": [
+    "mkdir test-project && cd test-project",
+    "echo 'const quotes = [\"test\"]; console.log(quotes[0]);' > quotes.js",
+    "node quotes.js | grep -q 'test'"
+  ]
+}

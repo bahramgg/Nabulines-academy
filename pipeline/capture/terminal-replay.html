@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>terminal</title>
+    <style>
+      :root { --text: #ffffff; --text2: #9ba1a6; --text3: #6b7280; }
+      * { margin: 0; box-sizing: border-box; }
+      html, body { height: 100%; background: #000; }
+      #screen {
+        height: 100vh;
+        padding: 64px 72px;
+        font-family: "SF Mono", "DejaVu Sans Mono", "Fira Code", ui-monospace, monospace;
+        font-size: 30px;
+        line-height: 1.55;
+        color: var(--text2);
+        white-space: pre-wrap;
+        overflow: hidden;
+      }
+      .prompt { color: var(--text3); }
+      .cmd { color: var(--text); }
+      .out { color: var(--text2); }
+      .cursor { color: var(--text); }
+    </style>
+  </head>
+  <body>
+    <div id="screen"></div>
+    <script>
+      // Reads window.__CAST__ = [{cmd, output}] and replays it as a typed
+      // terminal session. Real output, animated for the video.
+      const screen = document.getElementById("screen");
+      const cast = window.__CAST__ || [];
+      const CHAR_MS = 34;
+      const AFTER_CMD_MS = 300;
+      const AFTER_OUT_MS = 650;
+
+      const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+      let buffer = "";
+
+      function render(cursor) {
+        screen.innerHTML = buffer + (cursor ? '<span class="cursor">▋</span>' : "");
+        screen.scrollTop = screen.scrollHeight;
+      }
+
+      async function run() {
+        for (const step of cast) {
+          buffer += '<span class="prompt">$ </span><span class="cmd">';
+          for (const ch of step.cmd) {
+            buffer += ch === "<" ? "&lt;" : ch === ">" ? "&gt;" : ch === "&" ? "&amp;" : ch;
+            render(true);
+            await sleep(CHAR_MS);
+          }
+          buffer += "</span>\n";
+          render(true);
+          await sleep(AFTER_CMD_MS);
+          if (step.output) {
+            const safe = step.output.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            buffer += '<span class="out">' + safe + "</span>\n";
+            render(true);
+          }
+          await sleep(AFTER_OUT_MS);
+        }
+        // idle blink at the end
+        let on = true;
+        for (let i = 0; i < 8; i++) { render(on); on = !on; await sleep(450); }
+        window.__DONE__ = true;
+      }
+      run();
+    </script>
+  </body>
+</html>

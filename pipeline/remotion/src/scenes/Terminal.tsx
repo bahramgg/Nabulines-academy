@@ -1,12 +1,16 @@
 import React from "react";
-import { AbsoluteFill, interpolate, useCurrentFrame } from "remotion";
+import { AbsoluteFill, interpolate, OffthreadVideo, staticFile, useCurrentFrame } from "remotion";
 import { theme } from "../theme";
 import { Eyebrow } from "../components";
 
-// Terminal simulator: types a command, then shows its real output (from verify.ts).
-export const Terminal: React.FC<{ visual: { command?: string; output?: string } }> = ({ visual }) => {
+// Terminal scene. If `captureVideo` is set, it plays a REAL recorded terminal
+// session (commands actually ran — see capture/terminal.ts). Otherwise it
+// simulates typing a command and printing its real output (from verify.ts).
+export const Terminal: React.FC<{
+  visual: { command?: string; commands?: string[]; output?: string; captureVideo?: string };
+}> = ({ visual }) => {
   const frame = useCurrentFrame();
-  const command = visual.command ?? "";
+  const command = visual.command ?? (Array.isArray(visual.commands) ? visual.commands.join("\n") : "");
   const output = visual.output ?? "";
   const typed = Math.floor(interpolate(frame, [6, 45], [0, command.length], { extrapolateRight: "clamp", extrapolateLeft: "clamp" }));
   const showOutput = frame > 52;
@@ -31,16 +35,22 @@ export const Terminal: React.FC<{ visual: { command?: string; output?: string } 
             <div key={i} style={{ width: 14, height: 14, borderRadius: "50%", border: `1px solid ${theme.border}` }} />
           ))}
         </div>
-        <div style={{ padding: 36, lineHeight: 1.5 }}>
-          <div style={{ color: theme.text }}>
-            <span style={{ color: theme.text3 }}>$ </span>
-            {command.slice(0, typed)}
-            {typed < command.length ? cursor : ""}
+        {visual.captureVideo ? (
+          <div style={{ aspectRatio: "16 / 9", backgroundColor: "#000" }}>
+            <OffthreadVideo src={staticFile(visual.captureVideo)} style={{ width: "100%", height: "100%" }} />
           </div>
-          {showOutput && (
-            <pre style={{ color: theme.text2, margin: "18px 0 0", whiteSpace: "pre-wrap" }}>{output}</pre>
-          )}
-        </div>
+        ) : (
+          <div style={{ padding: 36, lineHeight: 1.5 }}>
+            <div style={{ color: theme.text }}>
+              <span style={{ color: theme.text3 }}>$ </span>
+              {command.slice(0, typed)}
+              {typed < command.length ? cursor : ""}
+            </div>
+            {showOutput && (
+              <pre style={{ color: theme.text2, margin: "18px 0 0", whiteSpace: "pre-wrap" }}>{output}</pre>
+            )}
+          </div>
+        )}
       </div>
     </AbsoluteFill>
   );
