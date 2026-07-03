@@ -84,7 +84,9 @@
             "outro"
           ],
           "exercise": "Rewrite a vague request (\"make me a website\") into a specific, context-rich prompt.",
-          "status": "pending"
+          "status": "published",
+          "video": "https://ipfs.filebase.io/ipfs/Qma3coLGjCPwoJoBfjYTZEDVyeMkjiriyx3xmiiqGDHq5c",
+          "vtt": "https://ipfs.filebase.io/ipfs/QmUFujm9kR9Fipoq2wUaperuVq2FQbLbfdsegDAjLNb8Z5"
         },
         {
           "id": "ch0-l5",
