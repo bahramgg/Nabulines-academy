@@ -18,6 +18,28 @@ syllabus.json → generate-lesson → tts → capture → verify → remotion re
 | `publish.ts` | 3 | Upload MP4/VTT to R2 + write MDX + git commit/push |
 | `remotion/` | 3 | Six scene components: Intro, Slide, Code, Terminal, Browser, Outro |
 
+## Running it (Phase 2 — works today)
+
+```bash
+cd pipeline && npm install
+npm run validate  ../content/scripts/ch0-l1.json    # schema + 750-word / 300s caps
+npm run subtitles ../content/scripts/ch0-l1.json    # -> content/scripts/ch0-l1.en.vtt
+
+# verify runs from the REPO ROOT (verifyCommands are rooted there):
+cd .. && node --import tsx/esm pipeline/verify.ts content/scripts/ch0-l1.json
+
+# render (uses the six Remotion scenes):
+cd pipeline/remotion && npm install
+npx remotion render src/index.ts Lesson out/ch0-l1.mp4 --props=../../content/scripts/ch0-l1.json
+```
+
+With keys set (`pipeline/.env` from `.env.example`):
+
+```bash
+npm run generate ch0-l2     # OpenRouter -> validated content/scripts/ch0-l2.json
+npm run tts ../content/scripts/ch0-l2.json   # ElevenLabs or local Piper + timings
+```
+
 ## State machine (`syllabus.json` `status`)
 
 `pending → scripted → rendered → verified → awaiting_approval → published`

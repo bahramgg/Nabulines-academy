@@ -1,0 +1,26 @@
+{
+  "name": "@nabulines-academy/pipeline",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Content factory: script -> tts -> capture -> verify -> render -> subtitles -> publish",
+  "scripts": {
+    "generate": "tsx generate-lesson.ts",
+    "tts": "tsx tts.ts",
+    "subtitles": "tsx subtitles.ts",
+    "verify": "tsx verify.ts",
+    "capture": "tsx capture.ts",
+    "validate": "tsx validate.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "playwright": "^1.61.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "tsx": "^4.19.1",
+    "typescript": "^5.5.4"
+  }
+}

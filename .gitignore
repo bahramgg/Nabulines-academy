@@ -17,6 +17,9 @@ out/
 *.mp4
 *.webm
 *.mp3
+*.wav
+content/audio/
+content/captures/
 
 # env
 .env

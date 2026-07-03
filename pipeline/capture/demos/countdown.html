@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Countdown</title>
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        display: grid;
+        place-items: center;
+        background: #000;
+        color: #fff;
+        font-family: system-ui, sans-serif;
+      }
+      #countdown {
+        font-size: 12rem;
+        font-weight: 800;
+        letter-spacing: 0.05em;
+      }
+      .label {
+        position: fixed;
+        bottom: 12%;
+        color: #9ba1a6;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="countdown">10</div>
+    <div class="label">built from one prompt</div>
+    <script>
+      let n = 10;
+      const el = document.getElementById("countdown");
+      const tick = setInterval(() => {
+        n -= 1;
+        el.textContent = n;
+        if (n <= 0) {
+          clearInterval(tick);
+          el.textContent = "🚀";
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>

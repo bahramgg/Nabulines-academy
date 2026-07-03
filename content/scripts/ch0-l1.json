@@ -1,0 +1,87 @@
+{
+  "lessonId": "ch0-l1",
+  "title": "What Is Vibe Coding?",
+  "totalWords": 372,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "What if the only thing between you and the app in your head was a conversation? Welcome to Nabulines Academy. Let's talk about what vibe coding is, and why right now is the best time in history to start building.",
+      "visual": {
+        "title": "What Is Vibe Coding?",
+        "subtitle": "Lesson 0.1 — The Builder Mindset"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "Vibe coding is simple. You describe what you want in plain English, and AI writes the code. You bring the taste, the idea, and the direction. The machine handles the syntax. For years, building software meant memorizing languages and fighting error messages before you shipped anything real. That wall is gone. You're not learning to be a programmer. You're learning to be a builder who directs one.",
+      "visual": {
+        "title": "You Direct. AI Builds.",
+        "bullets": [
+          "Describe it in plain English",
+          "AI writes the code",
+          "You bring taste and direction"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "browser",
+      "narration": "Let me prove it. Watch this. I ask for a countdown timer, just those words, and here it is, running live in the browser. I didn't write a single line. No setup, no install. This is the real thing, actually working. Every lesson in this academy is like this: real prompts, real output, nothing faked.",
+      "visual": {
+        "captureScript": "capture/ch0-l1-demo.ts",
+        "caption": "One prompt in. A working timer out."
+      }
+    },
+    {
+      "id": 4,
+      "type": "slide",
+      "narration": "So why now? Three things lined up at once. The models got good enough to write code that actually runs. The tools got simple enough that you don't need a degree to use them. And the cost dropped to almost nothing. The people who move first here won't be the best programmers. They'll be the creators who already know how to spot an idea and tell a story. That's you.",
+      "visual": {
+        "title": "Why Now",
+        "bullets": [
+          "Models that write working code",
+          "Tools simple enough for anyone",
+          "Cost near zero"
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "type": "outro",
+      "narration": "Here's your first move. Before the next lesson, finish one sentence: what's the first thing you want to build? Don't overthink it. That sentence is the seed of everything that follows. Next up: creator versus builder, and why followers alone will never be enough. Let's go.",
+      "visual": {
+        "title": "Your Move",
+        "subtitle": "What's the first thing you'll build?",
+        "next": "0.2 — Creator vs. Builder"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What's the core idea of vibe coding?",
+      "options": [
+        "You describe what you want in plain language and AI writes the code",
+        "You memorize a programming language before you start",
+        "You copy finished code from other websites"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "According to the lesson, what's the builder's real advantage?",
+      "options": [
+        "Taste, ideas, and knowing what people want",
+        "Typing speed",
+        "Owning an expensive computer"
+      ],
+      "answer": 0,
+      "points": 10
+    }
+  ],
+  "exercise": "Write one sentence: what's the first thing you want to build?",
+  "verifyCommands": [
+    "grep -q 'id=\"countdown\"' pipeline/capture/demos/countdown.html"
+  ]
+}

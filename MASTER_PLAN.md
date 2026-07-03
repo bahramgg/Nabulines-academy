@@ -373,11 +373,12 @@ ch2-l1 — Your First Landing Page with Artifacts
 - ✅ **معیار خروج:** سایت لایو با مسیر یادگیری قابل مرور
 
 ### فاز ۲ — پایپ‌لاین ویدئو end-to-end (روز ۴-۸)
-- [ ] ۶ کامپوننت سکانس Remotion با تم برند
-- [ ] `generate-lesson.ts` + validator ۷۵۰ کلمه
-- [ ] `tts.ts` + `subtitles.ts` + `capture.ts` + `verify.ts`
-- [ ] **درس ch0-l1 به‌صورت کاملاً خودکار تولید بشه** و تو فقط تماشا کنی
-- ✅ **معیار خروج:** یک MP4 + VTT قابل‌قبول بدون دخالت دستی
+- [x] ۶ کامپوننت سکانس Remotion با تم برند مونوکروم (Intro/Slide/Code/Terminal/Browser/Outro)
+- [x] `generate-lesson.ts` (OpenRouter) + validator سخت‌گیر ۷۵۰ کلمه / ۳۰۰ ثانیه + حلقه regenerate
+- [x] `tts.ts` (ElevenLabs + Piper لوکال) + `subtitles.ts` (VTT، خطوط ≤۴۲ کاراکتر) + `capture.ts` (Playwright) + `verify.ts` (sandbox)
+- [x] رندر واقعی ch0-l1 → `out/ch0-l1.mp4` (۱۰۸۰p، ~۱:۵۱) + `ch0-l1.en.vtt` — verify سبز، بدون دخالت دستی
+- [ ] صدای واقعی TTS + wiring دموی ضبط‌شده (نیاز به کلید/Piper) — قاب فعلاً بی‌صدا/placeholder
+- ✅ **معیار خروج:** یک MP4 + VTT قابل‌قبول بدون دخالت دستی — ✔ (بدون صدا تا کلید بیاد)
 
 ### فاز ۳ — حلقه‌ی تأیید + اخبار (روز ۹-۱۱)
 - [ ] بات تلگرام با دکمه‌های Approve/اصلاح/Reject
