@@ -1,10 +1,10 @@
 import "dotenv/config";
-import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, copyFileSync } from "node:fs";
 import { execFileSync } from "node:child_process";
-import { resolve, dirname } from "node:path";
+import { resolve, dirname, basename } from "node:path";
 import { fileURLToPath } from "node:url";
 import { LessonScript, type LessonScript as Script, type Scene } from "./lib/schema.js";
-import type { WordTiming } from "./subtitles.js";
+import { buildVtt, type WordTiming } from "./subtitles.js";
 
 // ── Narration (Module 3.1) ───────────────────────────────────────────────────
 // One audio file per scene + per-word timings for frame-accurate subtitles.
@@ -101,6 +101,9 @@ export async function synthesizeLesson(script: Script, outDir: string): Promise<
 }
 
 // CLI: tsx tts.ts <scriptPath>
+// Synthesizes audio, stages it for Remotion, and folds real durations +
+// audioFile paths back into the script so `remotion render --props=<script>`
+// plays the narration and syncs each scene to its real audio length.
 if (import.meta.url === `file://${process.argv[1]}`) {
   const scriptPath = process.argv[2];
   if (!scriptPath) {
@@ -109,12 +112,34 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   }
   const script = LessonScript.parse(JSON.parse(readFileSync(scriptPath, "utf8")));
   const outDir = resolve(here, `../content/audio/${script.lessonId}`);
+  const publicDir = resolve(here, `remotion/public/audio/${script.lessonId}`);
+
   synthesizeLesson(script, outDir)
     .then((audio) => {
-      const meta = resolve(outDir, "timings.json");
-      writeFileSync(meta, JSON.stringify(audio, null, 2));
+      writeFileSync(resolve(outDir, "timings.json"), JSON.stringify(audio, null, 2));
+
+      // Stage audio under remotion/public and enrich the script in place.
+      mkdirSync(publicDir, { recursive: true });
+      const byId = new Map(audio.map((a) => [a.sceneId, a]));
+      for (const scene of script.scenes) {
+        const a = byId.get(scene.id);
+        if (!a) continue;
+        const file = basename(a.audioFile);
+        copyFileSync(a.audioFile, resolve(publicDir, file));
+        scene.durationSec = a.durationSec;
+        scene.audioFile = `audio/${script.lessonId}/${file}`;
+      }
+      writeFileSync(scriptPath, JSON.stringify(script, null, 2));
+
+      // Frame-accurate subtitles from the real word alignment.
+      const vtt = buildVtt(script, audio.map((a) => ({ sceneId: a.sceneId, words: a.words })));
+      const vttPath = resolve(here, `../content/scripts/${script.lessonId}.en.vtt`);
+      writeFileSync(vttPath, vtt);
+
       const total = audio.reduce((s, a) => s + a.durationSec, 0);
-      console.log(`[tts] ${script.lessonId}: ${audio.length} scenes · ${total.toFixed(1)}s · timings -> ${meta}`);
+      console.log(`[tts] ${script.lessonId}: ${audio.length} scenes · ${total.toFixed(1)}s`);
+      console.log(`[tts] staged audio -> ${publicDir}`);
+      console.log(`[tts] enriched script -> ${scriptPath} · subtitles -> ${vttPath}`);
     })
     .catch((err) => {
       console.error(err.message ?? err);

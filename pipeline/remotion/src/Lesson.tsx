@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill, Series } from "remotion";
+import { AbsoluteFill, Audio, Series, staticFile } from "remotion";
 import { theme, sceneFrames } from "./theme";
 import { Intro } from "./scenes/Intro";
 import { Slide } from "./scenes/Slide";
@@ -13,6 +13,7 @@ export type Scene = {
   type: "intro" | "slide" | "code" | "terminal" | "browser" | "outro";
   narration: string;
   durationSec?: number;
+  audioFile?: string; // path under remotion/public, set by tts.ts
   visual: Record<string, unknown>;
 };
 
@@ -50,6 +51,7 @@ export const Lesson: React.FC<LessonScript> = (script) => {
       <Series>
         {script.scenes.map((scene) => (
           <Series.Sequence key={scene.id} durationInFrames={sceneFrames(scene)}>
+            {scene.audioFile ? <Audio src={staticFile(scene.audioFile)} /> : null}
             {renderScene(scene)}
           </Series.Sequence>
         ))}
