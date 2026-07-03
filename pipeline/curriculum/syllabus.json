@@ -65,7 +65,9 @@
             "outro"
           ],
           "exercise": "Pick the one tool you'll start with this week and say why in one line.",
-          "status": "pending"
+          "status": "published",
+          "video": "https://ipfs.filebase.io/ipfs/QmPxZ5ZqRQMMWsDzTsT2pa72SYcFi2asyjLeNvkJ9VK8R3",
+          "vtt": "https://ipfs.filebase.io/ipfs/QmfZAMNM3xv5kV2pXJiuMfoTLoL6PXrAqXCC9DCjkj9NRZ"
         },
         {
           "id": "ch0-l4",
