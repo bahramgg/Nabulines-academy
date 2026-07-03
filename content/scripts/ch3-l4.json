@@ -1,0 +1,199 @@
+{
+  "lessonId": "ch3-l4",
+  "title": "Making Your Site Multi-Page",
+  "totalWords": 890,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. Today we're making your site feel complete by adding multiple pages. Right now you probably have one page — your home page. Real websites have many pages: About, Contact, Portfolio, Blog. We'll add pages and link them together so visitors can navigate your site. By the end, you'll have a proper multi-page website.",
+      "visual": {
+        "title": "Making Your Site Multi-Page",
+        "subtitle": "Lesson 4 — Chapter 3"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "A multi-page site is just multiple HTML files in the same project. Your home page is usually named index dot HTML. Other pages get their own names — about dot HTML, contact dot HTML, whatever you want. You link them with anchor tags — the a element — so clicking text takes you to another page. It's simple: create the file, write the HTML, add a link. Let's see how.",
+      "visual": {
+        "title": "What is a multi-page site?",
+        "bullets": [
+          "Multiple HTML files in one project",
+          "index.html = home page",
+          "Other pages: about.html, contact.html, etc.",
+          "Links connect them (using <a> tags)"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "code",
+      "narration": "Here's your current project structure. You have index dot HTML — that's your home page. To add an About page, create a new file called about dot HTML in the same folder. Open Claude Code or your editor and say: create about dot HTML. Now write the HTML for that page. It needs the same structure — doctype, html, head, body — just like your home page. Copy the structure from index dot HTML and change the content. Give it a title like About Me, write a few paragraphs about yourself or your project. Save it.",
+      "visual": {
+        "code": "<!-- Current structure -->\nmy-site/\n  index.html\n  style.css\n\n<!-- After adding About page -->\nmy-site/\n  index.html\n  about.html\n  style.css",
+        "language": "plaintext",
+        "highlightLines": [
+          7
+        ],
+        "caption": "Adding a new page — just create another HTML file"
+      }
+    },
+    {
+      "id": 4,
+      "type": "code",
+      "narration": "Now link the pages. Open index dot HTML. Find a good spot — maybe in a header or navigation section. Add an anchor tag. The syntax is: a href equals quote about dot HTML quote, then the link text, then close the tag. The href is the file name. The text between the tags is what the user clicks. So if you write: a href equals about dot HTML, then About, close tag — that creates a clickable link that says About and takes you to about dot HTML when clicked. Add it to your home page.",
+      "visual": {
+        "code": "<!-- In index.html -->\n<nav>\n  <a href=\"about.html\">About</a>\n  <a href=\"contact.html\">Contact</a>\n</nav>\n\n<!-- Or in a paragraph -->\n<p>Learn more <a href=\"about.html\">about me</a>.</p>",
+        "language": "html",
+        "highlightLines": [
+          3,
+          8
+        ],
+        "caption": "href points to the file, text is what you click"
+      }
+    },
+    {
+      "id": 5,
+      "type": "code",
+      "narration": "Now do the reverse. Open about dot HTML and add a link back to the home page. Use: a href equals index dot HTML, text Home, close tag. This lets visitors navigate back. Always give users a way to return to the home page — it's a basic usability rule. You can put this link in a navigation bar at the top of every page, or in the footer. Consistency matters — if your nav is at the top on one page, put it at the top on every page.",
+      "visual": {
+        "code": "<!-- In about.html -->\n<nav>\n  <a href=\"index.html\">Home</a>\n  <a href=\"contact.html\">Contact</a>\n</nav>\n\n<h1>About Me</h1>\n<p>I'm learning to build websites...</p>",
+        "language": "html",
+        "highlightLines": [
+          3
+        ],
+        "caption": "Link back to index.html so users can navigate home"
+      }
+    },
+    {
+      "id": 6,
+      "type": "browser",
+      "narration": "Let's see it live. Open your project folder and double-click index dot HTML to open it in a browser. You see your home page. Now click the About link you just added. The browser loads about dot HTML — you're on a new page. Click Home to go back. That's it. You've built a multi-page site. It works locally on your computer. When you deploy this to Cloudflare Pages, all the files go up together and the links work exactly the same on the live site.",
+      "visual": {
+        "captureScript": "capture/ch3-l4-multipage-demo.ts",
+        "caption": "Clicking links navigates between pages — locally and live"
+      }
+    },
+    {
+      "id": 7,
+      "type": "slide",
+      "narration": "A few tips. One: keep file names lowercase with no spaces — use dashes if you need them. So about dash me dot HTML, not About Me dot HTML. Servers are case-sensitive and spaces cause problems. Two: if you want a page in a subfolder, create the folder and put the HTML inside. Then the link becomes: a href equals folder slash page dot HTML. Three: use relative paths like we just did — just the file name, no full URL. That way links work locally and live without changing anything.",
+      "visual": {
+        "title": "Multi-page best practices",
+        "bullets": [
+          "Lowercase file names, no spaces (use-dashes.html)",
+          "Subfolders: href=\"blog/post.html\"",
+          "Relative paths (just the file name)",
+          "Consistent navigation on every page"
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "type": "slide",
+      "narration": "Common mistake: broken links. If you type the file name wrong in the href, the link won't work — you'll get a 404 error. Check spelling carefully. Another mistake: forgetting the dot HTML extension. The href must match the actual file name exactly. And if you move files into folders later, update all the links that point to them. Test every link after you make changes — click through your whole site to make sure nothing is broken.",
+      "visual": {
+        "title": "Common link mistakes",
+        "bullets": [
+          "Typo in href → 404 error (link breaks)",
+          "Missing .html extension",
+          "Moving files without updating links",
+          "Always test every link after changes"
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "type": "slide",
+      "narration": "When you deploy, Cloudflare Pages serves index dot HTML as the root — so your domain slash loads index dot HTML automatically. Other pages are at your domain slash the file name — like yourdomain dot com slash about dot HTML. If you want cleaner URLs without the dot HTML, you can configure that later with routing rules or a framework. For now, dot HTML in the URL is fine — it's how the web worked for decades and it still works perfectly.",
+      "visual": {
+        "title": "How URLs work after deployment",
+        "bullets": [
+          "yourdomain.com → index.html (automatic)",
+          "yourdomain.com/about.html → about.html",
+          "Clean URLs (no .html) = advanced topic",
+          "For now, .html in URL is totally fine"
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "type": "slide",
+      "narration": "Your exercise: add an About page to your site and link it from your home page. Create about dot HTML, write a few paragraphs about yourself or your project, add a link to it from index dot HTML, and add a link back to Home from the About page. Test it locally by clicking the links. Then commit and push to GitHub so it deploys live. Next lesson we'll add a contact form so visitors can actually reach you. See you there.",
+      "visual": {
+        "title": "Your exercise",
+        "bullets": [
+          "Create about.html with a few paragraphs",
+          "Link to it from index.html",
+          "Link back to Home from About",
+          "Test locally, then commit and push"
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "type": "outro",
+      "narration": "You just learned how to build a multi-page site — create HTML files, link them with anchor tags, and navigate between them. Your site is starting to feel real. Do the exercise, then move on to the next lesson where we'll add a contact form. Keep building.",
+      "visual": {
+        "title": "Next: Adding a Contact Form",
+        "subtitle": "Nabulines Academy — Chapter 3, Lesson 5"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What tag creates a clickable link to another page?",
+      "options": [
+        "<a>",
+        "<link>",
+        "<nav>",
+        "<href>"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "What attribute in the <a> tag specifies where the link goes?",
+      "options": [
+        "src",
+        "href",
+        "link",
+        "url"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "Which file name is best for a new About page?",
+      "options": [
+        "About Me.html",
+        "ABOUT.HTML",
+        "about.html",
+        "about"
+      ],
+      "answer": 2,
+      "points": 10
+    },
+    {
+      "q": "What happens if you misspell the file name in an href?",
+      "options": [
+        "The link shows an error message",
+        "The link leads to a 404 error page",
+        "The browser autocorrects it",
+        "Nothing — it still works"
+      ],
+      "answer": 1,
+      "points": 10
+    }
+  ],
+  "exercise": "Add an About page to your site. Create about.html with a few paragraphs about yourself or your project. Add a link to it from index.html (like <a href=\"about.html\">About</a>). Add a link back to Home from the About page. Test locally by clicking the links, then commit and push to deploy live.",
+  "verifyCommands": [
+    "# Create about.html",
+    "# Add <a href=\"about.html\">About</a> to index.html",
+    "# Add <a href=\"index.html\">Home</a> to about.html",
+    "git add .",
+    "git commit -m \"Add About page\"",
+    "git push"
+  ]
+}

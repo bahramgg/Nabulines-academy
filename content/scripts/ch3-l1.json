@@ -1,0 +1,170 @@
+{
+  "lessonId": "ch3-l1",
+  "title": "Upload a Project to GitHub (No Terminal — From the Browser)",
+  "totalWords": 892,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. In this lesson, you're going to put your project files onto GitHub using only your web browser. No terminal, no command line, no Git commands to memorize. Just clicking and dragging. By the end, your landing page will be stored safely on GitHub, ready to deploy. Let's do this.",
+      "visual": {
+        "title": "Upload to GitHub",
+        "subtitle": "Browser Only — No Terminal Required"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "Quick reminder: what is GitHub? It's a website where you store your code. Think of it like Google Drive, but designed for developers. Every project lives in a repository — that's just a folder with a fancy name. When you upload your files to a repository, they're backed up in the cloud, and you can share them or deploy them to the web. You already made a GitHub account in an earlier lesson. Now you're going to use it.",
+      "visual": {
+        "title": "What is GitHub?",
+        "bullets": [
+          "A website to store your code",
+          "Like Google Drive for developers",
+          "Each project = one repository (repo)",
+          "Free for public projects"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "browser",
+      "narration": "Open a new tab and go to github dot com. Log in if you're not already. You'll see your profile page. In the top right corner, there's a plus icon. Click it, then click New repository. A repository is where your project will live. Give it a name — something simple like my dash landing dash page. No spaces — use dashes or underscores. Add a description if you want, like My first landing page. Leave it set to Public — that means anyone can see it, which is fine for a portfolio project. Do not check the box that says Initialize this repository with a README. You're uploading files, so you don't need GitHub to create any starter files. Click Create repository. Done. You now have an empty repository.",
+      "visual": {
+        "captureScript": "capture/ch3-l1-create-repo.ts",
+        "caption": "Creating a new GitHub repository from the web interface"
+      }
+    },
+    {
+      "id": 4,
+      "type": "browser",
+      "narration": "GitHub shows you a page with instructions for the terminal. Ignore all of that. Scroll down and look for the link that says uploading an existing file. Click it. Now you're on the upload page. You can drag and drop files here, or click choose your files to browse. Open the folder on your computer where you saved your landing page. You should have at least an index dot HTML file. If you have a CSS file or images, grab those too. Select all the files you want to upload — hold Shift or Command to select multiple files — then drag them into the GitHub upload box. Or click choose your files and select them. GitHub will show you the file names as they upload. This might take a few seconds if you have images.",
+      "visual": {
+        "captureScript": "capture/ch3-l1-upload-files.ts",
+        "caption": "Dragging files into the GitHub upload interface"
+      }
+    },
+    {
+      "id": 5,
+      "type": "slide",
+      "narration": "At the bottom of the upload page, there's a box that says Commit changes. A commit is like saving a snapshot of your project. Every time you upload or change files, you write a short message explaining what you did. GitHub fills in a default message like Add files via upload. That's fine for now. You can change it to something like Initial upload of landing page if you want. Then click Commit changes. Your files are now on GitHub.",
+      "visual": {
+        "title": "What is a Commit?",
+        "bullets": [
+          "A snapshot of your project at one moment",
+          "Every upload = one commit",
+          "Write a short message explaining the change",
+          "Default message: 'Add files via upload' — that's fine"
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "type": "browser",
+      "narration": "GitHub takes you back to your repository page. Now you see your files listed. Click on index dot HTML. GitHub shows you the code. This is your project, stored in the cloud. If your computer crashes, your files are safe here. If you want to share your code with someone, send them the repository URL — the web address at the top of the page. That's the power of GitHub: your work is backed up and shareable instantly.",
+      "visual": {
+        "captureScript": "capture/ch3-l1-view-repo.ts",
+        "caption": "Viewing uploaded files in the repository"
+      }
+    },
+    {
+      "id": 7,
+      "type": "slide",
+      "narration": "What if you need to update a file? Easy. Go back to your repository main page. Click the file you want to change — let's say index dot HTML. In the top right corner of the file view, there's a pencil icon. Click it. Now you can edit the file right in the browser. Make your changes, scroll down, write a commit message like Update homepage text, and click Commit changes. Your file is updated. Or, if you want to upload a new version from your computer, go to the main repo page, click Add file, then Upload files, and drag the new version in. GitHub will replace the old file with the new one.",
+      "visual": {
+        "title": "Updating Files on GitHub",
+        "bullets": [
+          "Click the file → click the pencil icon → edit in browser",
+          "Or: Add file → Upload files → drag new version",
+          "Always write a commit message",
+          "Old version is saved in history (you can go back)"
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "type": "slide",
+      "narration": "Two things to know. One: GitHub keeps every version of your files. If you mess something up, you can go back to an earlier commit. Click the Commits link near the top of the repo page to see the history. Two: repositories can be public or private. Public means anyone can see your code — that's normal for portfolio projects and open source work. Private means only you and people you invite can see it. The free GitHub plan gives you unlimited public repos and unlimited private repos. So you can keep personal experiments private if you want.",
+      "visual": {
+        "title": "Public vs Private Repos",
+        "bullets": [
+          "Public: anyone can see your code (good for portfolios)",
+          "Private: only you and invited people see it",
+          "Free plan: unlimited public + unlimited private",
+          "All commits saved — you can undo changes anytime"
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "type": "slide",
+      "narration": "One more thing: if you're working on a team or uploading from multiple computers, you might see a message saying your local version is out of sync. That just means someone else uploaded changes, or you uploaded from a different computer. The fix is simple: download the latest version from GitHub, make your changes, then upload again. Or use Git properly — which we'll cover later. For now, the browser upload method works perfectly for solo projects.",
+      "visual": {
+        "title": "Working Across Computers",
+        "bullets": [
+          "Upload from one computer → download on another",
+          "Always download latest version before making changes",
+          "Browser method = simple, no sync issues for solo work",
+          "Team projects → learn Git commands later"
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "type": "outro",
+      "narration": "That's it. Your project is on GitHub. You uploaded files, made a commit, and now your code is backed up in the cloud. In the next lesson, you're going to connect this GitHub repository to Cloudflare Pages and deploy your site to a real URL. Your exercise: upload your landing page files to a new repository. Make sure index dot HTML is there. Write a clear commit message. Then move on. See you in the next one.",
+      "visual": {
+        "title": "Next Up",
+        "subtitle": "Deploy Your Site with Cloudflare Pages"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What is a repository on GitHub?",
+      "options": [
+        "A folder where your project files are stored",
+        "A type of commit message",
+        "A way to edit code in the terminal",
+        "A paid GitHub feature"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "What is a commit?",
+      "options": [
+        "A way to delete files from GitHub",
+        "A snapshot of your project with a message explaining the change",
+        "A terminal command you must memorize",
+        "A type of repository"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "How do you upload files to GitHub without using the terminal?",
+      "options": [
+        "You can't — terminal is required",
+        "Email the files to GitHub support",
+        "Drag and drop files on the repository upload page",
+        "Use a mobile app only"
+      ],
+      "answer": 2,
+      "points": 10
+    },
+    {
+      "q": "What does 'Public' mean for a GitHub repository?",
+      "options": [
+        "Only you can see it",
+        "Anyone on the internet can see your code",
+        "You have to pay to make it public",
+        "It automatically deploys to a website"
+      ],
+      "answer": 1,
+      "points": 10
+    }
+  ],
+  "exercise": "Upload your landing page files (at least index.html) to a new GitHub repository. Name it something clear like 'my-landing-page'. Write a commit message like 'Initial upload of landing page'. Verify you can see your files in the repository on GitHub.",
+  "verifyCommands": []
+}

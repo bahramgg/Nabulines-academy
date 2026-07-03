@@ -1,0 +1,134 @@
+{
+  "lessonId": "ch2-l4",
+  "title": "What Are HTML & CSS? (Just Enough to Understand, Not Write)",
+  "totalWords": 720,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. Today we're learning what HTML and CSS actually are — not to write them by hand, but so you can read them well enough to tell the AI exactly what you want changed. By the end of this lesson, you'll be able to look at any part of your page and know whether it's structure or style, and that's all you need to direct Claude with confidence.",
+      "visual": {
+        "title": "What Are HTML & CSS?",
+        "subtitle": "Just Enough to Understand, Not Write"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "Think of a web page like a house. HTML is the structure — the walls, the rooms, the doors. It says what's on the page and how things are organized. A heading, a paragraph, a button, an image — those are all HTML. CSS is the paint, the furniture, the lighting. It says how things look — colors, fonts, spacing, layout. Same structure, different style, completely different vibe. You don't need to write either one from scratch — Claude does that. But you do need to read them well enough to say 'make that button bigger' or 'move this section to the top' and know what you're pointing at.",
+      "visual": {
+        "title": "HTML = Structure, CSS = Style",
+        "bullets": [
+          "HTML: what's on the page (headings, paragraphs, buttons)",
+          "CSS: how it looks (colors, fonts, spacing)",
+          "You read them to direct the AI — not write them by hand"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "code",
+      "narration": "Here's a tiny example. This HTML says 'there's a heading that says Welcome, and a paragraph that says This is my site, and a button that says Click Me.' The angle brackets and tag names — h1, p, button — that's the structure. Now look at the CSS. It says 'make the heading blue and big, make the paragraph gray and smaller, make the button green with white text and rounded corners.' Same content, different look. If you want to change the words, you edit the HTML. If you want to change the color or size, you edit the CSS. When you tell Claude 'make the button red,' it knows to change the CSS. When you say 'add a new section under the button,' it knows to add HTML. You're not writing the code — you're just reading it well enough to know what to ask for.",
+      "visual": {
+        "code": "<!-- HTML: the structure -->\n<h1>Welcome</h1>\n<p>This is my site</p>\n<button>Click Me</button>\n\n/* CSS: the style */\nh1 {\n  color: blue;\n  font-size: 48px;\n}\n\np {\n  color: gray;\n  font-size: 18px;\n}\n\nbutton {\n  background: green;\n  color: white;\n  border-radius: 8px;\n  padding: 12px 24px;\n}",
+        "language": "html",
+        "highlights": [
+          1,
+          2,
+          3,
+          6,
+          7,
+          8,
+          9,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18
+        ],
+        "caption": "HTML = what's there. CSS = how it looks."
+      }
+    },
+    {
+      "id": 4,
+      "type": "slide",
+      "narration": "Here's the only rule you need to remember. If it's about what's on the page — the words, the sections, the order — that's HTML, the structure. If it's about how it looks — color, size, spacing, position — that's CSS, the style. When you're working with Claude in Artifacts, you'll see both in the same file. The HTML is usually at the top or in the middle, wrapped in angle brackets. The CSS is usually in a style tag or at the bottom, with curly braces and colons. You don't need to memorize syntax. You just need to recognize 'oh, that's the part that says what the button says' versus 'that's the part that makes it green.' That's enough to direct the AI like a pro.",
+      "visual": {
+        "title": "The Only Rule You Need",
+        "bullets": [
+          "What's on the page = HTML (structure)",
+          "How it looks = CSS (style)",
+          "You read, Claude writes — that's vibe coding"
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "type": "slide",
+      "narration": "Why does this matter? Because when you're building, you'll want to say things like 'make that heading bigger' or 'move the contact form above the gallery' or 'change the button to red.' If you can't tell whether you're talking about structure or style, your prompts will be vague and Claude will guess. But if you can point at the code and say 'I want to change this h1 color' or 'I want to add a new section after this div,' Claude knows exactly what to do. You're not writing code — you're reading just enough to be specific. That's the skill that turns you from someone who hopes the AI gets it right into someone who directs it with confidence.",
+      "visual": {
+        "title": "Why This Matters",
+        "bullets": [
+          "Vague prompt: 'make it better' — Claude guesses",
+          "Specific prompt: 'change the h1 color to blue' — Claude nails it",
+          "Reading code = directing the AI with confidence"
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "type": "outro",
+      "narration": "That's it. HTML is structure — what's on the page. CSS is style — how it looks. You read them just enough to point and say what you want changed. Now go do the exercise: open your page in Artifacts, point at three parts, and name whether they're structure or style. Heading — structure. Button color — style. Paragraph text — structure. Once you can do that, you're ready to start customizing your page like a builder. Next lesson, we're going to take your page and make it truly yours — layout, colors, fonts, the whole vibe. See you there.",
+      "visual": {
+        "title": "Next: Customize Your Page",
+        "subtitle": "Make it truly yours — layout, colors, fonts"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What does HTML control?",
+      "options": [
+        "The structure and content of the page",
+        "The colors and fonts",
+        "The server and database"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "What does CSS control?",
+      "options": [
+        "What sections are on the page",
+        "How the page looks (colors, spacing, fonts)",
+        "The text inside buttons and headings"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "If you want to change a button's text, do you edit HTML or CSS?",
+      "options": [
+        "HTML (the structure)",
+        "CSS (the style)",
+        "Neither — you use JavaScript"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "Why do you need to read HTML and CSS if Claude writes them?",
+      "options": [
+        "You don't — Claude does everything",
+        "So you can point at the right part and ask for specific changes",
+        "So you can write them by hand later"
+      ],
+      "answer": 1,
+      "points": 10
+    }
+  ],
+  "exercise": "Open your page in Claude Artifacts. Point at three different parts (a heading, a button, a paragraph, an image) and name whether each one is structure (HTML — what's there) or style (CSS — how it looks). Example: 'The heading text is structure. The heading color is style. The button text is structure. The button background color is style.' Do this out loud or write it down. Once you can do it, you're ready to direct Claude with confidence.",
+  "verifyCommands": []
+}

@@ -1,0 +1,145 @@
+{
+  "lessonId": "ch2-l5",
+  "title": "Your First Publish: From Artifact to Shareable Link",
+  "totalWords": 820,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. This is the moment — you've built a page in Claude, you've seen it work in Artifacts, and now you're going to publish it so anyone with the link can see it. A real URL. Your first live site. Let's do it.",
+      "visual": {
+        "title": "Your First Publish",
+        "subtitle": "From Artifact to Shareable Link"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "Here's what publishing means. Right now your page lives inside an Artifact — a preview window only you can see. Publishing means putting that HTML somewhere on the internet so anyone can open it. We're going to use GitHub Pages, which is free and takes about two minutes. You'll end up with a link like yourname dot github dot io slash page-name. That's a real URL. You can text it to a friend, post it, share it — it's live.",
+      "visual": {
+        "title": "What Publishing Means",
+        "bullets": [
+          "Artifact = preview only you see",
+          "Publishing = putting it on the internet",
+          "GitHub Pages = free hosting",
+          "You get a real link: yourname.github.io/page-name"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "browser",
+      "narration": "Open GitHub in your browser. You're already logged in from the last lesson. Click the plus icon in the top right corner and choose New repository. A repository is just a folder for your project. Give it a name — use lowercase letters and dashes, no spaces. Something like my-first-page or hello-world. Leave it Public so GitHub Pages can serve it. Check the box that says Add a README file — that makes the repo ready to use. Then click Create repository. You now have a repo.",
+      "visual": {
+        "captureScript": "capture/ch2-l5-create-repo.ts",
+        "caption": "Creating a new GitHub repository"
+      }
+    },
+    {
+      "id": 4,
+      "type": "browser",
+      "narration": "Now you need to add your HTML. Click Add file, then Create new file. In the filename box, type index dot html — that exact name matters, it's the default page GitHub Pages will show. Now go back to Claude, open your Artifact, and click the three dots in the top right of the Artifact preview. Choose View code. That shows you the raw HTML. Select all of it — command-A or control-A — and copy it. Paste it into the GitHub file editor. Scroll down and click Commit new file. Your HTML is now in the repo.",
+      "visual": {
+        "captureScript": "capture/ch2-l5-add-html.ts",
+        "caption": "Adding index.html from Claude to GitHub"
+      }
+    },
+    {
+      "id": 5,
+      "type": "browser",
+      "narration": "Last step — turn on GitHub Pages. Click Settings at the top of your repo. Scroll down the left sidebar and click Pages. Under Source, choose Deploy from a branch. Under Branch, choose main, leave the folder as root, and click Save. GitHub will take about 30 seconds to a minute to build your site. Refresh the page and you'll see a green banner that says Your site is live at — and there's your URL. Click it. Your page opens in a new tab. That's it. You just published your first site.",
+      "visual": {
+        "captureScript": "capture/ch2-l5-enable-pages.ts",
+        "caption": "Enabling GitHub Pages and getting your live link"
+      }
+    },
+    {
+      "id": 6,
+      "type": "slide",
+      "narration": "What you just did: you took HTML from Claude, put it in a GitHub repo, and turned on GitHub Pages. Now anyone with that link can see your page. It's not behind a login, it's not a preview — it's live on the internet. This is the same process you'll use for every site you build in this course. Create a repo, add your HTML, turn on Pages. Two minutes, every time.",
+      "visual": {
+        "title": "What You Just Did",
+        "bullets": [
+          "Created a GitHub repository (a project folder)",
+          "Added index.html from your Artifact",
+          "Enabled GitHub Pages (free hosting)",
+          "Got a live link anyone can open"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "type": "slide",
+      "narration": "Common first-time issues. If your link shows a 404 error, wait one more minute — GitHub Pages can take up to 60 seconds to go live. If it still doesn't work, check that your file is named exactly index dot html, all lowercase, and that you chose the main branch in Settings. If you see raw HTML instead of a styled page, make sure you pasted the full code from Claude — including the opening html tag and the style section. If you're stuck, go back to the repo, click on index dot html, and compare it to what Claude gave you.",
+      "visual": {
+        "title": "Common Issues",
+        "bullets": [
+          "404 error → wait 60 seconds, then check branch/filename",
+          "Raw HTML showing → paste the full code from Claude",
+          "No styles → make sure <style> section is included",
+          "Still stuck → compare your file to Claude's output"
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "type": "slide",
+      "narration": "What this unlocks. You now have a repeatable way to take anything you build in Claude and put it on the internet. Every Artifact can become a live page. Every project can have a real URL. This is the foundation — in the next lessons you'll learn how to update your page, how to add images and links, and how to use a custom domain. But the core loop is what you just did: build in Claude, publish to GitHub, share the link. That loop never changes.",
+      "visual": {
+        "title": "What This Unlocks",
+        "bullets": [
+          "Every Artifact can become a live page",
+          "You have a repeatable publishing process",
+          "Next: updating pages, adding images, custom domains",
+          "Core loop: build → publish → share"
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "type": "outro",
+      "narration": "Your exercise: publish your page and send the link to one friend. Text it, email it, post it — just get one person to open it and tell you what they see. That's your proof it's live. Next lesson: how to update your page when you want to change something. See you there.",
+      "visual": {
+        "title": "Exercise",
+        "subtitle": "Publish your page and share the link with one friend"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What must your HTML file be named for GitHub Pages to serve it as the homepage?",
+      "options": [
+        "index.html",
+        "home.html",
+        "page.html",
+        "main.html"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "Where do you enable GitHub Pages for your repository?",
+      "options": [
+        "In the repository's Settings → Pages",
+        "In your GitHub profile settings",
+        "In the file editor",
+        "In the README file"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "If your GitHub Pages link shows a 404 error right after you enable it, what should you do first?",
+      "options": [
+        "Wait 60 seconds and refresh — it takes time to build",
+        "Delete the repository and start over",
+        "Contact GitHub support",
+        "Change the repository name"
+      ],
+      "answer": 0,
+      "points": 10
+    }
+  ],
+  "exercise": "Publish your page from the previous lesson to GitHub Pages and send the live link to one friend. Have them open it and confirm they can see your page. Take a screenshot of the live URL in your browser.",
+  "verifyCommands": []
+}

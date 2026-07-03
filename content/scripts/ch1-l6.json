@@ -1,0 +1,223 @@
+{
+  "lessonId": "ch1-l6",
+  "title": "Your Computer, Demystified — Files, Folders, Browser, Terminal",
+  "totalWords": 1847,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. In this lesson, we're demystifying your computer — the handful of basics every builder needs to know. If you've only ever used a phone, this is where we bridge that gap. By the end, you'll understand files, folders, your browser, and the terminal — the four tools you'll use every single day as a builder. Let's make your computer feel less mysterious and more like your workshop.",
+      "visual": {
+        "title": "Your Computer, Demystified",
+        "subtitle": "Files, Folders, Browser, Terminal — The Four Tools You'll Use Every Day"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "First, let's talk about what a computer actually is. Your laptop or desktop is a machine that stores information and runs programs. Think of it like a filing cabinet combined with a workspace. The filing cabinet part? That's your hard drive — where everything lives permanently. The workspace? That's your RAM — where things happen right now while you're working. When you turn off your computer, the workspace clears, but the filing cabinet keeps everything safe. A phone works the same way, just smaller and touch-based. Your computer gives you more power and more control.",
+      "visual": {
+        "title": "What Is a Computer?",
+        "bullets": [
+          "A machine that stores information and runs programs",
+          "Hard drive = permanent storage (the filing cabinet)",
+          "RAM = temporary workspace (clears when you turn off)",
+          "Desktop/laptop = more power and control than a phone"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "slide",
+      "narration": "Now, files and folders. A file is a single piece of information — a document, an image, a video, a piece of code. Every file has a name and an extension. The extension is the dot-something at the end — like dot-txt for text, dot-jpg for images, dot-html for web pages. The extension tells the computer what kind of file it is. A folder is just a container that holds files and other folders. Think of folders like drawers in that filing cabinet — you organize files into folders to keep things tidy. On Windows, you see folders in File Explorer. On Mac, it's called Finder. Same idea, different name.",
+      "visual": {
+        "title": "Files & Folders",
+        "bullets": [
+          "File = a single piece of information (document, image, code)",
+          "Extension = the .txt or .jpg part (tells the computer the type)",
+          "Folder = a container that holds files and other folders",
+          "Windows: File Explorer | Mac: Finder"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "slide",
+      "narration": "Every user on a computer has a home folder. This is your personal space — where your documents, downloads, and projects live. On Windows, it's usually C colon backslash Users backslash your-name. On Mac, it's slash Users slash your-name. You don't need to memorize the path — just know that when you open File Explorer or Finder, clicking on your name in the sidebar takes you home. This is where you'll create a folder for your code projects. Keeping everything in one place makes life way easier.",
+      "visual": {
+        "title": "Your Home Folder",
+        "bullets": [
+          "Your personal space on the computer",
+          "Windows: C:\\Users\\your-name",
+          "Mac: /Users/your-name",
+          "Access: click your name in File Explorer or Finder sidebar",
+          "This is where you'll keep your code projects"
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "type": "browser",
+      "narration": "Next, your browser. A browser is a program that displays web pages. Chrome, Firefox, Safari, Edge — they all do the same job. You type a URL — that's a web address like claude dot ai — and the browser fetches the page from the internet and shows it to you. Every web page is written in HTML, CSS, and JavaScript — the three languages of the web. You don't need to write those yet, but know that when you see a website, your browser is reading code and turning it into what you see. The address bar at the top? That's where the URL goes. Bookmarks let you save pages you visit often. Tabs let you have multiple pages open at once. That's it — browsers are simple but powerful.",
+      "visual": {
+        "captureScript": "capture/ch1-l6-browser-demo.ts",
+        "caption": "A browser displaying claude.ai — the URL bar, tabs, and bookmarks"
+      }
+    },
+    {
+      "id": 6,
+      "type": "slide",
+      "narration": "Now the big one — the terminal. The terminal is a text window where you type commands to your computer. It looks old-school — just black text on a white or black screen — but it's incredibly powerful. Instead of clicking buttons, you type what you want the computer to do. On Windows, the terminal is called Command Prompt or PowerShell. On Mac and Linux, it's just called Terminal. Why use it? Because some tools — like Claude Code, Git, and deployment scripts — only work through the terminal. It feels weird at first, but once you learn a few commands, it becomes faster than clicking around. Think of it as talking directly to your computer instead of using a remote control.",
+      "visual": {
+        "title": "The Terminal — Your Direct Line to the Computer",
+        "bullets": [
+          "A text window where you type commands",
+          "Windows: Command Prompt or PowerShell",
+          "Mac/Linux: Terminal",
+          "Why? Some tools only work here (Claude Code, Git, deployment)",
+          "Faster than clicking once you know a few commands"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "type": "slide",
+      "narration": "Let's learn the handful of terminal commands you'll actually use. First, p-w-d — that stands for print working directory. It shows you where you are right now in your file system. Second, l-s on Mac or Linux, or dir on Windows — that lists all the files and folders in your current location. Third, c-d — that stands for change directory. You type c-d space folder-name to move into a folder. Type c-d space dot-dot to go back up one level. Fourth, mkdir — that makes a new folder. Type mkdir space folder-name. Fifth, touch on Mac or Linux, or echo dot on Windows — that creates a new empty file. That's it. Five commands. You'll use these every single day, and they'll become second nature fast.",
+      "visual": {
+        "title": "The 5 Terminal Commands You'll Use Every Day",
+        "bullets": [
+          "pwd — shows where you are",
+          "ls (Mac/Linux) or dir (Windows) — lists files and folders",
+          "cd folder-name — move into a folder | cd .. — go back up",
+          "mkdir folder-name — create a new folder",
+          "touch file.txt (Mac/Linux) or echo. > file.txt (Windows) — create a file"
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "type": "terminal",
+      "narration": "Let's see these commands in action. I'm opening my terminal. First, I type p-w-d and hit enter. It shows me I'm in my home folder — slash Users slash nabulines. Now I type l-s to list what's in here. I see Desktop, Documents, Downloads — all my folders. Now I'll create a new folder for my code projects. I type mkdir space code-projects and hit enter. Nothing prints — that's normal. The command worked. Now I type l-s again, and there it is — code-projects. Now I'll move into it. I type c-d space code-projects and hit enter. I type p-w-d again to confirm — now I'm inside slash Users slash nabulines slash code-projects. This is where all my projects will live. I type c-d space dot-dot to go back up to my home folder. Done. That's the workflow — navigate, create, move around. You just did it.",
+      "visual": {
+        "commands": [
+          "pwd",
+          "ls",
+          "mkdir code-projects",
+          "ls",
+          "cd code-projects",
+          "pwd",
+          "cd .."
+        ],
+        "output": "/Users/nabulines\n\nDesktop  Documents  Downloads  Pictures\n\n\n\nDesktop  Documents  Downloads  Pictures  code-projects\n\n\n\n/Users/nabulines/code-projects\n\n"
+      }
+    },
+    {
+      "id": 9,
+      "type": "slide",
+      "narration": "One more thing — paths. A path is the address of a file or folder on your computer. There are two kinds. An absolute path starts from the very top of your file system — the root. On Mac and Linux, the root is just a forward slash. On Windows, it's C colon backslash. An absolute path looks like slash Users slash nabulines slash code-projects. It tells you exactly where something is, no matter where you are right now. A relative path starts from where you are right now. If I'm in my home folder and I want to refer to code-projects, I just type code-projects — that's a relative path. Dot means here, right now. Dot-dot means one level up. You'll see both kinds all the time. Absolute paths are precise. Relative paths are shorter and more flexible.",
+      "visual": {
+        "title": "Paths — Absolute vs. Relative",
+        "bullets": [
+          "Path = the address of a file or folder",
+          "Absolute path = starts from the root (e.g., /Users/nabulines/code-projects)",
+          "Relative path = starts from where you are now (e.g., code-projects)",
+          ". = here (current folder) | .. = one level up",
+          "Absolute = precise | Relative = shorter and flexible"
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "type": "slide",
+      "narration": "Let's put it all together. Your computer has four main tools. One — files and folders, organized in your home folder. Two — your browser, where you access web apps like Claude. Three — the terminal, where you run commands and tools. Four — your text editor or IDE, which we'll meet in the next lesson. These four tools are your entire workshop. Every builder uses them, every single day. The terminal feels the weirdest at first, but it's the one that gives you the most power. Once you're comfortable navigating folders and running a few commands, you're no longer just using your computer — you're controlling it.",
+      "visual": {
+        "title": "Your Four Tools — The Builder's Workshop",
+        "bullets": [
+          "1. Files & folders — your organized workspace",
+          "2. Browser — access web apps (Claude, GitHub, etc.)",
+          "3. Terminal — run commands and tools",
+          "4. Text editor / IDE — write and edit code (next lesson)",
+          "Master these four, and you control your computer"
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "type": "slide",
+      "narration": "Common beginner mistakes. One — being afraid of the terminal. You can't break your computer by typing a command wrong. The worst that happens is an error message. Two — not organizing your projects. Create that code-projects folder and keep everything in one place from day one. Three — not reading error messages. The terminal and your tools will tell you exactly what went wrong — read the message, don't panic. Four — thinking you need to memorize everything. You don't. You'll use the same five or six commands over and over, and they'll stick naturally. Look up anything else when you need it.",
+      "visual": {
+        "title": "Common Beginner Mistakes (and How to Avoid Them)",
+        "bullets": [
+          "1. Being afraid of the terminal — you can't break anything",
+          "2. Not organizing projects — make a code-projects folder now",
+          "3. Ignoring error messages — they tell you exactly what's wrong",
+          "4. Trying to memorize everything — you'll learn by doing"
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "type": "outro",
+      "narration": "That's it — your computer, demystified. You now understand files, folders, your browser, and the terminal. These are the four tools you'll use every single day as a builder. Your exercise: find your home folder, create a new folder called code-projects, and open your terminal once. Just get comfortable seeing that text window. In the next lesson, we'll install your text editor — the place where you'll actually write code. You're not just a user anymore — you're becoming a builder. See you in the next one.",
+      "visual": {
+        "title": "Next: Install Your Text Editor",
+        "subtitle": "The place where you'll write code"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What does the terminal command 'pwd' do?",
+      "options": [
+        "Shows where you are right now in your file system",
+        "Lists all files and folders in the current location",
+        "Creates a new folder",
+        "Moves you into a different folder"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "What is the difference between an absolute path and a relative path?",
+      "options": [
+        "Absolute paths are longer than relative paths",
+        "Absolute paths start from the root; relative paths start from your current location",
+        "Relative paths only work on Mac, absolute paths only work on Windows",
+        "There is no difference — they are the same thing"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "Which command creates a new folder in the terminal?",
+      "options": [
+        "cd folder-name",
+        "ls",
+        "mkdir folder-name",
+        "touch folder-name"
+      ],
+      "answer": 2,
+      "points": 10
+    },
+    {
+      "q": "What does the file extension (like .txt or .jpg) tell the computer?",
+      "options": [
+        "How large the file is",
+        "What kind of file it is",
+        "Who created the file",
+        "When the file was last opened"
+      ],
+      "answer": 1,
+      "points": 10
+    }
+  ],
+  "exercise": "Find your home folder (click your name in File Explorer or Finder). Create a new folder called 'code-projects' — either by right-clicking and selecting 'New Folder', or by opening your terminal and typing 'mkdir code-projects'. Then open your terminal once and type 'pwd' to see where you are. That's it — you've just taken control of your computer.",
+  "verifyCommands": [
+    "pwd",
+    "ls",
+    "mkdir code-projects",
+    "cd code-projects",
+    "pwd",
+    "cd .."
+  ]
+}

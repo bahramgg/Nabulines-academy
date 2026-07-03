@@ -1,0 +1,204 @@
+{
+  "lessonId": "ch2-l6",
+  "title": "Project: Your Personal Brand Landing Page",
+  "totalWords": 1847,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. This is it — your first real project. Not a practice page. Not a demo. A landing page that represents you — your name, your work, your brand — that you'll actually share with people. By the end of this lesson, you'll have a live URL you can send to anyone. Let's build something you're proud of.",
+      "visual": {
+        "title": "Project: Your Personal Brand Landing Page",
+        "subtitle": "Ship something real"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "What makes this a project and not just another lesson? Three things. First, you're making all the decisions — the design, the content, the vibe. I'm not giving you a template to fill in. Second, you're combining everything from Chapter Two — typography, color, layout, responsive design, images. And third, you're shipping it publicly. This page will be live on the internet with your name on it. That's the difference between practice and real work.",
+      "visual": {
+        "title": "What Makes This a Project",
+        "bullets": [
+          "You make all the creative decisions",
+          "You combine every skill from Chapter 2",
+          "You ship it publicly — real URL, real audience"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "slide",
+      "narration": "Here's what your landing page needs. A clear headline that says who you are or what you do. A short bio — two or three sentences maximum. One high-quality photo of yourself or something that represents your work. Links to your socials or portfolio — GitHub, LinkedIn, Twitter, whatever you use. And a way to contact you — email, a contact form, or a call-to-action button. That's the minimum. You can add more, but don't skip these five.",
+      "visual": {
+        "title": "Required Elements",
+        "bullets": [
+          "Headline — who you are / what you do",
+          "Short bio (2–3 sentences)",
+          "One strong photo",
+          "Links to your socials / portfolio",
+          "Contact method (email, form, or CTA)"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "slide",
+      "narration": "Design guidelines. Keep it simple — one or two sections maximum. Choose one accent color and stick to it. Use a single web font for headings and body text. Make sure it looks good on mobile first, then desktop. And use high-contrast text — dark on light or light on dark. No gray text on gray backgrounds. Readability beats style every time.",
+      "visual": {
+        "title": "Design Guidelines",
+        "bullets": [
+          "Simple — one or two sections",
+          "One accent color, one font family",
+          "Mobile-first, then scale up",
+          "High contrast — readability first"
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "type": "browser",
+      "narration": "Let me show you how I'd start. I open Claude and say: Build me a personal landing page. My name is Alex Chen. I'm a designer learning to code. Use a clean layout with a hero section — my photo on the left, headline and bio on the right. Navy blue accent color. Links to GitHub and LinkedIn in the footer. Make it responsive. Claude generates the HTML and CSS. I see it in Artifacts. The layout is clean. The spacing feels right. But the photo placeholder is just a gray box, so I'll replace that with a real image URL. And I want the headline bigger — I tell Claude to make it sixty-four pixels on desktop. It updates instantly.",
+      "visual": {
+        "captureScript": "capture/ch2-l6-demo.ts",
+        "caption": "Building a landing page in Claude with real decisions"
+      }
+    },
+    {
+      "id": 6,
+      "type": "slide",
+      "narration": "Content tips. Your headline should be one clear sentence. Not clever. Not vague. Just honest. If you're a developer, say that. If you're learning to code, say that. Your bio is two sentences — what you do and what you care about. Don't write a resume. Write like you're introducing yourself at a meetup. For your photo, use something recent and high-resolution. If you don't want to show your face, use a logo or an image that represents your work. But make it sharp — no pixelated screenshots.",
+      "visual": {
+        "title": "Content Tips",
+        "bullets": [
+          "Headline: one clear, honest sentence",
+          "Bio: two sentences — what you do, what you care about",
+          "Photo: recent, high-res, represents you",
+          "Links: only the ones you actually use"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "type": "slide",
+      "narration": "Common mistakes. The first one is trying to say too much. You don't need five paragraphs about your journey. You need two sentences that tell people why they should care. The second mistake is bad contrast — light gray text on white, or dark blue on black. If you squint and can't read it, your visitors can't either. The third mistake is forgetting mobile. Half your visitors will see your page on a phone. If it doesn't work there, it doesn't work. And the fourth mistake is not shipping. Perfectionism kills projects. Your page doesn't need to be perfect. It needs to be live.",
+      "visual": {
+        "title": "Common Mistakes to Avoid",
+        "bullets": [
+          "Saying too much — keep it short",
+          "Bad contrast — text must be readable",
+          "Ignoring mobile — test on a small screen",
+          "Not shipping — done beats perfect"
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "type": "browser",
+      "narration": "Once I'm happy with the design in Claude, I copy the HTML. I go to GitHub, create a new repo called landing-page, and paste the code into index dot html. I commit it. Then I go to Cloudflare Pages, connect the repo, and deploy. Two minutes later, I have a live URL. I open it on my phone to check the mobile layout. The text is readable. The image scales correctly. The links work. I copy the URL and paste it into my Twitter bio. That's it. The project is shipped.",
+      "visual": {
+        "captureScript": "capture/ch2-l6-deploy.ts",
+        "caption": "Deploying to Cloudflare Pages and testing on mobile"
+      }
+    },
+    {
+      "id": 9,
+      "type": "slide",
+      "narration": "What to do after you ship. First, share the link. Post it on Twitter, LinkedIn, or wherever you hang out online. Say: I just built my first landing page. Here's the link. You'll get feedback. Some of it will be useful. Most of it won't. That's fine. The point is you shipped something real. Second, watch how people interact with it. Do they click your links? Do they reach out? If not, maybe your call-to-action isn't clear. Third, iterate. You don't have to rebuild the whole page. Just fix one thing. Make the headline clearer. Swap the photo. Adjust the colors. Small changes add up.",
+      "visual": {
+        "title": "After You Ship",
+        "bullets": [
+          "Share the link publicly — get feedback",
+          "Watch how people interact with it",
+          "Iterate — fix one thing at a time",
+          "Keep it live — this is your brand now"
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "type": "slide",
+      "narration": "Ideas to level up your page. Add a custom domain — yourname dot com instead of a pages dot dev URL. We'll cover domains in Chapter Three. Add a dark mode toggle using CSS variables and a tiny bit of JavaScript. Add smooth scroll animations when elements come into view. Or add a contact form that sends you an email when someone fills it out. These are all small additions that make your page feel more polished. But don't add them now. Ship the simple version first. You can always improve it later.",
+      "visual": {
+        "title": "Ideas to Level Up (Later)",
+        "bullets": [
+          "Custom domain (Chapter 3)",
+          "Dark mode toggle",
+          "Smooth scroll animations",
+          "Working contact form"
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "type": "slide",
+      "narration": "Here's why this project matters. You just proved to yourself that you can take an idea and turn it into something real on the internet. You didn't need a designer. You didn't need a developer. You didn't need a fancy tool. You used Claude, GitHub, and Cloudflare — all free — and you shipped a page that represents you. That's the whole point of this course. Not to memorize syntax. Not to pass a test. To build things and put them out into the world. This landing page is the first of many. Keep going.",
+      "visual": {
+        "title": "Why This Matters",
+        "bullets": [
+          "You proved you can ship something real",
+          "You own this — it's live, it's yours",
+          "You didn't need anyone's permission",
+          "This is the first of many"
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "type": "outro",
+      "narration": "Your exercise: publish your personal landing page and post the link publicly. Share it on social media, send it to a friend, or just drop it in the course Discord. The goal isn't to get likes. The goal is to ship. Once you've done that, you're ready for Chapter Three — where we add custom domains, real interactivity, and start building apps that do things. See you there.",
+      "visual": {
+        "title": "Next: Chapter 3 — Interactive Web Apps",
+        "subtitle": "Custom domains, JavaScript, and real functionality"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What are the five required elements for your landing page?",
+      "options": [
+        "Headline, bio, photo, social links, contact method",
+        "Logo, tagline, testimonials, pricing, FAQ",
+        "Header, sidebar, footer, navigation, search bar"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "What's the biggest mistake beginners make with landing pages?",
+      "options": [
+        "Using too many colors",
+        "Not shipping because they're waiting for it to be perfect",
+        "Making the font too small"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "What should you do immediately after deploying your landing page?",
+      "options": [
+        "Rebuild it from scratch with a different design",
+        "Share the link publicly and get feedback",
+        "Wait a week to see if anyone finds it"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "Why should you design for mobile first?",
+      "options": [
+        "Because mobile screens are easier to design for",
+        "Because half your visitors will view your page on a phone",
+        "Because desktop designs don't work anymore"
+      ],
+      "answer": 1,
+      "points": 10
+    }
+  ],
+  "exercise": "Publish your finished personal landing page and post the link publicly (social media, Discord, or send to a friend). Screenshot proof that it's live and shared.",
+  "verifyCommands": [
+    "git init",
+    "git add index.html",
+    "git commit -m 'Initial commit: personal landing page'",
+    "git push origin main"
+  ]
+}

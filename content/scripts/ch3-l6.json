@@ -1,0 +1,241 @@
+{
+  "lessonId": "ch3-l6",
+  "title": "Project: A Full Portfolio on Your Own Domain",
+  "totalWords": 2640,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. This is the final project of Chapter Three — where you take everything you've learned and ship a real portfolio that lives on a domain you own. Not a practice site. Not a demo. A real website that anyone in the world can visit and see your work. By the end of this lesson, you'll have a complete multi-page portfolio deployed and running on your custom domain. Let's build it.",
+      "visual": {
+        "title": "Project: A Full Portfolio on Your Own Domain",
+        "subtitle": "Ship a complete multi-page site — your work, your domain, live to the world"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "Here's what you're building. A portfolio with at least three pages. A home page that introduces you and shows your best work. An about page that tells your story — who you are, what you do, why you do it. And a projects page that showcases the things you've built, with links, screenshots, and descriptions. You can add more pages if you want — a contact page, a blog, whatever makes sense for you. But those three are the core. And all of it will be deployed to your custom domain using Cloudflare Pages, exactly like you learned in the last lesson.",
+      "visual": {
+        "title": "What you're building",
+        "bullets": [
+          "Home page — intro + featured work",
+          "About page — your story",
+          "Projects page — showcase with links",
+          "Optional: contact, blog, etc.",
+          "Deployed to YOUR custom domain"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "slide",
+      "narration": "Before you start coding, plan your content. This is not optional. Sit down with a piece of paper or a blank doc and answer these questions. What do you want people to know about you? What projects are you proud of? What's the one thing you want a visitor to remember after they leave your site? Write rough drafts of your text. Gather any images or screenshots you need. Sketch a simple layout for each page — nothing fancy, just boxes and labels. Planning saves you hours of staring at a blank screen later. And it makes the actual building go fast because you know exactly what you're making.",
+      "visual": {
+        "title": "Plan your content first",
+        "bullets": [
+          "What do you want visitors to know?",
+          "Which projects will you showcase?",
+          "Write rough drafts of all text",
+          "Gather images and screenshots",
+          "Sketch simple layouts (boxes + labels)"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "browser",
+      "narration": "Now open Claude and start building. You can use claude.ai with Artifacts, or Claude Code in your terminal — whatever you're comfortable with. I'm using Claude Code because I want to work locally and push to GitHub as I go. I'll create a new project folder called portfolio. Then I'll tell Claude: Build me a portfolio site with three pages — home, about, and projects. Use clean HTML and CSS. Make it responsive. Add a navigation bar that works on all pages. I'm giving Claude my planned content — the text I wrote, the project descriptions, everything. And I'm asking it to build the structure. Claude will generate the HTML files, the CSS, and the folder structure. It'll create an index dot html for the home page, an about dot html, a projects dot html, and a styles dot css file. Review what it makes. Does the navigation work? Do the pages look good on your phone? If something's off, tell Claude to fix it. This is your site — make it yours.",
+      "visual": {
+        "captureScript": "capture/ch3-l6-claude-build.ts",
+        "caption": "Building the portfolio with Claude — structure, pages, and styles"
+      }
+    },
+    {
+      "id": 5,
+      "type": "terminal",
+      "narration": "Once you're happy with the site locally, push it to GitHub. Create a new repository — call it portfolio or your-name-dot-com or whatever you want. Initialize git in your project folder. Add all your files. Commit with a message like Initial portfolio commit. Add the GitHub remote. And push. Now your portfolio code is on GitHub, ready to deploy.",
+      "visual": {
+        "commands": [
+          "cd portfolio",
+          "git init",
+          "git add .",
+          "git commit -m \"Initial portfolio commit\"",
+          "git remote add origin https://github.com/yourusername/portfolio.git",
+          "git push -u origin main"
+        ],
+        "output": "Enumerating objects: 8, done.\nCounting objects: 100% (8/8), done.\nWriting objects: 100% (8/8), 3.21 KiB | 3.21 MiB/s, done.\nTotal 8 (delta 0), reused 0 (delta 0)\nTo https://github.com/yourusername/portfolio.git\n * [new branch]      main -> main\nBranch 'main' set up to track remote branch 'main' from 'origin'."
+      }
+    },
+    {
+      "id": 6,
+      "type": "browser",
+      "narration": "Now deploy to Cloudflare Pages. Go to your Cloudflare dashboard. Click Workers and Pages. Click Create. Connect to your GitHub account if you haven't already. Select the portfolio repository you just pushed. Cloudflare will ask for build settings. For a simple HTML site, leave the build command blank and set the output directory to slash — that means the root of your repo. Click Save and Deploy. Cloudflare will build and deploy your site in about thirty seconds. When it's done, you'll see a URL — something like portfolio dot pages dot dev. Click it. Your portfolio is live. But it's still on a Cloudflare subdomain. Now you're going to point your custom domain at it.",
+      "visual": {
+        "captureScript": "capture/ch3-l6-cloudflare-deploy.ts",
+        "caption": "Deploying the portfolio to Cloudflare Pages"
+      }
+    },
+    {
+      "id": 7,
+      "type": "browser",
+      "narration": "In the Cloudflare dashboard, go to your portfolio project. Click Custom domains. Click Set up a custom domain. Type your domain — like yourname dot com. If your domain is registered with Cloudflare, it'll automatically configure the DNS records for you. If it's registered somewhere else, Cloudflare will show you the DNS records you need to add at your registrar — usually a CNAME record pointing to your pages dot dev URL. Add those records, wait a few minutes for DNS to propagate, and then come back to Cloudflare and click Activate domain. Cloudflare will verify the DNS, issue an SSL certificate, and connect your domain to your portfolio. This can take five to fifteen minutes. Be patient. When it's done, you'll see a green checkmark next to your domain. Now type your domain into a browser. Your portfolio loads. On your domain. With HTTPS. Live to the world.",
+      "visual": {
+        "captureScript": "capture/ch3-l6-custom-domain.ts",
+        "caption": "Connecting your custom domain to the deployed portfolio"
+      }
+    },
+    {
+      "id": 8,
+      "type": "slide",
+      "narration": "Here's what you just did. You planned a multi-page site. You built it with Claude — real HTML, real CSS, real content. You pushed it to GitHub. You deployed it to Cloudflare Pages. And you connected it to a domain you own. That's the entire web development workflow, end to end. And you did it yourself. This is not a toy. This is a real website that you can put on a resume, share with potential clients, or send to anyone who asks what you do. And because it's on GitHub and Cloudflare, you can update it anytime. Change the text, add a new project, tweak the design — just edit locally, commit, push, and Cloudflare redeploys automatically. Your portfolio is alive and growing with you.",
+      "visual": {
+        "title": "What you just shipped",
+        "bullets": [
+          "Planned and built a multi-page portfolio",
+          "Pushed to GitHub",
+          "Deployed to Cloudflare Pages",
+          "Connected to YOUR custom domain",
+          "Live, secure (HTTPS), and updateable anytime"
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "type": "slide",
+      "narration": "Common issues and how to fix them. If your domain doesn't load right away, wait. DNS propagation can take up to an hour, sometimes longer. If Cloudflare says the DNS records are wrong, double-check that you added the exact CNAME or A records it told you to add at your registrar. If the site loads but looks broken, check your file paths — make sure your CSS and images are linked correctly in your HTML. If you see a Cloudflare error page, go back to your Pages project and check the build log — there might be a deployment error. And if you're stuck, copy the error message and ask Claude. It'll walk you through the fix. Most issues are small and fixable in minutes.",
+      "visual": {
+        "title": "Common issues",
+        "bullets": [
+          "Domain not loading → wait for DNS (up to 1 hour)",
+          "DNS error → verify exact CNAME/A records",
+          "Broken styling → check file paths in HTML",
+          "Cloudflare error → check Pages build log",
+          "Stuck? → copy error, ask Claude"
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "type": "slide",
+      "narration": "Ways to improve your portfolio after you ship. Add a contact form — you can use a free service like Formspree or Netlify Forms, or build your own with Cloudflare Workers. Add analytics so you can see who visits your site — Cloudflare Web Analytics is free and privacy-friendly. Make it faster — compress your images, minify your CSS, use modern image formats like WebP. Add animations or transitions to make it feel polished. Write blog posts and add a blog section. The point is, shipping version one is not the end. It's the beginning. You'll keep improving this site as you learn more. And every improvement is a new thing you can showcase.",
+      "visual": {
+        "title": "Ways to improve after shipping",
+        "bullets": [
+          "Add a contact form (Formspree, Workers)",
+          "Add analytics (Cloudflare Web Analytics)",
+          "Optimize images (compress, WebP)",
+          "Add animations and polish",
+          "Start a blog section",
+          "Shipping v1 is the beginning, not the end"
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "type": "slide",
+      "narration": "Let's talk about cost because this is a real site and you need to know what you're paying. The domain costs about ten to twelve dollars per year — you already bought it in the last lesson. Cloudflare Pages is free for personal projects like this. GitHub is free. So your ongoing cost is zero. If you add Cloudflare Web Analytics, it's free. If you add a contact form with Cloudflare Workers, the free tier covers thousands of requests per day — you won't hit the limit. If you want to add a custom email address at your domain, like hello at yourname dot com, Cloudflare Email Routing is free. So you can run a professional portfolio with a custom domain and email for about one dollar per month. That's it. No hosting fees. No server costs. Just the domain.",
+      "visual": {
+        "title": "What it costs",
+        "bullets": [
+          "Domain: ~$10–12 / year (already paid)",
+          "Cloudflare Pages: $0",
+          "GitHub: $0",
+          "Web Analytics: $0",
+          "Email Routing: $0",
+          "Total ongoing cost: ~$1 / month"
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "type": "slide",
+      "narration": "Here's why this matters. You just proved you can ship. Not just code in a sandbox. Not just follow a tutorial. You built something real, deployed it, and put it on the internet under your own name. That's what separates learners from builders. And now you have proof. When someone asks what you do, you don't say I'm learning to code. You say I build websites, and you send them a link to your portfolio. That link is your credibility. It's your calling card. And it's yours. No one can take it away. You own the domain. You control the code. You decide what it says and how it looks. That's power. And you just unlocked it.",
+      "visual": {
+        "title": "Why this matters",
+        "bullets": [
+          "You proved you can SHIP",
+          "You have a real site, not a demo",
+          "You own the domain and the code",
+          "You can share it as proof of your work",
+          "You're not learning anymore — you're building"
+        ]
+      }
+    },
+    {
+      "id": 13,
+      "type": "outro",
+      "narration": "Your exercise: publish your portfolio on your custom domain and share the link. Post it in the course community, send it to a friend, put it on your resume — wherever you want. Just ship it. And then take a moment to appreciate what you've done. Three chapters ago, you didn't know what HTML was. Now you have a live website on a domain you own. That's not a small thing. That's a foundation. Next up, Chapter Four — we're going to make your sites interactive. We're adding JavaScript, forms, and real user input. You're going to build tools that do things, not just pages that sit there. See you in the next lesson.",
+      "visual": {
+        "title": "Exercise",
+        "subtitle": "Publish your portfolio on your domain and share it — you're live.",
+        "nextLesson": "Chapter 4: Making Sites Interactive"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What are the three core pages a portfolio should have?",
+      "options": [
+        "Home, about, projects",
+        "Home, contact, blog",
+        "About, resume, contact",
+        "Home, services, testimonials"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "What's the first step before you start coding your portfolio?",
+      "options": [
+        "Set up Cloudflare Pages",
+        "Plan your content and sketch layouts",
+        "Buy a domain",
+        "Push to GitHub"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "What do you set as the build output directory for a simple HTML site on Cloudflare Pages?",
+      "options": [
+        "public",
+        "dist",
+        "/ (root)",
+        "build"
+      ],
+      "answer": 2,
+      "points": 10
+    },
+    {
+      "q": "How long can DNS propagation take after you connect your custom domain?",
+      "options": [
+        "Instant",
+        "5 minutes",
+        "Up to 1 hour (sometimes longer)",
+        "24 hours minimum"
+      ],
+      "answer": 2,
+      "points": 10
+    },
+    {
+      "q": "What's the ongoing monthly cost to run a portfolio on Cloudflare Pages with a custom domain?",
+      "options": [
+        "$5/month",
+        "$10/month",
+        "~$1/month (just the domain)",
+        "$20/month"
+      ],
+      "answer": 2,
+      "points": 10
+    }
+  ],
+  "exercise": "Build and deploy your complete portfolio to your custom domain. It must have at least three pages (home, about, projects), be pushed to GitHub, deployed via Cloudflare Pages, and accessible at your domain with HTTPS. Share the link in the course community.",
+  "verifyCommands": [
+    "git init",
+    "git add .",
+    "git commit -m \"Initial portfolio commit\"",
+    "git remote add origin https://github.com/yourusername/portfolio.git",
+    "git push -u origin main"
+  ]
+}

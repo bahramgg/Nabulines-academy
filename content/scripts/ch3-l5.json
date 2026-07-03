@@ -1,0 +1,311 @@
+{
+  "lessonId": "ch3-l5",
+  "title": "Contact Forms and Social Links",
+  "totalWords": 1847,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. In this lesson you're going to add a contact form to your portfolio — a real working form that sends you messages when someone submits it. You'll also add social links so visitors can find you on GitHub, Twitter, LinkedIn, wherever you want them to go. By the end you'll have a complete way for people to reach you. Let's build it.",
+      "visual": {
+        "title": "Contact Forms and Social Links",
+        "subtitle": "Let visitors reach you — Nabulines Academy"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "Why does this matter? A portfolio without a contact form is like a storefront with no door. People see your work, they like it, but they have no way to hire you or ask a question. A contact form removes that friction. Social links do the same thing — they let visitors explore your GitHub repos, your Twitter presence, your professional network. Together these two features turn your portfolio from a static showcase into a living connection point. That's what we're building today.",
+      "visual": {
+        "title": "Why contact forms matter",
+        "bullets": [
+          "Portfolio without contact = storefront with no door",
+          "Form removes friction — visitors can reach you instantly",
+          "Social links extend your presence beyond the site",
+          "Together they turn showcase → connection point"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "browser",
+      "narration": "Open Claude dot A I. We're going to build the contact section in Artifacts. Tell Claude: build me a contact section with a form — name, email, message — and social links for GitHub, Twitter, and LinkedIn. Use Tailwind. Make the form look professional. Claude will generate the H T M L. You'll see a form with three input fields and a submit button, plus icon links for each social platform. The styling is clean — rounded inputs, a blue submit button, proper spacing. This is your starting point.",
+      "visual": {
+        "captureScript": "capture/ch3-l5-claude-contact.ts",
+        "caption": "Claude generates a contact form + social links in Artifacts"
+      }
+    },
+    {
+      "id": 4,
+      "type": "code",
+      "narration": "Here's what Claude gave you. The form has three inputs: name, email, and message. Each input has an I D and a name attribute — that's how the form knows what data is what. The textarea for the message has rows equals four so it's taller. The submit button is styled with Tailwind classes — background blue six hundred, white text, padding, rounded corners, hover effect. Below the form are three social links — GitHub, Twitter, LinkedIn — each with an S V G icon. The href is a placeholder — you'll replace it with your real profile U R L. Notice the structure: a section wrapping everything, a heading, the form, then the social links in a flex row. Clean and semantic.",
+      "visual": {
+        "code": "<!-- Contact Section -->\n<section class=\"max-w-2xl mx-auto px-4 py-16\">\n  <h2 class=\"text-3xl font-bold mb-8\">Get in Touch</h2>\n  \n  <!-- Contact Form -->\n  <form class=\"space-y-6 mb-12\">\n    <div>\n      <label for=\"name\" class=\"block text-sm font-medium mb-2\">Name</label>\n      <input \n        type=\"text\" \n        id=\"name\" \n        name=\"name\" \n        required\n        class=\"w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent\"\n      />\n    </div>\n    \n    <div>\n      <label for=\"email\" class=\"block text-sm font-medium mb-2\">Email</label>\n      <input \n        type=\"email\" \n        id=\"email\" \n        name=\"email\" \n        required\n        class=\"w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent\"\n      />\n    </div>\n    \n    <div>\n      <label for=\"message\" class=\"block text-sm font-medium mb-2\">Message</label>\n      <textarea \n        id=\"message\" \n        name=\"message\" \n        rows=\"4\" \n        required\n        class=\"w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent\"\n      ></textarea>\n    </div>\n    \n    <button \n      type=\"submit\"\n      class=\"w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors\"\n    >\n      Send Message\n    </button>\n  </form>\n  \n  <!-- Social Links -->\n  <div class=\"flex justify-center gap-6\">\n    <a href=\"https://github.com/yourusername\" class=\"text-gray-600 hover:text-blue-600 transition-colors\">\n      <svg class=\"w-6 h-6\" fill=\"currentColor\" viewBox=\"0 0 24 24\">\n        <path d=\"M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z\"/>\n      </svg>\n    </a>\n    <a href=\"https://twitter.com/yourusername\" class=\"text-gray-600 hover:text-blue-600 transition-colors\">\n      <svg class=\"w-6 h-6\" fill=\"currentColor\" viewBox=\"0 0 24 24\">\n        <path d=\"M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z\"/>\n      </svg>\n    </a>\n    <a href=\"https://linkedin.com/in/yourusername\" class=\"text-gray-600 hover:text-blue-600 transition-colors\">\n      <svg class=\"w-6 h-6\" fill=\"currentColor\" viewBox=\"0 0 24 24\">\n        <path d=\"M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z\"/>\n      </svg>\n    </a>\n  </div>\n</section>",
+        "language": "html",
+        "highlights": [
+          {
+            "lines": [
+              3,
+              4
+            ],
+            "label": "Form structure with proper spacing"
+          },
+          {
+            "lines": [
+              6,
+              13
+            ],
+            "label": "Name input with label and styling"
+          },
+          {
+            "lines": [
+              22,
+              29
+            ],
+            "label": "Textarea for message (4 rows)"
+          },
+          {
+            "lines": [
+              31,
+              37
+            ],
+            "label": "Submit button with hover effect"
+          },
+          {
+            "lines": [
+              41,
+              43
+            ],
+            "label": "Social links with SVG icons"
+          }
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "type": "slide",
+      "narration": "Right now the form doesn't actually send anything. When you click submit, nothing happens — the browser just reloads the page. To make it work you need a backend service that receives the form data and emails it to you. There are two main options: Formspree and Netlify Forms. Formspree is a standalone service — you sign up, get a form endpoint, and point your form at it. Netlify Forms is built into Netlify — if you deploy there, you just add a netlify attribute to your form and it handles the rest. Both have free tiers. Cloudflare Pages doesn't have a built-in form service, so if you're on Cloudflare you'll use Formspree. Let's go with Formspree since it works everywhere.",
+      "visual": {
+        "title": "Making the form actually work",
+        "bullets": [
+          "Right now: form does nothing (just reloads page)",
+          "Need backend to receive data + email you",
+          "Option 1: Formspree (works everywhere, free tier)",
+          "Option 2: Netlify Forms (built-in if on Netlify)",
+          "We'll use Formspree — works on Cloudflare Pages too"
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "type": "browser",
+      "narration": "Go to formspree dot io. Click sign up — you can use your email or sign in with GitHub. The free plan gives you fifty submissions per month, which is plenty to start. After you sign up, click create a new form. Give it a name like portfolio contact. Formspree gives you a form endpoint — a U R L that looks like https colon slash slash formspree dot io slash f slash your form I D. Copy that U R L. Now go back to your code. In the form tag, add an action attribute and paste the Formspree U R L. Add method equals post. That's it. Now when someone submits the form, Formspree receives the data and emails it to the address you signed up with. You can test it right in Artifacts — fill out the form, click send, and check your email. You'll get a message with the name, email, and message the person typed. That's a working contact form.",
+      "visual": {
+        "captureScript": "capture/ch3-l5-formspree-setup.ts",
+        "caption": "Sign up for Formspree, create a form, get the endpoint URL"
+      }
+    },
+    {
+      "id": 7,
+      "type": "code",
+      "narration": "Here's the updated form tag. You added action equals the Formspree U R L and method equals post. That's the only change. Now the form knows where to send the data. When a visitor fills it out and clicks submit, the browser sends a P O S T request to Formspree with the name, email, and message. Formspree forwards it to your email. The visitor sees a thank-you page from Formspree. You can customize that page in the Formspree dashboard if you want. The free plan gives you fifty submissions per month — if you need more, the paid plan is five dollars a month for a thousand submissions. For a personal portfolio, fifty is usually enough.",
+      "visual": {
+        "code": "<form \n  action=\"https://formspree.io/f/yourformid\" \n  method=\"POST\"\n  class=\"space-y-6 mb-12\"\n>\n  <div>\n    <label for=\"name\" class=\"block text-sm font-medium mb-2\">Name</label>\n    <input \n      type=\"text\" \n      id=\"name\" \n      name=\"name\" \n      required\n      class=\"w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent\"\n    />\n  </div>\n  \n  <div>\n    <label for=\"email\" class=\"block text-sm font-medium mb-2\">Email</label>\n    <input \n      type=\"email\" \n      id=\"email\" \n      name=\"email\" \n      required\n      class=\"w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent\"\n    />\n  </div>\n  \n  <div>\n    <label for=\"message\" class=\"block text-sm font-medium mb-2\">Message</label>\n    <textarea \n      id=\"message\" \n      name=\"message\" \n      rows=\"4\" \n      required\n      class=\"w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent\"\n    ></textarea>\n  </div>\n  \n  <button \n    type=\"submit\"\n    class=\"w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors\"\n  >\n    Send Message\n  </button>\n</form>",
+        "language": "html",
+        "highlights": [
+          {
+            "lines": [
+              2,
+              3
+            ],
+            "label": "Action = Formspree URL, method = POST"
+          },
+          {
+            "lines": [
+              10,
+              11
+            ],
+            "label": "Name attribute sends this field to Formspree"
+          },
+          {
+            "lines": [
+              21,
+              22
+            ],
+            "label": "Email field — Formspree validates it"
+          },
+          {
+            "lines": [
+              31,
+              32
+            ],
+            "label": "Message field — sent as body text"
+          }
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "type": "slide",
+      "narration": "Now let's handle the social links. You have three placeholders — GitHub, Twitter, LinkedIn. Replace the href with your actual profile U R L s. If you don't have a Twitter or LinkedIn, remove those links — only show the platforms you actually use. You can add more if you want — Dribbble, Behance, your own blog. Just ask Claude to add another icon. The S V G icons are from a library called Simple Icons — they're clean, recognizable, and free. If you want a different icon, tell Claude which platform and it'll generate the S V G. Keep the hover effect — it gives feedback when someone mouses over the link. The color changes from gray to blue. That's a small detail but it makes the site feel more polished.",
+      "visual": {
+        "title": "Customizing social links",
+        "bullets": [
+          "Replace href placeholders with your real URLs",
+          "Remove platforms you don't use (only show what's real)",
+          "Add more if needed — Dribbble, Behance, blog",
+          "Icons from Simple Icons library (free, clean)",
+          "Keep hover effect — gray → blue on mouseover"
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "type": "code",
+      "narration": "Here's the social links section with real U R L s. The GitHub link points to github dot com slash your username. The Twitter link points to twitter dot com slash your handle. The LinkedIn link points to linkedin dot com slash in slash your profile. Each link opens in the same tab by default — if you want them to open in a new tab, add target equals underscore blank and rel equals noopener. That's a security best practice when linking to external sites. The icons are S V G elements — scalable vector graphics. They look sharp at any size and the fill equals current color means they inherit the text color from the parent. That's why the hover effect works — you change the text color and the icon color changes too.",
+      "visual": {
+        "code": "<!-- Social Links -->\n<div class=\"flex justify-center gap-6\">\n  <a \n    href=\"https://github.com/yourname\" \n    target=\"_blank\"\n    rel=\"noopener\"\n    class=\"text-gray-600 hover:text-blue-600 transition-colors\"\n  >\n    <svg class=\"w-6 h-6\" fill=\"currentColor\" viewBox=\"0 0 24 24\">\n      <path d=\"M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z\"/>\n    </svg>\n  </a>\n  <a \n    href=\"https://twitter.com/yourhandle\" \n    target=\"_blank\"\n    rel=\"noopener\"\n    class=\"text-gray-600 hover:text-blue-600 transition-colors\"\n  >\n    <svg class=\"w-6 h-6\" fill=\"currentColor\" viewBox=\"0 0 24 24\">\n      <path d=\"M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z\"/>\n    </svg>\n  </a>\n  <a \n    href=\"https://linkedin.com/in/yourprofile\" \n    target=\"_blank\"\n    rel=\"noopener\"\n    class=\"text-gray-600 hover:text-blue-600 transition-colors\"\n  >\n    <svg class=\"w-6 h-6\" fill=\"currentColor\" viewBox=\"0 0 24 24\">\n      <path d=\"M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z\"/>\n    </svg>\n  </a>\n</div>",
+        "language": "html",
+        "highlights": [
+          {
+            "lines": [
+              4,
+              6
+            ],
+            "label": "Real GitHub URL + target=_blank (new tab)"
+          },
+          {
+            "lines": [
+              9,
+              11
+            ],
+            "label": "SVG icon — fill=currentColor inherits text color"
+          },
+          {
+            "lines": [
+              14,
+              16
+            ],
+            "label": "Twitter link with same pattern"
+          },
+          {
+            "lines": [
+              24,
+              26
+            ],
+            "label": "LinkedIn link — replace with your profile"
+          }
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "type": "slide",
+      "narration": "Let's talk about what this costs. Formspree free plan: zero dollars, fifty submissions a month. If you need more, it's five dollars a month for a thousand submissions. GitHub, Cloudflare Pages, the code itself — all free. So a working contact form costs you nothing to start. The only cost in this whole chapter is if you want a custom domain, which is about ten to twelve dollars a year. That's optional. You can run your entire portfolio on a pages dot dev U R L for free. So the honest answer: zero dollars to build and deploy a portfolio with a working contact form and social links. You're not blocked by money here.",
+      "visual": {
+        "title": "What it costs",
+        "bullets": [
+          "Formspree Free: $0 (50 submissions/month)",
+          "Formspree Paid: $5/month (1,000 submissions)",
+          "GitHub + Cloudflare Pages: $0",
+          "Custom domain: ~$10–12/year (optional)",
+          "Total to start: $0 — no cost barrier"
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "type": "terminal",
+      "narration": "Now let's add this to your portfolio and deploy it. Open your portfolio folder in the terminal. Copy the contact section from Artifacts and paste it into your index dot html, right before the closing body tag. Save the file. Run git add dot, git commit dash m quote add contact form and social links quote, git push. Cloudflare Pages picks up the change and deploys it. Wait thirty seconds, then open your live site. Scroll to the bottom. You'll see the contact form and social links. Fill out the form with a test message and submit it. Check your email — you should get the message from Formspree. If you do, it's working. If not, double-check the Formspree U R L in the action attribute and make sure you're using the right form I D.",
+      "visual": {
+        "commands": [
+          "cd ~/portfolio",
+          "# Paste contact section into index.html before </body>",
+          "git add .",
+          "git commit -m \"Add contact form and social links\"",
+          "git push"
+        ],
+        "output": "[main abc1234] Add contact form and social links\n 1 file changed, 47 insertions(+)\nEnumerating objects: 5, done.\nCounting objects: 100% (5/5), done.\nDelta compression using up to 8 threads\nCompressing objects: 100% (3/3), done.\nWriting objects: 100% (3/3), 1.2 KiB | 1.2 MiB/s, done.\nTotal 3 (delta 2), reused 0 (delta 0)\nTo github.com:yourname/portfolio.git\n   def5678..abc1234  main -> main\n\n✓ Cloudflare Pages deploying...\n✓ Live at https://yourname.pages.dev",
+        "caption": "Add contact section, commit, push — live in 30 seconds"
+      }
+    },
+    {
+      "id": 12,
+      "type": "slide",
+      "narration": "Common issues: if the form submits but you don't get an email, check your spam folder — Formspree emails sometimes land there the first time. If the form doesn't submit at all, check the browser console for errors — press F twelve, click console. You might see a C O R S error or a four oh four. That usually means the Formspree U R L is wrong. Go back to the Formspree dashboard, copy the endpoint again, and paste it carefully. If the social links don't work, make sure the href starts with https colon slash slash. If you forget the protocol, the browser treats it as a relative link and tries to open github dot com slash yourname as a page on your own site. That won't work. Always include the full U R L.",
+      "visual": {
+        "title": "Troubleshooting",
+        "bullets": [
+          "No email? Check spam folder first",
+          "Form won't submit? Open console (F12) — look for errors",
+          "CORS or 404 error? Formspree URL is wrong — re-copy it",
+          "Social links broken? Make sure href starts with https://",
+          "Missing protocol = browser treats it as relative link"
+        ]
+      }
+    },
+    {
+      "id": 13,
+      "type": "outro",
+      "narration": "You just added a working contact form and social links to your portfolio. Visitors can now reach you directly from your site, and they can find you on GitHub, Twitter, LinkedIn, wherever you want them to go. This is the final piece that turns a static showcase into a living connection point. Your exercise: add the contact form to your portfolio and test it by sending yourself a message. Make sure you get the email. Then replace the social link placeholders with your real profile U R L s. Next lesson we're going to tie everything together — you'll have a complete portfolio, deployed and live, ready to show the world. See you there.",
+      "visual": {
+        "title": "You Did It",
+        "subtitle": "Contact form + social links — portfolio complete",
+        "preview": "Next: Final polish and launch checklist"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What does the action attribute in a form tag do?",
+      "options": [
+        "It tells the browser where to send the form data when submitted",
+        "It styles the submit button",
+        "It validates the email field",
+        "It opens the form in a new tab"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "How many form submissions does Formspree's free plan allow per month?",
+      "options": [
+        "10 submissions",
+        "50 submissions",
+        "100 submissions",
+        "Unlimited submissions"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "Why should you add target=\"_blank\" and rel=\"noopener\" to external social links?",
+      "options": [
+        "To make the icons bigger",
+        "To open links in a new tab and improve security",
+        "To change the link color on hover",
+        "To validate the URL format"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "If your form submits but you don't receive an email, what should you check first?",
+      "options": [
+        "Your spam folder",
+        "The CSS styling",
+        "The Tailwind config",
+        "Your GitHub repository"
+      ],
+      "answer": 0,
+      "points": 10
+    }
+  ],
+  "exercise": "Add a contact form to your portfolio using Formspree. Sign up for a free Formspree account, create a form, and add the endpoint to your HTML. Include fields for name, email, and message. Add social links for at least two platforms you actually use (GitHub, Twitter, LinkedIn, etc.). Deploy the changes to Cloudflare Pages and test the form by sending yourself a message. Verify you receive the email. Replace all placeholder URLs with your real profile links.",
+  "verifyCommands": [
+    "cd ~/portfolio",
+    "git add .",
+    "git commit -m \"Add contact form and social links\"",
+    "git push"
+  ]
+}

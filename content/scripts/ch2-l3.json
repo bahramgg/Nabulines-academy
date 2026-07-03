@@ -1,0 +1,157 @@
+{
+  "lessonId": "ch2-l3",
+  "title": "Iteration: How to Ask for Changes Without Breaking It",
+  "totalWords": 892,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. You just built your first page with Claude — and it worked. Now you want to change something. Maybe the color feels wrong, or you need a different button label. But here's the problem beginners hit: you ask Claude to change one thing, and suddenly the whole page scrambles. Buttons disappear. Text moves. The layout breaks. This lesson teaches you how to iterate — how to ask for changes that improve your page instead of destroying it. By the end, you'll know how to make surgical edits that keep everything working. Let's go.",
+      "visual": {
+        "title": "Iteration: How to Ask for Changes Without Breaking It",
+        "subtitle": "Make surgical edits that improve the page instead of scrambling it"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "First, understand what goes wrong. When you say 'make it better' or 'change the design,' Claude doesn't know what to keep. It might rewrite the entire page from scratch. Your working buttons? Gone. Your layout? Different. This happens because your prompt was too vague. The fix is specificity. You tell Claude exactly what to change and exactly what to leave alone. Think of it like surgery — you're operating on one part, not replacing the whole body.",
+      "visual": {
+        "title": "Why Pages Scramble",
+        "bullets": [
+          "Vague prompts → Claude rewrites everything",
+          "'Make it better' = no guidance on what to keep",
+          "The fix: be surgical — change one thing at a time",
+          "Tell Claude what to change AND what to preserve"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "browser",
+      "narration": "Let's see this in action. I have a working recipe page — title, ingredients, instructions, a nice layout. I want to change the color scheme from blue to green. Watch what happens when I'm vague versus specific. First, the wrong way. I tell Claude: 'Make the page look better.' It regenerates the entire artifact. The colors change, but so does the layout. My ingredient list moved. The button text is different. The page still works, but it's not my page anymore. Now the right way. I open a new chat and say: 'Change only the background color from blue to green. Keep everything else exactly the same — same layout, same text, same button.' Claude updates just the CSS color values. The page turns green. Nothing else moves. That's iteration.",
+      "visual": {
+        "captureScript": "capture/ch2-l3-iteration-demo.ts",
+        "caption": "Vague prompt scrambles the page; specific prompt changes only the color"
+      }
+    },
+    {
+      "id": 4,
+      "type": "slide",
+      "narration": "Here's the pattern for every change. Step one: identify the one thing you want to change. Not 'improve the design' — that's five things. Pick one: the color, or the font size, or the button position. Step two: write a prompt that names that one thing and says 'keep everything else the same.' Step three: check the result. If it changed more than you wanted, undo and try again with an even more specific prompt. This is how professionals work — one change, verify, next change. Never pile up five requests in one prompt when you're learning.",
+      "visual": {
+        "title": "The Iteration Pattern",
+        "bullets": [
+          "1. Pick ONE thing to change (color, font, spacing)",
+          "2. Prompt: 'Change X to Y, keep everything else the same'",
+          "3. Check the result — did only X change?",
+          "4. If it scrambled, undo and be more specific",
+          "Never pile up five changes in one prompt"
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "type": "code",
+      "narration": "Let's look at what actually changes in the code. Here's the CSS before my color change. The background is set to a blue hex value. After my specific prompt, Claude updates only this line — the hex value changes to green. Everything else in the file stays identical. Same HTML structure, same button styles, same spacing. This is what you want — a diff that touches only the lines related to your request. If you see Claude rewriting entire sections you didn't mention, your prompt wasn't specific enough.",
+      "visual": {
+        "code": "/* Before */\nbody {\n  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\n  font-family: 'Segoe UI', sans-serif;\n  padding: 2rem;\n}\n\n/* After - only the color line changed */\nbody {\n  background: linear-gradient(135deg, #10b981 0%, #059669 100%);\n  font-family: 'Segoe UI', sans-serif;\n  padding: 2rem;\n}",
+        "language": "css",
+        "highlights": [
+          2,
+          9
+        ],
+        "caption": "Surgical change: only the color values update, nothing else"
+      }
+    },
+    {
+      "id": 6,
+      "type": "slide",
+      "narration": "Common mistakes. One: asking for multiple changes at once. 'Change the color and make the text bigger and move the button.' That's three changes. Do them one at a time. Two: using subjective words. 'Make it prettier' or 'improve the layout' — Claude has to guess what you mean. Three: not checking after each change. You make three changes in a row without looking, and by change three the page is broken and you don't know which prompt caused it. The fix for all of these: slow down, be specific, check your work.",
+      "visual": {
+        "title": "Common Iteration Mistakes",
+        "bullets": [
+          "❌ Multiple changes in one prompt → chaos",
+          "❌ Subjective words: 'prettier', 'better' → Claude guesses",
+          "❌ Not checking after each change → can't debug",
+          "✅ One change at a time, specific words, verify each step"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "type": "slide",
+      "narration": "Advanced tip: you can reference existing elements by name. Instead of 'change the button color,' say 'change the submit button background to red.' Instead of 'make the title bigger,' say 'increase the h1 font size to 3rem.' The more precisely you name what you're changing, the less Claude has to guess. And if you're working on a page with multiple sections, name the section: 'In the ingredient list, make the bullets green.' This keeps changes isolated.",
+      "visual": {
+        "title": "Advanced: Name What You're Changing",
+        "bullets": [
+          "Reference elements: 'the submit button', 'the h1 title'",
+          "Use exact units: '3rem', 'background: red'",
+          "Name sections: 'In the ingredient list, …'",
+          "The more precise the name, the less Claude guesses"
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "type": "slide",
+      "narration": "When things do break — and they will, you're learning — here's how to recover. If the page scrambles, click the undo arrow in the Artifact panel. That takes you back to the last working version. Then try your change again with a more specific prompt. If you lost the undo history, copy the working code into a text file before you make changes. That's your backup. As you get more experience, you'll learn which changes are safe to combine and which need to be separate. But for now, the rule is: one change, check, next change.",
+      "visual": {
+        "title": "When Things Break",
+        "bullets": [
+          "Use the undo arrow in the Artifact panel",
+          "Copy working code to a text file as backup",
+          "Try again with a more specific prompt",
+          "Rule for beginners: one change → check → next change"
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "type": "outro",
+      "narration": "You now know how to iterate without breaking your page. The key is specificity: change one thing, name it precisely, tell Claude what to keep. Your exercise: take the page you built in the last lesson and change only the color scheme in a single, precise prompt. Not the layout, not the text — just the colors. Practice that surgical edit. In the next lesson, we're adding interactivity — buttons that actually do something when you click them. You'll learn how to make your page respond to the user. See you there.",
+      "visual": {
+        "title": "Next: Adding Interactivity",
+        "subtitle": "Buttons that actually do something when you click them",
+        "progress": "Chapter 2, Lesson 3 complete"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What's the main reason pages scramble when you ask Claude for changes?",
+      "options": [
+        "Claude is bad at editing code",
+        "Your prompt was too vague, so Claude rewrote everything",
+        "Artifacts can't handle multiple changes",
+        "You need a paid plan to make changes safely"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "What's the correct way to change only the background color of your page?",
+      "options": [
+        "Say 'make the page look better'",
+        "Say 'change the background color to green, keep everything else the same'",
+        "Delete the page and start over",
+        "Ask for three changes at once to save time"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "If your page scrambles after a change, what should you do first?",
+      "options": [
+        "Close the browser and give up",
+        "Ask Claude to fix it with another vague prompt",
+        "Click the undo arrow to go back to the working version",
+        "Start a new chat and rebuild from scratch"
+      ],
+      "answer": 2,
+      "points": 10
+    }
+  ],
+  "exercise": "Change only the color scheme of your page in a single, precise prompt. Your page should look different but the layout, text, and buttons should stay exactly where they are. Practice making a surgical edit that touches only the colors.",
+  "verifyCommands": []
+}

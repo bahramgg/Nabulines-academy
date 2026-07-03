@@ -1,0 +1,193 @@
+{
+  "lessonId": "ch1-l8",
+  "title": "Claude Plans: Free, Pro, Max, or API — Which to Pick and How to Pay",
+  "totalWords": 1847,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. In this lesson we're going to break down every Claude plan — Free, Pro, Max, and the API — so you know exactly which one fits your goals and your budget. We'll also walk through how to actually pay for it, including what to do if you don't have a credit card. By the end you'll know your next step. Let's go.",
+      "visual": {
+        "title": "Claude Plans: Free, Pro, Max, or API",
+        "subtitle": "Which to Pick and How to Pay"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "First, the big picture. Claude has four paths. The Free plan costs zero dollars and gives you web chat plus Artifacts — that's the browser tool where you build pages and small apps. It has a daily usage limit, but it's real and it's enough to start learning. Then there's Pro at twenty dollars a month — that's the entry point for Claude Code, which is the desktop tool we use to build full projects. Max comes in two sizes — five times Pro usage for a hundred a month, or twenty times for two hundred a month. Those are for heavier use. Finally, the API is pay-as-you-go — you add credits and pay only for what you use. No monthly fee, but you pay per token. We'll look at each one.",
+      "visual": {
+        "title": "Four Claude Paths",
+        "bullets": [
+          "Free — $0 (web chat + Artifacts, daily limit)",
+          "Pro — $20/mo (Claude Code included)",
+          "Max 5× — $100/mo (heavier usage)",
+          "Max 20× — $200/mo (very heavy usage)",
+          "API — pay-as-you-go (no monthly fee, per-token)"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "slide",
+      "narration": "Let's start with Free. This is where everyone begins. You get access to claude dot ai in your browser — you can chat, you can use Artifacts to build pages, you can write code and see it run live. The limit is daily usage — after a certain number of messages Claude will tell you to come back tomorrow. For learning the basics and building your first few pages, Free is perfect. You spend zero dollars and you get real tools. The catch is you cannot use Claude Code on the Free plan — Claude Code is the desktop tool that edits files on your computer, and it requires either a paid subscription or API credits. So Free is your starting point, but when you're ready to build full projects with Claude Code, you'll need to upgrade.",
+      "visual": {
+        "title": "Free Plan — $0",
+        "bullets": [
+          "Web chat + Artifacts (browser)",
+          "Daily usage limit (enough to learn)",
+          "Cannot use Claude Code",
+          "Perfect starting point — spend nothing"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "slide",
+      "narration": "Pro is twenty dollars a month — or about seventeen a month if you pay yearly. This is the plan most learners upgrade to when they want Claude Code. Pro gives you more daily usage than Free, and it unlocks Claude Code at baseline limits. That means you can install Claude Code on your computer — we did that in the last lesson — and run it to build real projects. Your usage is shared between the website and Claude Code, so if you use a lot on one, you have less on the other that day. But for most people learning to build, Pro is the sweet spot. It's the cheapest way to get Claude Code, and twenty dollars a month is less than a couple of coffees. If you're serious about learning to build, Pro is where you land.",
+      "visual": {
+        "title": "Pro Plan — $20/mo",
+        "bullets": [
+          "$20/mo (~$17/mo yearly)",
+          "More usage than Free",
+          "Claude Code included (baseline limits)",
+          "Usage shared between web + Code",
+          "Entry point for serious building"
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "type": "slide",
+      "narration": "Max is for heavy users. Max five-times costs a hundred dollars a month and gives you five times the usage of Pro. Max twenty-times is two hundred a month for twenty times Pro usage. These plans are for people who are using Claude Code all day, every day — building multiple projects, running long sessions, hitting the Pro limits regularly. If you're just learning, you don't need Max. Start with Pro. If you find yourself running out of usage every day and you're building constantly, then consider Max. But most learners never need it.",
+      "visual": {
+        "title": "Max Plans — $100 or $200/mo",
+        "bullets": [
+          "Max 5× — $100/mo (5× Pro usage)",
+          "Max 20× — $200/mo (20× Pro usage)",
+          "For heavy, all-day Claude Code use",
+          "Most learners don't need this — start with Pro"
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "type": "slide",
+      "narration": "The API is different. Instead of a monthly subscription, you add credits to your Anthropic account and pay per token — a token is a piece of text, roughly a word. The prices as of this recording are: Haiku four point five is one dollar per million input tokens and five dollars per million output tokens. Sonnet four point six is three dollars input, fifteen output. Opus four point eight is five input, twenty-five output. There's no free tier — you pay for what you use. The API is good if you want to use Claude Code occasionally without paying twenty dollars every month, or if you're building your own tools that call Claude directly. But for most learners, a Pro subscription is simpler — you pay once a month and don't think about tokens. The API is more for developers who want fine control or who use Claude lightly and don't want a recurring charge.",
+      "visual": {
+        "title": "API — Pay-as-You-Go (per million tokens)",
+        "bullets": [
+          "Haiku 4.5 — $1 input / $5 output",
+          "Sonnet 4.6 — $3 input / $15 output",
+          "Opus 4.8 — $5 input / $25 output",
+          "No monthly fee — pay only what you use",
+          "Good for light/occasional use or custom tools",
+          "Most learners: Pro subscription is simpler"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "type": "browser",
+      "narration": "Let's look at how to actually upgrade. I'm on claude dot ai, signed in. I click my profile icon in the bottom left, then click Upgrade Plan. This page shows all the options — Free, Pro, Max five-times, Max twenty-times. I'm going to pick Pro. I click Subscribe on the Pro card. It asks for payment details — a credit or debit card. I enter the card number, expiration, security code, and billing address, then click Subscribe. That's it — the plan is active immediately. If you picked yearly billing, you pay up front for the year and save a bit per month. If you picked monthly, you're charged twenty dollars today and then every month on this date. Your usage resets daily. Now when I open Claude Code in my terminal and run a command, it uses my Pro plan limits instead of telling me I need to upgrade.",
+      "visual": {
+        "captureScript": "capture/ch1-l8-upgrade.ts",
+        "caption": "Upgrading to Pro on claude.ai — live demo"
+      }
+    },
+    {
+      "id": 8,
+      "type": "slide",
+      "narration": "What if you don't have a credit card? This is common outside the US. You have two main options. Option one: use the API instead of a subscription, and pay through OpenRouter with crypto. OpenRouter is a service that gives you one key to access many AI models, including Claude, and you can top up your account with crypto like USDC — no card needed. You pay roughly the same per-token price as the Anthropic API, plus a small fee. Then you point Claude Code at your OpenRouter key instead of an Anthropic key, and it works the same way. We'll cover OpenRouter in detail in a later lesson. Option two: get a crypto-funded virtual card. This is a Visa or Mastercard that you load with cryptocurrency, and then you can use it anywhere cards are accepted — including subscribing to Claude Pro. Services like this exist in many countries. You buy crypto, load the card, and use it like a normal card. Either path works — OpenRouter is faster to set up, a virtual card is more flexible for other subscriptions too.",
+      "visual": {
+        "title": "Paying Without a Credit Card",
+        "bullets": [
+          "Option 1: OpenRouter + crypto (USDC)",
+          "  → Pay-as-you-go API, no card needed",
+          "  → Point Claude Code at OpenRouter key",
+          "Option 2: Crypto-funded virtual card",
+          "  → Load card with crypto, use anywhere",
+          "  → Subscribe to Pro like a normal card",
+          "Both work — we'll cover OpenRouter in detail soon"
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "type": "slide",
+      "narration": "So which plan should you pick right now? If you haven't started yet, start with Free. Build your first pages in Artifacts, get comfortable with prompts, finish the early chapters. Free costs nothing and it's real. When you're ready to use Claude Code and build full projects — that's around Chapter Four in this course — upgrade to Pro. Twenty dollars a month unlocks Claude Code and gives you enough usage to learn seriously. If you're already building every day and you hit Pro limits, consider Max. If you want to use Claude Code occasionally and you don't want a monthly charge, try the API — but for most learners, Pro is simpler. And if you don't have a card, plan to use OpenRouter or get a virtual card before you need Claude Code. Write down your choice and your reason — that's the exercise for this lesson.",
+      "visual": {
+        "title": "Which Plan to Pick — Right Now",
+        "bullets": [
+          "Starting out? → Free (spend $0, learn the basics)",
+          "Ready for Claude Code? → Pro ($20/mo)",
+          "Building all day, hitting limits? → Max",
+          "Want occasional use, no monthly fee? → API",
+          "No credit card? → OpenRouter or virtual card",
+          "Write your choice + reason (the exercise)"
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "type": "slide",
+      "narration": "One last thing — prices change. Everything I said today is accurate as of this recording in July twenty twenty-six, but Anthropic can update prices or plans at any time. Always check the live page at claude dot ai slash pricing before you subscribe. The logic stays the same — Free to start, Pro for Claude Code, Max for heavy use, API for pay-as-you-go — but the exact dollar amounts might shift. Check the page, compare your budget, and pick the plan that fits.",
+      "visual": {
+        "title": "Prices Change — Always Check Live",
+        "bullets": [
+          "This lesson: accurate July 2026",
+          "Anthropic can update prices anytime",
+          "Check claude.ai/pricing before subscribing",
+          "Logic stays the same (Free → Pro → Max → API)",
+          "Dollar amounts may shift"
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "type": "outro",
+      "narration": "That's it — you now know every Claude plan, what it costs, and how to pay for it. Your exercise is to decide which plan fits you right now and write down why. If you're just starting, that's Free. If you're ready to build real projects, that's Pro. Next lesson we're going to compare Claude to other AI tools — ChatGPT, Gemini, local models — so you understand the whole landscape and why we picked Claude for this course. See you there.",
+      "visual": {
+        "title": "Next: Claude vs. Other AI Tools",
+        "subtitle": "Why we picked Claude (and when to use alternatives)"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "Which Claude plan is required to use Claude Code?",
+      "options": [
+        "Free (it's included)",
+        "Pro, Max, or API credits",
+        "Only Max plans",
+        "Claude Code is a separate purchase"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "If you don't have a credit card, which option lets you pay for Claude with crypto?",
+      "options": [
+        "You cannot use Claude without a card",
+        "OpenRouter (pay-as-you-go with USDC)",
+        "Only bank transfer",
+        "Free plan only"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "What is the main difference between a Pro subscription and the API?",
+      "options": [
+        "API is faster",
+        "Pro is monthly flat fee; API is pay-per-token",
+        "API includes Claude Code; Pro does not",
+        "There is no difference"
+      ],
+      "answer": 1,
+      "points": 10
+    }
+  ],
+  "exercise": "Decide which Claude plan fits you right now (Free, Pro, Max, or API) and write one sentence explaining why. Example: 'I'm picking Free because I'm just starting and want to learn Artifacts before spending money.' Or: 'I'm picking Pro because I'm ready to use Claude Code and build real projects.' Save your answer — you'll refer back to it when you're ready to upgrade.",
+  "verifyCommands": []
+}

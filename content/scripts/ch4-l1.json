@@ -1,0 +1,160 @@
+{
+  "lessonId": "ch4-l1",
+  "title": "What Is Claude Code and Why It's a Game Changer",
+  "totalWords": 892,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. You've been building in the browser with Claude and Artifacts — and that's powerful. But there's a limit. You can't build a full multi-page app, you can't connect to real databases, and you can't work with files on your computer. That's where Claude Code comes in. This lesson shows you what Claude Code is, why it's a game changer, and what it unlocks that Artifacts can't do. Let's go.",
+      "visual": {
+        "title": "What Is Claude Code?",
+        "subtitle": "Chapter 4, Lesson 1 — Nabulines Academy"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "First — what is Claude Code? It's a command-line tool. A *command-line tool* is a program you run by typing commands in a terminal window — that text window where you talk directly to your computer. You install Claude Code once, then you can ask Claude to build and edit projects *on your actual computer*, not just in the browser. It reads and writes real files. It can create folders, install libraries, run servers, connect to databases — everything a real developer does. Claude Code is Claude, but working in your file system instead of a sandbox.",
+      "visual": {
+        "title": "Claude Code = Claude on Your Computer",
+        "bullets": [
+          "A command-line tool you run in a terminal",
+          "Reads and writes real files on your machine",
+          "Can create folders, install libraries, run servers",
+          "Not limited to a single browser window"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "slide",
+      "narration": "Why does that matter? Because Artifacts has limits. Artifacts is amazing for single-page prototypes — a calculator, a game, a landing page. But you can't build a multi-page site with navigation. You can't save data to a database. You can't upload images or files. You can't connect to external APIs that need secret keys. And you can't version control your work with Git. Artifacts is a sandbox — safe, instant, but small. Claude Code breaks out of the sandbox. It's the difference between sketching on a napkin and building the real thing.",
+      "visual": {
+        "title": "What Artifacts Can't Do",
+        "bullets": [
+          "Multi-page apps with real navigation",
+          "Save data to a database",
+          "Upload files or images",
+          "Use secret API keys securely",
+          "Version control with Git and GitHub"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "slide",
+      "narration": "Here's what Claude Code unlocks. One: multi-page apps. You can build a blog with ten pages, a portfolio site, a dashboard with tabs — real navigation, real structure. Two: databases. You can store user accounts, posts, comments, anything that needs to persist. Three: file uploads. Users can upload profile pictures, documents, whatever your app needs. Four: secrets and APIs. You can connect to Stripe for payments, SendGrid for emails, any service that requires a private key — and keep those keys safe in environment files that never go public. Five: version control. Every change is tracked in Git, you can roll back mistakes, and you push your work to GitHub so it's backed up and shareable. And six: deployment. You can deploy a real app to a real URL that anyone can visit, not just a preview link.",
+      "visual": {
+        "title": "What Claude Code Unlocks",
+        "bullets": [
+          "Multi-page apps with real navigation",
+          "Databases — store users, posts, data",
+          "File uploads — images, documents",
+          "Secrets & APIs — payments, emails, secure keys",
+          "Git version control — track changes, roll back",
+          "Real deployment — live sites anyone can visit"
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "type": "slide",
+      "narration": "Let's compare. Say you want to build a blog. In Artifacts, you could make a single page that *looks* like a blog — a header, some fake posts. But the posts are hard-coded. You can't add a new post without editing the code. There's no admin panel, no database, no way to navigate between pages. It's a static demo. With Claude Code, you build the real thing. A homepage that lists posts. Individual post pages with unique URLs. An admin panel where you write and publish new posts. A database that stores everything. And you deploy it so the world can read your blog. That's the difference — from demo to real.",
+      "visual": {
+        "title": "Example: Building a Blog",
+        "bullets": [
+          "Artifacts: single page, fake posts, no navigation",
+          "Claude Code: real pages, real posts, admin panel",
+          "Database stores content, users can navigate",
+          "Deploy it live — a real blog anyone can visit"
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "type": "terminal",
+      "narration": "Here's what it looks like to start a project with Claude Code. You open your terminal and type `claude-code`. That launches the interactive session. You tell Claude what you want to build — say, a task tracker with a database. Claude creates the folder structure, writes the code files, installs the libraries it needs, and sets up the database. You can see every file it creates in real time. When it's done, you run the app locally — it opens in your browser at `localhost:3000`, but now it's a real server running on your machine, not a browser sandbox. You test it, ask Claude to add a feature — maybe a dark mode toggle — and it edits the files live. That's the workflow. You describe, Claude builds, you see the real files.",
+      "visual": {
+        "captureScript": "capture/ch4-l1-terminal-demo.ts",
+        "caption": "Launching Claude Code and starting a project"
+      }
+    },
+    {
+      "id": 7,
+      "type": "slide",
+      "narration": "One important thing: Claude Code requires a paid Claude plan or API credits. The free claude.ai plan doesn't include Claude Code usage. You need either a Pro plan — that's twenty dollars a month as of this recording, check the live page — or you can pay-as-you-go with Anthropic API credits. If you don't have a credit card, you can use OpenRouter and pay with crypto, or get a crypto-funded virtual card. We'll cover all the payment options in the next lesson. For now, just know: this is where the course moves from free to paid, because Claude Code is a professional tool.",
+      "visual": {
+        "title": "Claude Code Requires Payment",
+        "bullets": [
+          "Not included in the free claude.ai plan",
+          "Need: Claude Pro ($20/mo) OR API credits",
+          "No card? Use OpenRouter + crypto",
+          "Next lesson covers all payment options"
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "type": "slide",
+      "narration": "So that's Claude Code. It's Claude, but working on your real computer instead of a browser sandbox. It unlocks multi-page apps, databases, file uploads, secrets, version control, and real deployment. It's the difference between a prototype and a product. And it's the tool you'll use for the rest of this course — from building your portfolio to automating your life to launching a startup. This is where it gets real.",
+      "visual": {
+        "title": "Claude Code = Real Projects",
+        "bullets": [
+          "Multi-page apps, databases, file uploads",
+          "Version control, secrets, real deployment",
+          "From prototype to product",
+          "The tool for the rest of the course"
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "type": "outro",
+      "narration": "Your exercise: write down one project that's too big for Artifacts but that Claude Code could handle. A blog, a task tracker, a portfolio with a contact form that emails you, a recipe site with a database — anything that needs multiple pages or persistent data. Next lesson, we'll walk through exactly how to get Claude Code set up, how to pay for it if you don't have a credit card, and what it costs. See you there.",
+      "visual": {
+        "title": "Next: Setting Up Claude Code",
+        "subtitle": "Chapter 4, Lesson 2"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What is the main difference between Artifacts and Claude Code?",
+      "options": [
+        "Artifacts is faster",
+        "Claude Code works on your real computer with real files",
+        "Artifacts is more powerful",
+        "Claude Code only works in the browser"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "Which of these can Claude Code do that Artifacts cannot?",
+      "options": [
+        "Build a single-page calculator",
+        "Create a multi-page blog with a database",
+        "Show a preview in the browser",
+        "Use HTML and CSS"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "What do you need to use Claude Code?",
+      "options": [
+        "Only a free claude.ai account",
+        "A paid Claude plan or API credits",
+        "A GitHub account",
+        "A custom domain"
+      ],
+      "answer": 1,
+      "points": 10
+    }
+  ],
+  "exercise": "Write down one project too big for Artifacts that Claude Code could handle — for example, a blog with multiple posts, a task tracker with a database, or a portfolio site with a contact form that emails you.",
+  "verifyCommands": [
+    "claude-code"
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "lessonId": "ch2-l2",
+  "title": "Prompting for Design: Reference, Theme, Font, Feel",
+  "totalWords": 820,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. In the last lesson, you learned how to write a clear prompt that gets the structure right. But structure is only half the story. If you want your site to actually look good — not just generic white background, Times New Roman text — you need to tell the AI what vibe you're going for. This lesson is about prompting for design: reference sites, themes, fonts, and feel. By the end, you'll know exactly how to describe the look you want so Claude nails it the first time.",
+      "visual": {
+        "title": "Prompting for Design",
+        "subtitle": "Reference, Theme, Font, Feel"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "Here's the problem. You tell Claude: build me a landing page for my coffee shop. Claude gives you a page. It works. The text is there. But it looks like a Word document from two thousand three. White background. Black text. No personality. Why? Because you didn't tell it what you wanted it to look like. The AI is smart, but it's not a mind reader. If you don't describe the vibe, it defaults to plain and boring. So how do you fix that? You add design instructions to your prompt. Four things: a reference site, a theme or color palette, a font style, and the overall feel or mood. Let's break each one down.",
+      "visual": {
+        "title": "Why your page looks boring",
+        "bullets": [
+          "You told Claude WHAT to build",
+          "You didn't tell it HOW to look",
+          "AI defaults to plain white + black text",
+          "Fix: add design instructions to your prompt"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "slide",
+      "narration": "First: reference sites. This is the fastest way to get the look you want. Find a real site you love — maybe a competitor, maybe just a site with a vibe you like — and tell Claude: make it look like this. You can paste the URL right in the prompt. Claude will visit the page, see the layout, colors, fonts, spacing, and mimic that style. You're not copying content. You're copying the feel. Example: 'Build a landing page for my handmade jewelry shop. Style it like apple dot com — clean, lots of white space, big product photos, minimal text.' Boom. Claude knows exactly what you mean. No guessing.",
+      "visual": {
+        "title": "1. Reference sites",
+        "bullets": [
+          "Find a site you love (competitor or any site)",
+          "Paste the URL in your prompt",
+          "Claude mimics the layout, colors, spacing",
+          "Example: 'Style it like apple.com — clean, minimal'",
+          "You copy the FEEL, not the content"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "slide",
+      "narration": "Second: theme and colors. If you don't have a reference site, describe the color palette. Be specific. Don't say 'make it blue.' Say 'dark navy background, white text, gold accents for buttons.' Or: 'warm earth tones — beige, terracotta, olive green.' Or: 'cyberpunk neon — black background, hot pink and electric blue highlights.' The more specific you are, the better the result. You can also say things like 'dark mode' or 'light and airy' or 'high contrast for readability.' Claude understands all of that.",
+      "visual": {
+        "title": "2. Theme & colors",
+        "bullets": [
+          "Be specific: 'dark navy, white text, gold buttons'",
+          "Or: 'warm earth tones — beige, terracotta, olive'",
+          "Or: 'cyberpunk neon — black, hot pink, electric blue'",
+          "Keywords work: 'dark mode', 'high contrast', 'pastel'",
+          "Vague = boring. Specific = beautiful."
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "type": "slide",
+      "narration": "Third: fonts. Font choice changes everything. A law firm site in Comic Sans feels wrong. A kids' party site in Times New Roman feels dead. So tell Claude what font vibe you want. You can name specific fonts if you know them: 'Use Inter for body text and Playfair Display for headings.' Or describe the style: 'modern sans-serif' or 'elegant serif' or 'playful rounded font.' Claude will pick something that matches. And if you're not sure, just say 'pick a professional font pairing' and it'll choose two fonts that work well together — one for headings, one for body text.",
+      "visual": {
+        "title": "3. Font style",
+        "bullets": [
+          "Name fonts: 'Inter + Playfair Display'",
+          "Or describe: 'modern sans-serif', 'elegant serif'",
+          "Font = personality (Comic Sans ≠ law firm)",
+          "Not sure? Say 'pick a professional font pairing'",
+          "Claude chooses heading + body fonts that match"
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "type": "slide",
+      "narration": "Fourth: overall feel or mood. This is the secret weapon. Describe the emotion you want the page to give off. 'Calm and trustworthy.' 'Bold and energetic.' 'Luxurious and exclusive.' 'Fun and approachable.' Claude uses that to guide every design choice — spacing, colors, button shapes, image style. It's like giving the AI a mood board in words. Combine this with the other three and you get a page that feels intentional, not random.",
+      "visual": {
+        "title": "4. Overall feel / mood",
+        "bullets": [
+          "'Calm and trustworthy'",
+          "'Bold and energetic'",
+          "'Luxurious and exclusive'",
+          "'Fun and approachable'",
+          "Claude uses this for spacing, colors, shapes",
+          "Mood board in words = intentional design"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "type": "browser",
+      "narration": "Let me show you the difference. I'm going to ask Claude to build the same landing page twice. First prompt: 'Build a landing page for a yoga studio. Include a hero section, class schedule, and contact form.' Watch what happens. Okay, it's functional. White background, black text, basic layout. It works, but it has no soul. Now I'm going to add design instructions. 'Build a landing page for a yoga studio. Style it like calm dot com — soft pastels, lots of breathing room, rounded corners. Use a warm beige background, sage green accents, and an elegant serif font for headings. The vibe should feel peaceful and welcoming.' Look at that. Same content, completely different feel. The colors are soothing. The spacing is generous. The font feels intentional. That's the power of prompting for design.",
+      "visual": {
+        "captureScript": "capture/ch2-l2-design-demo.ts",
+        "caption": "Same content, two prompts: plain vs. designed"
+      }
+    },
+    {
+      "id": 8,
+      "type": "slide",
+      "narration": "One more tip: you can iterate. If Claude gives you something close but not quite right, just say 'make the buttons rounder' or 'use a darker blue' or 'add more space between sections.' You don't have to start over. Tweak and refine until it feels right. Design is a conversation, not a one-shot deal.",
+      "visual": {
+        "title": "Iterate and refine",
+        "bullets": [
+          "Close but not perfect? Tweak it.",
+          "'Make the buttons rounder'",
+          "'Use a darker blue'",
+          "'Add more space between sections'",
+          "Design is a conversation, not one-shot"
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "type": "slide",
+      "narration": "To recap: prompting for design means giving Claude four things. A reference site to copy the vibe from. A theme or color palette. A font style. And the overall mood or feel. Do that, and your pages go from boring default to intentional and beautiful. You're not just building a site that works — you're building a site that looks like you meant it.",
+      "visual": {
+        "title": "Recap: 4 design ingredients",
+        "bullets": [
+          "1. Reference site (copy the vibe)",
+          "2. Theme / colors (be specific)",
+          "3. Font style (name it or describe it)",
+          "4. Overall feel / mood (emotion in words)",
+          "Result: intentional, beautiful, not boring"
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "type": "outro",
+      "narration": "Your exercise: go back to the page you built in the last lesson. This time, rebuild it with design instructions. Pick a reference site you love, describe the colors and fonts, and set the mood. Then compare the two versions. You'll see the difference immediately. Next lesson, we're going to talk about images — how to use AI-generated images, free stock photos, and placeholders so your page doesn't feel empty. See you there.",
+      "visual": {
+        "title": "Next: Images & Visuals",
+        "subtitle": "Make your page feel full, not empty"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What's the fastest way to get the design look you want?",
+      "options": [
+        "Describe every color in detail",
+        "Paste a reference site URL in the prompt",
+        "Let Claude choose randomly",
+        "Use only black and white"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "Which is a better color instruction?",
+      "options": [
+        "'Make it blue'",
+        "'Dark navy background, white text, gold buttons'",
+        "'Use nice colors'",
+        "'Colorful'"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "What does describing the 'overall feel' help Claude do?",
+      "options": [
+        "Write better text",
+        "Choose faster hosting",
+        "Guide every design choice (spacing, colors, shapes)",
+        "Add more pages"
+      ],
+      "answer": 2,
+      "points": 10
+    }
+  ],
+  "exercise": "Rebuild your landing page from the previous lesson. This time, add design instructions: pick a reference site (paste the URL), describe the color palette, choose a font style, and set the mood. Compare the plain version to the designed version. Notice how much more intentional it feels.",
+  "verifyCommands": []
+}

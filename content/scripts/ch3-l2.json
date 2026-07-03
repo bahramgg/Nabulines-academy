@@ -1,0 +1,249 @@
+{
+  "lessonId": "ch3-l2",
+  "title": "Deploy with Cloudflare Pages — Your Site Is Live",
+  "totalWords": 1847,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. In the last lesson, you pushed your site to GitHub. Now we're taking the final step — putting it on the internet so anyone can see it. We're using Cloudflare Pages, which is completely free and gives you a real URL. By the end of this lesson, your site will be live.",
+      "visual": {
+        "title": "Deploy with Cloudflare Pages",
+        "subtitle": "Your Site Is Live"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "What is Cloudflare Pages? It's a service that takes your GitHub repo and turns it into a live website. Every time you push a change to GitHub, Cloudflare automatically rebuilds your site. It's free — no credit card required to start — and it gives you a URL that ends in pages dot dev. Later you can add your own custom domain, but the pages dot dev URL works forever and costs nothing.",
+      "visual": {
+        "title": "What is Cloudflare Pages?",
+        "bullets": [
+          "Takes your GitHub repo → live website",
+          "Auto-rebuilds when you push changes",
+          "Free forever (no card needed)",
+          "Gives you a *.pages.dev URL",
+          "Can add custom domain later"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "slide",
+      "narration": "Here's what we're doing. First, create a free Cloudflare account. Second, connect it to your GitHub account so Cloudflare can see your repos. Third, pick the repo you pushed in the last lesson. Fourth, click deploy. Cloudflare builds your site and gives you a live link. That's it — four steps and your site is on the internet.",
+      "visual": {
+        "title": "The Four Steps",
+        "bullets": [
+          "1. Create Cloudflare account (free)",
+          "2. Connect to GitHub",
+          "3. Pick your repo",
+          "4. Deploy → get live URL"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "browser",
+      "narration": "Let's do it. Open your browser and go to pages dot cloudflare dot com. You'll see a big button that says Sign Up or Log In. Click Sign Up. Cloudflare asks for your email and a password. Use a real email — you'll need to verify it. Type your email, create a password, and click Create Account. Cloudflare sends a verification email. Open your email, find the message from Cloudflare, and click the link inside. That takes you back to Cloudflare and confirms your account. Now you're logged in.",
+      "visual": {
+        "captureScript": "capture/ch3-l2-signup.ts",
+        "caption": "Sign up at pages.cloudflare.com — verify your email"
+      }
+    },
+    {
+      "id": 5,
+      "type": "browser",
+      "narration": "You're now on the Cloudflare Pages dashboard. It's empty because you haven't deployed anything yet. Look for a button that says Create a project or Connect to Git. Click it. Cloudflare asks you to connect a Git provider — that means GitHub or GitLab. Click Connect GitHub. A new window pops up from GitHub asking if you want to let Cloudflare access your repos. This is normal — Cloudflare needs permission to read your code and watch for changes. Click Authorize Cloudflare. GitHub might ask for your password again to confirm. Type it and continue.",
+      "visual": {
+        "captureScript": "capture/ch3-l2-connect-github.ts",
+        "caption": "Connect Cloudflare to GitHub — authorize access"
+      }
+    },
+    {
+      "id": 6,
+      "type": "slide",
+      "narration": "What just happened? You gave Cloudflare permission to see your GitHub repos. Cloudflare doesn't get your password — GitHub handles the login. Cloudflare can now read your code and set up a webhook. A webhook is a way for GitHub to tell Cloudflare, hey, someone just pushed new code, go rebuild the site. You don't have to do anything — it happens automatically from now on.",
+      "visual": {
+        "title": "What Did We Just Do?",
+        "bullets": [
+          "Cloudflare can now see your repos",
+          "GitHub stays in control (no password shared)",
+          "Webhook = auto-rebuild on every push",
+          "You never have to manually deploy again"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "type": "browser",
+      "narration": "Back on Cloudflare, you now see a list of your GitHub repos. Find the one you pushed in the last lesson — the repo with your index dot html and style dot css. Click on it. Cloudflare shows a setup page. It asks for a project name — this becomes part of your URL. The default is your repo name, which is fine. Leave it or change it to something short and memorable. Next, Cloudflare asks for the build settings. For a simple HTML site, you don't need any build command — leave that blank. The output directory is also blank because your files are right in the root of the repo. If Cloudflare pre-fills anything, just clear it. Now click Save and Deploy at the bottom.",
+      "visual": {
+        "captureScript": "capture/ch3-l2-deploy.ts",
+        "caption": "Pick your repo, name your project, click Save and Deploy"
+      }
+    },
+    {
+      "id": 8,
+      "type": "slide",
+      "narration": "What are build settings? Some projects need a build step — like converting TypeScript to JavaScript or bundling files. A static HTML site doesn't need that. Your files are ready as-is. So we leave the build command empty. The output directory is where the final files live. For us, they're in the root — the top level of the repo — so we leave that empty too. Cloudflare just grabs your files and serves them directly.",
+      "visual": {
+        "title": "Build Settings (for a simple site)",
+        "bullets": [
+          "Build command: empty (no build needed)",
+          "Output directory: empty (files in root)",
+          "Cloudflare serves your HTML/CSS as-is",
+          "More complex projects need these filled in"
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "type": "browser",
+      "narration": "Cloudflare is now building your site. You see a progress screen — it says Initializing, then Building, then Deploying. This takes about thirty seconds to a minute. What's happening? Cloudflare is copying your repo, checking the files, and uploading them to their global network. When it's done, you see a green checkmark and a message that says Success. Below that is your live URL — something like your-project-name dot pages dot dev. Click that link. A new tab opens, and there's your site — live on the internet. Anyone with that link can see it.",
+      "visual": {
+        "captureScript": "capture/ch3-l2-live.ts",
+        "caption": "Build completes → click the live *.pages.dev URL"
+      }
+    },
+    {
+      "id": 10,
+      "type": "slide",
+      "narration": "Your site is now deployed. That pages dot dev URL is permanent — it won't disappear unless you delete the project. Every time you push a change to GitHub, Cloudflare automatically rebuilds and updates the live site. You don't have to come back to this dashboard and click deploy again. Push to GitHub, wait a minute, refresh your live site, and the changes are there. That's the power of continuous deployment.",
+      "visual": {
+        "title": "Your Site Is Live",
+        "bullets": [
+          "*.pages.dev URL is permanent (free forever)",
+          "Auto-deploys on every GitHub push",
+          "Changes appear ~1 minute after push",
+          "Share the link — anyone can visit"
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "type": "slide",
+      "narration": "What if something goes wrong? The most common issue is Cloudflare can't find your files. Check that your index dot html is in the root of your repo, not inside a folder. If it's in a folder, either move it to the root or set the output directory in Cloudflare to that folder name. Another issue: the build fails. For a static site, that usually means you left a build command filled in by mistake. Go back to the project settings, clear the build command, and redeploy. If the site loads but looks broken, check your CSS path in the HTML — make sure it says href equals quote style dot css quote, not a full URL or wrong path.",
+      "visual": {
+        "title": "Common Issues",
+        "bullets": [
+          "Files not found → index.html must be in repo root",
+          "Build fails → clear the build command (static sites don't need it)",
+          "Styles missing → check CSS path in HTML",
+          "Settings → redeploy if you change anything"
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "type": "slide",
+      "narration": "Let's talk about cost — because Cloudflare Pages is completely free for what we're doing. The free plan includes unlimited sites, unlimited builds, and free bandwidth. Bandwidth means the data sent when someone visits your site. Most hosting charges you for bandwidth — Cloudflare doesn't. There's no hidden limit that suddenly costs you money. The only paid feature is if you want advanced stuff like a dedicated IP or enterprise support. For learning and even real projects, the free plan is more than enough. You never need a credit card to use Cloudflare Pages.",
+      "visual": {
+        "title": "Cost: $0",
+        "bullets": [
+          "Cloudflare Pages free plan:",
+          "Unlimited sites, unlimited builds",
+          "Free bandwidth (no surprise charges)",
+          "No credit card required",
+          "Paid features exist (enterprise level) — you don't need them"
+        ]
+      }
+    },
+    {
+      "id": 13,
+      "type": "slide",
+      "narration": "What about a custom domain? Right now your site is at your-project dot pages dot dev. That's fine, but you might want your own dot com. You can add a custom domain to Cloudflare Pages for free — you just have to buy the domain first. A domain costs about ten to twelve dollars a year. You buy it from a registrar like Namecheap or Cloudflare itself, then connect it in the Pages dashboard. We'll cover that in a later lesson. For now, the pages dot dev URL is perfect — it's real, it's live, and it's yours.",
+      "visual": {
+        "title": "Custom Domains (optional)",
+        "bullets": [
+          "Right now: *.pages.dev (free, works forever)",
+          "Want your-name.com? Buy a domain (~$10–12/year)",
+          "Connect it in Cloudflare Pages (free)",
+          "We'll cover this in a later lesson"
+        ]
+      }
+    },
+    {
+      "id": 14,
+      "type": "slide",
+      "narration": "Here's your workflow from now on. You edit your code in Claude Code or any editor. You save the file. You open a terminal and run git add dot, git commit, git push. Wait a minute. Refresh your live site. The changes are there. That's it. No uploading files manually, no FTP, no clicking deploy buttons. You push to GitHub, Cloudflare sees the change, rebuilds, and your site updates. This is how real developers work — and now you're doing it too.",
+      "visual": {
+        "title": "Your New Workflow",
+        "bullets": [
+          "1. Edit code (Claude Code or any editor)",
+          "2. git add . && git commit && git push",
+          "3. Wait ~1 minute",
+          "4. Refresh live site → changes appear",
+          "No manual uploads, no FTP — just push"
+        ]
+      }
+    },
+    {
+      "id": 15,
+      "type": "slide",
+      "narration": "Let's recap. You created a free Cloudflare account. You connected it to GitHub. You picked your repo and clicked deploy. Cloudflare built your site and gave you a live URL. That URL is permanent and free. Every time you push to GitHub, the site updates automatically. You now have a real, live website that anyone can visit. This is a huge milestone — you went from zero to deployed in three lessons.",
+      "visual": {
+        "title": "What You Just Did",
+        "bullets": [
+          "Created Cloudflare account (free)",
+          "Connected to GitHub",
+          "Deployed your repo → live *.pages.dev URL",
+          "Auto-deploys on every push",
+          "You have a real, live website"
+        ]
+      }
+    },
+    {
+      "id": 16,
+      "type": "outro",
+      "narration": "Your exercise: deploy your repo and open the live link. Copy the pages dot dev URL and paste it somewhere — a note, a message to a friend, anywhere. That's your site. You built it, you pushed it, and now it's on the internet. In the next lesson, we'll make a change to your site, push it, and watch it update live. See you there.",
+      "visual": {
+        "title": "Exercise",
+        "subtitle": "Deploy your repo and open the live *.pages.dev link"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What does Cloudflare Pages do?",
+      "options": [
+        "Turns your GitHub repo into a live website",
+        "Writes code for you",
+        "Hosts your email"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "What happens when you push a change to GitHub after deploying?",
+      "options": [
+        "Nothing, you have to manually redeploy",
+        "Cloudflare automatically rebuilds and updates the live site",
+        "The site breaks"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "How much does Cloudflare Pages cost for a static site?",
+      "options": [
+        "$5/month",
+        "$0 (completely free)",
+        "$1/month"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "Where should index.html be in your repo for Cloudflare to find it?",
+      "options": [
+        "Inside a folder called 'src'",
+        "In the root (top level) of the repo",
+        "It doesn't matter"
+      ],
+      "answer": 1,
+      "points": 10
+    }
+  ],
+  "exercise": "Deploy your repo to Cloudflare Pages and open the live *.pages.dev link. Copy the URL and save it — that's your live site.",
+  "verifyCommands": []
+}

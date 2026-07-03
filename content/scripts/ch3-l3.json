@@ -1,0 +1,226 @@
+{
+  "lessonId": "ch3-l3",
+  "title": "Buy a Domain and Connect DNS (Simple and Visual)",
+  "totalWords": 1847,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. In this lesson, you're going to buy your own custom domain and connect it to your live site. Right now your site lives at something like project-name dot pages dot dev. That works, but a custom domain — like your-name dot com — looks professional and is yours forever. We'll walk through every click, show you exactly what it costs, and get your domain live in under ten minutes. Let's go.",
+      "visual": {
+        "title": "Buy a Domain & Connect DNS",
+        "subtitle": "Nabulines Academy • Chapter 3 Lesson 3"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "First, what is a domain? A domain is the address people type to reach your site — like google dot com or your-name dot dev. When you buy a domain, you're renting that name for a year or more. You don't own it forever, but as long as you renew it, it's yours. Domains cost around ten to twelve dollars per year — that's roughly one dollar a month. Some endings like dot com or dot net cost a bit more, some like dot xyz or dot dev cost a bit less. We'll use Cloudflare to buy the domain because it's the simplest path — you're already using Cloudflare Pages, so everything stays in one place. No hidden fees, no upsells. Just the domain at cost.",
+      "visual": {
+        "title": "What is a Domain?",
+        "bullets": [
+          "The address people type to reach your site",
+          "You rent it by the year (~$10–12 / year)",
+          "Renew to keep it — it's yours as long as you pay",
+          "We'll buy through Cloudflare (no hidden fees)"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "slide",
+      "narration": "What about paying? Cloudflare accepts credit cards and PayPal. If you don't have a credit card, you have two options. One: use a crypto-funded virtual card — you load it with USDC or another stablecoin, and it works like a Visa anywhere. Two: ask a parent or friend to buy the domain for you and pay them back in cash or crypto. A domain is cheap enough that most people can help. Once you have it, it's registered in your name and you control it. Prices as of this recording — always check the live Cloudflare page when you're ready to buy.",
+      "visual": {
+        "title": "How to Pay (No Card? No Problem)",
+        "bullets": [
+          "Cloudflare accepts: card, PayPal",
+          "No card? Crypto-funded virtual card (load with USDC)",
+          "Or: ask someone to buy it, pay them back",
+          "~$10–12 / year (check live price on Cloudflare)"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "browser",
+      "narration": "Let's buy a domain. Open your browser and go to dash dot cloudflare dot com. Log in with the same account you used for Pages. On the left sidebar, click Domain Registration. Then click Register Domain. You'll see a search box. Type the name you want — maybe your name, your project name, or a fun keyword. Hit search. Cloudflare shows you what's available and the price for each ending. Dot com is classic but often taken. Dot dev is great for developers. Dot xyz is cheap and quirky. Pick one you like and can afford. Click it, then click Purchase. Cloudflare asks for payment info. Enter your card or PayPal. Confirm. Done. You now own that domain for one year. Cloudflare will email you a receipt and a reminder before it expires. The domain appears in your Cloudflare dashboard under Domain Registration. That's it — you own a piece of the internet.",
+      "visual": {
+        "captureScript": "capture/ch3-l3-buy-domain.ts",
+        "caption": "Buying a domain on Cloudflare — search, pick, pay, done"
+      }
+    },
+    {
+      "id": 5,
+      "type": "slide",
+      "narration": "Now we connect the domain to your Pages site. This is called DNS — Domain Name System. DNS is like the phone book of the internet. When someone types your domain, DNS tells their browser where to find your site. We're going to point your new domain at your Cloudflare Pages project. Cloudflare makes this automatic — you click a few buttons and it does the wiring for you. No manual IP addresses, no confusing records. Just point and click.",
+      "visual": {
+        "title": "What is DNS?",
+        "bullets": [
+          "DNS = the internet's phone book",
+          "Connects your domain to your site's location",
+          "Cloudflare automates it — no manual setup",
+          "You just click and it works"
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "type": "browser",
+      "narration": "Go back to your Cloudflare dashboard. Click Workers and Pages on the left. Find your project — the one that's live at pages dot dev. Click it. At the top, click the Custom Domains tab. Click Add Custom Domain. A box pops up. Type your new domain — the one you just bought — exactly as it appears in Domain Registration. Hit Add. Cloudflare checks that you own the domain. Since you bought it through Cloudflare, it knows you own it. It automatically creates the DNS records — a CNAME that points your domain to your Pages site. You'll see a message: Domain added successfully. That's it. Your domain is now connected.",
+      "visual": {
+        "captureScript": "capture/ch3-l3-connect-dns.ts",
+        "caption": "Adding a custom domain to your Pages site — Cloudflare does the DNS automatically"
+      }
+    },
+    {
+      "id": 7,
+      "type": "slide",
+      "narration": "How long does it take to go live? DNS changes can take a few minutes to a few hours to spread across the internet. Usually it's fast — five to fifteen minutes. Cloudflare shows a status: Pending or Active. When it says Active, your domain is live. Open a new browser tab, type your domain, hit enter. Your site loads. It's the same site, same code, but now it's at your custom address. If it doesn't work immediately, wait ten minutes and try again. DNS is not instant, but it's reliable. Once it's active, it stays active. You never have to do this again unless you move to a different host.",
+      "visual": {
+        "title": "How Long Until It's Live?",
+        "bullets": [
+          "DNS changes take 5–15 minutes (sometimes up to an hour)",
+          "Cloudflare shows status: Pending → Active",
+          "When Active, type your domain — your site loads",
+          "Once live, it stays live (no repeat setup)"
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "type": "slide",
+      "narration": "What about HTTPS — the lock icon in the browser? Cloudflare gives you free HTTPS automatically. As soon as your domain is active, Cloudflare issues an SSL certificate. That's what makes the connection secure — the S in HTTPS. You don't have to do anything. It just works. Your site is encrypted, professional, and trusted. Visitors see the lock icon. No extra cost, no extra steps. This is why Cloudflare is the easiest way to host — everything you need is included.",
+      "visual": {
+        "title": "Free HTTPS (Automatic)",
+        "bullets": [
+          "Cloudflare gives you HTTPS for free",
+          "SSL certificate issued automatically",
+          "Secure connection, lock icon in browser",
+          "No setup, no cost — it just works"
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "type": "slide",
+      "narration": "What if you bought the domain somewhere else — like Namecheap or GoDaddy? You can still use it with Cloudflare Pages. You just have to point the DNS manually. Log in to wherever you bought the domain. Find the DNS settings. Add a CNAME record. The name is at sign or your domain. The value is your Pages URL — the pages dot dev address. Save. Then go to Cloudflare Pages, add the custom domain like we showed. Cloudflare will verify the CNAME and activate the domain. It's a few more steps, but it works the same way. If you're starting fresh, buying through Cloudflare is simpler — one place, one login, automatic DNS.",
+      "visual": {
+        "title": "Domain from Another Registrar?",
+        "bullets": [
+          "You can use a domain from Namecheap, GoDaddy, etc.",
+          "Add a CNAME record pointing to your .pages.dev URL",
+          "Then add the domain in Cloudflare Pages",
+          "Easier to buy through Cloudflare (auto DNS)"
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "type": "browser",
+      "narration": "Let's see the final result. Open your browser. Type your custom domain. Hit enter. Your site loads. Same design, same content, but now it's at your address. The URL bar shows your domain. The lock icon shows it's secure. Share this link with anyone — it's your real, live, professional site. You built it, you deployed it, you own the domain. This is what a shipped project looks like. Every change you push to GitHub will update this domain automatically. You're not just learning to code — you're learning to ship real work to the real internet.",
+      "visual": {
+        "captureScript": "capture/ch3-l3-live-domain.ts",
+        "caption": "Your site live on your custom domain — secure, professional, yours"
+      }
+    },
+    {
+      "id": 11,
+      "type": "slide",
+      "narration": "Common issues. One: domain not resolving yet. Wait fifteen minutes, clear your browser cache, try again. DNS is not instant. Two: still showing the pages dot dev URL. Make sure you added the custom domain in Cloudflare Pages and it says Active. Three: HTTPS not working. Cloudflare issues the certificate automatically, but it can take a few minutes. Refresh and check again. Four: typo in the domain name. Double-check you typed it exactly as it appears in Domain Registration. Most issues are just waiting for DNS to propagate. Be patient. It works.",
+      "visual": {
+        "title": "Common Issues (and Fixes)",
+        "bullets": [
+          "Domain not resolving? Wait 15 min, clear cache, retry",
+          "Still .pages.dev? Check Custom Domains tab (must be Active)",
+          "No HTTPS? Certificate takes a few minutes — refresh",
+          "Typo? Match the exact domain from Domain Registration"
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "type": "slide",
+      "narration": "What about renewing? Domains expire after one year unless you renew them. Cloudflare will email you before it expires — usually thirty days, then seven days, then one day. You can turn on auto-renew in the Domain Registration settings. Cloudflare charges your card automatically and your domain stays live. If you forget to renew, your domain goes offline. Someone else can buy it. So set a reminder or turn on auto-renew. Losing a domain you've used for a year is painful — don't let it happen. Treat your domain like your phone number. Keep it active.",
+      "visual": {
+        "title": "Renewing Your Domain",
+        "bullets": [
+          "Domains expire after 1 year (must renew)",
+          "Cloudflare emails you 30, 7, 1 day before expiry",
+          "Turn on auto-renew (set it and forget it)",
+          "If it expires, someone else can buy it — don't lose it"
+        ]
+      }
+    },
+    {
+      "id": 13,
+      "type": "slide",
+      "narration": "Let's recap. You bought a custom domain for around ten to twelve dollars a year. You connected it to your Cloudflare Pages site with automatic DNS. Cloudflare gave you free HTTPS. Your site is now live at your own address — secure, professional, and yours. Every time you push code to GitHub, your domain updates. You've gone from zero to a real, shipped project with a custom domain. That's the full deployment loop. You're not a beginner anymore — you're a builder who ships.",
+      "visual": {
+        "title": "Recap: You Now Own a Domain",
+        "bullets": [
+          "Bought a domain (~$10–12 / year)",
+          "Connected it to Pages (automatic DNS)",
+          "Free HTTPS (secure, professional)",
+          "Your site is live at your custom address"
+        ]
+      }
+    },
+    {
+      "id": 14,
+      "type": "outro",
+      "narration": "Your exercise: connect a custom domain to your Cloudflare Pages site. Buy one through Cloudflare or use one you already own. Add it in the Custom Domains tab. Wait for it to go Active. Then open your domain in a browser and see your site live. Take a screenshot of your site at your custom domain and share it. Next lesson, we'll add a contact form so visitors can reach you. You're building a real presence on the internet — one lesson at a time. See you in the next one.",
+      "visual": {
+        "title": "Exercise: Connect Your Domain",
+        "subtitle": "Next: Add a Contact Form"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What does DNS do?",
+      "options": [
+        "Connects your domain to your site's location",
+        "Encrypts your site with HTTPS",
+        "Hosts your site files",
+        "Buys your domain for you"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "How much does a domain typically cost per year?",
+      "options": [
+        "~$1–2",
+        "~$10–12",
+        "~$50–60",
+        "Free forever"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "What happens if you forget to renew your domain?",
+      "options": [
+        "It renews automatically for free",
+        "Cloudflare gives you a warning and extends it",
+        "It expires and someone else can buy it",
+        "Your site stays live but the domain disappears"
+      ],
+      "answer": 2,
+      "points": 10
+    },
+    {
+      "q": "How long does it usually take for DNS changes to go live?",
+      "options": [
+        "Instant",
+        "5–15 minutes (sometimes up to an hour)",
+        "24 hours",
+        "1 week"
+      ],
+      "answer": 1,
+      "points": 10
+    }
+  ],
+  "exercise": "Connect a custom domain to your Cloudflare Pages site. Buy a domain through Cloudflare or use one you already own. Add it in the Custom Domains tab, wait for it to become Active, then visit your site at the new domain. Take a screenshot showing your site live at your custom address.",
+  "verifyCommands": []
+}

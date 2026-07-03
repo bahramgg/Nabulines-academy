@@ -1,0 +1,147 @@
+{
+  "lessonId": "ch2-l1",
+  "title": "Your First Landing Page with Artifacts",
+  "totalWords": 890,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. Today you're going to build your very first web page — a real landing page with your name, a headline, and a button. You won't write a single line of code yourself. You're going to tell Claude what you want, and it's going to build it for you in seconds. This is called Artifacts, and it's the fastest way to go from idea to working page. Let's do it.",
+      "visual": {
+        "title": "Your First Landing Page",
+        "subtitle": "Build a real page in 60 seconds — no code required"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "Here's what you need before we start. An internet connection. A browser — Chrome, Safari, Firefox, anything works. And a free Claude account. If you haven't made one yet, go back to Chapter 1 Lesson 1 — it takes two minutes. That's it. No downloads, no installs, no credit card. We're doing this entirely in the browser.",
+      "visual": {
+        "title": "What you need",
+        "bullets": [
+          "Internet connection",
+          "Any browser (Chrome, Safari, Firefox…)",
+          "Free Claude account (see Ch1-L1)",
+          "That's it — no downloads, no credit card"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "browser",
+      "narration": "Open a new tab and go to claude dot ai. Sign in with your account. You'll land on the chat screen. This looks like any chat app — there's a text box at the bottom where you type your message. But Claude isn't just answering questions. When you ask it to build something, it creates an Artifact — a live, working thing you can see and use right away. Watch. I'm going to type a simple prompt. Build me a landing page with my name, a short headline about what I do, and a contact button. That's it. I'm not telling Claude how to code it or what colors to use. I'm just describing what I want. Now I hit send.",
+      "visual": {
+        "captureScript": "capture/ch2-l1-artifacts-demo.ts",
+        "caption": "Typing a prompt into claude.ai and watching Artifacts appear"
+      }
+    },
+    {
+      "id": 4,
+      "type": "browser",
+      "narration": "Look what happened. On the right side of the screen, a new panel opened. That's the Artifact. It's a live preview of the landing page Claude just built. You can see my name in big letters, the headline underneath, and a button at the bottom. This isn't a picture — it's real HTML and CSS running in the browser. If I click the button, it would actually work. On the left, Claude is explaining what it made and asking if I want changes. This is the magic of Artifacts. You describe, Claude builds, you see it instantly.",
+      "visual": {
+        "captureScript": "capture/ch2-l1-artifacts-demo.ts",
+        "caption": "The Artifact panel showing a live landing page preview"
+      }
+    },
+    {
+      "id": 5,
+      "type": "slide",
+      "narration": "Let's talk about what just happened under the hood. When you send that prompt, Claude writes HTML — that's the language that describes the structure of a web page. It writes CSS — that's the language that makes it look good, the colors and fonts and spacing. And sometimes it writes JavaScript — that's the language that makes things interactive, like a button that does something when you click it. But you didn't have to know any of that. You just said what you wanted in plain English. Claude translated your words into code, and Artifacts showed you the result instantly. This is vibe coding. You're not memorizing syntax or debugging errors. You're communicating an idea, and the AI does the technical work.",
+      "visual": {
+        "title": "What Artifacts does",
+        "bullets": [
+          "You describe what you want (plain English)",
+          "Claude writes HTML, CSS, JavaScript",
+          "Artifacts shows the live result instantly",
+          "You see and interact with it — no 'compiling' or 'deploying'"
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "type": "browser",
+      "narration": "Now let's make a change. I'm going to ask Claude to make the headline bigger and change the button color to blue. Watch the Artifact update in real time. I type my request in the chat. Make the headline bigger and change the button to blue. Send. Claude responds, and the Artifact refreshes. The headline is now larger, and the button is blue. I didn't touch the code. I just asked for what I wanted, and Claude edited it for me. You can keep doing this — tweaking colors, adding sections, changing text — until the page looks exactly how you want it.",
+      "visual": {
+        "captureScript": "capture/ch2-l1-artifacts-demo.ts",
+        "caption": "Asking Claude to change the button color and watching the Artifact update"
+      }
+    },
+    {
+      "id": 7,
+      "type": "code",
+      "narration": "Here's what the code looks like behind the scenes. This is the HTML and CSS Claude wrote. Don't worry about understanding every line right now. Just notice a few things. The HTML has tags like h1 for the big headline and button for the button. The CSS has rules like color colon blue and font size colon two em. These are the instructions that tell the browser how to draw the page. In the next lessons, you'll start to recognize these patterns. But for now, you don't need to write or edit this yourself. Claude does it. You just need to know it exists and that you can always ask Claude to change it.",
+      "visual": {
+        "code": "<!DOCTYPE html>\n<html>\n<head>\n  <style>\n    body {\n      font-family: Arial, sans-serif;\n      text-align: center;\n      padding: 50px;\n    }\n    h1 {\n      font-size: 3em;\n      margin-bottom: 20px;\n    }\n    p {\n      font-size: 1.5em;\n      color: #555;\n    }\n    button {\n      background-color: blue;\n      color: white;\n      padding: 15px 30px;\n      font-size: 1.2em;\n      border: none;\n      border-radius: 5px;\n      cursor: pointer;\n    }\n  </style>\n</head>\n<body>\n  <h1>Your Name</h1>\n  <p>Builder & Creator</p>\n  <button>Contact Me</button>\n</body>\n</html>",
+        "language": "html",
+        "highlights": [
+          3,
+          11,
+          18
+        ],
+        "caption": "The HTML and CSS Claude generated — you don't write this, but it's good to see"
+      }
+    },
+    {
+      "id": 8,
+      "type": "slide",
+      "narration": "One more thing. Right now, this page only exists inside Claude's Artifact panel. It's not on the internet yet. In the next lesson, you'll learn how to save this code and put it on a real website that anyone can visit. But for today, you've already done something huge. You went from zero to a working landing page in under a minute. You didn't install anything, you didn't learn syntax, you didn't debug errors. You just described what you wanted, and Claude built it. That's the power of Artifacts. That's vibe coding.",
+      "visual": {
+        "title": "What you just did",
+        "bullets": [
+          "Built a real landing page in seconds",
+          "No code written by you — just a prompt",
+          "Saw it live in Artifacts",
+          "Changed it by asking Claude",
+          "Next: save it and put it on the internet"
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "type": "outro",
+      "narration": "Now it's your turn. Open claude dot ai and build your own landing page. Use your real name, write a headline that describes you, and add a button. Play with it — ask Claude to change colors, make text bigger, add a new section. The exercise for this lesson is simple: generate a one-screen landing page with your name and a headline. When you're done, take a screenshot and save it. In the next lesson, you'll learn how to turn that Artifact into a real file and put it on GitHub. See you there.",
+      "visual": {
+        "title": "Exercise",
+        "subtitle": "Build your landing page — your name, headline, button. Screenshot it."
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What is an Artifact in Claude?",
+      "options": [
+        "A live preview of something Claude built (like a web page or app)",
+        "A file you download to your computer",
+        "A type of code editor",
+        "A way to share your chat history"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "What languages does Claude write when you ask it to build a landing page?",
+      "options": [
+        "Python and SQL",
+        "HTML, CSS, and sometimes JavaScript",
+        "Only HTML",
+        "Java and C++"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "Can you edit the code in an Artifact by typing a new request to Claude?",
+      "options": [
+        "No, you have to start over",
+        "Yes, Claude will update the Artifact based on your request",
+        "Only if you know how to code",
+        "Only on the paid plan"
+      ],
+      "answer": 1,
+      "points": 10
+    }
+  ],
+  "exercise": "Open claude.ai and generate a one-screen landing page with your name, a headline about what you do (or want to do), and a contact button. Ask Claude to make at least one change (color, size, text). Screenshot the final Artifact.",
+  "verifyCommands": []
+}

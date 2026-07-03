@@ -1,0 +1,185 @@
+{
+  "lessonId": "ch1-l9",
+  "title": "Paying Without a Credit Card — Crypto, OpenRouter, and Virtual Cards",
+  "totalWords": 1840,
+  "scenes": [
+    {
+      "id": 1,
+      "type": "intro",
+      "narration": "Welcome to Nabulines Academy. Today we're solving a real problem — you want to use AI tools like Claude or ElevenLabs, but you don't have a credit card. Maybe you're outside the US, maybe you're under eighteen, maybe you just don't want to use a traditional card. Good news — there are real ways to pay with crypto, and I'm going to show you exactly how they work. By the end of this lesson, you'll know three paths: OpenRouter for AI models, crypto-funded virtual cards for subscription services, and how to combine them. Let's go.",
+      "visual": {
+        "title": "Paying Without a Credit Card",
+        "subtitle": "Crypto, OpenRouter, and Virtual Cards"
+      }
+    },
+    {
+      "id": 2,
+      "type": "slide",
+      "narration": "First, let's be clear about the problem. Most AI services — Claude subscriptions, ElevenLabs, even some VPS providers — require a Visa or Mastercard. If you don't have one, you're blocked. But crypto changes that. Crypto means digital money you control directly — no bank account, no card issuer, no permission needed. The two cryptocurrencies that matter here are Bitcoin and stablecoins like USDC. USDC is a stablecoin — one USDC always equals one US dollar, so you don't have to worry about price swings like Bitcoin. You can buy crypto with cash, bank transfer, or even other payment apps depending on your country. Once you have it, you can use it two ways. Path one: spend it directly at services that accept crypto — that's OpenRouter. Path two: load it onto a virtual card that works like a normal Visa or Mastercard — that's for services that only take cards. Let's break down each path.",
+      "visual": {
+        "title": "The Problem and the Solution",
+        "bullets": [
+          "Most AI tools require a credit card",
+          "Crypto = digital money you control (no bank needed)",
+          "USDC = stablecoin (1 USDC = 1 USD, no price swings)",
+          "Path 1: Spend crypto directly (OpenRouter)",
+          "Path 2: Load crypto onto a virtual card (for card-only services)"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "type": "slide",
+      "narration": "Path one is OpenRouter. OpenRouter is a service that gives you one API key to access dozens of AI models — Claude, GPT, Llama, Gemini, all in one place. You pay as you go, and here's the key — you can top up your account with USDC, a stablecoin. No credit card required. Prices are roughly the same as going direct to Anthropic or OpenAI, plus a small fee. For example, Claude Sonnet four point six costs three dollars per million input tokens and fifteen dollars per million output tokens on OpenRouter — same as Anthropic's API. You add ten or twenty dollars of USDC, and you're live. This is perfect for Claude Code usage, for calling APIs in your apps, for experimenting without a monthly subscription. Here's how you do it. Go to openrouter dot ai. Click sign up — you can use Google, GitHub, or email. Once you're in, click on your account icon, then Credits. You'll see a button that says Add Credits. Click it, and you'll see payment options — credit card, and crypto. Choose crypto. OpenRouter will show you a wallet address and a QR code. You send USDC to that address from your crypto wallet — we'll talk about wallets in a second — and within a few minutes, your OpenRouter balance updates. Now you have credits. Go to the API Keys section, generate a key, and use it in Claude Code or any app. Done. No card, no subscription, just pay for what you use.",
+      "visual": {
+        "title": "Path 1: OpenRouter (Pay with Crypto Directly)",
+        "bullets": [
+          "One API key → many models (Claude, GPT, Llama, Gemini)",
+          "Pay-as-you-go, top up with USDC (no card needed)",
+          "Prices: ~same as direct (e.g., Sonnet 4.6 = $3 in / $15 out per million tokens)",
+          "How: openrouter.ai → Sign up → Credits → Add Credits → Crypto",
+          "Send USDC → balance updates → generate API key → use in Claude Code"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "type": "slide",
+      "narration": "Path two is a crypto-funded virtual card. A virtual card is a Visa or Mastercard number you use online — it's not a physical card, just a number, expiry date, and CVV code, like any card. The difference is you load it with crypto instead of linking it to a bank. Once loaded, it works everywhere cards work — Claude subscriptions, ElevenLabs, a VPS, anything. There are several services that offer this. Two popular ones are Crypto dot com and Binance. Here's how it works on Crypto dot com as an example. You sign up for a Crypto dot com account — they'll ask for ID verification because they're a regulated exchange. Once verified, you buy USDC or another stablecoin on their platform — you can buy with a bank transfer, debit card, or even cash in some countries. Then you go to the Card section in the app and request a virtual card. They issue you a Visa card number instantly. You load it with USDC from your Crypto dot com balance — say you load twenty dollars. Now you have a Visa card with twenty dollars on it. Go to claude dot ai, click upgrade to Pro, enter your virtual card details, and it works exactly like a normal card. Same for ElevenLabs, same for a Hetzner VPS. The card is accepted everywhere. When your balance runs low, you top it up with more crypto. Some services charge a small fee — maybe one or two percent — but it's worth it for the access. Important: these cards are prepaid, so you can only spend what you loaded. That's actually safer — no risk of overspending or surprise charges.",
+      "visual": {
+        "title": "Path 2: Crypto-Funded Virtual Card",
+        "bullets": [
+          "Virtual card = Visa/Mastercard number (online-only, no physical card)",
+          "Load it with crypto → works everywhere cards work",
+          "Services: Crypto.com, Binance (require ID verification)",
+          "How: Sign up → buy USDC → request virtual card → load with USDC",
+          "Use it: Claude Pro, ElevenLabs, VPS — anywhere that takes cards",
+          "Prepaid (safer: only spend what you load), small fee (~1–2%)"
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "type": "slide",
+      "narration": "Now, where do you get crypto in the first place? You need a wallet and a way to buy. A crypto wallet is an app that holds your crypto — think of it like a digital bank account you control. Popular beginner-friendly wallets are Coinbase Wallet, Trust Wallet, or MetaMask. Download one, set it up — it'll give you a recovery phrase, write it down and keep it safe, that's your backup. Once you have a wallet, you buy crypto. If you're in the US or Europe, Coinbase, Crypto dot com, or Binance let you buy USDC with a bank transfer or debit card. If you're in a country with fewer options, look for local exchanges or peer-to-peer platforms like LocalBitcoins or Paxful — you can often buy with cash, mobile money, or local payment apps. You buy USDC, it goes into your wallet, and now you're ready. Send it to OpenRouter, or send it to your Crypto dot com account to load your virtual card. One more tip — start small. Buy ten or twenty dollars of USDC the first time, test the whole flow, make sure you understand how sending and receiving works. Crypto is irreversible — if you send to the wrong address, it's gone — so go slow and double-check addresses. But once you've done it once, it's easy.",
+      "visual": {
+        "title": "Getting Crypto — Wallets and Buying",
+        "bullets": [
+          "Wallet = app that holds your crypto (Coinbase Wallet, Trust Wallet, MetaMask)",
+          "Set up wallet → get recovery phrase (write it down, keep safe)",
+          "Buy USDC: Coinbase, Crypto.com, Binance (bank transfer / debit card)",
+          "Fewer options? Local exchanges, peer-to-peer (LocalBitcoins, Paxful)",
+          "Start small (buy $10–20 USDC), test the flow, double-check addresses",
+          "Crypto is irreversible — go slow, verify before sending"
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "type": "browser",
+      "narration": "Let me show you OpenRouter in action. I'm at openrouter dot ai. I'll sign up with GitHub — click the GitHub button, authorize, and I'm in. Now I'm on the dashboard. I click my account icon in the top right, then Credits. Here's my balance — zero dollars. I click Add Credits. I see two options: card or crypto. I choose crypto. OpenRouter shows me a wallet address and a QR code. I open my crypto wallet app — I'm using Coinbase Wallet — I go to Send, I paste the OpenRouter address, I enter ten USDC, I review the transaction, and I hit Send. It takes about two minutes. I refresh the OpenRouter page, and boom — ten dollars in my account. Now I go to API Keys, I click Create Key, I give it a name like 'my-first-key', I copy the key, and I'm done. I can use this key in Claude Code or any app that calls the OpenRouter API. No card, no subscription, just crypto and code.",
+      "visual": {
+        "captureScript": "capture/ch1-l9-openrouter-demo.ts",
+        "caption": "Live demo: Sign up on OpenRouter, add credits with USDC, generate API key"
+      }
+    },
+    {
+      "id": 7,
+      "type": "slide",
+      "narration": "Let's talk money. OpenRouter — you only pay for what you use, so if you add ten dollars and use five dollars of API calls, you still have five dollars left. No monthly fee. A crypto-funded virtual card — the card itself is usually free, but there's a small fee when you load it, maybe one to two percent. So if you load twenty dollars, you might pay twenty cents in fees. Some services also have a monthly card fee, like one or two dollars — check before you sign up. Buying crypto — if you buy on Coinbase or Crypto dot com, there's a fee, usually one to three percent depending on the payment method. So if you buy twenty dollars of USDC, you might pay twenty to sixty cents in fees. These fees are small, and they're the cost of having access without a traditional card. Compare that to being blocked entirely — it's worth it. And remember, prices as of this recording — always check the live page for current fees.",
+      "visual": {
+        "title": "What It Costs",
+        "bullets": [
+          "OpenRouter: pay-as-you-go (no monthly fee, only pay for usage)",
+          "Virtual card: free card, ~1–2% fee to load, maybe $1–2/mo card fee",
+          "Buying crypto: ~1–3% fee (e.g., $0.20–$0.60 on $20 purchase)",
+          "Total: small fees, but you get access without a traditional card",
+          "Prices as of this recording — check live pages for current fees"
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "type": "slide",
+      "narration": "Here's my honest recommendation. If you're just using AI models — Claude Code, calling APIs, experimenting — go with OpenRouter. It's the simplest path, no card needed, pay as you go. If you need to subscribe to something that only takes cards — like a Claude Pro subscription for the web interface, or ElevenLabs for narration, or a VPS — get a crypto-funded virtual card. Crypto dot com is beginner-friendly and widely available. Do both if you want full flexibility. Start with ten or twenty dollars of USDC, test OpenRouter, test the card, see what works for you. You'll figure out your flow in a day. And here's the thing — once you have crypto, you have options. You're not waiting on a bank, not blocked by geography, not dependent on anyone's permission. That's powerful. Use it.",
+      "visual": {
+        "title": "My Recommendation",
+        "bullets": [
+          "Just AI models / APIs? → OpenRouter (simplest, no card, pay-as-you-go)",
+          "Need card-only subscriptions (Claude Pro, ElevenLabs, VPS)? → Virtual card (Crypto.com)",
+          "Want full flexibility? → Do both",
+          "Start: $10–20 USDC, test OpenRouter, test card, find your flow",
+          "Crypto = options, freedom, no permission needed"
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "type": "outro",
+      "narration": "That's it — you now know how to pay for AI tools without a credit card. Crypto, OpenRouter, virtual cards — these are real, working solutions that thousands of builders use every day. Your exercise: pick the payment method you'll use and take the first setup step. Maybe that's signing up for OpenRouter, maybe it's downloading a crypto wallet, maybe it's requesting a virtual card on Crypto dot com. Just take one step today. Next lesson, we're putting everything together — you'll build your first real app with Claude Code, deploy it live, and see the whole workflow from idea to URL. That's where it gets fun. See you there.",
+      "visual": {
+        "title": "Next: Build and Deploy Your First Real App",
+        "subtitle": "Chapter 1, Lesson 10"
+      }
+    }
+  ],
+  "quiz": [
+    {
+      "q": "What is USDC?",
+      "options": [
+        "A stablecoin where 1 USDC = 1 USD (no price swings)",
+        "A type of credit card",
+        "A cryptocurrency that changes price like Bitcoin",
+        "A payment processor like PayPal"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "What is OpenRouter best for?",
+      "options": [
+        "Buying crypto with a credit card",
+        "Paying for AI model API calls with USDC (no card needed)",
+        "Creating a virtual Visa card",
+        "Storing your crypto long-term"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "What is a crypto-funded virtual card?",
+      "options": [
+        "A physical card you get in the mail",
+        "A Visa/Mastercard number you load with crypto and use online",
+        "A way to mine Bitcoin",
+        "A card that only works on crypto websites"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "Where can you use a crypto-funded virtual card?",
+      "options": [
+        "Only on crypto exchanges",
+        "Only for buying more crypto",
+        "Anywhere that accepts Visa/Mastercard (Claude, ElevenLabs, VPS, etc.)",
+        "Only in your home country"
+      ],
+      "answer": 2,
+      "points": 10
+    },
+    {
+      "q": "What should you do the first time you buy crypto?",
+      "options": [
+        "Buy $1000 worth immediately",
+        "Send it all to an exchange right away",
+        "Start small ($10–20), test the flow, double-check addresses",
+        "Give your recovery phrase to a friend for safekeeping"
+      ],
+      "answer": 2,
+      "points": 10
+    }
+  ],
+  "exercise": "Pick the payment method you'll use (OpenRouter, virtual card, or both) and take the first setup step — sign up for OpenRouter, download a crypto wallet, or request a virtual card on Crypto.com. Write down what you did and any questions that came up.",
+  "verifyCommands": []
+}
