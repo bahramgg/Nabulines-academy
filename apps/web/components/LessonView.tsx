@@ -4,15 +4,15 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { LessonPlayer } from "./LessonPlayer";
 import { Quiz, type QuizQuestion } from "./Quiz";
-import { EyeMark } from "./StringArt";
 import { useProgress } from "@/lib/progress";
 import { useAuth } from "@/lib/auth";
 
 type Next = { chapterId: string; lessonId: string; title: string } | null;
 
-// Signed-in only: the video and quiz are gated behind login. Completing requires
-// watching the video (>=90%) AND passing the quiz (>=60%), which unlocks the
-// next lesson on the roadmap.
+// Open access: anyone can watch the video and take the quiz without signing in.
+// Progress is saved to localStorage for guests and synced to the account (and the
+// leaderboard) once they sign in. Completing requires watching the video (>=90%)
+// AND passing the quiz (>=60%), which unlocks the next lesson on the roadmap.
 export function LessonView({
   lessonId,
   exercise,
@@ -30,34 +30,13 @@ export function LessonView({
   title: string;
   next: Next;
 }) {
-  const { user, loading } = useAuth();
+  const { user } = useAuth();
   const { isCompleted, complete } = useProgress();
   const [watched, setWatched] = useState(false);
   const [result, setResult] = useState<{ score: number; passed: boolean } | null>(null);
   const [done, setDone] = useState(false);
 
   useEffect(() => setDone(isCompleted(lessonId)), [isCompleted, lessonId]);
-
-  // Gate: must be signed in to watch.
-  if (!loading && !user) {
-    return (
-      <div className="card flex flex-col items-center gap-4 px-6 py-14 text-center">
-        <EyeMark className="h-10 w-10" />
-        <h2 className="display text-base text-white">Sign in to watch</h2>
-        <p className="max-w-xs text-sm text-text-2">
-          Create a free account to watch lessons, track your progress, and climb the
-          leaderboard.
-        </p>
-        <Link href="/login/" className="btn-primary mt-1">
-          Sign in — it&apos;s free
-        </Link>
-      </div>
-    );
-  }
-
-  if (loading) {
-    return <div className="card aspect-video animate-pulse" />;
-  }
 
   const hasQuiz = quiz.length > 0;
   const videoRequired = Boolean(video);
@@ -105,6 +84,16 @@ export function LessonView({
           </span>
         )}
       </div>
+
+      {!user && (
+        <p className="mt-4 text-center text-sm text-text-3">
+          Watching as a guest — your progress is saved on this device.{" "}
+          <Link href="/login/" className="text-white underline underline-offset-2">
+            Sign in
+          </Link>{" "}
+          to sync it and join the leaderboard.
+        </p>
+      )}
     </>
   );
 }
