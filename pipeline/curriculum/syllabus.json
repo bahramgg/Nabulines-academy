@@ -342,7 +342,9 @@
             "outro"
           ],
           "exercise": "Change only the color scheme of your page in a single, precise prompt.",
-          "status": "pending"
+          "status": "published",
+          "video": "https://ipfs.filebase.io/ipfs/QmUFgzqDKb6z5vxdmokp6CxpPbgiFzJs6RU5W6vYV4ueiU",
+          "vtt": "https://ipfs.filebase.io/ipfs/QmUgJhDqQzow1yqAbDqQGhPoiEpdhuCpZKiB8hNZaBBnja"
         },
         {
           "id": "ch2-l4",
