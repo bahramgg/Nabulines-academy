@@ -5,7 +5,7 @@ import { chapters } from "@/lib/syllabus";
 const pillars = [
   {
     title: "Short and Focused",
-    body: "Tight, no-filler videos — as long as a topic needs, never longer. Just the next thing you need to ship.",
+    body: "Tight, no-filler videos, as long as a topic needs. Just the next thing you need to ship.",
   },
   {
     title: "Nothing Faked",
@@ -13,7 +13,7 @@ const pillars = [
   },
   {
     title: "Creator to Builder",
-    body: "Start with an audience and a phone. End owning sites, apps, and tools you can sell — not just posts you rent.",
+    body: "Start with an audience and a phone. End up owning sites, apps, and tools you can sell, not just posts you rent.",
   },
 ];
 
