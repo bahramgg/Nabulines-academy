@@ -19,7 +19,12 @@ export function SiteHeader() {
       <div className="mx-auto flex h-16 max-w-content items-center gap-2 px-4 sm:px-5">
         <Link href="/" className="flex min-w-0 flex-1 items-center gap-2.5" onClick={() => setOpen(false)}>
           <EyeMark className="h-6 w-6 shrink-0" />
-          <span className="display truncate text-xs text-white sm:text-sm">Nabulines Academy</span>
+          <span
+            className="display truncate text-xs text-white sm:text-sm"
+            style={{ letterSpacing: "0.04em" }}
+          >
+            Nabulines Academy
+          </span>
         </Link>
 
         {/* Desktop nav */}

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { StringArt, EyeMark } from "@/components/StringArt";
-import { chapters, syllabus } from "@/lib/syllabus";
+import { chapters } from "@/lib/syllabus";
 
 const pillars = [
   {
