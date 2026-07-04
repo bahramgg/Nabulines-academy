@@ -595,7 +595,9 @@
             "outro"
           ],
           "exercise": "Have Claude Code explain your project's folder structure to you.",
-          "status": "pending"
+          "status": "published",
+          "video": "https://ipfs.filebase.io/ipfs/Qmbn6ACKpSPfWA1dtsZx7akVaCCPFBzFNAZzb5BtFbSMPH",
+          "vtt": "https://ipfs.filebase.io/ipfs/QmcmMuCS69wXfNW5u7W5Ty8rtR9QiUdb4KYJySyCsAWG8q"
         },
         {
           "id": "ch4-l5",
