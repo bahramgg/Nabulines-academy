@@ -4,8 +4,8 @@ import { chapters, syllabus } from "@/lib/syllabus";
 
 const pillars = [
   {
-    title: "Under Five Minutes",
-    body: "Every lesson is a tight micro-video. No filler, no hour-long lectures — just the next thing you need to ship.",
+    title: "Short and Focused",
+    body: "Tight, no-filler videos — as long as a topic needs, never longer. Just the next thing you need to ship.",
   },
   {
     title: "Nothing Faked",
@@ -23,19 +23,18 @@ export default function HomePage() {
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-border">
         <StringArt />
-        <div className="relative mx-auto flex max-w-content flex-col items-center px-5 py-24 text-center sm:py-32">
-          <EyeMark className="mb-8 h-12 w-12 text-white" />
-          <p className="section-eyebrow mb-5">Nabulines Academy</p>
-          <h1 className="display max-w-3xl text-4xl text-white sm:text-6xl">
+        <div className="relative mx-auto flex max-w-content flex-col items-center px-5 py-20 text-center sm:py-28">
+          <EyeMark className="mb-7 h-11 w-11" />
+          <h1 className="display max-w-3xl text-[2.1rem] leading-[1.08] text-white sm:text-6xl">
             From Creator to Builder
           </h1>
-          <p className="mt-6 max-w-xl text-lg text-text-2">
-            The vibe-coding academy that takes you from zero to shipping. No prior
+          <p className="mt-6 max-w-xl text-base text-text-2 sm:text-lg">
+            The vibe-coding academy that takes you from zero to shipping — no prior
             code. Just you, your ideas, and AI as your build partner.
           </p>
-          <p className="mt-3 max-w-lg text-sm text-text-3">
+          <p className="mt-4 text-sm text-text-3">
             {syllabus.meta.totalLessons} lessons · {syllabus.meta.totalChapters} chapters ·
-            each under five minutes
+            from zero to launch
           </p>
           <div className="mt-9 flex w-full flex-col items-center gap-3 sm:w-auto">
             <Link href="/roadmap/" className="btn-primary w-full sm:w-auto">
@@ -85,12 +84,12 @@ export default function HomePage() {
               <span className="display shrink-0 text-lg text-text-3">
                 {String(c.index).padStart(2, "0")}
               </span>
-              <div className="min-w-0">
-                <p className="font-medium">{c.title}</p>
+              <div className="min-w-0 flex-1">
+                <p className="truncate font-medium">{c.title}</p>
                 <p className="truncate text-sm text-text-3">{c.summary}</p>
               </div>
-              <span className="ml-auto shrink-0 text-xs text-text-3">
-                {c.lessons.length} lessons
+              <span className="shrink-0 text-xs text-text-3">
+                {c.lessons.length}
               </span>
             </Link>
           ))}

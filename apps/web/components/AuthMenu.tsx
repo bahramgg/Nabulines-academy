@@ -9,7 +9,7 @@ export function AuthMenu() {
 
   if (!user) {
     return (
-      <Link href="/login/" className="rounded-btn px-3 py-2 text-sm text-text-2 transition-colors hover:text-white">
+      <Link href="/login/" className="whitespace-nowrap rounded-btn px-3 py-2 text-sm text-text-2 transition-colors hover:text-white">
         Sign in
       </Link>
     );
