@@ -426,7 +426,9 @@
             "outro"
           ],
           "exercise": "Upload your landing page files to a new GitHub repository.",
-          "status": "pending"
+          "status": "published",
+          "video": "https://ipfs.filebase.io/ipfs/QmcfgQ8VB7yNLiTuYjCifQRcwwn6kE6apJjJ65FfN9tSrw",
+          "vtt": "https://ipfs.filebase.io/ipfs/QmRvoN1ZLMDeBVQbrrY1xp6Zi6yoRCyqyuxLGv938PqTC1"
         },
         {
           "id": "ch3-l2",
