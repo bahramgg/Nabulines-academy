@@ -541,7 +541,9 @@
             "outro"
           ],
           "exercise": "Write down one project too big for Artifacts that Claude Code could handle.",
-          "status": "pending"
+          "status": "published",
+          "video": "https://ipfs.filebase.io/ipfs/QmfTFsFb4ibcsVTUnyPKnTfSxHXj2A1wdT8G1UYpAzpWtF",
+          "vtt": "https://ipfs.filebase.io/ipfs/QmQm7cxHu3nAxavNA25tAjvNyv82cTPgSeEHFvxdntPx1B"
         },
         {
           "id": "ch4-l2",
