@@ -1,0 +1,48 @@
+---
+{
+  "lessonId": "ch5-l3",
+  "title": "Saving Data: Why Refresh Wipes Everything and How to Fix It",
+  "chapter": "ch5",
+  "chapterTitle": "Interactive Apps",
+  "video": "https://ipfs.filebase.io/ipfs/QmNgK4EZrGNex6HijsCCDXnCipjBqFx41pKxg8bnUxhyND",
+  "vtt": "https://ipfs.filebase.io/ipfs/QmaRKJeeHdUsk88eTKPH3toYnoNRJBubbsy8oqssJ72oH7",
+  "exercise": "Take an existing app (counter, form, etc.) and add localStorage persistence. Save the state on every change. Load the saved state when the page starts. Refresh the page and verify your data is still there.",
+  "quiz": [
+    {
+      "q": "Why does refreshing the page erase your app's data?",
+      "options": [
+        "The browser clears RAM and restarts, resetting all variables",
+        "JavaScript is designed to delete data on refresh",
+        "The server resets your session",
+        "localStorage is disabled by default"
+      ],
+      "answer": 0,
+      "points": 10
+    },
+    {
+      "q": "What must you do before saving an object to localStorage?",
+      "options": [
+        "Nothing, it saves objects directly",
+        "Convert it to a string with JSON.stringify()",
+        "Convert it to an array",
+        "Save each property separately"
+      ],
+      "answer": 1,
+      "points": 10
+    },
+    {
+      "q": "What happens to localStorage data when you close the browser?",
+      "options": [
+        "It's deleted automatically",
+        "It persists until you manually clear it",
+        "It's uploaded to the cloud",
+        "It's converted to cookies"
+      ],
+      "answer": 1,
+      "points": 10
+    }
+  ]
+}
+---
+
+# Saving Data: Why Refresh Wipes Everything and How to Fix It

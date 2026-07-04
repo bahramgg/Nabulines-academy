@@ -731,7 +731,9 @@
             "outro"
           ],
           "exercise": "Make your app remember its last result after a refresh.",
-          "status": "pending"
+          "status": "published",
+          "video": "https://ipfs.filebase.io/ipfs/QmNgK4EZrGNex6HijsCCDXnCipjBqFx41pKxg8bnUxhyND",
+          "vtt": "https://ipfs.filebase.io/ipfs/QmaRKJeeHdUsk88eTKPH3toYnoNRJBubbsy8oqssJ72oH7"
         },
         {
           "id": "ch5-l4",
