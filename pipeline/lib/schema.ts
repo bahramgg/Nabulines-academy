@@ -4,7 +4,7 @@ import { z } from "zod";
 // A generated lesson script must satisfy this schema AND the hard rules:
 //   totalWords <= 750  and  estimated duration <= 300s.
 
-export const SceneType = z.enum(["intro", "slide", "code", "terminal", "browser", "outro"]);
+export const SceneType = z.enum(["intro", "slide", "code", "terminal", "browser", "diagram", "outro"]);
 export type SceneType = z.infer<typeof SceneType>;
 
 export const Scene = z.object({

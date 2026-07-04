@@ -6,11 +6,12 @@ import { Slide } from "./scenes/Slide";
 import { Code } from "./scenes/Code";
 import { Terminal } from "./scenes/Terminal";
 import { Browser } from "./scenes/Browser";
+import { Diagram } from "./scenes/Diagram";
 import { Outro } from "./scenes/Outro";
 
 export type Scene = {
   id: number;
-  type: "intro" | "slide" | "code" | "terminal" | "browser" | "outro";
+  type: "intro" | "slide" | "code" | "terminal" | "browser" | "diagram" | "outro";
   narration: string;
   durationSec?: number;
   audioFile?: string; // path under remotion/public, set by tts.ts
@@ -36,6 +37,8 @@ function renderScene(scene: Scene) {
       return <Terminal visual={v} />;
     case "browser":
       return <Browser visual={v} />;
+    case "diagram":
+      return <Diagram visual={v} />;
     case "outro":
       return <Outro visual={v} />;
     default:

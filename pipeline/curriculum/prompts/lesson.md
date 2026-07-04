@@ -31,15 +31,23 @@ because it seems obvious — the obvious step is exactly where beginners get stu
 
 ## Hands-on lessons MUST show real examples on screen
 
-If the lesson involves doing something on a computer (using Claude, Claude Code, a
-terminal, GitHub, Cloudflare, deploying, building an app), include **real demo
+If the lesson involves doing something on a computer, include **real demo
 scenes** — not just text on slides:
 - `browser` scenes → a real recorded browser session (`visual.captureScript`),
-  e.g. the real claude.ai or GitHub UI.
+  e.g. the real claude.ai / GitHub / Cloudflare UI.
 - `terminal` scenes → a real recorded terminal session (`visual.captureScript`
   pointing at a terminal demo), OR `visual.commands` + real `visual.output`.
 - `code` scenes → real, runnable code with the exact lines highlighted.
 Every command, snippet, and result MUST be real and reproducible (`verifyCommands`).
+
+## Never spend money on screen — use a `diagram` scene for paid steps
+
+We never perform a paid action for real in a video (buying a domain, renting a
+VPS, upgrading a plan, anything that charges a card). For those steps, use a
+`diagram` scene that EXPLAINS the process visually plus narration — do NOT script
+a real recorded purchase. Show the free path first; frame the paid step as
+"here's how it works and what it costs" via the diagram.
+- `diagram` visual: `{ "title": "...", "nodes": [{"label":"Pick a domain","sub":"~$10/yr"}, {"label":"Pay"}, {"label":"Connect DNS"}, {"label":"Live"}], "caption": "..." }`
 
 ## Be honest and exact about money
 
@@ -54,7 +62,7 @@ Money claims fall under Never-Fabricate exactly like code does.
 
 ## Structure
 
-- Scene `type` ∈ `intro`, `slide`, `code`, `terminal`, `browser`, `outro`.
+- Scene `type` ∈ `intro`, `slide`, `code`, `terminal`, `browser`, `diagram`, `outro`.
 - **Every intro opens with a short spoken welcome to Nabulines Academy** before the
   topic — the brand greeting is in every video.
 - Open with `intro`, close with `outro`. End by pointing at the exercise and
