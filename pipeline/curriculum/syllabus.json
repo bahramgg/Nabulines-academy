@@ -479,7 +479,9 @@
             "outro"
           ],
           "exercise": "Add an About page and link it from your home page.",
-          "status": "pending"
+          "status": "published",
+          "video": "https://ipfs.filebase.io/ipfs/QmPQVf7Jvi7oB4PwKiVpYpVtMhFsbWj1t8tiaSrEw59Y9W",
+          "vtt": "https://ipfs.filebase.io/ipfs/Qmbk356pEnXpv3iRJVfEdLfYZ3ie45DKnSSBdMjwtQUhsP"
         },
         {
           "id": "ch3-l5",
