@@ -750,7 +750,9 @@
             "outro"
           ],
           "exercise": "In one sentence, describe what data your dream app would fetch.",
-          "status": "pending"
+          "status": "published",
+          "video": "https://ipfs.filebase.io/ipfs/QmaoGH2FfhpR9Qww9FuuqMVz8hK64suuxnt46GmBdHnv7i",
+          "vtt": "https://ipfs.filebase.io/ipfs/QmTYWKstzX5cg2VJbkin4K7GoYTGoRGkAiV2cns4u2bipu"
         },
         {
           "id": "ch5-l5",
