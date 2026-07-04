@@ -184,7 +184,9 @@
             "outro"
           ],
           "exercise": "Create your first empty repository and name it after your project.",
-          "status": "pending"
+          "status": "published",
+          "video": "https://ipfs.filebase.io/ipfs/QmbiD8YkBG4T5Uhz7ihvQoSFLxAnBe675RkkSsbZ8kNLgn",
+          "vtt": "https://ipfs.filebase.io/ipfs/QmWc6CoveTwQqeBdnYyMxqM7Uj4BqGxu8BDuEfFm3t6v7o"
         },
         {
           "id": "ch1-l5",
