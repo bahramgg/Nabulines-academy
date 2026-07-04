@@ -3,28 +3,13 @@
 @tailwind utilities;
 
 :root {
-  /* Monochrome tokens — mirror of nabulines.com. Dark (default). */
+  /* Monochrome tokens — mirror of nabulines.com. Dark only. */
   --bg: #000000;
   --surface: #0a0a0a;
   --border: rgba(255, 255, 255, 0.12);
   --text: #ffffff;
   --text-2: #9ba1a6;
   --text-3: #6b7280;
-}
-
-/* Day / light theme — inverted monochrome, still no accent colors. */
-:root[data-theme="light"] {
-  --bg: #ffffff;
-  --surface: #f5f5f6;
-  --border: rgba(0, 0, 0, 0.14);
-  --text: #0a0a0a;
-  --text-2: #52525b;
-  --text-3: #8a8f98;
-}
-
-/* White logomark needs inverting on a light ground. */
-:root[data-theme="light"] .brand-logo {
-  filter: invert(1);
 }
 
 * {
@@ -68,7 +53,6 @@ body {
   .btn {
     @apply inline-flex items-center justify-center gap-2 rounded-btn px-6 py-3 text-sm font-semibold transition-colors duration-200;
   }
-  /* Token-driven so the primary button inverts cleanly in light mode. */
   .btn-primary {
     @apply btn;
     background: var(--text);

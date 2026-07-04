@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { EyeMark } from "./StringArt";
 import { AuthMenu } from "./AuthMenu";
-import { ThemeToggle } from "./ThemeToggle";
 
 const nav = [
   { href: "/roadmap/", label: "Roadmap" },
@@ -40,14 +39,12 @@ export function SiteHeader() {
             </Link>
           ))}
           <span className="ml-1 flex items-center gap-1">
-            <ThemeToggle />
             <AuthMenu />
           </span>
         </nav>
 
-        {/* Mobile: theme + auth stay visible + hamburger for nav */}
+        {/* Mobile: auth stays visible + hamburger for nav */}
         <div className="flex shrink-0 items-center gap-1 sm:hidden">
-          <ThemeToggle />
           <AuthMenu />
           <button
             type="button"
