@@ -399,7 +399,9 @@
             "outro"
           ],
           "exercise": "Publish your finished landing page and post the link publicly.",
-          "status": "pending"
+          "status": "published",
+          "video": "https://ipfs.filebase.io/ipfs/QmSBgXzjwd96SZNTuBZbuRnWavzGCrEcGieXK85P41p7aS",
+          "vtt": "https://ipfs.filebase.io/ipfs/QmYr68KzthF8AaUqbnLmEbmtsGDMf9zmzCx2Wc5Rqg58iR"
         }
       ]
     },
