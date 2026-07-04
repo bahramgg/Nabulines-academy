@@ -712,7 +712,9 @@
             "outro"
           ],
           "exercise": "Build a generator that outputs 5 hashtags from a topic you type.",
-          "status": "pending"
+          "status": "published",
+          "video": "https://ipfs.filebase.io/ipfs/QmTC3Y5DXPmKKboGjT3KCTZevV2eQgvjEpfgyYjNPQtwvi",
+          "vtt": "https://ipfs.filebase.io/ipfs/QmNY9e8FRVLnnhBGCV9QoMcNarbovgQ2kzAbDSr9PqAEBT"
         },
         {
           "id": "ch5-l3",
