@@ -33,7 +33,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     session,
     loading,
     async signUp(email, password) {
-      const { data, error } = await supabase.auth.signUp({ email, password });
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          // After clicking the email link, Supabase verifies (server-side) and
+          // redirects here. Add this URL to Supabase → Auth → Redirect URLs.
+          emailRedirectTo:
+            typeof window !== "undefined" ? `${window.location.origin}/auth/confirm/` : undefined,
+        },
+      });
       // With email confirmation OFF, a session is returned and the user is signed
       // in immediately. With it ON, there's no session until they confirm.
       return { error: error?.message, session: Boolean(data.session) };
