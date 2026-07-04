@@ -202,7 +202,9 @@
             "outro"
           ],
           "exercise": "Sign up for Cloudflare and find the Pages section in the dashboard.",
-          "status": "pending"
+          "status": "published",
+          "video": "https://ipfs.filebase.io/ipfs/QmSqwhmwFcF57YKTH3oG8vmi1ye3upfxB4YYaRKE5Gtbc1",
+          "vtt": "https://ipfs.filebase.io/ipfs/QmZ6BnhjoSKX2cj1hqmJXbSfptryiMCcSNiPTkntqc1yFx"
         },
         {
           "id": "ch1-l6",
