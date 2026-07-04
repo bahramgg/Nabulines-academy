@@ -25,7 +25,10 @@ export default function HomePage() {
         <StringArt />
         <div className="relative mx-auto flex max-w-content flex-col items-center px-5 py-24 text-center sm:py-32">
           <EyeMark className="mb-7 h-11 w-11" />
-          <h1 className="display max-w-3xl text-[2.1rem] leading-[1.08] text-white sm:text-6xl">
+          <h1
+            className="display max-w-3xl text-[2.1rem] leading-[1.08] text-white sm:text-6xl"
+            style={{ letterSpacing: "0.02em", wordSpacing: "-0.08em" }}
+          >
             From Creator to Builder
           </h1>
           <p className="mt-6 max-w-md text-base text-text-2 sm:text-lg">

@@ -19,5 +19,5 @@ export function StringArt({ className = "" }: { className?: string }) {
 // Brand logomark (white line-art on transparent), used across the site.
 export function EyeMark({ className = "" }: { className?: string }) {
   // eslint-disable-next-line @next/next/no-img-element
-  return <img src="/logo.png" alt="Nabulines Academy" className={className} />;
+  return <img src="/logo.png" alt="Nabulines Academy" className={`brand-logo ${className}`} />;
 }
