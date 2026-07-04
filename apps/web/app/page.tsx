@@ -23,7 +23,7 @@ export default function HomePage() {
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-border">
         <StringArt />
-        <div className="relative mx-auto flex max-w-content flex-col items-center px-5 py-20 text-center sm:py-28">
+        <div className="relative mx-auto flex max-w-content flex-col items-center px-5 py-24 text-center sm:py-32">
           <EyeMark className="mb-7 h-11 w-11" />
           <h1 className="display max-w-3xl text-[2.1rem] leading-[1.08] text-white sm:text-6xl">
             From Creator to Builder
@@ -39,13 +39,12 @@ export default function HomePage() {
               See the Roadmap
             </Link>
           </div>
-          <p className="mt-8 text-xs text-text-3">No credit card</p>
         </div>
       </section>
 
       {/* Pillars */}
-      <section className="mx-auto max-w-content px-5 py-20">
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+      <section className="mx-auto max-w-content px-5 py-24 sm:py-28">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
           {pillars.map((p) => (
             <div key={p.title} className="card p-6">
               <h3 className="display mb-3 text-sm text-white">{p.title}</h3>
@@ -56,8 +55,8 @@ export default function HomePage() {
       </section>
 
       {/* Path preview */}
-      <section className="mx-auto max-w-content px-5 pb-20">
-        <div className="mb-8 flex items-end justify-between">
+      <section className="mx-auto max-w-content px-5 pb-24 sm:pb-28">
+        <div className="mb-10 flex items-end justify-between">
           <div>
             <p className="section-eyebrow mb-2">The Path</p>
             <h2 className="text-2xl font-bold">Eight chapters, one destination</h2>

@@ -323,7 +323,9 @@
             "outro"
           ],
           "exercise": "Rebuild your page with a specific reference site and mood in the prompt.",
-          "status": "pending"
+          "status": "published",
+          "video": "https://ipfs.filebase.io/ipfs/QmVjj3drtgiwkHLyKS1z3YsDBE5UYbR3pMkHMb19ZDaGU9",
+          "vtt": "https://ipfs.filebase.io/ipfs/QmcYdGmmCcn5FkgPbcQY1qfXmQVBrEDkGoUGXUk4dJGaJB"
         },
         {
           "id": "ch2-l3",

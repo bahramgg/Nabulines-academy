@@ -20,7 +20,7 @@ export function SiteHeader() {
         <Link href="/" className="flex min-w-0 flex-1 items-center gap-2.5" onClick={() => setOpen(false)}>
           <EyeMark className="h-6 w-6 shrink-0" />
           <span
-            className="display truncate text-xs text-white sm:text-sm"
+            className="display truncate text-[11px] text-white sm:text-xs"
             style={{ letterSpacing: "0.04em" }}
           >
             Nabulines Academy
