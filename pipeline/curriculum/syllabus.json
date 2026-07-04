@@ -379,7 +379,9 @@
             "outro"
           ],
           "exercise": "Publish your page and send the link to one friend.",
-          "status": "pending"
+          "status": "published",
+          "video": "https://ipfs.filebase.io/ipfs/QmX3Gs8MUyoAGxJYjNgxZhj4Z4NJ2WuGXqPv4cxFT3sKEC",
+          "vtt": "https://ipfs.filebase.io/ipfs/QmXLJMFLCGNFrpM6KtaVknotFtaNEg1TbTf3LFDbu7fFnf"
         },
         {
           "id": "ch2-l6",
