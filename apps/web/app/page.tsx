@@ -53,7 +53,7 @@ export default function HomePage() {
 
       {/* Pillars */}
       <section className="mx-auto max-w-content px-5 py-20">
-        <div className="grid gap-4 sm:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           {pillars.map((p) => (
             <div key={p.title} className="card p-6">
               <h3 className="display mb-3 text-sm text-white">{p.title}</h3>
@@ -74,7 +74,7 @@ export default function HomePage() {
             Open roadmap →
           </Link>
         </div>
-        <div className="grid gap-3 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           {chapters.map((c) => (
             <Link
               key={c.id}
