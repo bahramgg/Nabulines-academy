@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/lib/auth";
 import { EyeMark } from "@/components/StringArt";
@@ -19,16 +18,18 @@ export default function LoginPage() {
     e.preventDefault();
     setBusy(true);
     setMsg(null);
-    const fn = mode === "in" ? signIn : signUp;
-    const { error } = await fn(email, password);
-    setBusy(false);
-    if (error) {
-      setMsg(error);
-    } else if (mode === "up") {
-      setMsg("Account created. Check your email to confirm, then sign in.");
-    } else {
-      router.push("/roadmap/");
+    if (mode === "in") {
+      const { error } = await signIn(email, password);
+      setBusy(false);
+      if (error) setMsg(error);
+      else router.push("/roadmap/");
+      return;
     }
+    const { error, session } = await signUp(email, password);
+    setBusy(false);
+    if (error) setMsg(error);
+    else if (session) router.push("/roadmap/"); // confirmation off: signed in now
+    else setMsg("Account created. Check your email to confirm, then sign in here.");
   }
 
   return (
@@ -76,10 +77,6 @@ export default function LoginPage() {
       >
         {mode === "in" ? "No account? Create one" : "Have an account? Sign in"}
       </button>
-
-      <Link href="/roadmap/" className="mt-3 text-xs text-text-3 hover:text-white">
-        Continue without an account →
-      </Link>
     </div>
   );
 }

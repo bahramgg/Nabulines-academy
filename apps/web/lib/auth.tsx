@@ -8,7 +8,7 @@ type AuthState = {
   user: User | null;
   session: Session | null;
   loading: boolean;
-  signUp: (email: string, password: string) => Promise<{ error?: string }>;
+  signUp: (email: string, password: string) => Promise<{ error?: string; session: boolean }>;
   signIn: (email: string, password: string) => Promise<{ error?: string }>;
   signOut: () => Promise<void>;
 };
@@ -33,8 +33,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     session,
     loading,
     async signUp(email, password) {
-      const { error } = await supabase.auth.signUp({ email, password });
-      return { error: error?.message };
+      const { data, error } = await supabase.auth.signUp({ email, password });
+      // With email confirmation OFF, a session is returned and the user is signed
+      // in immediately. With it ON, there's no session until they confirm.
+      return { error: error?.message, session: Boolean(data.session) };
     },
     async signIn(email, password) {
       const { error } = await supabase.auth.signInWithPassword({ email, password });
