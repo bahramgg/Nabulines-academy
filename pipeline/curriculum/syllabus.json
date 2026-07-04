@@ -693,7 +693,9 @@
             "outro"
           ],
           "exercise": "Name one everyday app and describe what \"state\" it keeps.",
-          "status": "pending"
+          "status": "published",
+          "video": "https://ipfs.filebase.io/ipfs/QmWqFaB7s17GmsJD9EGcNEGy8YLQtaBj8DGfsEMk2WmVsm",
+          "vtt": "https://ipfs.filebase.io/ipfs/Qma4KVYMizcdU32ySmMhctcYj6jcQkGNBWqgerJq43EJtT"
         },
         {
           "id": "ch5-l2",
