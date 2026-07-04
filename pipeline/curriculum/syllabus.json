@@ -304,7 +304,9 @@
             "outro"
           ],
           "exercise": "Generate a one-screen landing page with your name and a headline.",
-          "status": "pending"
+          "status": "published",
+          "video": "https://ipfs.filebase.io/ipfs/QmXVA6rZGrAws2773A87rVXWcJfxcEVBGwkUCvY78QwpU4",
+          "vtt": "https://ipfs.filebase.io/ipfs/QmXPKkFatMdfPCbXGaAj33rFomDWdwG7S9C3R7K3FivQej"
         },
         {
           "id": "ch2-l2",

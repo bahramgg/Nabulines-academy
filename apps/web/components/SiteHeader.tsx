@@ -16,8 +16,8 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-bg/90 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-content items-center justify-between gap-3 px-5">
-        <Link href="/" className="flex min-w-0 items-center gap-2.5" onClick={() => setOpen(false)}>
+      <div className="mx-auto flex h-16 max-w-content items-center gap-2 px-4 sm:px-5">
+        <Link href="/" className="flex min-w-0 flex-1 items-center gap-2.5" onClick={() => setOpen(false)}>
           <EyeMark className="h-6 w-6 shrink-0" />
           <span className="display truncate text-xs text-white sm:text-sm">Nabulines Academy</span>
         </Link>
@@ -38,21 +38,23 @@ export function SiteHeader() {
           </span>
         </nav>
 
-        {/* Mobile hamburger */}
-        <button
-          type="button"
-          aria-label="Menu"
-          aria-expanded={open}
-          onClick={() => setOpen((o) => !o)}
-          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-btn border border-border text-white sm:hidden"
-        >
-          <span className="text-lg leading-none">{open ? "✕" : "≡"}</span>
-        </button>
+        {/* Mobile: auth stays visible + hamburger for nav */}
+        <div className="flex shrink-0 items-center gap-1 sm:hidden">
+          <AuthMenu />
+          <button
+            type="button"
+            aria-label="Menu"
+            aria-expanded={open}
+            onClick={() => setOpen((o) => !o)}
+            className="flex h-9 w-9 items-center justify-center rounded-btn border border-border text-white"
+          >
+            <span className="text-lg leading-none">{open ? "✕" : "≡"}</span>
+          </button>
+        </div>
       </div>
 
-      {/* Mobile dropdown */}
       {open && (
-        <nav className="border-t border-border bg-bg px-5 py-2 sm:hidden">
+        <nav className="border-t border-border bg-bg px-4 py-2 sm:hidden">
           {nav.map((item) => (
             <Link
               key={item.href}
@@ -63,9 +65,6 @@ export function SiteHeader() {
               {item.label}
             </Link>
           ))}
-          <div className="border-t border-border px-2 py-3" onClick={() => setOpen(false)}>
-            <AuthMenu />
-          </div>
         </nav>
       )}
     </header>

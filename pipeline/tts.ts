@@ -42,7 +42,7 @@ async function elevenlabs(scene: Scene, outFile: string): Promise<SceneAudio> {
   const voice = process.env.ELEVEN_VOICE_ID;
   if (!key || !voice) throw new Error("ELEVEN_API_KEY / ELEVEN_VOICE_ID not set.");
   const model = process.env.ELEVEN_MODEL ?? "eleven_v3";
-  const speed = Number(process.env.ELEVEN_SPEED ?? 1.1); // ~10% faster than default
+  const speed = Number(process.env.ELEVEN_SPEED ?? 1.0); // natural pace; viewers can speed up in the player
 
   const res = await fetch(
     `https://api.elevenlabs.io/v1/text-to-speech/${voice}/with-timestamps`,

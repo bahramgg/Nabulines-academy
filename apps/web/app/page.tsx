@@ -28,15 +28,10 @@ export default function HomePage() {
           <h1 className="display max-w-3xl text-[2.1rem] leading-[1.08] text-white sm:text-6xl">
             From Creator to Builder
           </h1>
-          <p className="mt-6 max-w-xl text-base text-text-2 sm:text-lg">
-            The vibe-coding academy that takes you from zero to shipping — no prior
-            code. Just you, your ideas, and AI as your build partner.
+          <p className="mt-6 max-w-md text-base text-text-2 sm:text-lg">
+            Go from zero to shipping. No code required, just you and AI.
           </p>
-          <p className="mt-4 text-sm text-text-3">
-            {syllabus.meta.totalLessons} lessons · {syllabus.meta.totalChapters} chapters ·
-            from zero to launch
-          </p>
-          <div className="mt-9 flex w-full flex-col items-center gap-3 sm:w-auto">
+          <div className="mt-8 flex w-full flex-col items-center gap-3 sm:w-auto">
             <Link href="/roadmap/" className="btn-primary w-full sm:w-auto">
               Start Free
             </Link>
@@ -44,10 +39,7 @@ export default function HomePage() {
               See the Roadmap
             </Link>
           </div>
-          <p className="mt-8 text-xs text-text-3">
-            No credit card <span className="mx-1">·</span> Learn on your phone
-            <span className="mx-1">·</span> Build something real today
-          </p>
+          <p className="mt-8 text-xs text-text-3">No credit card</p>
         </div>
       </section>
 
