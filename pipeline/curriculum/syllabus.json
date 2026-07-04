@@ -361,7 +361,9 @@
             "outro"
           ],
           "exercise": "Point at three parts of your page and name whether they're structure or style.",
-          "status": "pending"
+          "status": "published",
+          "video": "https://ipfs.filebase.io/ipfs/QmewMN7kxBgRjtECZJHkCfvEHUU45vD6dk3VgY2V7FCLRH",
+          "vtt": "https://ipfs.filebase.io/ipfs/QmSKU8RgA6U2oAuMdaiRFEbRZ4xF1KDuGH8VqwN4Y3JSzF"
         },
         {
           "id": "ch2-l5",
