@@ -1,14 +1,28 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import type { Chapter } from "@/lib/syllabus";
 import { useProgress } from "@/lib/progress";
 import { ProgressBar } from "./ProgressStats";
 
 // Sequential unlock: a lesson is available once the previous one is complete.
+// The first chapter is expanded by default; every other chapter shows only its
+// title and can be opened with its toggle button.
 export function RoadmapList({ chapters }: { chapters: Chapter[] }) {
   const { completedIds } = useProgress();
   const done = new Set(completedIds);
+
+  const [open, setOpen] = useState<Set<string>>(
+    () => new Set(chapters[0] ? [chapters[0].id] : []),
+  );
+  const toggle = (id: string) =>
+    setOpen((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
 
   const flat = chapters.flatMap((c) => c.lessons.map((l) => l.id));
   const isUnlocked = (lessonId: string) => {
@@ -18,66 +32,87 @@ export function RoadmapList({ chapters }: { chapters: Chapter[] }) {
   };
 
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex flex-col gap-4">
       {chapters.map((chapter) => {
         const chDone = chapter.lessons.filter((l) => done.has(l.id)).length;
         const chPct = Math.round((chDone / chapter.lessons.length) * 100);
+        const isOpen = open.has(chapter.id);
         return (
           <section key={chapter.id}>
-            <div className="mb-4 flex items-baseline justify-between gap-4">
-              <div>
+            <button
+              type="button"
+              onClick={() => toggle(chapter.id)}
+              aria-expanded={isOpen}
+              className="card flex w-full items-center gap-4 p-5 text-left transition-colors"
+            >
+              <div className="min-w-0 flex-1">
                 <p className="section-eyebrow mb-1">Chapter {chapter.index}</p>
                 <h2 className="text-xl font-bold">{chapter.title}</h2>
-                <p className="mt-1 text-sm text-text-2">{chapter.summary}</p>
+                {isOpen && (
+                  <p className="mt-1 text-sm text-text-2">{chapter.summary}</p>
+                )}
               </div>
               <span className="shrink-0 text-sm text-text-3">
                 {chDone}/{chapter.lessons.length}
               </span>
-            </div>
-            <div className="mb-5">
-              <ProgressBar value={chPct} />
-            </div>
-            <ol className="flex flex-col gap-2">
-              {chapter.lessons.map((lesson, i) => {
-                const unlocked = isUnlocked(lesson.id);
-                const complete = done.has(lesson.id);
-                const inner = (
-                  <div
-                    className={`card flex items-center gap-4 p-4 ${
-                      unlocked ? "" : "opacity-50"
-                    }`}
-                  >
-                    <span
-                      className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border text-xs ${
-                        complete
-                          ? "border-white bg-white text-black"
-                          : "border-border text-text-2"
-                      }`}
-                    >
-                      {complete ? "✓" : `${chapter.index}.${i + 1}`}
-                    </span>
-                    <div className="min-w-0 flex-1">
-                      <p className="truncate font-medium">{lesson.title}</p>
-                      <p className="truncate text-sm text-text-3">{lesson.goal}</p>
-                    </div>
-                    <span className="shrink-0 text-xs text-text-3">
-                      {unlocked ? (complete ? "Done" : "Start") : "Locked"}
-                    </span>
-                  </div>
-                );
-                return (
-                  <li key={lesson.id}>
-                    {unlocked ? (
-                      <Link href={`/learn/${chapter.id}/${lesson.id}/`}>{inner}</Link>
-                    ) : (
-                      <div aria-disabled className="cursor-not-allowed">
-                        {inner}
+              <span
+                aria-hidden
+                className={`shrink-0 text-lg leading-none text-text-3 transition-transform ${
+                  isOpen ? "rotate-180" : ""
+                }`}
+              >
+                ⌄
+              </span>
+            </button>
+
+            {isOpen && (
+              <div className="mt-4">
+                <div className="mb-5">
+                  <ProgressBar value={chPct} />
+                </div>
+                <ol className="flex flex-col gap-2">
+                  {chapter.lessons.map((lesson, i) => {
+                    const unlocked = isUnlocked(lesson.id);
+                    const complete = done.has(lesson.id);
+                    const inner = (
+                      <div
+                        className={`card flex items-center gap-4 p-4 ${
+                          unlocked ? "" : "opacity-50"
+                        }`}
+                      >
+                        <span
+                          className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border text-xs ${
+                            complete
+                              ? "border-white bg-white text-black"
+                              : "border-border text-text-2"
+                          }`}
+                        >
+                          {complete ? "✓" : `${chapter.index}.${i + 1}`}
+                        </span>
+                        <div className="min-w-0 flex-1">
+                          <p className="truncate font-medium">{lesson.title}</p>
+                          <p className="truncate text-sm text-text-3">{lesson.goal}</p>
+                        </div>
+                        <span className="shrink-0 text-xs text-text-3">
+                          {unlocked ? (complete ? "Done" : "Start") : "Locked"}
+                        </span>
                       </div>
-                    )}
-                  </li>
-                );
-              })}
-            </ol>
+                    );
+                    return (
+                      <li key={lesson.id}>
+                        {unlocked ? (
+                          <Link href={`/learn/${chapter.id}/${lesson.id}/`}>{inner}</Link>
+                        ) : (
+                          <div aria-disabled className="cursor-not-allowed">
+                            {inner}
+                          </div>
+                        )}
+                      </li>
+                    );
+                  })}
+                </ol>
+              </div>
+            )}
           </section>
         );
       })}
